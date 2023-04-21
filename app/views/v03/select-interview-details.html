@@ -1,0 +1,246 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+
+{% block pageTitle %}
+Select interview details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+<div id="tstID"
+
+
+<form class="form" action="select-methods-interview" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">  Interview information</h1>
+      <h2 class="govuk-heading-l">Where would you like to interview?</h2>
+  <p class="govuk-body-m">At interview, you want to ask candidates questions so they can demonstrate their skills and behaviours.</p>
+  <div class="govuk-!-margin-bottom-6 govuk-!-margin-top-6" style="border-top:1px solid grey;padding-top:10px">
+
+
+      <ul id="counterint" style="" class="govuk-body-m govuk-list govuk-list--bullet"></ul>
+
+
+      <h2 class="govuk-heading-l" style="padding-bottom:20px;border-bottom:1px solid #1d70b8;"></h2>
+
+      <div id="cboxesint" class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes"></div>
+
+
+    
+
+
+      <script>
+        var beCount;
+        var stCount;
+        var skCount;
+        var exCount;
+        var beHead;
+        var stHead;
+        var skHead;
+        var exHead;
+
+        var interview = [];
+        var interviewSet = [];
+        var interviewSet2 = [];
+
+
+
+        var interviewLen = interview.length;
+
+        interview = JSON.parse(window.sessionStorage.getItem("interview"));
+        console.log(interview.length);
+
+
+        function trim(val) {
+          return val !="" ;
+        }
+
+        var interviewChunkSize = 2;
+        for (let intv = 0; intv < interview.length; intv += interviewChunkSize) {
+          const intChunk = interview.slice(intv, intv + interviewChunkSize);
+          console.log(intChunk[0]);
+          interviewSet[intv] = intChunk[0].split("-",1).pop();
+          interviewSet2[intv] = intChunk[1];
+
+        }
+        var interviewTstVars = interviewSet.filter(trim)
+        var interviewTstVars2  = interviewSet2.filter(trim)
+
+        console.log(interviewTstVars)
+        console.log(interviewTstVars2)
+
+        beCount = interviewTstVars.filter(countb).length;
+        stCount = interviewTstVars.filter(counts).length;
+        skCount = interviewTstVars.filter(countk).length;
+        exCount = interviewTstVars.filter(counte).length;
+
+
+        beHead = interviewTstVars.filter(countb);
+        stHead = interviewTstVars.filter(counts);
+        exHead = interviewTstVars.filter(counte);
+        skHead = interviewTstVars.filter(countk);
+
+
+
+
+        beCount = beHead.length;
+        stCount = stHead.length;
+        exCount = exHead.length;
+        skCount = skHead.length;
+
+
+        var sum = beCount+stCount+exCount+skCount;
+
+        var countArr = [];
+        countArr.push(beCount+" "+"behaviours",stCount+" "+"strengths",exCount+" "+"experience",skCount+" "+"skills");
+
+        var headArr = [];
+
+        // headArr.push(beHead.split(",",1).pop(),stHead.split(",",1).pop(), skHead.split(",",1).pop(), exHead.split(",",1).pop())
+
+
+        var newHead1 = eliminateDuplicates(beHead);
+        var newHead2 = eliminateDuplicates(exHead);
+        var newHead3 = eliminateDuplicates(skHead);
+        var newHead4 = eliminateDuplicates(stHead);
+        headArr.push(newHead1,newHead2,newHead3,newHead4);
+
+
+        console.log(headArr)
+
+        function trim(val) {
+          return val !="" ;
+        }
+
+
+        function eliminateDuplicates(arr) {
+          console.log("ellim")
+          var i,
+          len = arr.length,
+          out = [],
+          obj = {};
+
+          for (i = 0; i < len; i++) {
+            obj[arr[i]] = 0;
+          }
+          for (i in obj) {
+            out.push(i);
+          }
+          return out;
+        }
+
+
+        function countb(cc) {
+          return cc == "Behaviours" ;
+        }
+
+        function counts(cc) {
+          return cc == "Strengths" ;
+        }
+
+        function countk(cc) {
+          return cc == "Skills" ;
+        }
+
+        function counte(cc) {
+          return cc == "Experience" ;
+        }
+
+        var interviewCount = document.getElementById("counterint");
+        for (cci = 0; cci < countArr.length; ++cci) {
+          var interviewCCC = document.createElement('li');
+          interviewCCC.innerText = countArr[cci];
+          interviewCount.appendChild(interviewCCC);
+        }
+
+        {% set interviewMethodsDetail = ['Interview question(s)','Portfolio','Presentation'] %}
+        var chkList = ['Interview question(s)','Portfolio','Presentation']
+
+        var interviewhed2 = document.getElementById("cboxesint");
+        for (iii3 = 0; iii3 < interviewTstVars.length; ++iii3) {
+          var myDiv = document.getElementById("cboxesint");
+
+          for (var i = 0; i < chkList.length; i++) {
+            var legend = document.createElement("legend");
+            var label = document.createElement("label");
+            var checkBox = document.createElement("input");
+
+            checkBox.type = "checkbox";
+            legend.style.cssText = "font-size:30px;"
+            checkBox.style.cssText = "position:relative;width:30px;height:30px";
+            label.style.cssText = "display: inline-block;position:relative;font-size:20px;margin:20px;padding:10px";
+            checkBox.value = chkList[iii3];
+
+
+            myDiv.appendChild(legend);
+            legend.appendChild(document.createTextNode(interviewTstVars[iii3]+", "+interviewTstVars2[iii3]));
+            myDiv.appendChild(checkBox);
+            myDiv.appendChild(label);
+            label.appendChild(document.createTextNode(chkList[i]));
+
+          }
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        var features = document.getElementById('catHead')
+        for(var i = 0; i < interviewTstVars2.length; i++) {
+
+
+        }
+
+
+        var animals = ["lion", "tigers", "bears", "squirrels"];
+
+
+
+
+      </script>
+
+      <div class="govuk-!-margin-top-9 govuk-!-bottom-top-6">
+        {{ govukButton({
+          text: "Continue",
+          href: "select-methods-interview"
+        }) }}
+      </div>
+      <BR><BR>
+
+      </div>
+    </div>
+
+
+
+  </form>
+  <script src="/public/javascripts/seshDat.js"></script>
+  {% endblock %}

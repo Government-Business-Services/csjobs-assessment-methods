@@ -1,0 +1,95 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+What essential criteria do you want – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<p class="govuk-body-xs govuk-!-margin-top-3" style="color:grey;float:right">v03-AM-CSJ</p>
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+{% set choices = [
+['Behaviours','The actions and activities that people do which result in effective performance in a job.'],
+['Strengths','Strengths are a great way for candidates to show their potential when they do not have a lot of work experience.'],
+['Experience','The knowledge or mastery of an activity or subject gained through involvement in or exposure to it.'],
+['Skills','Use skills to assess hard or technical skills. Whether you need a technical skill like IT skills or hard skills like project management.']
+ ] %}
+
+      <form class="form" action="/selection-handler" method="post">
+
+
+<div class="govuk-grid-row">
+
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Select the success profile elements you will assess at sift and interview
+    </h1>
+    </div>
+
+
+</div>
+
+
+
+
+
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds" style="width:60%">
+        <p class="govuk-body-l">Success profiles are characteristics broken down into 5 elements to help you find the right candidate for your job role.</p>
+        <p class="govuk-body-m">You should focus on what you need candidates to do in the job role.</p>
+
+
+        {% for choice, description in choices %}
+
+        {{ govukCheckboxes({
+          name: "selected",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+          {
+            checked: checked('selected',choice),
+            value: choice,
+            text: choice,
+            hint: {
+              text: description
+            }
+          }
+          ]
+        }) }}
+
+        {%endfor%}
+
+</div>
+<div class="govuk-grid-column-one-third govuk-!-margin-right-0" style="width:30%">
+  <h2 class="govuk-heading-s" style="border-top:1px solid #1d70b8; padding-top:10px;">
+    Related content
+  </h2>
+
+
+
+<p class="govuk-body-s" ><a href="#">Success Profile training</a></p>
+</div>
+</div>
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+          </form>
+
+
+
+  {% endblock %}

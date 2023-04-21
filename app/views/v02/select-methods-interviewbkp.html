@@ -1,0 +1,514 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select methods for interview – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<form class="form" action="" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l">
+        Select methods for Interview
+      </h1>
+      <p class="govuk-body-m">At interview, you want to ask candidates questions so they can demonstrate their skills and behaviours.</p>
+
+      {% set interviewMethods = ['Remote', 'In-person', 'Asynchronous (not live)'] %}
+
+
+      {% set behavioursCritIntArr = [] %}
+      {% if (data['behaviours-crit1stage'].length > 0 and data['behaviours-crit1stage'] === "interview") or (data['behaviours-crit1stage'].length > 0 and data['behaviours-crit1stage'] === "both") %}
+      {% set behavioursCritIntArr = (behavioursCritIntArr.push(data['criteria-behaviours']), behavioursCritArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit2stage'].length > 0 and data['behaviours-crit2stage'] === "interview") or (data['behaviours-crit2stage'].length > 0 and data['behaviours-crit2stage'] === "both") %}
+      {% set behavioursCritIntArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit3stage'].length > 0 and data['behaviours-crit3stage'] === "interview") or (data['behaviours-crit3stage'].length > 0 and data['behaviours-crit3stage'] === "both") %}
+      {% set behavioursCritIntArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit4stage'].length > 0 and data['behaviours-crit4stage'] === "interview") or (data['behaviours-crit4stage'].length > 0 and data['behaviours-crit4stage'] === "both") %}
+      {% set behavioursCritIntArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit5stage'].length > 0 and data['behaviours-crit5stage'] === "interview") or (data['behaviours-crit5stage'].length > 0 and data['behaviours-crit5stage'] === "both") %}
+      {% set behavioursCritIntArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit6stage'].length > 0 and data['behaviours-crit6stage'] === "interview") or (data['behaviours-crit6stage'].length > 0 and data['behaviours-crit6stage'] === "both") %}
+      {% set behavioursCritIntArr = data['criteria-behaviours']%}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit7stage'].length > 0 and data['behaviours-crit7stage'] === "interview") or (data['behaviours-crit7stage'].length > 0 and data['behaviours-crit7stage'] === "both") %}
+      {% set behavioursCritIntArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['behaviours-crit8stage'].length > 0 and data['behaviours-crit8stage'] === "interview") or (data['behaviours-crit8stage'].length > 0 and data['behaviours-crit8stage'] === "both") %}
+      {% set behavioursCritIntArr = data['criteria-behaviours'] %}
+      {% else %}
+      {% endif %}
+
+
+      {% set criteriaExpIntArr = [] %}
+
+      {% if (data['criteria-exp1stage'].length > 0 and data['criteria-exp1stage'] === "interview") or (data['criteria-exp1stage'].length > 0 and data['criteria-exp1stage'] === "both") %}
+      {% set criteriaExpIntArr = (criteriaExpIntArr.push(data['criteria-exp-1']), criteriaExpIntArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['criteria-exp2stage'].length > 0 and data['criteria-exp2stage'] === "interview") or (data['criteria-exp2stage'].length > 0 and data['criteria-exp2stage'] === "both") %}
+      {% set criteriaExpInttArr = (criteriaExpIntArr.push(data['criteria-exp-2']), criteriaExpIntArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['criteria-exp3stage'].length > 0 and data['criteria-exp3stage'] === "interview") or (data['criteria-exp3stage'].length > 0 and data['criteria-exp3stage'] === "both") %}
+      {% set criteriaExpIntArr = (criteriaExpIntArr.push(data['criteria-exp-3']), criteriaExpIntArr) %}
+      {% else %}
+      {% endif %}
+
+
+      {% set criteriaSkillsIntArr = [] %}
+
+      {% if (data['criteria-skills1stage'].length > 0 and data['criteria-skills1stage'] === "interview") or (data['criteria-skills1stage'].length > 0 and data['criteria-skills1stage'] === "both") %}
+      {% set criteriaSkillsIntArr = (criteriaSkillsIntArr.push(data['criteria-skills-1']), criteriaSkillsIntArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['criteria-skills2stage'].length > 0 and data['criteria-skills2stage'] === "interview") or (data['criteria-skills2stage'].length > 0 and data['criteria-skills2stage'] === "both") %}
+      {% set criteriaSkillsIntArr = (criteriaSkillsIntArr.push(data['criteria-skills-2']), criteriaSkillsIntArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['criteria-skills3stage'].length > 0 and data['criteria-skills3stage'] === "interview") or (data['criteria-skills3stage'].length > 0 and data['criteria-skills3stage'] === "both") %}
+      {% set criteriaSkillsIntArr = (criteriaSkillsIntArr.push(data['criteria-skills-3']), criteriaSkillsIntArr) %}
+      {% else %}
+      {% endif %}
+
+
+      {% if (data['strength-crit1stage'].length > 0 and data['strength-crit1stage'] === "interview") or (data['strength-crit1stage'].length > 0 and data['strength-crit1stage'] === "both") %}
+      {% set criteriaStrIntArr = data['criteria-strength'] %}
+      {% else %}
+      {% endif %}
+
+
+      {% if (data['strength-crit2stage'].length > 0 and data['strength-crit2stage'] === "interview") or (data['strength-crit2stage'].length > 0 and data['strength-crit2stage'] === "both") %}
+      {% set criteriaStrIntArr = data['criteria-strength'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['strength-crit3stage'].length > 0 and data['strength-crit3stage'] === "interview") or (data['strength-crit3stage'].length > 0 and data['strength-crit3stage'] === "both") %}
+      {% set criteriaStrIntArr = data['criteria-strength'] %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['strength-crit4stage'].length > 0 and data['strength-crit4stage'] === "interview") or (data['strength-crit4stage'].length > 0 and data['strength-crit4stage'] === "both") %}
+      {% set criteriaStrIntArr = data['criteria-strength'] %}
+      {% else %}
+      {% endif %}
+
+      <p class="govuk-body-m">Typically, we recommend you use a CV and personal statement to assess experience and skills.
+        Further, you can use specialised methods like portfolio or online tests for more specialised skills.</p>
+
+
+        <h2 class="govuk-heading-m">Your criteria:</h2>
+
+        {% set unified = [] %}
+        {% set unified = (unified.push(behavioursCritIntArr), unified) %}
+        {% set unified = (unified.push(criteriaExpIntArr), unified) %}
+        {% set unified = (unified.push(criteriaSkillsIntArr), unified) %}
+        {% set unified = (unified.push(criteriaStrIntArr), unified) %}
+
+        {{ unified | string | dump }} xxx
+
+
+
+
+
+
+
+              {% for items in unified | string | list %}
+              <ol class="govuk-list govuk-list--number">
+
+                <li>{{ items }}</li>
+
+              </ol>
+        {% endfor %}
+
+
+{{ unified | dump}}
+        {% set n = united.length %}
+        {% for items in unified | slice(1) %}
+        {% for item in items  %}
+        {% for it in item %}
+
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: loop.index1
+            },
+            value: {
+              text: it
+            },
+
+            actions: {
+              items: [
+              ]
+            }
+          }
+
+          ]
+        }) }}{% endfor %}{% endfor %}{% endfor %}
+
+
+
+
+        {% for chems in criteriaSkillsIntArr %}
+        <span class="govuk-caption-m">Skills</span>
+        <h3 class="govuk-heading-s">{{ chems }}</h3>
+        {% endfor %}
+
+        {% for stts in criteriaStrIntArr %}
+        <span class="govuk-caption-m">Strengths</span>
+        <h3 class="govuk-heading-s">{{ stts }}</h3>
+        {% endfor %}
+
+
+
+        {% for somes in behavioursCritIntArr %}
+
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Behaviours"
+            },
+            value: {
+              text: [loop.index]+". "+somes
+            },
+
+            actions: {
+              items: [
+              ]
+            }
+          }
+
+          ]
+        }) }}{% endfor %}
+
+
+        {% for thems in criteriaExpIntArr %}
+
+
+
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Experience"
+            },
+            value: {
+              text: [loop.index]+". "+thems
+            },
+
+            actions: {
+              items: [
+              ]
+            }
+          }
+
+          ]
+        }) }}{% endfor %}
+
+
+        {% for peeps in criteriaSkillsIntArr %}
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Skills"
+            },
+            value: {
+              text: [loop.index]+". "+peeps
+            },
+
+            actions: {
+              items: [
+              ]
+            }
+          }
+
+          ]
+        }) }}{% endfor %}
+
+
+        {% for sst in criteriaStrIntArr %}
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Strengths"
+            },
+            value: {
+              text: [loop.index]+". "+sst
+            },
+
+            actions: {
+              items: [
+              ]
+            }
+          }
+
+          ]
+        }) }}{% endfor %}
+
+
+
+
+        <div class="govuk-!-margin-bottom-3 govuk-!-margin-top-3" style="border-top:1px solid grey;padding-top:20px">
+
+
+          <h2 class="govuk-heading-m">How would you like to interview?</h2>
+
+          {% for items in interviewMethods | slice(1)%}
+          {% for item in items %}
+
+          {{ govukCheckboxes({
+            name: "interviewMeth",
+            id: "interviewMeth",
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+            {
+              checked: checked('interviewMeth',item),
+              value: item,
+              text: item
+            }
+            ]
+          }) }} {% endfor %}{% endfor %}
+        </div>
+
+        <div class="govuk-!-margin-bottom-3 govuk-!-margin-top-3" style="border-top:1px solid grey;padding-top:20px">
+          <h2 class="govuk-heading-m">Add additional stages</h2>
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            classes: "govuk-radios--small",
+            name: "monoOrPolyInterviews",
+            id: "monoOrPolyInterviews",
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+            {
+              value: "one-interview",
+              checked: checked('monoOrPolyInterviews','One interview stage'),
+              text: "I want just one interview stage"
+            },
+            {
+              value: "multiple-interviews",
+              checked: checked('monoOrPolyInterviews','Multiple interview stages'),
+              text: "I want to set-up multiple interview stages"
+            }
+            ]
+          }) }}
+
+
+        </div>
+
+
+        {{ govukButton({
+          classes: "govuk-!-margin-top-3",
+          text: "Continue"
+        }) }}
+
+
+
+      </div>
+    </div>
+  </form>
+
+  {% endblock %}
+
+
+
+  {% for items in data['criteria-behaviours']  %}
+  {% if [loop.index] == p %}
+
+  {{ govukSummaryList({
+    rows: [
+    {
+      key: {
+        text: "Behaviours"
+      },
+      value: {
+        text: items
+      },
+
+      actions: {
+        items: [
+        ]
+      }
+    }
+
+    ]
+  }) }}
+  {% endif %}{% endfor %}
+
+  {% endif %}{% endif %}{% endif %}{% endif %}{% endif %}
+
+
+
+  {% for thems in criteriaExpIntArr %}
+
+
+
+  {{ govukSummaryList({
+    rows: [
+    {
+      key: {
+        text: "Experience"
+      },
+      value: {
+        text: [loop.index]+". "+thems
+      },
+
+      actions: {
+        items: [
+        ]
+      }
+    }
+
+    ]
+  }) }}{% endfor %}
+
+
+  {% for peeps in criteriaSkillsIntArr %}
+  {{ govukSummaryList({
+    rows: [
+    {
+      key: {
+        text: "Skills"
+      },
+      value: {
+        text: [loop.index]+". "+peeps
+      },
+
+      actions: {
+        items: [
+        ]
+      }
+    }
+
+    ]
+  }) }}{% endfor %}
+
+
+  {% for sst in criteriaStrIntArr %}
+  {{ govukSummaryList({
+    rows: [
+    {
+      key: {
+        text: "Strengths"
+      },
+      value: {
+        text: [loop.index]+". "+sst
+      },
+
+      actions: {
+        items: [
+        ]
+      }
+    }
+
+    ]
+  }) }}{% endfor %}
+
+
+
+
+  <div class="govuk-!-margin-bottom-3 govuk-!-margin-top-3" style="border-top:1px solid grey;padding-top:20px">
+
+
+    <h2 class="govuk-heading-m">How would you like to interview?</h2>
+
+    {% for items in interviewMethods | slice(1)%}
+    {% for item in items %}
+
+    {{ govukCheckboxes({
+      name: "interviewMeth",
+      id: "interviewMeth",
+      fieldset: {
+        legend: {
+          text: "",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+      {
+        checked: checked('interviewMeth',item),
+        value: item,
+        text: item
+      }
+      ]
+    }) }} {% endfor %}{% endfor %}
+  </div>
+
+  <div class="govuk-!-margin-bottom-3 govuk-!-margin-top-3" style="border-top:1px solid grey;padding-top:20px">
+    <h2 class="govuk-heading-m">Add additional stages</h2>
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      classes: "govuk-radios--small",
+      name: "monoOrPolyInterviews",
+      id: "monoOrPolyInterviews",
+      fieldset: {
+        legend: {
+          text: "",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+      {
+        value: "one-interview",
+        checked: checked('monoOrPolyInterviews','One interview stage'),
+        text: "I want just one interview stage"
+      },
+      {
+        value: "multiple-interviews",
+        checked: checked('monoOrPolyInterviews','Multiple interview stages'),
+        text: "I want to set-up multiple interview stages"
+      }
+      ]
+    }) }}
+
+
+  </div>

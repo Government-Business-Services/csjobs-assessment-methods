@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Technical skills – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-!-margin-top-2" href="what-do-you-want-to-assess" style="font-size:16px;float:right"> Home</a>
+
+{% endblock %}
+
+{% block content %}
+<form class="form" action="technical-skills-how?method=skill" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl">
+        What technical skills do you want to assess candidates on?
+      </h1>
+      <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-2" id="skl1">
+        {{ govukTextarea({
+          label: {
+            text: ""
+          },
+          id: "criteria-skills-1",
+          rows: "3",
+          name: "criteria-skills-1",
+          value: data['criteria-skills-1']
+        }) }}
+        <a class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('skl2')">Add another technical skill</a>
+
+      </div>
+
+      <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-2" id="skl2" style="display:none">
+        {{ govukTextarea({
+          label: {
+            text: ""
+          },
+          id: "criteria-skills-2",
+          rows: "3",
+          name: "criteria-skills-2",
+          value: data['criteria-skills-2']
+        }) }}
+        <a class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('skl3')">Add another technical skill</a>
+        <a class="govuk-body-m" style="color:#1d70b8;float:right" onclick="hideAndKillDiv('skl2','criteria-skill-2')">Remove</a>
+
+      </div>
+
+
+
+      <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-2" id="skl3" style="display:none">
+        {{ govukTextarea({
+          label: {
+            text: ""
+          },
+          id: "criteria-skills-3",
+          rows: "3",
+          name: "criteria-skills-3",
+          value: data['criteria-skills-3']
+        }) }}
+        <a class="govuk-body-m" style="color:#1d70b8;float:right" onclick="hideAndKillDiv('skl3','criteria-skill-3')">Remove</a>
+      </div>
+
+
+
+      <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+    </form>
+
+    <script>
+      function showDiv(div){
+        if (document.getElementById(div).style.display = 'block') {
+          hideDiv(div);
+        } else {
+
+        }
+
+        document.getElementById(div).style.display = 'block';
+        hideDiv('list');
+      }
+
+      function hideDiv(div){
+        document.getElementById(div).style.display = 'none';
+      }
+      function hideAndKillDiv(div,element){
+         document.getElementById(element).value = "";
+        document.getElementById(div).style.display = 'none';
+      }
+
+    </script>
+
+
+    {% endblock %}

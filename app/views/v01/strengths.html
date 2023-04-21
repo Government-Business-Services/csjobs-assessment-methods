@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Strengths – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-!-margin-top-2" href="what-do-you-want-to-assess" style="font-size:16px;float:right"> Home</a>
+
+{% endblock %}
+
+{% block content %}
+
+{% set strengths = ['Adaptable','Analytical','Authentic','Catalyst','Challenger','Change Agent','Courageous','Decisive','Efficient','Emotionally Intelligent','Enabler','Explainer','Focussed','Improver','Inclusive','Influencer','Learner','Mediator','Mission','Motivator','Negotiator','Networker','Organiser','Precise','Preventer','Problem Solver','Relationship Builder','Resilient','Responsible','Service Focussed','Strategic','Team Leader','Team Player','Visionary'] %}
+{% set topStrengths = ['Challenger','Strategic','Mission','Visionary','Change agent','Authentic','Emotionally intelligent','Inclusive','Influencer','Problem solver','Catalyst','Enabler','Motivator','Adaptable','Disciplined'] %}
+{% set topStrengthsAtoZ = ['Adaptable','Authentic','Catalyst','Challenger','Change agent','Disciplined','Emotionally intelligent','Enabler','Inclusive','Influencer','Mission','Motivator','Problem solver','Strategic','Visionary'] %}
+
+
+<script>
+  function showDiv(div){
+    document.getElementById(div).style.display = 'block';
+    document.getElementById('list').style.display = 'none';
+  }
+
+  function hideDiv(div){
+    document.getElementById(div).style.display = 'none';
+    document.getElementById('list').style.display = 'block';
+  }
+</script>
+
+
+
+<form class="form" action="strengths-how?method=strengths" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl">
+        Which strengths do you want to assess?
+      </h1>
+      <p class="govuk-body"><strong>You can select up to 4 strengths.</strong></p>
+      <p class="govuk-body">You should use strengths to assess what candidates do regularly, do well and are motivated by.</p>
+      <p class="govuk-body">We recommend strengths are assessed with psychometric tests.</p>
+
+      <div id="top" class="govuk-checkboxes govuk-checkboxes--small {{ loop.index }}" data-module="govuk-checkboxes" name="str">
+        {% for strength in topStrengths %}
+
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="str" name="str" value="{{strength}}" type="checkbox">
+
+          <label class="govuk-label govuk-checkboxes__label" for="str"> {{ strength }}</label></div>
+          {%- endfor %}
+        </div>
+
+        <div id="topAtoZ" style="display:none" class="govuk-checkboxes govuk-checkboxes--small {{ loop.index }}" data-module="govuk-checkboxes" name="str">
+          {% for strength in topStrengthsAtoZ %}
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="str" name="str" value="{{strength}}" type="checkbox">
+
+            <label class="govuk-label govuk-checkboxes__label" for="str"> {{ strength }}</label></div>
+            {%- endfor %}
+          </div>
+
+          <div id="more"  style="display:none" class="govuk-checkboxes govuk-checkboxes--small {{ loop.index }}" data-module="govuk-checkboxes" name="str">
+            {% for strength in strengths %}
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="str" name="str" value="{{strength}}" type="checkbox">
+
+              <label class="govuk-label govuk-checkboxes__label" for="str"> {{ strength }}</label></div>
+              {%- endfor %}
+            </div>
+
+          </div>
+        </div>
+
+        <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+      </form>
+      {% endblock %}

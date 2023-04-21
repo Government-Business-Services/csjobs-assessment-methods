@@ -1,0 +1,189 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Selection criteria summary – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form action="select-methods-sift" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        Review your selection criteria at sift and interview
+      </h1>
+
+
+
+
+
+
+
+  <h2 class="govuk-heading-l" style="padding-bottom:20px;border-bottom:1px solid #1d70b8;" >Sift</h2>
+      <dl class="govuk-summary-list--no-border ">
+        <div  class="govuk-summary-list__row">
+
+
+
+          <dt  class="govuk-summary-list__key">
+            <ul id="list3" style="" class="govuk-list govuk-list"></ul>
+          </dt>
+          <dd  class="govuk-summary-list__value">
+            <ul id="list4" style="" class="govuk-list govuk-list"></ul>
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <ul id="changeling2" style="" class="govuk-list govuk-list"></ul>
+          </dd>
+        </div>
+      </dl>
+
+
+
+<h2 class="govuk-heading-l" style="padding-bottom:20px;border-bottom:1px solid #1d70b8;">Interview</h2>
+
+
+      <dl class="govuk-summary-list--no-border">
+        <div  class="govuk-summary-list__row">
+
+
+
+          <dt  class="govuk-summary-list__key">
+            <ul id="list" style="" class="govuk-list govuk-list"></ul>
+          </dt>
+          <dd  class="govuk-summary-list__value">
+            <ul id="list2" style="" class="govuk-list govuk-list"></ul>
+
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <ul id="changeling" style="" class="govuk-list govuk-list"></ul>
+          </dd>
+        </div>
+      </dl>
+
+
+      <script>
+
+        var sift = [];
+        var siftSet = [];
+            var siftSet2 = [];
+        var interview = [];
+        var interviewSet = [];
+        var interviewSet2 = [];
+
+        var siftLen = sift.length;
+        var interviewLen = interview.length;
+
+        sift = JSON.parse(window.sessionStorage.getItem("sift"));
+        interview = JSON.parse(window.sessionStorage.getItem("interview"));
+        console.log(sift.length);
+        console.log(interview.length);
+
+        var intChunkSize = 2;
+        for (let int = 0; int < interview.length; int += intChunkSize) {
+          const intChunk = interview.slice(int, int + intChunkSize);
+          console.log(intChunk[0]);
+          interviewSet[int] = intChunk[0].split("-",1).pop();
+          interviewSet2[int] = intChunk[1];
+
+        }
+        var intTstVar = interviewSet.filter(trim)
+        var intTstVar2  = interviewSet2.filter(trim)
+
+        var changeLink = "Change | Delete";
+
+        function trim(val) {
+          return val !="" ;
+        }
+
+
+         var intList = document.getElementById("list");
+         for (int2 = 0; int2 < intTstVar.length; ++int2) {
+            var intDd = document.createElement('li');
+            intDd.innerText = intTstVar[int2];
+            intList.appendChild(intDd);
+         }
+
+         var intList2 = document.getElementById("list2");
+         for (int3 = 0; int3 < intTstVar2.length; ++int3) {
+            var intDd2 = document.createElement('li');
+            intDd2.innerText = intTstVar2[int3];
+            intList2.appendChild(intDd2);
+         }
+
+         var changeling = document.getElementById("changeling");
+         for (chg = 0; chg < intTstVar2.length; ++chg) {
+            var intDd2 = document.createElement('li');
+            intDd2.innerText = changeLink;
+            changeling.appendChild(intDd2);
+         }
+
+         var siftChunkSize = 2;
+         for (let sif = 0; sif < sift.length; sif += siftChunkSize) {
+           const siftChunk = sift.slice(sif, sif + siftChunkSize);
+           console.log(siftChunk[0]);
+           siftSet[sif] = siftChunk[0].split("-",1).pop();
+           siftSet2[sif] = siftChunk[1];
+
+         }
+         var siftTstVars = siftSet.filter(trim)
+         var siftTstVars2  = siftSet2.filter(trim)
+
+
+         function trim(val) {
+           return val !="" ;
+         }
+
+
+          var siftlist = document.getElementById("list3");
+          for (sif2 = 0; sif2 < siftTstVars.length; ++sif2) {
+             var sifDd = document.createElement('li');
+             sifDd.innerText = siftTstVars[sif2];
+             siftlist.appendChild(sifDd);
+          }
+
+          var siftlist2 = document.getElementById("list4");
+          for (sif3 = 0; sif3 < siftTstVars2.length; ++sif3) {
+             var sifDd2 = document.createElement('li');
+             sifDd2.innerText = siftTstVars2[sif3];
+             siftlist2.appendChild(sifDd2);
+          }
+
+          var changeling2 = document.getElementById("changeling2");
+          for (chg2 = 0; chg2 < siftTstVars2.length; ++chg2) {
+             var intDd22 = document.createElement('li');
+             intDd22.innerText = changeLink;
+             changeling2.appendChild(intDd22);
+          }
+
+
+      </script>
+
+
+
+    </div>
+  </div>
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+<div>
+  {{ govukButton({
+    text: "Add another interview stage",
+    classes: "govuk-button--secondary"
+  }) }}
+</div>
+</form>
+
+
+{% endblock %}

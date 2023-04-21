@@ -1,0 +1,147 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select methods for interview – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% set interviewMethods = ['Interview question(s)', 'Portfolio', 'Presentation', 'Exercise'] %}
+
+<form class="form" action="#" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        Select how to assess at interview
+      </h1>
+      <p class="govuk-body-l">At interview, you have chosen to assess:</p>
+      <ul class="govuk-list--bullet">
+        <li><p class="govuk-body-l">3 behaviours</p></li>
+        <li><p class="govuk-body-l">Strengths</p></li>
+      </ul>
+<p class="govuk-body-l">The interview stage should be used to assess which candidate is most suited for the role.</p>
+
+        <h2 class="govuk-heading-l">Behaviours</h2>
+  <h3 class="govuk-heading-m govuk-!-margin-top-6" style="padding-bottom:20px;border-bottom:1px solid grey">1. Seeing the big picture</h3>
+
+  {{ govukCheckboxes({
+    name: "SelectMethods"+[loop.index]+"sift",
+    id: "SelectMethods"+[loop.index]+"sift",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--m govuk-body govuk-!-font-weight-regular"
+      }
+    },
+    items: [
+    {
+      checked: checked("SelectMethods"+[loop.index]+"sift",'Interview question(s)'),
+      value: "Interview question(s)",
+      text: "Interview question(s)"
+    },
+    {
+      checked: checked("SelectMethods"+[loop.index]+"sift",'Portfolio'),
+      value: "Portfolio",
+      text: "Portfolio"
+    },
+    {
+      checked: checked("SelectMethods"+[loop.index]+"sift",'Presentation'),
+      value: "Presentation",
+      text: "Presentation"
+    },
+    {
+      checked: checked("SelectMethods"+[loop.index]+"sift",'Exercise'),
+      value: "Exercise",
+      text: "Exercise"
+    }
+    ]
+  }) }}
+
+  <h3 class="govuk-heading-m govuk-!-margin-top-6" style="padding-bottom:20px;border-bottom:1px solid grey">2. Changing and improving</h3>
+
+  {{ govukCheckboxes({
+    name: "strSelectMethods"+[loop.index]+"sift",
+    id: "strSelectMethods"+[loop.index]+"sift",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--m govuk-body govuk-!-font-weight-regular"
+      }
+    },
+    items: [
+    {
+      checked: checked("strSelectMethods"+[loop.index]+"sift",'Interview question(s)'),
+      value: "Interview question(s)",
+      text: "Interview question(s)"
+    },
+    {
+      checked: checked("strSelectMethods"+[loop.index]+"sift",'Portfolio'),
+      value: "Portfolio",
+      text: "Portfolio"
+    },
+    {
+      checked: checked("strSelectMethods"+[loop.index]+"sift",'Presentation'),
+      value: "Presentation",
+      text: "Presentation"
+    },
+    {
+      checked: checked("strSelectMethods"+[loop.index]+"sift",'Exercise'),
+      value: "Exercise",
+      text: "Exercise"
+    }
+    ]
+  }) }}
+
+  <h3 class="govuk-heading-m govuk-!-margin-top-6" style="padding-bottom:20px;border-bottom:1px solid grey">3. Managing a quality service</h3>
+
+  {{ govukCheckboxes({
+    name: "srSelectMethods"+[loop.index]+"sift",
+    id: "strSelectMethods"+[loop.index]+"sift",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--m govuk-body govuk-!-font-weight-regular"
+      }
+    },
+    items: [
+    {
+      checked: checked("srSelectMethods"+[loop.index]+"sift",'Interview question(s)'),
+      value: "Interview question(s)",
+      text: "Interview question(s)"
+    },
+    {
+      checked: checked("srSelectMethods"+[loop.index]+"sift",'Portfolio'),
+      value: "Portfolio",
+      text: "Portfolio"
+    },
+    {
+      checked: checked("srSelectMethods"+[loop.index]+"sift",'Presentation'),
+      value: "Presentation",
+      text: "Presentation"
+    },
+    {
+      checked: checked("srSelectMethods"+[loop.index]+"sift",'Exercise'),
+      value: "Exercise",
+      text: "Exercise"
+    }
+    ]
+  }) }}
+<div class="govuk-!-margin-top-6" style="border:1px solid grey; border-radius:8px;padding:20px">
+        <h2 class="govuk-heading-l" >Abilities can't be selected at interview</h2>
+<p class="govuk-body-l">Abilities are only able to be assessed with online tests at sift.
+    </div>
+
+      </div>
+        </form>
+        {% endblock %}

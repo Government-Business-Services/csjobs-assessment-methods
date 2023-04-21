@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+
+{% block pageTitle %}
+Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<div style="display:block">
+
+
+  {{ govukTextarea({
+    label: {
+      text: "Experience 1"
+    },
+    id: "deadDrop",
+    rows: "2",
+    name: "deadDrop",
+    value: data['deadDrop']
+  }) }}
+
+</div>
+
+
+</div>
+
+<div style="display:block">
+  {{ govukTextarea({
+    label: {
+      text: "Experience 1"
+    },
+    id: "deadDrop2",
+    rows: "2",
+    name: "deadDrop2",
+    value: data['deadDrop2']
+  }) }}
+  {{ env.data['deadDrop2'] | dump }}
+</div>
+
+
+
+
+
+
+<script>
+
+  sift = JSON.parse(window.sessionStorage.getItem("sift"));
+  interview = JSON.parse(window.sessionStorage.getItem("interview"));
+  console.log(sift)
+  console.log(interview)
+
+  var deadDropper = document.getElementById('deadDrop').innerText = sift;
+  var deadDropper2 = document.getElementById('deadDrop2').innerText = interview;
+
+
+  console.log(deadDropper+"drop")
+  console.log(deadDropper2+"drop2")
+
+
+
+</script>
+
+<input type="hidden" name="source" value="{{ data['deadDropper'] }}">
+
+
+
+{% endblock %}

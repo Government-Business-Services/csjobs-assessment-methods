@@ -1,0 +1,206 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select onlines tests  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-!-margin-top-2" href="what-do-you-want-to-assess" style="font-size:16px;float:right"> Home</a>
+{% endblock %}
+
+{% block content %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+<form class="form" action="list-by-criteria?method=ability" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl">
+        What abilities do you want to test candidates on?
+      </h1>
+      <p class="govuk-body-m">You should use abilities to assess a candidate's potential to perform to the required standard.</p>
+      <p class="govuk-body-m">We recommend abilities are assessed with psychometric tests.</p>
+
+      <div id="fir" style="border:1px solid lightgrey;padding-left:20px;padding-right:20px;padding-bottom:20px;border-radius:5px;">
+
+
+        <div class="govuk-checkboxes__item">
+          <label class="govuk-label govuk-checkboxes__label" for="Verbal reasoning ability">
+            <h2 style="color:#1d70b8" class="govuk-heading-m govuk-!-margin-top-6">Verbal reasoning ability</h2></label>
+            <div style="border:1px solid lightgrey;padding:20px;border-radius:5px;">
+              <div id="verbal-reasoning-ability-item-hint" class="govuk-hint govuk-checkboxes__hint">
+
+              </div>
+            </div>
+
+            <input class="govuk-checkboxes__input" id="Verbal reasoning ability" name="Verbal reasoning ability" type="checkbox" value="Verbal reasoning ability" aria-describedby="verbal-reasoning-ability-item-hint">
+
+
+
+
+
+
+
+
+            <div id="verbal-reasoning-ability-item-hint" class="govuk-hint govuk-checkboxes__hint">
+              <p class="govuk-body-m">This test measures the ability to identify relevant information and draw logical conclusions from written information</p>
+            </div>
+          </div>
+
+          <h3 class="govuk-heading-m">
+            At application
+          </h3>
+
+          {{ govukCheckboxes({
+            name: "test",
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+            {
+              value: "Lorrem",
+              text: "Lorrem",
+              checked: checked("test", "WHATEVER")
+            }
+            ]
+          }) }}
+
+
+
+        </div>
+
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="Judgement" name="Judgement" type="checkbox" value="Judgement" aria-describedby="Judgement-item-hint">
+          <label class="govuk-label govuk-checkboxes__label" for="Judgement">
+            <p class="govuk-body-l" style="color:#1d70b8; font-size:22px"><strong>Judgement</strong></p>
+          </label>
+          <div id="judgement-item-hint" class="govuk-hint govuk-checkboxes__hint">
+            <p class="govuk-body-xs" style="padding-bottom:20px;font-size:20px">This test measures the ability to demonstrate judgement and decision-making regarding specific Civil Service Behaviours, which have been selected as important for success in your chosen job</p>
+          </div>
+        </div>
+
+
+
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+
+
+
+
+
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="nationality-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="Verbal reasoning ability" name="Verbal reasoning ability" type="checkbox" value="Verbal reasoning ability" aria-describedby="verbal-reasoning-ability-item-hint">
+
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="Numerical ability" name="Numerical ability" type="checkbox" value="Numerical ability" aria-describedby="numerical-ability-item-hint">
+                <label class="govuk-label govuk-checkboxes__label" for="Numerical ability">
+                  <p class="govuk-body-l" style="color:#1d70b8; font-size:22px"><strong>Numerical ability</strong></p>
+                </label>
+                <div id="numerical-ability-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  This test measures the ability to perform calculations, and evaluate and interpret numerical information to solve problems
+                </div>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="Judgement" name="Judgement" type="checkbox" value="Judgement" aria-describedby="Judgement-item-hint">
+                <label class="govuk-label govuk-checkboxes__label" for="Judgement">
+                  <p class="govuk-body-l" style="color:#1d70b8; font-size:22px"><strong>Judgement</strong></p>
+                </label>
+                <div id="judgement-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  <p class="govuk-body-xs" style="padding-bottom:20px;font-size:20px">This test measures the ability to demonstrate judgement and decision-making regarding specific Civil Service Behaviours, which have been selected as important for success in your chosen job</p>
+                </div>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="Judgement in management" name="Judgement in management" type="checkbox" value="Judgement in management" aria-describedby="judgement-management-item-hint">
+                <label class="govuk-label govuk-checkboxes__label" for="Judgement in management">
+                  <p style="text-align:middle;color:#1d70b8; font-size:22px"><strong>Judgement in management</strong></p>
+                </label>
+                <div id="judgement-in-management-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  This test measures the ability to demonstrate judgement and decision-making regarding day to day management of others. The aspects of behaviour measured have been selected as important for line management success in your chosen
+                </div>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="Strengths" name="Strengths" type="checkbox" value="Strengths" aria-describedby="strengths-management-item-hint" checked="{{ checked('Strengths','Strengths') }}">
+                <label class="govuk-label govuk-checkboxes__label" for="Strengths">
+                  <p class="govuk-body-l" style="color:#1d70b8; font-size:22px"><strong>Strengths</strong></p>
+                </label>
+                <div id="strengths-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  The Civil Service Work Strengths Test is an online test of strengths - what you do regularly, what you do well and what motivates you
+                </div>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="Customer service abilities" name="Customer service abilities" type="checkbox" value="Customer service abilities" aria-describedby="customer-services-item-hint">
+                <label class="govuk-label govuk-checkboxes__label" for="Customer service abilities">
+                  <p class="govuk-body-l" style="color:#1d70b8; font-size:22px"><strong>Customer service abilities</strong></p>
+                </label>
+                <div id="customer-services-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  The Customer Service Skills Test is an online test of skills and abilities in relation to customer service roles, and provides a realistic preview of what is typically involved in such roles in the Civil Service
+                </div>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="Casework abilities" name="Casework abilities" type="checkbox" value="Casework abilities" aria-describedby="casework-abilities-item-hint">
+                <label class="govuk-label govuk-checkboxes__label" for="Casework abilities">
+                  <p class="govuk-body-l" style="color:#1d70b8; font-size:22px"><strong>Casework abilities</strong></p>
+                </label>
+                <div id="casework-abilities-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                  The Casework Skills Test is an online test of skills and abilities in relation to caseworking roles, and provides a realistic preview of what is typically involved in such roles in the Civil Service
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </fieldset>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <h2 style="color:#1d70b8" class="govuk-heading-m govuk-!-margin-top-6"></h2>
+        <div style="border:1px solid lightgrey;padding:20px;border-radius:5px;">
+
+
+
+
+
+
+          <h3 class="govuk-heading-m">
+            At application
+          </h3>
+
+
+
+
+
+
+
+        </div>
+        <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+      </form>
+      {% endblock %}

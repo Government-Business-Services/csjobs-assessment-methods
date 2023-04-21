@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Technical skills – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+<form class="form" action="list?method=skill" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl">
+        How will you assess this technical skill?
+      </h1>
+
+      {{ govukTextarea({
+        label: {
+          text: ""
+        },
+        id: "criteria-skill-1",
+        rows: "2",
+        name: "criteria-skill-1",
+        value: data['criteria-skill-1']
+      }) }}
+
+
+
+
+
+    </div>
+    <div><button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button></div>
+  </div>
+</form>
+{% endblock %}

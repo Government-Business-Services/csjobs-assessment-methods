@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+{% set abilityMethods = ['Civil Service Verbal Test','Civil Service Numerical Test','Customer Service Test','Casework Test', 'Some other test'] %}
+
+{% set ablArray = [] %}
+
+<form class="form" action="list-by-criteria?method=ability" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl"> How do you want to assess this ability?</h1>
+      <p class="govuk-body-m">We recommend abilities are assessed with psychometric tests.</p>
+
+      {% if data['criteria-ability-1'].length > 0 %}
+      <div>
+        <div style="border:1px solid lightgrey;border-radius:5px;padding:20px" class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+          {{ govukTextarea({ label: { text: "" }, id: "criteria-ability-1", rows: "3", name: "criteria-ability-1", value: data['criteria-ability-1'] }) }}
+          <div style="border:1px solid lightgrey;border-radius:5px;padding:20px">
+            <h2 class="govuk-heading-m govuk-!-margin-top-0"> At application </h2>
+
+            {{ govukCheckboxes({ idPrefix: "methods-ability-app-1", id: "methods-ability-app-1", name: "methods-ability-app-1", classes: "govuk-checkboxes", fieldset: { legend: { text: "", isPageHeading: false, classes: "govuk-fieldset__legend--l" } }, items: [ { value: "Civil Service Verbal Test", text: "Civil Service Verbal Test", checked: checked("methods-ability-app-1", "Civil Service Verbal Test") }, { value: "Civil Service Numerical Test", text: "Civil Service Numerical Test", checked: checked("methods-ability-app-1", "Civil Service Numerical Test") }, { value: "Customer Service Test", text: "Customer Service Test", checked: checked("methods-ability-app-1", "Customer Service Test") }, { value: "Casework Test", text: "Casework Test", checked: checked("methods-ability-app-1", "Casework Test") }, { value: "Some other test", text: "Some other test", checked: checked("methods-ability-app-1", "Some other test") }]}) }}
+          </div>
+        </div>
+
+        {% endif %}
+
+
+
+
+
+
+
+
+        {% if data['criteria-ability-2'].length > 0 %}
+        <div style="border:1px solid lightgrey;border-radius:5px;padding:20px" class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+          {{ govukTextarea({ label: { text: "" }, id: "criteria-ability-2", rows: "3", name: "criteria-ability-2", value: data['criteria-ability-2'] }) }}
+          <div style="border:1px solid lightgrey;border-radius:5px;padding:20px">
+            <h2 style="" class="govuk-heading-m govuk-!-margin-top-0"> At application </h2>
+
+            {{ govukCheckboxes({ idPrefix: "methods-ability-app-2", id: "methods-ability-app-2", name: "methods-ability-app-2", classes: "govuk-checkboxes", fieldset: { legend: { text: "", isPageHeading: false, classes: "govuk-fieldset__legend--l" } }, items: [ { value: "Civil Service Verbal Test", text: "Civil Service Verbal Test", checked: checked("methods-ability-app-2", "Civil Service Verbal Test") }, { value: "Civil Service Numerical Test", text: "Civil Service Numerical Test", checked: checked("methods-ability-app-2", "Civil Service Numerical Test") }, { value: "Customer Service Test", text: "Customer Service Test", checked: checked("methods-ability-app-2", "Customer Service Test") }, { value: "Casework Test", text: "Casework Test", checked: checked("methods-ability-app-2", "Casework Test") }, { value: "Some other test", text: "Some other test", checked: checked("methods-ability-app-2", "Some other test") } ] }) }}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <div style="border:1px solid lightgrey;border-radius:5px;padding:20px" class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+
+        {% if data['criteria-ability-3'].length > 0 %} {{ govukTextarea({ label: { text: "" }, id: "criteria-ability-3", rows: "3", name: "criteria-ability-3", value: data['criteria-ability-3'] }) }}
+        <div style="border:1px solid lightgrey;border-radius:5px;padding:20px" class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-0"> At application </h2>
+          {{ govukCheckboxes({ idPrefix: "methods-ability-app-3", id: "methods-ability-app-3", name: "methods-ability-app-3", classes: "govuk-checkboxes", fieldset: { legend: { text: "", isPageHeading: false, classes: "govuk-fieldset__legend--l" } }, items: [ { value: "Civil Service Verbal Test", text: "Civil Service Verbal Test", checked: checked("methods-ability-app-3", "Civil Service Verbal Test") }, { value: "Civil Service Numerical Test", text: "Civil Service Numerical Test", checked: checked("methods-ability-app-3", "Civil Service Numerical Test") }, { value: "Customer Service Test", text: "Customer Service Test", checked: checked("methods-ability-app-3", "Customer Service Test") }, { value: "Casework Test", text: "Casework Test", checked: checked("methods-ability-app-3", "Casework Test") }, { value: "Some other test", text: "Some other test", checked: checked("methods-ability-app-3", "Some other test") } ] }) }}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+</form>
+{% endblock %}

@@ -1,0 +1,118 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% set criteriaBehavioursArray = [] %}
+{% if (data['selectOptions'].length > 0) and (data['selectOptions'] and "Behaviours")  %}
+{% set criteriaBehavioursArray = [] %}
+{% set criteriaBehavioursArray = (criteriaBehavioursArray.push(data['selectOptions']), criteriaBehavioursArray) %}
+{% else %}
+{% endif %}
+
+
+<div  id="behaviours">
+  <h2 class="govuk-heading-l">Behaviours</h2>
+
+  <p class="govuk-body-m">You should think about what behaviours are the most important and are needed to do this role.</p>
+  <p class="govuk-body-m">Behaviours assess the actions and activities that people do which result in effective performance in a job.</p>
+
+  {{ govukCheckboxes({
+    idPrefix: "criteria-behaviours",
+    id: "criteria-behaviours",
+    id: "criteria-behaviours",
+    name: "criteria-behaviours",
+    classes: "govuk-checkboxes",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    items: [
+    {
+      value: "Seeing the big picture",
+      text: "Seeing the big picture",
+      checked: checked("criteria-behaviours", "Seeing the big picture"),
+      hint: {
+        text: "Understand how your role fits with and supports organisational objectives.
+        Recognise the wider Civil Service priorities and ensure work is in the
+        national interest."
+      }
+    },
+    {
+      value: "Changing and Improving",
+      text: "Changing and Improving",
+      checked: checked("criteria-behaviours", "Changing and Improving"),
+      hint: {
+        text: "Seek out opportunities to create effective change and suggest innovative ideas for
+        improvement. Review ways of working, including seeking and providing feedback."
+      }
+    },
+    {
+      value: "Making Effective Decisions",
+      text: "Making Effective Decisions",
+      checked: checked("criteria-behaviours", "Making Effective Decisions"),
+      hint: {
+        text: "Use evidence and knowledge to support accurate, expert decisions and advice.
+        Carefully consider alternative options, implications and risks of decisions."
+      }
+    },
+
+    {
+      value: "Leadership",
+      text: "Leadership",
+      checked: checked("criteria-behaviours", "Leadership"),
+      hint: {
+        text: "Show pride and passion for public service. Create and engage others in delivering
+        a shared vision. Value difference, diversity and inclusion, ensuring fairness and
+        opportunity for all."
+      }
+    },
+    {
+      value: "Communicating and Influencing",
+      text: "Communicating and Influencing",
+      checked: checked("criteria-behaviours", "Communicating and Influencing"),
+      hint: {
+        text: "Communicate purpose and direction with clarity, integrity and enthusiasm. Respect the needs, responses and opinions of others."
+      }
+    },
+    {
+      value: "Working together",
+      text: "Working together",
+      checked: checked("criteria-behaviours", "Working together"),
+      hint: {
+        text: "Form effective partnerships and relationships with people both internally and
+        externally, from a range of diverse backgrounds, sharing information, resources
+        and support."
+      }
+    },
+    {
+      value: "Developing Self and Others",
+      text: "Developing Self and Others",
+      checked: checked("criteria-behaviours", "Developing Self and Others"),
+      hint: {
+        text: "Focus on continuous learning and development for self, others and the organisation as a whole."
+      }
+    },
+    {
+      value: "Managing a quality service",
+      text: "Managing a quality service",
+      checked: checked("criteria-behaviours", "Managing a quality service"),
+      hint: {
+        text: "Deliver service objectives with professional excellence, expertise and efficiency, taking account of diverse customer needs. "
+      }
+    },
+
+    {
+      value: "Delivering at pace",
+      text: "Delivering at pace",
+      checked: checked("criteria-behaviours", "Delivering at pace"),
+      hint: {
+        text: "Take responsibility for delivering timely and quality results with focus and drive."
+      }
+    }
+    ]
+  }) }}
+  <a href="#top" class="govuk-link" ><p class="govuk-body-m" style="color:#1d70b8">Back to top</p></a>
+
+  <hr class="govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+
+</div>

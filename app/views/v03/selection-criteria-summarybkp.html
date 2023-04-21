@@ -1,0 +1,246 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Selection criteria summary – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form action="select-criteria-stage" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        Selection criteria summary
+      </h1>
+
+
+      {% set sift = "" %}
+
+      <script>
+
+        let sift = JSON.parse(window.sessionStorage.getItem("sift"));
+
+      </script>
+
+
+      {{ sift | dump}}
+
+
+
+
+      {% for item in items %}
+
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Behaviour "+[loop.index]
+          },
+          value: {
+            text: item
+          },
+
+          actions: {
+            items: [
+            {
+              href: "select-your-criteria?summary=true",
+              text: "Change",
+              visuallyHiddenText: "Question 1"
+            }
+            ]
+          }
+        }
+
+        ]
+      }) }}
+
+
+
+
+      {% endfor %}
+      {% endif %}
+
+
+
+
+      {% set criteriaExpArr = [] %}
+
+      {% if data['criteria-exp-1'].length > 0 %}
+      {% set criteriaExpArr = (criteriaExpArr.push(data['criteria-exp-1']), criteriaExpArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if data['criteria-exp-2'].length > 0 %}
+      {% set criteriaExpArr = (criteriaExpArr.push(data['criteria-exp-2']), criteriaExpArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if data['criteria-exp-3'].length > 0 %}
+      {% set criteriaExpArr = (criteriaExpArr.push(data['criteria-exp-3']), criteriaExpArr) %}
+      {% else %}
+      {% endif %}
+
+
+
+
+      {% for eons in criteriaExpArr | slice(1) %}
+      {% for eon in eons %}
+
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Experience "+[loop.index]
+          },
+          value: {
+            text: eon
+          },
+
+          actions: {
+            items: [
+            {
+              href: "select-your-criteria?summary=true",
+              text: "Change",
+              visuallyHiddenText: "Question 1"
+            }
+            ]
+          }
+        }
+
+        ]
+      }) }} {% endfor %}{% endfor %}
+
+
+      {% set criteriaSkillsArr = [] %}
+
+      {% if data['criteria-skills-1'].length > 0 %}
+      {% set criteriaSkillsArr = (criteriaSkillsArr.push(data['criteria-skills-1']), criteriaSkillsArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if data['criteria-skills-2'].length > 0 %}
+      {% set criteriaSkillsArr = (criteriaSkillsArr.push(data['criteria-skills-2']), criteriaSkillsArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if data['criteria-skills-3'].length > 0 %}
+      {% set criteriaSkillsArr = (criteriaSkillsArr.push(data['criteria-skills-3']), criteriaSkillsArr) %}
+      {% else %}
+      {% endif %}
+
+
+
+
+      {% for prec in criteriaSkillsArr | slice(1) %}
+      {% for precise in prec %}
+
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Skills "+[loop.index]
+          },
+          value: {
+            text: precise
+          },
+
+          actions: {
+            items: [
+            {
+              href: "select-your-criteria?summary=true",
+              text: "Change",
+              visuallyHiddenText: "Question 1"
+            }
+            ]
+          }
+        }
+
+        ]
+      }) }} {% endfor %}{% endfor %}
+
+
+
+      {% set criteriaSkillsArr = [] %}
+
+      {% if data['criteria-strength'].length > 0 %}
+
+
+
+
+      {% set criteriaSkillsArr = (criteriaSkillsArr.push(data['criteria-skills-1']), criteriaSkillsArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if data['criteria-skills-2'].length > 0 %}
+      {% set criteriaSkillsArr = (criteriaSkillsArr.push(data['criteria-skills-2']), criteriaSkillsArr) %}
+      {% else %}
+      {% endif %}
+
+      {% if data['criteria-skills-3'].length > 0 %}
+      {% set criteriaSkillsArr = (criteriaSkillsArr.push(data['criteria-skills-3']), criteriaSkillsArr) %}
+      {% else %}
+      {% endif %}
+
+
+
+
+
+
+
+      {% if data['criteria-strength'].length > 0 %}
+      {% for items in data['criteria-strength'] | slice(1)%}
+      {% for item in items %}
+
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Strength "+[loop.index]
+          },
+          value: {
+            text: item
+          },
+
+          actions: {
+            items: [
+            {
+              href: "select-your-criteria?summary=true",
+              text: "Change",
+              visuallyHiddenText: "Question 1"
+            }
+            ]
+          }
+        }
+
+        ]
+      }) }}
+      {% endfor %}{% endfor %}{% endif %}
+
+
+
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-9">
+        Review what you will assess
+      </h1>
+      <p class="govuk-body-m">Review what you will be assessing at sift and interview.<br> You can add or change what you would like to assess.</p>
+    </div>
+  </div>
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+
+
+</form>
+
+
+{% endblock %}

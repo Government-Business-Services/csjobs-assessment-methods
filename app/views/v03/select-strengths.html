@@ -1,0 +1,146 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+{% set strengths = [
+  ['Challenger','You can bring a fresh perspective whatever the situation or context. You see other peoples views and can appreciate there are many different angles to consider'],
+  ['Strategic','You look at the big picture and consider the wider factors and long term implications of decisions'],
+  ['Mission','You pursue things which give you a sense of meaning and purpose, working towards a longer term goal'],
+  ['Visionary','You create and share a clear vision of the future'],
+  ['Change agent','You are positive and inspirational in leading and supporting others through change'],
+  ['Authentic','You are self-aware and true to yourself in all situations, even when under pressure'],
+  ['Emotionally intelligent','You draw insight from your own emotions and those of others to demonstrate empathy'],
+  ['Inclusive','You recognise everyone as an individual, accepting people for who they are and treating everyone fairly. You actively encourage and provide opportunities for others to share ideas and contributions'],
+  ['Influencer','You influence others, you articulate the rationale to gain their agreement'],
+  ['Problem solver','You take a positive approach to tackling problems and find ways to identify suitable solutions'],
+  ['Catalyst','You are self-motivated to act to achieve a goal. You are confident using your own initiative to take forward actions'],
+  ['Enabler','You see the potential in everybody and encourage them to learn, progress and develop'],
+  ['Motivator','You are highly driven and inspire others to move things along and make things happen'],
+  ['Adaptable','You can adapt to variations in work or environment and your effectiveness is not impacted by change. You are flexible and versatile and act as an advocate for change'],
+  ['Disciplined','You follow processes, operating firmly within set standards, rules and guidelines'] ] %}
+
+
+<form class="form" action="/check-next-step" method="post">
+
+<H2 class="govuk-heading-l govuk-!-margin-top-3 govuk-!-margin-bottom-0">Select the success profile elements you will assess at sift and interview</h2>
+
+  <H1 style="padding-top:20px;padding-bottom:5px;border-bottom:1px solid #1d70b8; " class="govuk-heading-xl govuk-!-margin-top-3 govuk-!-margin-bottom-6">Strengths</H1>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter" style="width:20%">
+
+      {% for items in data['selected'] %}
+      <ul class="govuk-!-margin-top-6 govuk-list govuk-list--bullet- ">
+
+        {% if items == "Strengths" %}
+        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items }}</a></p></strong></li>
+        {% else %}
+        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items }}</a></p></strong></li>
+      </ul>
+
+
+      {% endif %}
+      {% endfor %}
+
+    </div>
+    <div class="govuk-grid-column-three-quarters" style="width:80%;">
+      <div id="strengths" style="padding:10px;">
+        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-6"><strong>You should use strengths to assess what candidates do regularly, do well and are motivated by. We recommend strengths are assessed with psychometric tests.</strong></p>
+        <div id="strengths" style="padding-bottom:30px;">
+            <div class="govuk-grid-row govuk-!-margin-top-6 govuk-!-margin-left-1 govuk-!-margin-right-9" style="max-width:90%;;border-radius:3px;border:1px solid #1d70b8;padding:10px">
+
+          <div class="govuk-grid-column-three-quarters">
+
+            {{ govukInput({
+              label: {
+                text: 'Search the strengths dictionary'
+              },
+              id: "searchwhat",
+              name: "searchwhat",
+              value: data['searchwhat'],
+              classes: "govuk-input--width-30",
+              autocomplete: "search-term-input"
+            }) }}
+          </div>
+          <div class="govuk-grid-column-one-quarter govuk-!-margin-top-6" style="float:left">
+            {{ govukButton({
+              text: "Search",
+              classes: "govuk-button--secondary"
+            }) }}
+
+          </div>
+</div>
+<div>
+
+
+</div>
+
+
+</div>
+<div class="govuk-!-margin-top-9">
+
+
+
+
+  {% for title, description in strengths %}
+  <div  style="">
+    {{ govukCheckboxes({
+      idPrefix: "selected-types",
+      id: "criteria-strengths",
+      name: "criteria[strengths]",
+      classes: "govuk-checkboxes",
+      fieldset: {
+        legend: {
+          text: "",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+      {
+        value: title,
+        text: title,
+        checked: checked("criteria[strengths]", title),
+        hint: {
+          text: description
+        }
+      }
+      ]
+    }) }}
+  </div>
+  {% endfor %}
+
+
+
+
+
+
+
+            </div>
+            {{ govukButton({
+              classes: "govuk-!-margin-top-9",
+              text: "Continue"
+            }) }}
+      </div>
+    </div>
+  </div>
+
+  <input type="hidden" name="source" value="Strengths">
+</FORM>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select criteria to start – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-!-margin-top-2" href="what-do-you-want-to-assess" style="font-size:16px;float:right"> Home</a>
+<a class="govuk-!-margin-top-2" href="list-by-criteria-empty" style="font-size:16px;float:right;padding-right:30px"> My list</a>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="/ass-handle" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        What criteria do you want to assess candidates on?
+      </h1>
+      <p class="govuk-body-m">You should focus on what you need candidates to do in the job role.</p>
+      <!-- <p class="govuk-body-m">You can select up to 3.</p> -->
+
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      {{ govukRadios({
+        name: "select-assess",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: "Behaviours",
+          text: "Behaviours",
+          hint: {
+            text: "the actions and activities that people do which result in effective performance in a job."
+          }
+        },
+        {
+          value: "Experience",
+          text: "Experience",
+          hint: {
+            text: "The knowledge or mastery of an activity or subject gained through involvement in or exposure to it."
+          }
+        },
+        {
+          value: "Strengths",
+          text: "Strengths",
+          hint: {
+            text: "The things we do regularly, do well and that motivate us."
+          }
+        },
+        {
+          value: "Technical skills",
+          text: "Technical skills",
+          hint: {
+            text: "THe demonstration of specific professional skills, knowledge or qualifications."
+          }
+        },
+        {
+          value: "Abilities",
+          text: "Abilities",
+          hint: {
+            text: "The aptitude or potential to perform to the required standard."
+          }
+        }
+        ]
+      }) }}
+      <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+    </form>
+    {% endblock %}

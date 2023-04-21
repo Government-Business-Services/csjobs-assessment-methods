@@ -1,0 +1,44 @@
+<div id="select-skills" class="govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="display:block;padding-bottom:20px;border-bottom:1px solid grey">
+  <H2 class="govuk-heading-l">Skills</H2>
+  {{ govukTextarea({
+    name: "criteria-skills-1",
+    id: "criteria-skills-1",
+    value: data['criteria-skills-1'],
+    rows: "2",
+    label: {
+      text: "Skill 1",
+      classes: "govuk-label--s",
+      isPageHeading: false
+    }
+  }) }}
+
+  {{ govukTextarea({
+    name: "criteria-skills-2",
+    id: "criteria-skills-2",
+    value: data['criteria-skills-2'],
+    rows: "2",
+    label: {
+      text: "Skill 2",
+      classes: "govuk-label--s",
+      isPageHeading: false
+    }
+  }) }}
+
+  {{ govukTextarea({
+    name: "criteria-skills-3",
+    id: "criteria-skills-3",
+    value: data['criteria-skills-3'],
+    rows: "2",
+    label: {
+      text: "Skill 3",
+      classes: "govuk-label--s",
+      isPageHeading: false
+    }
+  }) }}
+</div>
+
+
+
+  <a href="#top" class="govuk-link" ><p class="govuk-body-m" style="color:#1d70b8">Back to top</p></a>
+
+  

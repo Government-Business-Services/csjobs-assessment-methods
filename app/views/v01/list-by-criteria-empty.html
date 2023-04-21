@@ -1,0 +1,29 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block pageTitle %}
+My list – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-!-margin-top-2" href="what-do-you-want-to-assess" style="font-size:16px;float:right"> Home</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+<div style="background:white;border-top:1px solid lightgrey;border-bottom:1px solid lightgrey;padding-top:20px;padding-bottom:20px">
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "Add criteria and assessment methods",
+        href: "what-do-you-want-to-assess",
+        classes: "govuk-button--secondary"
+      }) }}
+
+</div>
+
+      {% endblock %}

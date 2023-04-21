@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select your criteria skills – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+{% if data['summary'] == "true" %}
+{% set dest = "selection-criteria-summary" %}
+{% else %}
+{% endif %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Select your criteria experience
+      </h1>
+
+      <form class="form" action="{{ dest }}" method="post">
+
+
+
+      <!-- SKILLS  -->
+
+      <div id="select-exp" class="govuk-!-margin-top-6 govuk-!-margin-bottom-6"  style="padding-bottom:20px;border-bottom:1px solid grey">
+        <H2 class="govuk-heading-l">Skills</H2>
+        {{ govukTextarea({
+          name: "criteria-skills-1",
+          id: "criteria-skills-1",
+          value: data['criteria-skills-1'],
+          rows: "2",
+          label: {
+            text: "Skills 1",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "criteria-skills-2",
+          id: "criteria-skills-2",
+          value: data['criteria-skills-2'],
+          rows: "2",
+          label: {
+            text: "Skills 2",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "criteria-skills-3",
+          id: "criteria-skills-3",
+          value: data['criteria-skills-3'],
+          rows: "2",
+          label: {
+            text: "Skills 3",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+      </div>
+
+      <!-- SKILLS -->
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+{% set strDict = [
+  ['Challenger','You can bring a fresh perspective whatever the situation or context. You see other peoples views and can appreciate there are many different angles to consider'],
+  ['Strategic','You look at the big picture and consider the wider factors and long term implications of decisions'],
+  ['Mission','You pursue things which give you a sense of meaning and purpose, working towards a longer term goal'],
+  ['Visionary','You create and share a clear vision of the future'],
+  ['Change agent','You are positive and inspirational in leading and supporting others through change'],
+  ['Authentic','You are self-aware and true to yourself in all situations, even when under pressure'],
+  ['Emotionally intelligent','You draw insight from your own emotions and those of others to demonstrate empathy'],
+  ['Inclusive','You recognise everyone as an individual, accepting people for who they are and treating everyone fairly. You actively encourage and provide opportunities for others to share ideas and contributions'],
+  ['Influencer','You influence others, you articulate the rationale to gain their agreement'],
+  ['Problem solver','You take a positive approach to tackling problems and find ways to identify suitable solutions'],
+  ['Catalyst','You are self-motivated to act to achieve a goal. You are confident using your own initiative to take forward actions'],
+  ['Enabler','You see the potential in everybody and encourage them to learn, progress and develop'],
+  ['Motivator','You are highly driven and inspire others to move things along and make things happen'],
+  ['Adaptable','You can adapt to variations in work or environment and your effectiveness is not impacted by change. You are flexible and versatile and act as an advocate for change'],
+  ['Disciplined','You follow processes, operating firmly within set standards, rules and guidelines'] ] %}
+
+  {% if data['summaryd'] == "true" %}
+  {% set goingTo = "selection-criteria-summary" %}
+  {% else %}
+  {% set goingTo = "/check-next-step" %}
+  {% endif %}
+
+
+  {% set sArray = [] %}
+  {% set arr = [1,2] %}
+
+
+
+<form action="#" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        Strengths dictionary search
+      </h1>
+
+  <div id="tst" class="govuk-form-group govuk-input--width-30">
+
+
+    <div id="jobtitle" class="autocomplete-wrapper">
+  </div>    <button style="float:right" class="govuk-button govuk-button--secondary govuk-!-margin-top-6" data-module="govuk-button">add</button>
+
+  <div>
+
+</div>
+
+
+
+  </div>
+
+
+<script>
+
+ window.sessionStorage.setItem("sift", JSON.stringify(siftArray));
+
+
+</script>
+
+
+{{ data['autocomplete__input autocomplete__input--default']  }}
+
+{% for title, description in strDict %}
+{% if title === data['temp-copy-input-autocomplete']  %}
+<div style="width:90%;border:1px solid lightgrey">
+<p id="title">{{ title }}</p>
+<p id="desc" class="govuk-body-m">{{ description }}</p>
+</div>
+{% endif %}{% endfor %}
+
+
+
+    <!-- <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+
+          <p id="title">{{ title }}</p>
+          <p id="desc">{{ description }}</p>
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Delete
+        </dd>
+      </div>
+    </dl> -->
+
+  </div>
+
+
+</div>
+
+</form>
+
+
+
+
+  <input type="hidden" name="source" value="Strengths">
+  <script src="/public/javascripts/temp-copy.js"></script>
+  <script src="/public/javascripts/temp.js"></script>
+
+
+    {% endblock %}

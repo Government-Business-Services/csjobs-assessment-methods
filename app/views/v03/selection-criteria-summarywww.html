@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Selection criteria summary – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form action="select-criteria-stage" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        Selection criteria summary
+      </h1>
+
+      <h2 class="govuk-heading-l">Sift</h2>
+      <p id="tst1"></p>
+
+      <h2 class="govuk-heading-l">Interview</h2>
+      <p id="tst2"></p>
+      <script>
+
+        var sift = [];
+        var siftSet = [];
+        var interview = [];
+        var interviewSet = [];
+
+        var siftLen = sift.length;
+        var interviewLen = interview.length;
+
+        sift = JSON.parse(window.sessionStorage.getItem("sift"));
+        interview = JSON.parse(window.sessionStorage.getItem("interview"));
+
+        console.log(interview)
+
+
+
+        var chunkSize = 3;
+        for (let i = 0; i < interview.length; i += chunkSize) {
+          const chunk = interview.slice(i, i + chunkSize);
+          console.log(chunk)
+          var tmp1 = document.getElementById("tst2").innerHTML = chunk;
+        }
+
+
+
+
+
+
+
+      </script>
+
+
+
+
+
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-9">
+        Review what you will assess
+      </h1>
+      <p class="govuk-body-m">Review what you will be assessing at sift and interview.<br> You can add or change what you would like to assess.</p>
+    </div>
+  </div>
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+
+
+</form>
+
+
+{% endblock %}

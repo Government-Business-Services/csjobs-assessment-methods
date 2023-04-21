@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Start – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<p class="govuk-body-xs govuk-!-margin-top-3" style="color:grey;float:right">v01-AM-CSJ</p>
+
+
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        Choosing assessment methods
+      </h1>
+      <p class="govuk-body-m">You must decide how you will assess candidates. You can choose a selection of assessment methods from:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><p class="govuk-body-m">CV</p></li>
+        <li><p class="govuk-body-m">behaviour questions</p></li>
+        <li><p class="govuk-body-m">online tests</p></li>
+        <li><p class="govuk-body-m">personal statement</p></li>
+        <li><p class="govuk-body-m">technical skills</p></li>
+      </ul>
+
+      <p class="govuk-body-m">When choosing assessment methods, you should focus on what you need candidates to do in the job role.</p>
+
+      <a href="what-do-you-want-to-assess" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
+        Start now
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+        </svg>
+      </a>
+    {% endblock %}

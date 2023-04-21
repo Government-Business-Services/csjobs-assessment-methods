@@ -1,0 +1,113 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Selection criteria summary – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">
+      Selection criteria summary
+    </h1>
+
+
+    <h2 class="govuk-heading-l">At Sift</h2>
+
+
+      {% set arrrgh = [] %}
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-behaviours'][0]), arrrgh) %}
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-behaviours'][1]), arrrgh) %}
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-behaviours'][2]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-behaviours'][3]), arrrgh) %}
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-behaviours'][4]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-experience-1'][0]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-experience-2'][1]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-experience-3'][2]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-skills-1'][0]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-skills-2'][1]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-skills-3'][2]), arrrgh) %}
+
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-strength'][0]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-strength'][1]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-strength'][2]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-strength'][3]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-strength'][4]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-strength'][5]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-strength'][6]), arrrgh) %}
+
+
+
+    {% set arrrgh = (arrrgh.push(data['criteria-strength'][7]), arrrgh) %}
+
+{{ arrrgh }}
+
+<form action="#" method="post" novalidate>
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+</form>
+
+</div>
+</div>
+{% endblock %}

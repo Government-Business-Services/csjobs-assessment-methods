@@ -1,0 +1,97 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="ability-how?method=ability" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl">
+        What abilities do you want to assess candidates on?
+      </h1>
+      <p class="govuk-body-m">You should use abilities to assess a candidate's potential to perform to the required standard.</p>
+      <p class="govuk-body-m">We recommend abilities are assessed with psychometric tests.</p>
+
+      <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-2" id="abl1">
+        {{ govukTextarea({
+          label: {
+            text: ""
+          },
+          id: "criteria-ability-1",
+          rows: "3",
+          name: "criteria-ability-1",
+          value: data['criteria-ability-1']
+        }) }}
+        <a class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('abl2')">Add another ability</a>
+      </div>
+
+      <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-2" id="abl2" style="display:none">
+        {{ govukTextarea({
+          label: {
+            text: ""
+          },
+          id: "criteria-ability-2",
+          rows: "3",
+          name: "criteria-ability-2",
+          value: data['criteria-ability-2']
+        }) }}
+
+        <a class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('abl3')">Add another ability</a>
+        <a class="govuk-body-m" style="color:#1d70b8;float:right" onclick="hideAndKillDiv('abl2','criteria-ability-2')">Remove</a>
+
+      </div>
+
+      <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-2" id="abl3" style="display:none">
+        {{ govukTextarea({
+          label: {
+            text: ""
+          },
+          id: "criteria-ability-3",
+          rows: "3",
+          name: "criteria-ability-3",
+          value: data['criteria-ability-3']
+        }) }}
+        <a class="govuk-body-m" style="color:#1d70b8;float:right" onclick="hideAndKillDiv('abl3','criteria-ability-3')">Remove</a>
+      </div>
+
+    </div>
+  </div>
+  <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+</form>
+<script>
+  function showDiv(div){
+
+    if (document.getElementById(div).style.display = 'block') {
+      hideDiv(div);
+    } else {
+
+    }
+
+    document.getElementById(div).style.display = 'block';
+    hideDiv('list');
+  }
+
+  function hideDiv(div){
+    document.getElementById(div).style.display = 'none';
+  }
+
+
+  function hideAndKillDiv(div,element){
+
+    document.getElementById(element).value = "";
+
+
+    document.getElementById(div).style.display = 'none';
+
+
+  }
+
+</script>
+{% endblock %}

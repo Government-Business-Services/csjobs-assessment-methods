@@ -1,0 +1,104 @@
+<div class="govuk-checkboxes" data-module="govuk-checkboxes">
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-experience-methods" name="methods-experience-app-1" type="checkbox" value="Application form" checked="{{ checked: "" }}">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-experience-methods">
+      Application form
+    </label>
+  </div>
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-experience-methods-2" name="methods-experience-app-1" type="checkbox" value="CV">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-experience-methods-2">
+      CV
+    </label>
+  </div>
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-experience-methods-3" name="methods-experience-app-1" type="checkbox" value="Statement of suitability">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-experience-methods-3">
+      Statement of suitability
+    </label>
+  </div>
+</div>
+
+div class="govuk-checkboxes" data-module="govuk-checkboxes">
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-experience-methods-4" name="methods-experience-int-1" type="checkbox" value="Interview questions">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-experience-methods-4">
+      Interview questions
+    </label>
+  </div>
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-experience-methods-2" name="methods-experience-int-1" type="checkbox" value="Work samples or portfolio">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-experience-methods-2">
+      Work samples or portfolio
+    </label>
+  </div>
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-experience-methods-3" name="methods-experience-int-1" type="checkbox" value="Presentation">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-experience-methods-3">
+      Presentation
+    </label>
+  </div>
+
+
+
+{{ govukCheckboxes({
+  idPrefix: "methods-experience-app-1",
+  id: "methods-experience-app-1",
+  name: "methods-experience-app-1",
+  classes: "govuk-checkboxes",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+  {
+    value: "Application form",
+    text: "Application form",
+    checked: checked("methods-experience-app-1", "Application form")
+  },
+  {
+    value: "CV",
+    text: "CV",
+    checked: checked("methods-experience-app-1", "CV")
+  },
+  {
+    value: "Statement of suitability",
+    text: "Statement of suitability",
+    checked: checked("methods-experience-app-1", "Statement of suitability")
+  }
+  ]
+}) }}
+
+{{ govukCheckboxes({
+  idPrefix: "methods-experience-int-1",
+  id: "methods-experience-int-1",
+  name: "methods-experience-int-1",
+  classes: "govuk-checkboxes",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+  {
+    value: "Interview questions",
+    text: "Interview questions",
+    checked: checked("methods-experience-int-1", "Interview questions")
+  },
+  {
+    value: "Work samples or portfolio",
+    text: "Work samples or portfolio",
+    checked: checked("methods-experience-int-1", "Work samples or portfolio")
+  },
+  {
+    value: "Presentation",
+    text: "Presentation",
+    checked: checked("methods-experience-int-1", "Presentation")
+  }
+  ]
+}) }}
