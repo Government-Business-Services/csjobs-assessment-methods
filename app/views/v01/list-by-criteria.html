@@ -19,15 +19,8 @@ My list – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl ">
-        You have 1 assessment items
+        You have 8 assessment items
       </h1>
-
-
-
-
-
-
-
 
       <div class="moj-scrollable-pane">
         <table class="govuk-table">
@@ -62,7 +55,6 @@ My list – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-
             <tr class="govuk-table__row">
 
               <td class="govuk-table__cell">{{ items }}</td>
@@ -74,10 +66,10 @@ My list – {{ serviceName }} – GOV.UK Prototype Kit
               <td class="govuk-table__cell"> {{ things }}
 
   {% endfor %}
-{{ data['methods-behaviours-int']}}
+
               </td>
 
-              <td class="govuk-table__cell">{{ data['methods-behaviours-int-1']}}</td>
+              <td class="govuk-table__cell">{{ data['methods-behaviours-int']}}{{ data['methods-behaviours-int-1']}}</td>
               <td class="govuk-table__cell"><a href="behaviours-how">Change</a> | <a href="#">Delete</a></td>
               {% endfor %}
 

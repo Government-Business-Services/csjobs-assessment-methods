@@ -33,16 +33,19 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
       <div id="header2"></div>
       <div id="header3"></div>
       <div id="header4"></div>
+      <div id="header5"></div>
 
       <script>
         var beCount;
         var stCount;
         var skCount;
         var exCount;
+        var abCount;
         var beHead;
         var stHead;
         var skHead;
         var exHead;
+        var abHead;
 
         var sift = [];
         var siftSet = [];
@@ -70,22 +73,25 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
         stCount = siftTstVars.filter(counts).length;
         skCount = siftTstVars.filter(countk).length;
         exCount = siftTstVars.filter(counte).length;
+        abCount = siftTstVars.filter(counta).length;
 
         beHead = siftTstVars.filter(countb);
         stHead = siftTstVars.filter(counts);
         exHead = siftTstVars.filter(counte);
         skHead = siftTstVars.filter(countk);
+        abHead = siftTstVars.filter(counta);
 
         beCount = beHead.length;
         stCount = stHead.length;
         exCount = exHead.length;
         skCount = skHead.length;
+        abCount = abHead.length;
 
-        var sum = beCount+stCount+exCount+skCount;
+        var sum = beCount+stCount+exCount+skCount+abCount;
 
         var countArr = [];
 
-        countArr.push(beCount+" "+"behaviours",exCount+" "+"experience",skCount+" "+"skills",stCount+" "+"strengths");
+        countArr.push(beCount+" "+"behaviours",exCount+" "+"experience",skCount+" "+"skills",stCount+" "+"strengths",abCount+" "+"abilities");
 
         var headArr = [];
 
@@ -93,7 +99,8 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
         var newHead2 = eliminateDuplicates(exHead);
         var newHead3 = eliminateDuplicates(skHead);
         var newHead4 = eliminateDuplicates(stHead);
-        headArr.push(newHead1,newHead2,newHead3,newHead4);
+        var newHead5 = eliminateDuplicates(abHead);
+        headArr.push(newHead1,newHead2,newHead3,newHead4,newHead5);
 
 
         var exp = eliminateDuplicates(headArr);
@@ -138,6 +145,10 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
           return cc == "Experience" ;
         }
 
+        function counta(cc) {
+          return cc == "Abilities" ;
+        }
+
         var siftCount = document.getElementById("counter");
         for (ccc = 0; ccc < countArr.length; ++ccc) {
           var sifCCC = document.createElement('li');
@@ -146,6 +157,12 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
         }
 
         var chkList = ['Personal statement','CV','Written example (250 words)','Online test']
+
+        var experienceChkList = ['Online test'];
+        var skillsChkList = ['Online test'];
+        var strengthsChkList = ['Online test'];
+        var behavioursChkList = ['Online test'];
+        var abilitiesChkList = ['Online test'];
 
         var hea1 = document.getElementById("header1");
 
@@ -245,6 +262,31 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
             }
           }
         }
+
+        if (abCount != 0){
+          var h25 = document.createElement("h2");
+          h25.innerText = headArr[3];
+          hea1.appendChild(h25);
+          for (var ab = skCount+exCount+beCount+stCount; ab < skCount+exCount+beCount+stCount+abCount; ab++){
+            var h35 = document.createElement("h3");
+            h35.innerText = siftTstVars2[ab];
+            hea1.appendChild(h35);
+            for (var i = 0; i < abilitiesChkList.length; i++) {
+              var label = document.createElement("label");
+              var checkBox = document.createElement("input");
+              checkBox.type = "checkbox";
+              checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+              label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
+              checkBox.value = abilitiesChkList[i];
+              checkBox.setAttribute("id","sift"+i+ab)
+              checkBox.setAttribute("name",headArr[3]+"-"+siftTstVars2[ab])
+              label.appendChild(document.createTextNode(abilitiesChkList[i]));
+              hea1.appendChild(label);
+              hea1.appendChild(checkBox);
+            }
+          }
+        }
+
 
 
 

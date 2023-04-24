@@ -24,8 +24,9 @@ Select criteria stage – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-grid-column-three-quarters">
 
     <h1 class="govuk-heading-xl">
-      When will you assess each success profile element?
+      When will you assess each element?
     </h1>
+    <p class="govuk-body-l govuk-!-margin-bottom-6">You must choose when to assess all elements you have selected.</p>
 
 
 </div>
@@ -271,6 +272,78 @@ Select criteria stage – {{ serviceName }} – GOV.UK Prototype Kit
 
 
       {% endif %}
+
+
+      {% if data['criteria'].abilities.length > 0 %}
+      <div>
+        <h2 class="govuk-heading-l govuk-!-margin-top-9" style="border-bottom:1px solid #1d70b8;padding-bottom:10px;">Abilities</h2>
+        <p class="govuk-body-m govuk-!-margin-bottom-6">Abilities can only be assessed at sift.</p>
+
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline govuk-radios--small",
+          name: "Abilities-Numerical",
+          id: "Abilities-Numerical",
+          fieldset: {
+            legend: {
+              text: "Would you like to assess at sift using the Civil Service Numerical online test?",
+              classes: "govuk-fieldset__legend--m govuk-body"
+            }
+          },
+          items: [
+          {
+            id: "Civil Service Numerical online test",
+            name: "Civil Service Numerical online test",
+            value: "sift",
+            checked: checked('Civil Service Numerical online test',"sift"),
+            text: "Yes"
+          },
+          {
+            id: "Civil Service Numerical online test",
+            name: "Civil Service Numerical online test",
+            value: "no",
+            checked: checked('Civil Service Numerical online test',"No"),
+            text: "No"
+          }
+          ]
+        }) }}
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline govuk-radios--small",
+          name: "Abilities-Verbal",
+          id: "Abilities-Verbal",
+          fieldset: {
+            legend: {
+              text: "Would you like to assess at sift using the Civil Service Verbal online test?",
+              classes: "govuk-fieldset__legend--m govuk-body"
+            }
+          },
+          items: [
+          {
+            id: "Civil Service Verbal online test",
+            name: "Civil Service Verbal online test",
+            value: "sift",
+            checked: checked('Abilities-verbal',"sift"),
+            text: "Yes"
+          },
+          {
+            id: "Civil Service Verbal online test",
+            name: "Civil Service Verbal online test",
+            value: "no",
+            checked: checked('Abilities-verbal',"no"),
+            text: "No"
+          }
+          ]
+        }) }}
+
+{% endif %}
+
+      </div>
+
+
+
+
+
 
       <div class="govuk-!-margin-top-9">
 

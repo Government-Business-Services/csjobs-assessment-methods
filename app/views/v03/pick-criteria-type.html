@@ -16,10 +16,11 @@ What essential criteria do you want – {{ serviceName }} – GOV.UK Prototype K
 
 {% block content %}
 {% set choices = [
-['Behaviours','The actions and activities that people do which result in effective performance in a job.'],
-['Strengths','Strengths are a great way for candidates to show their potential when they do not have a lot of work experience.'],
-['Experience','The knowledge or mastery of an activity or subject gained through involvement in or exposure to it.'],
-['Skills','Use skills to assess hard or technical skills. Whether you need a technical skill like IT skills or hard skills like project management.']
+['Behaviours','You can assess behaviours at the sift stage with a personal statement, written examples and online tests. At the interview, you can assess behaviours by presentation and assessment exercises. Use behaviours to <><><<> the actions and activities that people do which result in effective performance in a job.'],
+['Experience','The knowledge or mastery of an activity or subject gained through involvement in or exposure to it. You can assess experience at sift with personal statements and at interview you can assess by interview questions and a presentation'],
+['Strengths','Strengths are what people enjoy doing and do well and often. Strengths help us to understand whether someone is a good fit for the role and organisation and let candidates show their potential. Strengths can only be assessed at sift by the Civil Service Work Strengths online test and interview.'],
+['Skills','You can assess specific professional and technical skills, knowledge or qualifications. You can assess skills at sift by personal statement and specific skill-based online tests and at interview, you can assess by a presentation, work samples and assessment exercises.'],
+['Abilities','Abilities are a chance for candidates to show their potential to perform to the required standard. You can assess abilities at the sift stage with Civil Service numerical and verbal online tests.']
  ] %}
 
       <form class="form" action="/selection-handler" method="post">
@@ -30,7 +31,7 @@ What essential criteria do you want – {{ serviceName }} – GOV.UK Prototype K
 
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      Select the success profile elements you will assess at sift and interview
+      What elements do you want to assess?
     </h1>
     </div>
 
@@ -42,10 +43,9 @@ What essential criteria do you want – {{ serviceName }} – GOV.UK Prototype K
 
 
       <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds" style="width:60%">
-        <p class="govuk-body-l">Success profiles are characteristics broken down into 5 elements to help you find the right candidate for your job role.</p>
-        <p class="govuk-body-m">You should focus on what you need candidates to do in the job role.</p>
-
+      <div class="govuk-grid-column-three-quarters" style="width:50%">
+        <p class="govuk-body-l">Select what elements you want to assess candidates on at sift and interview.</p>
+        <p class="govuk-body-m">Success profiles are characteristics broken down into 5 elements to help you find the right candidate for your job role.</p>
 
         {% for choice, description in choices %}
 
