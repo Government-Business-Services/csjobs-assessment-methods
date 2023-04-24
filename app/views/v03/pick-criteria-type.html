@@ -60,8 +60,8 @@ What essential criteria do you want – {{ serviceName }} – GOV.UK Prototype K
           },
           items: [
           {
-            checked: checked('selected',choice),
-            value: choice,
+            checked: checked('selected',choice | lower),
+            value: choice | lower,
             text: choice,
             hint: {
               text: description

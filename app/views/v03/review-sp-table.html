@@ -1,0 +1,174 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+{% block pageTitle %}
+Review your success profile table – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="#" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl" >
+        Review your success profile table
+      </h1>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+
+      <h2 class="govuk-heading-l" style="border-bottom:1px solid #1d70b8;padding-bottom:10px;">Sift</h2>
+      <dl class="govuk-summary-list--no-border">
+        <div  class="govuk-summary-list__row">
+          <dt  class="govuk-summary-list__key" style="width:20%">
+            <ul id="col1" style="" class="govuk-list govuk-list"></ul>
+          </dt>
+          <dd  class="govuk-summary-list__value" style="width:50%">
+            <ul id="col2" style="" class="govuk-list govuk-list"></ul>
+          </dd>
+          <dd class="govuk-summary-list__actions" style="width:30%">
+            <ul id="col3" style="text-align:left" class="govuk-list govuk-list"></ul>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l" style="border-bottom:1px solid #1d70b8;padding-bottom:10px;">{{ data['interviewDetails']}} interview</h2>
+
+      <dl class="govuk-summary-list--no-border">
+        <div  class="govuk-summary-list__row">
+          <dt  class="govuk-summary-list__key" style="width:20%">
+            <ul id="col4" style="" class="govuk-list govuk-list"></ul>
+          </dt>
+          <dd  class="govuk-summary-list__value" style="width:50%">
+            <ul id="col5" style="" class="govuk-list govuk-list"></ul>
+          </dd>
+          <dd class="govuk-summary-list__actions" style="width:30%">
+            <ul id="col6" style="text-align:left" class="govuk-list govuk-list"></ul>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <script>
+    // var beCount;
+    // var stCount;
+    // var skCount;
+    // var exCount;
+    // var beHead;
+    // var stHead;
+    // var skHead;
+    // var exHead;
+
+    var siftDataSet = [];
+    var interviewDataSet = [];
+
+    var chunkedSiftData = [];
+    var chunkedSiftData2 = [];
+    var chunkedSiftData3 = [];
+    var chunkedInterviewData = [];
+    var chunkedInterviewData2 = [];
+    var chunkedInterviewData3 = [];
+
+    siftDataSet = JSON.parse(window.sessionStorage.getItem("siftCheck"));
+    interviewDataSet = JSON.parse(window.sessionStorage.getItem("interviewCheck"));
+
+
+    var siftChunkSize = 3;
+    for (let sif = 0; sif < siftDataSet.length; sif += siftChunkSize) {
+      const siftChunk = siftDataSet.slice(sif, sif + siftChunkSize);
+
+      chunkedSiftData[sif] = siftChunk[1].split("-",1).pop();
+      chunkedSiftData2[sif] = siftChunk[1].split("-",3).pop();
+      chunkedSiftData3[sif] = siftChunk[2];
+    }
+    chunkedSiftData = chunkedSiftData.filter(trim);
+    chunkedSiftData2 = chunkedSiftData2.filter(trim);
+    chunkedSiftData3 = chunkedSiftData3.filter(trim);
+
+    function trim(val) {
+      return val !="" ;
+    }
+
+    var firstCol = document.getElementById("col1");
+    var secondCol = document.getElementById("col2");
+    var thirdCol = document.getElementById("col3");
+    for (var tst = 0; tst < chunkedSiftData.length; tst++){
+
+      var fcD1 = document.createElement("p");
+      fcD1.innerText.cssText = "text-align:left";
+      fcD1.innerText = chunkedSiftData[tst];
+      firstCol.appendChild(fcD1);
+
+      var fcD2 = document.createElement("p");
+      fcD2.innerText.cssText = "text-align:left";
+      fcD2.innerText = chunkedSiftData2[tst];
+      secondCol.appendChild(fcD2);
+
+      var fcD3 = document.createElement("p");
+      fcD3.innerText.cssText = "text-align:left";
+      fcD3.innerText = chunkedSiftData3[tst];
+      thirdCol.appendChild(fcD3);
+    }
+
+
+    var intChunkSize = 3;
+    for (let int = 0; int < interviewDataSet.length; int += intChunkSize) {
+      const intChunk = interviewDataSet.slice(int, int + intChunkSize);
+
+      chunkedInterviewData[int] = intChunk[1].split("-",1).pop();
+      chunkedInterviewData2[int] = intChunk[1].split("-",3).pop();
+      chunkedInterviewData3[int] = intChunk[2];
+    }
+    chunkedInterviewData = chunkedInterviewData.filter(trim);
+    chunkedInterviewData2 = chunkedInterviewData2.filter(trim);
+    chunkedInterviewData3 = chunkedInterviewData3.filter(trim);
+
+
+
+    var fourthCol = document.getElementById("col4");
+    var fifthCol = document.getElementById("col5");
+    var sixthCol = document.getElementById("col6");
+    for (var tst2 = 0; tst2 < chunkedInterviewData.length; tst2++){
+
+      var fiD1 = document.createElement("p");
+      fiD1.innerText.cssText = "text-align:left";
+      fiD1.innerText = chunkedInterviewData[tst2];
+      fourthCol.appendChild(fiD1);
+
+      var fiD2 = document.createElement("p");
+      fiD2.innerText.cssText = "text-align:left";
+      fiD2.innerText = chunkedInterviewData2[tst2];
+      fifthCol.appendChild(fiD2);
+
+      var fiD3 = document.createElement("p");
+      fiD3.innerText.cssText = "text-align:left";
+      fiD3.innerText = chunkedInterviewData3[tst2];
+      sixthCol.appendChild(fiD3);
+    }
+
+</script>
+
+    {{ govukButton({
+      classes: "govuk-!-margin-top-9",
+      text: "Continue"
+    }) }}
+    {{ govukButton({
+      text: "Add another stage",
+      href: "#",
+      classes: "govuk-button--secondary"
+    }) }}
+
+{% endblock %}

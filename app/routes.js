@@ -88,7 +88,7 @@ router.post('/list-handler', function (req, res){
 
 router.get("/alt-route", function (req, res) {
   var src = req.session.data['source'];
-  var list = req.session.data['selected'].types;
+  var list = req.session.data['selected'];
   res.redirect("/v03/select-"+list[0]);
 })
 

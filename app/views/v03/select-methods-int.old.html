@@ -1,0 +1,319 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+
+{% block pageTitle %}
+Select methods for interview – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+
+<form class="form" action="select-interview-details" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">How will you assess at interview</h1>
+      <p class="govuk-body-m">At interview, you will assess:</p>
+
+      <ul id="counterint"  class="govuk-body-m govuk-list govuk-list--bullet"></ul>
+
+
+      <div id="header1"></div>
+      <div id="header2"></div>
+      <div id="header3"></div>
+      <div id="header4"></div>
+
+
+
+      <script>
+        var beCount;
+        var stCount;
+        var skCount;
+        var exCount;
+        var beHead;
+        var stHead;
+        var skHead;
+        var exHead;
+
+        var interview = [];
+        var interviewSet = [];
+        var interviewSet2 = [];
+
+
+
+        var interviewLen = interview.length;
+
+        interview = JSON.parse(window.sessionStorage.getItem("interview"));
+        console.log(interview);
+
+
+
+
+        var interviewChunkSize = 2;
+        for (let intv = 0; intv < interview.length; intv += interviewChunkSize) {
+          const intChunk = interview.slice(intv, intv + interviewChunkSize);
+          console.log(intChunk[0]);
+          interviewSet[intv] = intChunk[0].split("-",1).pop();
+          interviewSet2[intv] = intChunk[1];
+
+        }
+        var interviewTstVars = interviewSet.filter(trim)
+        var interviewTstVars2  = interviewSet2.filter(trim)
+
+        console.log(interviewTstVars)
+        console.log(interviewTstVars2)
+
+        beCount = interviewTstVars.filter(countb).length;
+        stCount = interviewTstVars.filter(counts).length;
+        skCount = interviewTstVars.filter(countk).length;
+        exCount = interviewTstVars.filter(counte).length;
+
+
+        beHead = interviewTstVars.filter(countb);
+        stHead = interviewTstVars.filter(counts);
+        exHead = interviewTstVars.filter(counte);
+        skHead = interviewTstVars.filter(countk);
+
+        function trim(val) {
+          return val !="" ;
+        }
+
+
+        beCount = beHead.length;
+        stCount = stHead.length;
+        exCount = exHead.length;
+        skCount = skHead.length;
+
+
+        var sum = beCount+stCount+exCount+skCount;
+
+        var countArr = [];
+        countArr.push(beCount+" "+"behaviours",stCount+" "+"strengths",exCount+" "+"experience",skCount+" "+"skills");
+
+        var headArr = [];
+
+        // headArr.push(beHead.split(",",1).pop(),stHead.split(",",1).pop(), skHead.split(",",1).pop(), exHead.split(",",1).pop())
+
+
+        var newHead1 = eliminateDuplicates(beHead);
+        var newHead2 = eliminateDuplicates(exHead);
+        var newHead3 = eliminateDuplicates(skHead);
+        var newHead4 = eliminateDuplicates(stHead);
+        headArr.push(newHead1,newHead2,newHead3,newHead4);
+
+
+        console.log(headArr)
+
+        function trim(val) {
+          return val !="" ;
+        }
+
+
+        function eliminateDuplicates(arr) {
+          var i,
+          len = arr.length,
+          out = [],
+          obj = {};
+
+          for (i = 0; i < len; i++) {
+            obj[arr[i]] = 0;
+          }
+          for (i in obj) {
+            out.push(i);
+          }
+          return out;
+        }
+
+
+        function countb(cc) {
+          return cc == "Behaviours" ;
+        }
+
+        function counts(cc) {
+          return cc == "Strengths" ;
+        }
+
+        function countk(cc) {
+          return cc == "Skills" ;
+        }
+
+        function counte(cc) {
+          return cc == "Experience" ;
+        }
+
+        var interviewCount = document.getElementById("counterint");
+        for (var cci = 0; cci < countArr.length; ++cci) {
+          var interviewCCC = document.createElement('li');
+          interviewCCC.innerText = countArr[cci];
+          interviewCount.appendChild(interviewCCC);
+        }
+
+        var interviewMethodsDetail = ['Interview question(s)','Portfolio','Presentation'];
+
+        var interviewhed2 = document.getElementById("cboxesint");
+        for (iii3 = 0; iii3 < interviewTstVars.length; ++iii3) {
+          var myDiv = document.getElementById("cboxesint");
+
+          for (var i = 0; i < interviewMethodsDetail.length; i++) {
+            var legend1 = document.createElement("legend");
+            var label1 = document.createElement("label");
+            var checkBox1 = document.createElement("input");
+
+            checkBox1.type = "checkbox";
+            legend1.style.cssText = "font-size:30px;"
+            checkBox1.style.cssText = "position:relative;width:30px;height:30px";
+            label1.style.cssText = "display: inline-block;position:relative;font-size:20px;margin:20px;padding:10px";
+            checkBox1.value = interviewMethodsDetail[iii3];
+
+
+            myDiv.appendChild(legend1);
+            legend1.appendChild(document.createTextNode(interviewTstVars[iii3]+", "+interviewTstVars2[iii3]));
+            myDiv.appendChild(checkBox1);
+            myDiv.appendChild(label1);
+            label1.appendChild(document.createTextNode(interviewMethodsDetail[i]));
+
+          }
+
+
+
+
+        }
+
+
+
+
+
+        var chkList = ['Interview question(s)','Portfolio','Presentation']
+
+        var hea1 = document.getElementById("header1");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var h21 = document.createElement("h2");
+        h21.innerText = exp[0];
+        hea1.appendChild(h21);
+        for (var be = 0; be < beCount; be++){
+          var h31 = document.createElement("h3");
+          h31.innerText = interviewTstVars2[be];
+          hea1.appendChild(h31);
+          checkBoxxed();
+        }
+
+        var h22 = document.createElement("h2");
+        h22.innerText = exp[1];
+        hea1.appendChild(h22);
+        for (var ex = beCount; ex < beCount+exCount; ex++){
+          var h32 = document.createElement("h3");
+          h32.innerText = interviewTstVars2[ex];
+          hea1.appendChild(h32);
+          checkBoxxed();
+        }
+
+        var h23 = document.createElement("h2");
+        h23.innerText = exp[2];
+        hea1.appendChild(h23);
+        for (var sk = exCount+beCount; sk < beCount+exCount+skCount; sk++){
+          var h33 = document.createElement("h3");
+          h33.innerText = interviewTstVars2[sk];
+          hea1.appendChild(h33);
+          checkBoxxed();
+
+        }
+
+        var h24 = document.createElement("h2");
+        h24.innerText = exp[3];
+        hea1.appendChild(h24);
+        for (var st = skCount+exCount+beCount; st < skCount+exCount+beCount+stCount; st++){
+          var h34 = document.createElement("h3");
+          h34.innerText = interviewTstVars2[st];
+          hea1.appendChild(h34);
+          checkBoxxed();
+        }
+
+
+        function checkBoxxed(){
+          for (var i = 0; i < chkList.length; i++) {
+            var label = document.createElement("label");
+            var checkBox = document.createElement("input");
+            checkBox.type = "checkbox";
+            checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+            label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
+            checkBox.value = chkList[i];
+            label.appendChild(document.createTextNode(chkList[i]));
+            hea1.appendChild(label);
+            hea1.appendChild(checkBox);
+          }
+        }
+
+
+
+
+
+
+
+
+
+
+
+        var features = document.getElementById('catHead')
+        for(var i = 0; i < interviewTstVars2.length; i++) {
+
+
+        }
+
+
+
+
+
+
+
+
+      </script>
+
+      <div class="govuk-!-margin-top-9 govuk-!-bottom-top-6">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </div>
+      <BR><BR>
+
+      </div>
+    </div>
+
+
+
+  </form>
+  <script src="/public/javascripts/seshDat.js"></script>
+  {% endblock %}

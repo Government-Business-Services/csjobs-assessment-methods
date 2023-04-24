@@ -1,0 +1,142 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+    <style>
+      /* Example page specific styling. */
+
+
+      .autocomplete-wrapper {
+        max-width: 20em;
+        margin-bottom: 4rem;
+      }
+
+      .submitted--hidden {
+        display: block;
+      }
+    </style>
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half" >
+        <form action="#" method="get">
+          <label for="last-location">Search the strengths dictionary</label>
+
+          <div class="autocomplete-wrapper">
+            <select name="last-location" id="last-location">
+              <option value=""></option>
+              <option value="Challenger">Challenger</option>
+              <option value="Strategic">Strategic</option>
+              <option value="Mission">Mission</option>
+              <option value="Visionary">Visionary</option>
+              <option value="Change agent">Change agent</option>
+              <option value="Authentic">Authentic</option>
+              <option value="Emotionally intelligent">Emotionally intelligent</option>
+              <option value="Inclusive">Inclusive</option>
+              <option value="Influencer">Influencer</option>
+              <option value="Problem solver">Problem solver</option>
+              <option value="Catalyst">Catalyst</option>
+              <option value="Enabler">Enabler</option>
+              <option value="Motivator">Motivator</option>
+              <option value="Adaptable">Adaptable</option>
+              <option value="Disciplined">Disciplined</option>
+            </select>
+              <button style="float:right" class="govuk-button govuk-button--secondary" type="submit">add</button>
+              </form>
+
+
+</div>
+<div class="govuk-grid-column-one-half">
+  <div class="submitted submitted--hidden">
+      <p id="here"></p><code><span class="submitted__last-location"></span></code><a href="#">add</a>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+    <script src="/public/javascripts/accessible-autocomplete.min.js"></script>
+    <script type="text/javascript">
+      var selectEl = document.querySelector('#last-location')
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: true,
+        confirmOnBlur: true,
+        defaultValue: "",
+        minLength: 1,
+        selectElement: selectEl
+      })
+      'Challenger',
+      'Strategic',
+      'Mission',
+      'Visionary',
+      'Change agent',
+      'Authentic',
+      'Emotionally intelligent',
+      'Inclusive',
+      'Influencer',
+      'Problem solver',
+      'Catalyst',
+      'Enabler',
+      'Motivator',
+      'Adaptable',
+      'Disciplined'
+
+
+      for (var tengoes; tengoes < 11; tengoes++){
+
+
+
+      }
+
+      var queryStringParameters = window.location.search
+      var bigone ;
+      var previouslySubmitted = queryStringParameters.length > 0
+      if (previouslySubmitted) {
+        var submittedEl = document.querySelector('.submitted')
+        // console.log(submittedEl)
+        submittedEl.classList.remove('submitted--hidden')
+        var params = new URLSearchParams(document.location.search.split('?')[1])
+
+        var strengthArr = params.get('last-location')
+
+
+
+
+
+        }
+
+        window.sessionStorage.setItem("locations", JSON.stringify(strengthArr));
+        var newstr = JSON.parse(window.sessionStorage.getItem("locations"))
+        var interviewhea1 = document.getElementById("here");
+          var h21 = document.createElement("p");
+          h21.innerText = newstr;
+          interviewhea1.appendChild(h21);
+        console.log(newstr)
+        bigone = bigone.push(newstr)
+
+          </script>
+
+  {% endblock %}

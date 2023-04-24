@@ -47,75 +47,100 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-<form action="#" method="post" novalidate>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-xl">
-        Strengths dictionary search
+        Strengths
       </h1>
 
-  <div id="tst" class="govuk-form-group govuk-input--width-30">
+      <p class="govuk-body-m">You can search the <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/717274/CS_Strengths_2018.pdf">strengths dictionary</a> for what you would like to assess at sift and interview.</p>
 
 
+
+  <div id="autocomplete-default" class="govuk-form-group govuk-input--width-30">
+    <label for="autocomplete-default" class="govuk-label--s">Search strengths</label>
     <div id="jobtitle" class="autocomplete-wrapper">
-  </div>    <button style="float:right" class="govuk-button govuk-button--secondary govuk-!-margin-top-6" data-module="govuk-button">add</button>
-
-  <div>
-
-</div>
-
-
-
+  </div>
+  <button style="float:right" href="#" onclick="showDiv('trial')" class="govuk-button govuk-button--secondary govuk-!-margin-top-6" data-module="govuk-button">add</button>
   </div>
 
 
+  {{ data['autocomplete__input autocomplete__input--default']  }}
+
+  {% for title, description in strDict %}
+  {% if title === data['temp-copy-input-autocomplete']  %}
+  <div id="trial" style="display:none;width:90%;border:1px solid lightgrey">
+  <p id="title">{{ title }}</p>
+  <p id="desc" class="govuk-body-m">{{ description }}</p>
+  </div>
+
+  <div style="width:90%;border:1px solid lightgrey">
+  <p id="title">{{ title }}</p>
+  <p id="desc" class="govuk-body-m">{{ description }}</p>
+  </div>
+  {% endif %}{% endfor %}
+
+
+
+<script src="/public/javascripts/accessibleAutocomplete.js"></script>
+
 <script>
 
- window.sessionStorage.setItem("sift", JSON.stringify(siftArray));
+
+  var jobtitle = [
+    'Challenger',
+    'Strategic',
+    'Mission',
+    'Visionary',
+    'Change agent',
+    'Authentic',
+    'Emotionally intelligent',
+    'Inclusive',
+    'Influencer',
+    'Problem solver',
+    'Catalyst',
+    'Enabler',
+    'Motivator',
+    'Adaptable',
+    'Disciplined'
+  ]
+  var element = document.querySelector('#jobtitle')
+  var id = 'autocomplete-default'
+  accessibleAutocomplete({element: element, id: id, source: jobtitle})
+
+
+
+
+
+
+  var strengthsArray = [];
+  const searchValue = document.getElementById('trial');
+
+  if (jobtitle ===   searchValue){
+    strengthsArray.push(temp-copy-input-autocomplete)
+      window.sessionStorage.setItem("strengths", JSON.stringify(temp-copy-input-autocomplete));
+
+  }
+
+
+
+
 
 
 </script>
 
 
-{{ data['autocomplete__input autocomplete__input--default']  }}
-
-{% for title, description in strDict %}
-{% if title === data['temp-copy-input-autocomplete']  %}
-<div style="width:90%;border:1px solid lightgrey">
-<p id="title">{{ title }}</p>
-<p id="desc" class="govuk-body-m">{{ description }}</p>
-</div>
-{% endif %}{% endfor %}
-
-
-
-    <!-- <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-
-          <p id="title">{{ title }}</p>
-          <p id="desc">{{ description }}</p>
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Delete
-        </dd>
-      </div>
-    </dl> -->
-
   </div>
 
-
 </div>
 
-</form>
-
-
-
-
+<script>
+  function showDiv(div1) {
+    document.getElementById(div1).style.display = 'block';
+  }
+</script>
   <input type="hidden" name="source" value="Strengths">
-  <script src="/public/javascripts/temp-copy.js"></script>
-  <script src="/public/javascripts/temp.js"></script>
 
-
-    {% endblock %}
+      {% endblock %}

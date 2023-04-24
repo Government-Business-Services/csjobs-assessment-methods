@@ -31,7 +31,7 @@ Select criteria stage – {{ serviceName }} – GOV.UK Prototype Kit
 </div>
 </div>
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-half">
+    <div class="govuk-grid-column-three-quarters">
 
       {% if data['criteria'].behaviours | length > 0 %}
       <h2 class="govuk-heading-l govuk-!-margin-top-6" style="border-bottom:1px solid #1d70b8;padding-bottom:10px;">Behaviours</h2>
@@ -84,7 +84,7 @@ Select criteria stage – {{ serviceName }} – GOV.UK Prototype Kit
 
       {% endfor %}{% endif %}
 
-
+{{ data['team-detail']|truncate(150)}}
 
       {% if data['Experience 1'].length > 0 or data['Experience 2'].length > 0 %}
 
@@ -93,7 +93,7 @@ Select criteria stage – {{ serviceName }} – GOV.UK Prototype Kit
       {% set criteriaExpArr = [] %}
 
       {% if data['Experience 1'].length > 0 %}
-      {% set criteriaExpArr = (criteriaExpArr.push(data['Experience 1']), criteriaExpArr) %}
+      {% set criteriaExpArr = (criteriaExpArr.push(data['Experience 1']|truncate(50)), criteriaExpArr) %}
       {% else %}{% endif %}
 
       {% if data['Experience 2'].length > 0 %}
@@ -291,9 +291,13 @@ Select criteria stage – {{ serviceName }} – GOV.UK Prototype Kit
       if (radios[i].type == 'radio' && radios[i].checked ) {
 
         if (radios[i].value == "sift" || radios[i].value == "both"){
-          sifta.push(radios[i].name);
-          sifta.push(radios[i].id);
+
+          sifta.push(radios[i].name,radios[i].id);
           window.sessionStorage.setItem("sift", JSON.stringify(sifta));
+          // sifta.push('value'+":"+radios[i].value);
+          // sifta.push('id'+":"+radios[i].id);
+
+
 
         }
   }
