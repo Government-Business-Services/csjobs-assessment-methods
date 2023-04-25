@@ -37,10 +37,10 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
       <ul class="govuk-!-margin-top-6 govuk-list govuk-list--bullet-">
 
         {% if items == "abilities" %}
-        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items }}</a></p></strong></li>
+        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items | capitalize }}</a></p></strong></li>
 
         {% else %}
-        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items }}</a></p></strong></li>
+        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items | capitalize }}</a></p></strong></li>
 
 
       </ul>
@@ -50,36 +50,34 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
     </div>
     <div class="govuk-grid-column-three-quarters" style="width:80%;">
       <div id="behaviours" style="padding:10px;">
-        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-6"><strong>Abilities can only be assessed at sift with Civil Service Numerical and Verbal online tests.</strong></p>
+        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-6"><strong>You can only assess abilities at sift with Civil Service Numerical and Verbal online tests.</strong></p>
         <div id="behaviours" style="border-bottom:1px solid #1d70b8">
 
-          {% for title, description in onlineTests %}
-          <div  style="">
-            {{ govukCheckboxes({
-              idPrefix: "selected-types",
-              id: "criteria-abilities",
-              name: "criteria[abilities]",
-              classes: "govuk-checkboxes",
-              fieldset: {
-                legend: {
-                  text: "",
-                  isPageHeading: false,
-                  classes: "govuk-fieldset__legend--l"
-                }
-              },
-              items: [
-              {
-                value: title,
-                text: title,
-                checked: checked("criteria[abilities]", title),
-                hint: {
-                  text: description
-                }
-              }
-              ]
-            }) }}
-          </div>
-          {% endfor %}
+
+
+
+                {% set abbaArray = ['What ability do you want to assess?'] %}
+
+
+                {% for items in abbaArray | slice(1) %}
+                {% for item in items %}
+
+
+                {{ govukTextarea({
+                  label: {
+                    text: item,
+                    classes: "govuk-label--s"
+                  },
+                  rows: "2",
+                  id: "criteria-ability",
+                  name: item,
+                  value: data[item]
+                }) }}
+
+
+
+
+                {% endfor %}{% endfor %}
 
 
 

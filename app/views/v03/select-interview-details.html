@@ -19,6 +19,12 @@ Select interview details – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
+<style>
+
+
+
+
+</style>
 
 
 
@@ -33,38 +39,38 @@ Select interview details – {{ serviceName }} – GOV.UK Prototype Kit
   <div class="govuk-!-margin-bottom-6 govuk-!-margin-top-6">
 
 
-
-    {{ govukCheckboxes({
-      name: "interviewDetails",
-      fieldset: {
-        legend: {
-          text: "",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--l"
-        }
-      },
-      items: [
-        {
-          value: "Remote",
-          checked: checked("interviewDetails","Remote"),
-          text: "Remote"
-        },
-        {
-          value: "In-person",
-          text: "In-person",
-          checked: checked("interviewDetails","In-person")
-        },
-        {
-          value: "Asynchronous",
-          checked: checked("interviewDetails","Asynchronous"),
-          text: "Asynchronous"
-        }
-      ]
-    }) }}
-
-
-
-
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="interviewDetails" name="interviewDetails" type="checkbox" value="Remote">
+            <label class="govuk-label govuk-checkboxes__label" for="interviewDetails">
+              Remote
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="interviewDetails-2" name="interviewDetails" type="checkbox" value="In-person">
+            <label class="govuk-label govuk-checkboxes__label" for="interviewDetails-2">
+              In-person
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="interviewDetails-3" name="interviewDetails" type="checkbox" value="Pre-recorded">
+            <label class="govuk-label govuk-checkboxes__label" for="interviewDetails-3">
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Pre-recorded
+                  </span>
+                </summary>
+                <div class="govuk-details__text">A pre-recorded, video interview where the candidate is guided through a series of interview questions, and they record their answers to camera...’
+                </div>
+              </details>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
 
 
       <div class="govuk-!-margin-top-9 govuk-!-bottom-top-6">

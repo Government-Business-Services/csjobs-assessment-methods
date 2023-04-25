@@ -35,9 +35,9 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
       {% for items in data['selected'] %}
       <ul class="govuk-!-margin-top-6 govuk-list govuk-list--bullet- ">
         {% if items == "experience" %}
-        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items }}</a></p></strong></li>
+        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items | capitalize }}</a></p></strong></li>
         {% else %}
-        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items }}</a></p></strong></li>
+        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items | capitalize }}</a></p></strong></li>
       </ul>
       {% endif %}
       {% endfor %}
@@ -46,7 +46,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
     <div class="govuk-grid-column-three-quarters" style="width:80%;">
       <div id="Experience" style="padding:10px;">
 <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-3"><strong>You should define what type and level of experience is needed to perform well in this job role and what you want to assess at sift and interview. </strong></p>
-    <p class="govuk-body-s govuk-!-margin-bottom-6" style="background: #f3f2f1;padding:5px;">The experiences you write here will appear on your job advert for candidates to see.</p>
+    <p class="govuk-body-m govuk-!-margin-bottom-6" style="background: #f3f2f1;padding:5px;">The experiences you write here will appear on your job advert for candidates to see.</p>
         <div  style="border-bottom:1px solid #1d70b8">
 
 
@@ -87,7 +87,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 
 
       <div id="expcta1" style="display:{{ nosee }}" class="govuk-body-m ">
-        <p class="govuk-body-m"><a style="color:#1d70b8" onclick="showHideDiv('experience2','expcta1')"><strong>Add more experience</strong></a></p>
+        <p class="govuk-body-m"><a style="color:#1d70b8" onclick="showHideDiv('experience2','expcta1')"><strong>Add another experience</strong></a></p>
       </div>
 
 
@@ -109,15 +109,6 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
 
   </div>
-
-
-
-
-
-
-
-
-
 
 
 

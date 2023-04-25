@@ -1,0 +1,298 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Selection criteria summary – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form action="select-methods-sift" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        Review your selection criteria at sift and interview
+      </h1>
+
+
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key" id="beheader1">
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <div id="beheader2"></div>
+          </dd>
+          <dd class="govuk-summary-list__actions" >
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+
+
+
+
+
+
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-0 govuk-!-margin-top-3" style="padding-bottom:10px;border-bottom:1px solid #1d70b8;">Sift</h2>
+
+
+
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-0 govuk-!-margin-top-3"" style="padding-bottom:10px;border-bottom:1px solid #1d70b8;">Interview</h2>
+
+      <h3 class="govuk-heading-m" id="beheader1"></h3>
+
+
+    </div>
+  </div>
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  <div>
+    {{ govukButton({
+      text: "Add another interview stage",
+      classes: "govuk-button--secondary"
+    }) }}
+  </div>
+
+</form>
+
+<script>
+  var beCount;
+  var stCount;
+  var skCount;
+  var exCount;
+  var abCount;
+  var beHead;
+  var stHead;
+  var skHead;
+  var exHead;
+  var abHead;
+
+  var sift = [];
+  var siftSet = [];
+  var siftSet2 = [];
+  var siftLen = sift.length;
+
+  sift = JSON.parse(window.sessionStorage.getItem("sift"));
+
+  var siftChunkSize = 2;
+  for (let sif = 0; sif < sift.length; sif += siftChunkSize) {
+    const siftChunk = sift.slice(sif, sif + siftChunkSize);
+
+    siftSet[sif] = siftChunk[0].split("-",1).pop();
+    siftSet2[sif] = siftChunk[1];
+
+  }
+  var siftTstVars = siftSet.filter(trim);
+  var siftTstVars2  = siftSet2.filter(trim);
+
+
+  beCount = siftTstVars.filter(countb).length;
+  stCount = siftTstVars.filter(counts).length;
+  skCount = siftTstVars.filter(countk).length;
+  exCount = siftTstVars.filter(counte).length;
+  abCount = siftTstVars.filter(counta).length;
+
+  beHead = siftTstVars.filter(countb);
+  stHead = siftTstVars.filter(counts);
+  exHead = siftTstVars.filter(counte);
+  skHead = siftTstVars.filter(countk);
+  abHead = siftTstVars.filter(counta);
+
+  beCount = beHead.length;
+  stCount = stHead.length;
+  exCount = exHead.length;
+  skCount = skHead.length;
+  abCount = abHead.length;
+
+  var sum = beCount+stCount+exCount+skCount+abCount;
+
+  var countArr = [];
+
+  console.log(sum)
+
+  countArr.push(beCount+" "+"behaviours",exCount+" "+"experience",skCount+" "+"skills",stCount+" "+"strengths",abCount+" "+"abilities");
+
+  var headArr = [];
+
+  var newHead1 = eliminateDuplicates(beHead);
+  var newHead2 = eliminateDuplicates(exHead);
+  var newHead3 = eliminateDuplicates(skHead);
+  var newHead4 = eliminateDuplicates(stHead);
+  var newHead5 = eliminateDuplicates(abHead);
+  headArr.push(newHead1,newHead2,newHead3,newHead4,newHead5);
+
+
+  var exp = eliminateDuplicates(headArr);
+
+  // exp = exp.join(" ")
+
+  var changeLink = "Change | Delete";
+  var hea1 = document.getElementById("header1");
+  var hea2 = document.getElementById("header2");
+
+  var beheader1 = document.getElementById("beheader1");
+  var beheader2 = document.getElementById("beheader2");
+  var beheader2 = document.getElementById("beheader3");
+
+  // for (var k=0;k<=sum+1;k++){
+  //   var blankText = document.createElement("p");
+  //   blankText.innerHTML = changeLink;
+  //   hea2.appendChild(blankText);
+  // }
+
+
+
+  var h21 = document.createElement("h2");
+  h21.innerText = headArr[0];
+  beheader1.appendChild(h21);
+
+  if (beCount != 0) {
+    for (var be = 0; be < beCount; be++){
+      var h31 = document.createElement("p");
+      h31.innerText = siftTstVars2[be];
+      beheader2.appendChild(h31);
+    }
+  }
+
+
+
+
+  // if (exCount != 0){
+  //   var h22 = document.createElement("h2");
+  //   h22.innerText = headArr[1];
+  //   hea1.appendChild(h22);
+  //   var blankText2 = document.createElement("p");
+  //     blankText2.innerHTML = changeLink;
+  // hea2.appendChild(blankText2);
+  //
+  //   for (var ex = beCount; ex < beCount+exCount; ex++){
+  //     var h32 = document.createElement("p");
+  //     h32.innerText = siftTstVars2[ex];
+  //     hea1.appendChild(h32);
+  //
+  //
+  //   }
+  // }
+  //
+  // if (skCount != 0){
+  //   var h23 = document.createElement("h2");
+  //   h23.innerText = headArr[2];
+  //   hea1.appendChild(h23);
+  //   var blankText3 = document.createElement("p");
+  //     blankText3.innerHTML = changeLink;
+  //   hea2.appendChild(blankText3);
+  //   for (var sk = exCount+beCount; sk < beCount+exCount+skCount; sk++){
+  //     var h33 = document.createElement("p");
+  //     h33.innerText = siftTstVars2[sk];
+  //     hea1.appendChild(h33);
+  //
+  //   }
+  // }
+  //
+  // if (stCount != 0){
+  //   var h24 = document.createElement("h2");
+  //   h24.innerText = headArr[3];
+  //   hea1.appendChild(h24);
+  //
+  //     var blankText4 = document.createElement("p");
+  //       blankText4.innerHTML = changeLink;
+  //   hea2.appendChild(blankText4);
+  //   for (var st = skCount+exCount+beCount; st < skCount+exCount+beCount+stCount; st++){
+  //     var h34 = document.createElement("p");
+  //     h34.innerText = siftTstVars2[st];
+  //     hea1.appendChild(h34);
+  //
+  //   }
+  // }
+  //
+  // if (abCount != 0){
+  //   var h25 = document.createElement("h2");
+  //   h25.innerText = headArr[4];
+  //   hea1.appendChild(h25);
+  //   var blankText5 = document.createElement("p");
+  //     blankText5.innerHTML = changeLink;
+  //   hea2.appendChild(blankText5);
+  //   for (var ab = skCount+exCount+beCount+stCount; ab < skCount+exCount+beCount+stCount+abCount; ab++){
+  //     var h35 = document.createElement("p");
+  //     h35.innerText = siftTstVars2[ab];
+  //     hea1.appendChild(h35);
+  //
+  //   }
+  // }
+
+
+
+
+
+  function trim(val) {
+    return val !="" ;
+  }
+
+  function countb(cc) {
+    return cc == "Behaviours" ;
+  }
+
+  function counts(cc) {
+    return cc == "Strengths" ;
+  }
+
+  function countk(cc) {
+    return cc == "Skills" ;
+  }
+
+  function counte(cc) {
+    return cc == "Experience" ;
+  }
+
+  function counta(cc) {
+    return cc == "Abilities" ;
+  }
+  function eliminateDuplicates(arr) {
+    var i,
+    len = arr.length,
+    out = [],
+    obj = {};
+
+    for (i = 0; i < len; i++) {
+      obj[arr[i]] = 0;
+    }
+    for (i in obj) {
+      out.push(i);
+    }
+    return out;
+
+  }
+
+
+</script>
+
+
+{% endblock %}

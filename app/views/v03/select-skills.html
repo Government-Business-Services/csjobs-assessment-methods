@@ -30,9 +30,9 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
       {% for items in data['selected'] %}
       <ul class="govuk-!-margin-top-6 govuk-list govuk-list--bullet- ">
         {% if items == "skills" %}
-        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items }}</a></p></strong></li>
+        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items | capitalize }}</a></p></strong></li>
         {% else %}
-        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items }}</a></p></strong></li>
+        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items | capitalize}}</a></p></strong></li>
       </ul>
       {% endif %}
       {% endfor %}
@@ -40,7 +40,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
     </div>
     <div class="govuk-grid-column-three-quarters" style="width:80%;">
       <div id="skills" style="padding:10px;">
-        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-6"><strong>You can choose how many skills you want to assess at sift and interview You can assess specific professioal skills, knowledge or qualifications. You can also assess hard skills, like project management.</strong></p>
+        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-6"><strong>You can choose how many skills you want to assess at sift and interview. You can assess a wide range of relevant specialist skills like coaching, negotiation and computing coding. Include as many skills as you want to assess at sift and interview.</strong></p>
         <div id="skills" style="border-bottom:1px solid #1d70b8">
 
 
@@ -93,7 +93,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 
 
           <div id="sklcta1" style="display:{{ nosee }}" class="govuk-body-m ">
-            <p class="govuk-body-m"><a style="color:#1d70b8" onclick="showHideDiv('skills2','sklcta1')"><strong>Add more skills</strong></a></p>
+            <p class="govuk-body-m"><a style="color:#1d70b8" onclick="showHideDiv('skills2','sklcta1')"><strong>Add another skill</strong></a></p>
           </div>
 
 

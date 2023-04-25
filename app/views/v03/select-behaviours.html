@@ -43,10 +43,10 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
       <ul class="govuk-!-margin-top-6 govuk-list govuk-list--bullet-">
 
         {% if items == "behaviours" %}
-        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items }}</a></p></strong></li>
+        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items | capitalize }}</a></p></strong></li>
 
         {% else %}
-        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items }}</a></p></strong></li>
+        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items | capitalize }}</a></p></strong></li>
 
 
       </ul>

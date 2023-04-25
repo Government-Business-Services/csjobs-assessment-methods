@@ -1,0 +1,129 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+{% block pageTitle %}
+Review your success profile table – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="#" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl" >
+        Review your success profile table
+      </h1>
+
+
+<div>
+      <h2 class="govuk-heading-l" style="border-bottom:1px solid #1d70b8;padding-bottom:10px;">Sift</h2>
+      <dl class="govuk-summary-list--no-border">
+        <div  class="govuk-summary-list__row">
+          <dt  class="govuk-summary-list__key" style="width:25%">
+            <ul id="col1" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
+          </dt>
+          <dd  class="govuk-summary-list__value" style="width:45%">
+            <ul id="col2" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
+          </dd>
+          <dd class="govuk-summary-list__actions" style="width:25%">
+            <ul id="col3" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
+          </dd>
+        </div>
+      </dl>
+</div>
+<div>
+      <h2 class="govuk-heading-l" style="border-bottom:1px solid #1d70b8;padding-bottom:10px;">{{ data['interviewDetails']}} interview</h2>
+
+      <dl class="govuk-summary-list--no-border">
+        <div  class="govuk-summary-list__row">
+          <dt  class="govuk-summary-list__key" style="width:25%">
+            <ul id="col4" style="text-align:left;font-size:16px" class="govuk-list govuk-list"></ul>
+          </dt>
+          <dd  class="govuk-summary-list__value" style="width:45%">
+            <ul id="col5" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
+          </dd>
+          <dd class="govuk-summary-list__actions" style="width:25%">
+            <ul id="col6" style="font-size:16px;text-align:left" class="govuk-list govuk-list"></ul>
+          </dd>
+        </div>
+      </dl>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<h2 class="govuk-heading-l">Sift</h2>
+<h3 class="govuk-heading-l">Written Example (250 words)</h3>
+
+<h4 class="govuk-heading-l">Changing and improving</h4>
+
+<h3 class="govuk-heading-l">Written Example (250 words)</h3>
+
+
+
+  {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Name"
+        },
+        value: {
+          text: "Assessment method"
+        }
+      },
+      {
+        key: {
+          text: "Date of birth"
+        },
+        value: {
+          text: "5 January 1978"
+        }
+      },
+      {
+        key: {
+          text: "Address"
+        },
+        value: {
+          html: "72 Guild Street<br>London<br>SE23 6FH"
+        }
+      },
+      {
+        key: {
+          text: "Contact details"
+        },
+        value: {
+          html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+        }
+      }
+    ]
+  }) }}
+
+
+
+
+
+    {{ govukButton({
+      classes: "govuk-!-margin-top-9",
+      text: "Continue"
+    }) }}
+    {{ govukButton({
+      text: "Add another stage",
+      href: "#",
+      classes: "govuk-button--secondary govuk-!-margin-top-9"
+    }) }}
+
+{% endblock %}

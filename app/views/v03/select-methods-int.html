@@ -18,7 +18,73 @@ Select methods for interview – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
+<style>
+  /* Example page specific styling. */
+  p, div {
+    font-family: "GDS Transport", arial, sans-serif;
+    line-height: 1.2;
+    margin: 0.8
+  }
+  p {
+     font-size: 32px; line-height: 0.5;
+     vertical-align: text-top;
 
+   }
+
+
+ h2 {
+    font-size: 30px; line-height: 0.5;
+    vertical-align: text-top;
+
+  }
+
+h3 {
+    font-size: 24px;
+    line-height: 1.5;
+
+}
+
+  label {
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: text-top;
+}
+
+
+    input[type="checkbox"]:checked  {
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: 0;
+      background: white;
+      height: 40px;
+      width: 40px;
+      border: 2px solid black;
+      color: black;
+    }
+
+    input[type="checkbox"]:after {
+      content:"";
+      position: absolute;
+      left: 40%;
+      top: 20%;
+      width: 15%;
+      height: 40%;
+      border: 5px solid #000000;
+      border-width: 0 4px 4px 0;
+      transform: rotate(45deg);
+      display: none;
+    }
+
+    input[type="checkbox"]:checked:after {
+      display: block;
+    }
+
+
+
+
+</style>
 
 <form class="form" action="select-interview-details" method="post">
   <div class="govuk-grid-row">
@@ -29,7 +95,7 @@ Select methods for interview – {{ serviceName }} – GOV.UK Prototype Kit
 
       <ul id="counter" style="" class="govuk-body-m govuk-list govuk-list--bullet"></ul>
 
-      <div id="header1"></div>
+      <div  class="govuk-!-margin-top-9" id="header1"></div>
       <div id="header2"></div>
       <div id="header3"></div>
       <div id="header4"></div>

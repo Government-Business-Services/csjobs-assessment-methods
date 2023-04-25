@@ -55,9 +55,9 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
       <ul class="govuk-!-margin-top-6 govuk-list govuk-list--bullet- ">
 
         {% if items == "strengths" %}
-        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items }}</a></p></strong></li>
+        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items | capitalize }}</a></p></strong></li>
         {% else %}
-        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items }}</a></p></strong></li>
+        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items | capitalize }}</a></p></strong></li>
       </ul>
 
 
@@ -67,7 +67,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
     </div>
     <div class="govuk-grid-column-three-quarters" style="width:80%;">
       <div id="strengths" style="padding:10px;">
-        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-6"><strong>You can search the <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/717274/CS_Strengths_2018.pdf">strengths dictionary</a> for what you would like to assess at sift and interview.</strong></p>
+        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-6"><strong>You can <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/717274/CS_Strengths_2018.pdf">search the strengths dictionary</a> for what you would like to assess at sift and interview.</strong></p>
         <div id="strengths" style="padding-bottom:30px;">
             <div class="govuk-grid-row govuk-!-margin-top-6  govuk-!-margin-right-9">
 
@@ -75,7 +75,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 
             {{ govukInput({
               label: {
-                text: 'Search the strengths dictionary'
+                text: 'Search strengths'
               },
               id: "searchwhat",
               name: "searchwhat",
@@ -86,7 +86,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
           </div>
           <div class="govuk-grid-column-one-quarter govuk-!-margin-top-6" style="float:left">
             {{ govukButton({
-              text: "Search",
+              text: "Select",
               href: "#",
               classes: "govuk-button--secondary"
             }) }}

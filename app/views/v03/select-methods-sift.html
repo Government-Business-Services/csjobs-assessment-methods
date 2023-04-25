@@ -18,18 +18,87 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
+<style>
+  /* Example page specific styling. */
+  p, div {
+    font-family: "GDS Transport", arial, sans-serif;
+    line-height: 1.2;
+    margin: 0.8
+  }
+  p {
+     font-size: 22px; line-height: 1.2;
+     vertical-align: text-top;
 
+   }
+
+
+ h2 {
+    font-size: 30px; line-height: 0.5;
+    vertical-align: text-top;
+
+  }
+
+h3 {
+    font-size: 24px;
+    line-height: 1.5;
+
+}
+
+  label {
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: text-top;
+}
+
+
+    input[type="checkbox"]:checked  {
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: 0;
+      background: white;
+      height: 40px;
+      width: 40px;
+      border: 2px solid black;
+      color: black;
+    }
+
+    input[type="checkbox"]:after {
+      content:"";
+      position: absolute;
+      left: 40%;
+      top: 20%;
+      width: 15%;
+      height: 40%;
+      border: 5px solid #000000;
+      border-width: 0 4px 4px 0;
+      transform: rotate(45deg);
+      display: none;
+    }
+
+    input[type="checkbox"]:checked:after {
+      display: block;
+    }
+
+
+
+
+</style>
 
 <form class="form" action="select-methods-int" method="post">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">How will you assess at sift</h1>
-      <p class="govuk-body-m">At sift, you will assess:</p>
+      <h1 class="govuk-heading-xl">How will you assess at sift?</h1>
+      <p class="govuk-body-m">Select how you will assess each element at sift.</p>
+
+      <p class="govuk-body-m">At sift, you have selected to assess:</p>
+
 
       <ul id="counter" style="" class="govuk-body-m govuk-list govuk-list--bullet"></ul>
 
-      <div id="header1"></div>
+      <div  class="govuk-!-margin-top-9" id="header1"></div>
       <div id="header2"></div>
       <div id="header3"></div>
       <div id="header4"></div>
@@ -80,6 +149,7 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
         exHead = siftTstVars.filter(counte);
         skHead = siftTstVars.filter(countk);
         abHead = siftTstVars.filter(counta);
+        console.log(abHead)
 
         beCount = beHead.length;
         stCount = stHead.length;
@@ -162,7 +232,7 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
         var skillsChkList = ['Online test'];
         var strengthsChkList = ['Online test'];
         var behavioursChkList = ['Online test'];
-        var abilitiesChkList = ['Online test'];
+        var abilitiesChkList = ['Civil Service Numerical online test','Civil Service Verbal online test'];
 
         var hea1 = document.getElementById("header1");
 
@@ -170,6 +240,10 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
           var h21 = document.createElement("h2");
           h21.innerText = headArr[0];
           hea1.appendChild(h21);
+          var h21a = document.createElement("p");
+          // h21a.innerHTML.cssText = "font-size:18px";
+          h21a.innerText = "If you have selected 3 or more behaviours you can assess with an online test at sift.";
+          hea1.appendChild(h21a);
           for (var be = 0; be < beCount; be++){
             var h31 = document.createElement("h3");
             h31.innerText = siftTstVars2[be];
@@ -179,7 +253,7 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
               var checkBox = document.createElement("input");
               checkBox.type = "checkbox";
               checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
-              label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
+              label.style.cssText = "display: block;padding-left: 15px;text-indent: 40px;";
               checkBox.value = chkList[i];
               checkBox.setAttribute("id","sift-"+i+be)
               checkBox.setAttribute("name",headArr[0]+"-"+siftTstVars2[be])
@@ -265,7 +339,7 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
 
         if (abCount != 0){
           var h25 = document.createElement("h2");
-          h25.innerText = headArr[3];
+          h25.innerText = headArr[4];
           hea1.appendChild(h25);
           for (var ab = skCount+exCount+beCount+stCount; ab < skCount+exCount+beCount+stCount+abCount; ab++){
             var h35 = document.createElement("h3");
