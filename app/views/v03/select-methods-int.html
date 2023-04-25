@@ -88,10 +88,11 @@ h3 {
 
 <form class="form" action="select-interview-details" method="post">
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-three-quarters">
 
-      <h1 class="govuk-heading-xl">How will you assess at interview</h1>
-      <p class="govuk-body-m">At interview, you will assess:</p>
+      <h1 class="govuk-heading-xl">How will you assess at the interview?</h1>
+      <p class="govuk-body-l"><strong>Select how you will assess each element at the interview.</strong></p>
+        <p class="govuk-body-l">At interview, you have selected to assess:</p>
 
       <ul id="counter" style="" class="govuk-body-m govuk-list govuk-list--bullet"></ul>
 
@@ -222,13 +223,13 @@ console.log(headArr)
           return cc == "Experience" ;
         }
 
-
-
         var siftCount = document.getElementById("counter");
         for (ccc = 0; ccc < countArr.length; ++ccc) {
-          var sifCCC = document.createElement('li');
-          sifCCC.innerText = countArr[ccc];
-          siftCount.appendChild(sifCCC);
+          if (countArr[ccc][0] > 0){
+            var sifCCC = document.createElement('li');
+            sifCCC.innerText = countArr[ccc];
+            siftCount.appendChild(sifCCC);
+          }
         }
 
         // var chkList = ['Interview question(s)','Portfolio','Presentation']
