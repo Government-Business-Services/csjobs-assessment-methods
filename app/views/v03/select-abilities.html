@@ -24,7 +24,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 
 <form class="form" action="/check-next-step" method="post">
 
-  <H2 class="govuk-heading-l govuk-!-margin-top-3 govuk-!-margin-bottom-3">What will you assess in each element?</h2>
+  <H2 class="govuk-heading-l govuk-!-margin-top-3 govuk-!-margin-bottom-3">What will you assess within each element at sift and interview?</h2>
     <p class="govuk-body-l govuk-!-margin-bottom-6 govuk-!-margin-top-3">You have selected which elements are important to assess for this job role. You should now select what you will assess within each element at sift and interview.</p>
 
     <H1 style="padding-top:20px;padding-bottom:5px;border-bottom:1px solid #1d70b8; " class="govuk-heading-xl govuk-!-margin-top-3 govuk-!-margin-bottom-6">Abilities</H1>
@@ -65,7 +65,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 
                 {{ govukTextarea({
                   label: {
-                    text: item,
+                    text: [loop.index],
                     classes: "govuk-label--s"
                   },
                   rows: "2",

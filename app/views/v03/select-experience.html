@@ -24,7 +24,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 {% endif %}
 
 <form class="form" action="/check-next-step" method="post">
-  <H2 class="govuk-heading-l govuk-!-margin-top-3 govuk-!-margin-bottom-0">What will you assess in each element?</h2>
+  <H2 class="govuk-heading-l govuk-!-margin-top-3 govuk-!-margin-bottom-3">What will you assess within each element at sift and interview?</h2>
     <p class="govuk-body-l govuk-!-margin-bottom-6 govuk-!-margin-top-3">You have selected which elements are important to assess for this job role. You should now select what you will assess within each element at sift and interview.</p>
 
   <H1 style="padding-top:20px;padding-bottom:5px;border-bottom:1px solid #1d70b8; " class="govuk-heading-xl govuk-!-margin-top-3 govuk-!-margin-bottom-6">Experience</H1>
@@ -45,10 +45,17 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
     </div>
     <div class="govuk-grid-column-three-quarters" style="width:80%;">
       <div id="Experience" style="padding:10px;">
-<p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-3"><strong>You should define what type and level of experience is needed to perform well in this job role and what you want to assess at sift and interview. </strong></p>
-    <p class="govuk-body-m govuk-!-margin-bottom-6" style="background: #f3f2f1;padding:5px;">The experiences you write here will appear on your job advert for candidates to see.</p>
+<p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-3"><strong>You should define what type and level of experience is needed to perform well in this job role. Include as many experiences as you want to assess at sift and interview.</strong></p>
+    <!-- <p class="govuk-body-m govuk-!-margin-bottom-6" style="background: #f3f2f1;padding:5px;">The experiences you write here will appear on your job advert as bullet points for candidates to see. It can help to write your bullet points:</p> -->
         <div  style="border-bottom:1px solid #1d70b8">
 
+  <p class="govuk-body-m govuk-!-margin-top-1 govuk-!-margin-bottom-3"><strong>The experiences you write here will appear on your job advert as bullet points for candidates to see.</strong></p>
+   <p class="govuk-body-m">It can help to write your bullet points:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>as a mini headline</li>
+<li>in short sentences, you should aim to be brief and straight to the point</li>
+<li>using simple language</li>
+</ul>
 
 {% if data['Experience 4'].length > 0 %}
 {% set see = "block" %}
@@ -66,12 +73,12 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 
 
       {% for items in expArray | slice(1) %}
-      {% for item in items %}
+      {% for item in items  %}
 
 
       {{ govukTextarea({
         label: {
-          text: item,
+        text: item  | last,
           classes: "govuk-label--s"
         },
         rows: "2",
@@ -98,7 +105,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 
         {{ govukTextarea({
           label: {
-            text: item,
+            text: item  | last,
             classes: "govuk-label--s"
           },
           rows: "2",

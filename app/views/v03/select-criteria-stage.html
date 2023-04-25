@@ -26,9 +26,9 @@ Select criteria stage – {{ serviceName }} – GOV.UK Prototype Kit
     <h1 class="govuk-heading-xl">
       When will you assess each element?
     </h1>
-    <p class="govuk-body-l govuk-!-margin-bottom-6">You must choose when to assess all elements you have selected.</p>
+    <p class="govuk-body-l govuk-!-margin-bottom-3">You must choose when to assess all elements you have selected.</p>
 
-    
+
 
 </div>
 </div>
@@ -36,7 +36,7 @@ Select criteria stage – {{ serviceName }} – GOV.UK Prototype Kit
     <div class="govuk-grid-column-three-quarters">
 
       {% if data['criteria'].behaviours | length > 0 %}
-      <h2 class="govuk-heading-l govuk-!-margin-top-6" style="border-bottom:1px solid #1d70b8;padding-bottom:10px;">Behaviours</h2>
+      <h2 class="govuk-heading-l govuk-!-margin-top-3" style="border-bottom:1px solid #1d70b8;padding-bottom:10px;">Behaviours</h2>
 
       {% for bobthings in data['criteria'].behaviours | slice(1) %}
 
