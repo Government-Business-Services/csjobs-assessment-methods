@@ -50,13 +50,13 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
     </div>
     <div class="govuk-grid-column-three-quarters" style="width:80%;">
       <div id="behaviours" style="padding:10px;">
-        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-6"><strong>You can only assess abilities at sift with Civil Service Numerical and Verbal online tests.</strong></p>
+        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-6"><strong>You can only assess abilities at sift with Civil Service Numerical and Verbal online tests.<br> Include as many abilities as you want to assess at sift.</strong></p>
         <div id="behaviours" style="border-bottom:1px solid #1d70b8">
 
 
 
 
-                {% set abbaArray = ['What ability do you want to assess?'] %}
+                {% set abbaArray = ['What ability do you want to assess?',"2","3"] %}
 
 
                 {% for items in abbaArray | slice(1) %}
@@ -65,7 +65,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 
                 {{ govukTextarea({
                   label: {
-                    text: [loop.index],
+                    text: "",
                     classes: "govuk-label--s"
                   },
                   rows: "2",
@@ -79,6 +79,7 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
 
                 {% endfor %}{% endfor %}
 
+                <p class="govuk-body-m"><a style="color:#1d70b8"><strong>Add another ability</strong></a></p>
 
 
         </div>
@@ -91,5 +92,5 @@ Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
   </div>
   <input type="hidden" name="source" value="abilities">
 </FORM>
-<script>
+
 {% endblock %}

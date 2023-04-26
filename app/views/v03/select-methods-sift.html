@@ -45,7 +45,7 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
   }
 
   label {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1;
     vertical-align: text-top;
   }
@@ -231,8 +231,7 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
 
         var chkList = ['Personal statement','CV','Written example (250 words)']
 
-        var experienceChkList = ['Online test'];
-        var skillsChkList = ['Casework Skills Test','Customer Service Skills Test'];
+        var skillsChkList = ['Application form','Personal statement','CV','Written example (250 words)','Casework Skills Test','Customer Service Skills Test'];
         var strengthsChkList = ['Civil Service Work Strengths Test'];
         var behavioursChkList = ['Personal statement','CV','Written example (250 words)','Civil Service Judgement Test','Civil Service Management Judgement Test'];
         var abilitiesChkList = ['Civil Service Numerical Test','Civil Service Verbal Test'];
@@ -254,7 +253,7 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-            if (beCount => "3") {
+            if (beCount > 2) {
               for (var i = 0; i < behavioursChkList.length; i++) {
                 var label = document.createElement("label");
                 var checkBox = document.createElement("input");
@@ -325,16 +324,16 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
             var h33 = document.createElement("h3");
             h33.innerText = siftTstVars2[sk];
             hea1.appendChild(h33);
-            for (var i = 0; i < chkList.length; i++) {
+            for (var i = 0; i < skillsChkList.length; i++) {
               var label = document.createElement("label");
               var checkBox = document.createElement("input");
               checkBox.type = "checkbox";
               checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
               label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
-              checkBox.value = chkList[i];
+              checkBox.value = skillsChkList[i];
               checkBox.setAttribute("id","sift-"+i+sk)
               checkBox.setAttribute("name",headArr[2]+"-"+siftTstVars2[sk])
-              label.appendChild(document.createTextNode(chkList[i]));
+              label.appendChild(document.createTextNode(skillsChkList[i]));
               hea1.appendChild(label);
               hea1.appendChild(checkBox);
             }
@@ -342,10 +341,16 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
           }
         }
 
+
+
         if (stCount != 0){
           var h24 = document.createElement("h2");
           h24.innerText = headArr[3];
           hea1.appendChild(h24);
+          var h24a = document.createElement("p");
+          // h21a.innerHTML.cssText = "font-size:18px";
+          h24a.innerText = "Strengths can only be assessed by the Civil Service Work Strengths Test at sift.";
+          hea1.appendChild(h24a);
           for (var st = skCount+exCount+beCount; st < skCount+exCount+beCount+stCount; st++){
             var h34 = document.createElement("h3");
             h34.innerText = siftTstVars2[st];
@@ -370,6 +375,10 @@ Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
           var h25 = document.createElement("h2");
           h25.innerText = headArr[4];
           hea1.appendChild(h25);
+          var h25a = document.createElement("p");
+          // h21a.innerHTML.cssText = "font-size:18px";
+          h25a.innerText = "Abilities can only be assessed by the Civil Service Numerical and Verbal Tests at sift.";
+          hea1.appendChild(h25a);
           for (var ab = skCount+exCount+beCount+stCount; ab < skCount+exCount+beCount+stCount+abCount; ab++){
             var h35 = document.createElement("h3");
             h35.innerText = siftTstVars2[ab];

@@ -25,12 +25,11 @@ Select methods for interview – {{ serviceName }} – GOV.UK Prototype Kit
     line-height: 1.2;
     margin: 0.8
   }
-  p {
-     font-size: 32px; line-height: 0.5;
-     vertical-align: text-top;
+  p, li {
+    font-size: 22px; line-height: 1.2;
+    vertical-align: text-top;
 
-   }
-
+  }
 
  h2 {
     font-size: 30px; line-height: 0.5;
@@ -45,7 +44,7 @@ h3 {
 }
 
   label {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1;
     vertical-align: text-top;
 }
@@ -265,6 +264,7 @@ console.log(headArr)
 
 
       var chkList = ['Interview question(s)','Portfolio','Presentation']
+      var strengthsChkList = ['Interview question(s)']
 
       var interviewhea1 = document.getElementById("header1");
 
@@ -349,20 +349,24 @@ console.log(headArr)
         var h24 = document.createElement("h2");
         h24.innerText = headArr[3];
         interviewhea1.appendChild(h24);
+        var h24a = document.createElement("p");
+        // h21a.innerHTML.cssText = "font-size:18px";
+        h24a.innerText = "You can ask strengths as rapid-fire questions in the interview.";
+        interviewhea1.appendChild(h24a);
         for (var st = skCount+exCount+beCount; st < skCount+exCount+beCount+stCount; st++){
           var h34 = document.createElement("h3");
           h34.innerText = interviewTstVars2[st];
           interviewhea1.appendChild(h34);
-          for (var i = 0; i < chkList.length; i++) {
+          for (var i = 0; i < strengthsChkList.length; i++) {
             var label = document.createElement("label");
             var checkBox = document.createElement("input");
             checkBox.type = "checkbox";
             checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
             label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
-            checkBox.value = chkList[i];
+            checkBox.value = strengthsChkList[i];
             checkBox.setAttribute("id","interview-"+i+st)
             checkBox.setAttribute("name",headArr[3]+"-"+interviewTstVars2[st])
-            label.appendChild(document.createTextNode(chkList[i]));
+            label.appendChild(document.createTextNode(strengthsChkList[i]));
             interviewhea1.appendChild(label);
             interviewhea1.appendChild(checkBox);
           }

@@ -12,6 +12,7 @@ Review your success profile table – {{ serviceName }} – GOV.UK Prototype Kit
   text: "Back",
   href: "javascript:window.history.back()"
 }) }}
+<a style="float:right" href="review-sp-table-alt">Alt</a>
 {% endblock %}
 
 {% block content %}
@@ -21,43 +22,80 @@ Review your success profile table – {{ serviceName }} – GOV.UK Prototype Kit
     <div class="govuk-grid-column-full">
 
       <h1 class="govuk-heading-xl" >
-        Review your success profile table
+        Review your assessment methods
       </h1>
+      <p class="govuk-body-l govuk-!-margin-bottom-6 govuk-!-margin-top-3">Review how you will assess candidates at sift and interview.</p>
 
+      <h2 class="govuk-heading-l">Sift</h2>
+        <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row" style="background:#f3f2f1;border-bottom:1px solid #1d70b8;padding-bottom:10px">
+        <dt style="padding-left:5px;width:10%;font-weight:normal" class="govuk-summary-list__key">
+          <strong>Element</strong>
+        </dt>
+        <dd style="width:30%" class="govuk-summary-list__value">
+          <strong>Selection criteria</strong>
+        </dd>
+        <dd style="width:45%" class="govuk-summary-list__value">
+          <strong>Assessment method</strong>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt style="padding-left:5px;width:10%;font-weight:normal" class="govuk-summary-list__key">
+          <ul id="col1" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
+        </dt>
+        <dd style="width:30%" class="govuk-summary-list__value">
+          <ul id="col2" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
+        </dd>
+        <dd style="width:15%" class="govuk-summary-list__value">
+          <ul id="col3" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
+
+        </dd>
+      </div>
+      </dl>
+            <h2 class="govuk-heading-l">{{ data['interviewDetails']}} interview</h2>
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row" style="background:#f3f2f1;border-bottom:1px solid #1d70b8;padding-bottom:10px">
+      <dt style="padding-left:5px;width:10%;font-weight:normal" class="govuk-summary-list__key">
+        <strong>Element</strong>
+      </dt>
+      <dd style="width:30%" class="govuk-summary-list__value">
+        <strong>Selection criteria</strong>
+      </dd>
+      <dd style="width:45%" class="govuk-summary-list__value">
+        <strong>Assessment method</strong>
+      </dd>
+    </div>
+      <div class="govuk-summary-list__row">
+        <dt style="padding-left:5px;width:10%;font-weight:normal" class="govuk-summary-list__key">
+          <ul id="col4" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
+        </dt>
+        <dd style="width:30%" class="govuk-summary-list__value">
+          <ul id="col5" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
+        </dd>
+        <dd style="width:15%" class="govuk-summary-list__value">
+          <ul id="col6" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
+
+        </dd>
+      </div>
+      </dl>
 
 <div>
-      <h2 class="govuk-heading-l" style="border-bottom:1px solid #1d70b8;padding-bottom:10px;">Sift</h2>
+
       <dl class="govuk-summary-list--no-border">
         <div  class="govuk-summary-list__row">
           <dt  class="govuk-summary-list__key" style="width:25%">
             <ul id="col1" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
           </dt>
-          <dd  class="govuk-summary-list__value" style="width:45%">
+          <dd  style="width:30%" class="govuk-summary-list__value">
             <ul id="col2" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
           </dd>
-          <dd class="govuk-summary-list__actions" style="width:25%">
+          <dd style="width:15%" class="govuk-summary-list__actions">
             <ul id="col3" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
           </dd>
         </div>
       </dl>
 </div>
-<div>
-      <h2 class="govuk-heading-l" style="border-bottom:1px solid #1d70b8;padding-bottom:10px;">{{ data['interviewDetails']}} interview</h2>
 
-      <dl class="govuk-summary-list--no-border">
-        <div  class="govuk-summary-list__row">
-          <dt  class="govuk-summary-list__key" style="width:25%">
-            <ul id="col4" style="text-align:left;font-size:16px" class="govuk-list govuk-list"></ul>
-          </dt>
-          <dd  class="govuk-summary-list__value" style="width:45%">
-            <ul id="col5" style="text-align:left;font-size:16px;" class="govuk-list govuk-list"></ul>
-          </dd>
-          <dd class="govuk-summary-list__actions" style="width:25%">
-            <ul id="col6" style="font-size:16px;text-align:left" class="govuk-list govuk-list"></ul>
-          </dd>
-        </div>
-      </dl>
-      </div>
     </div>
   </div>
 
@@ -102,7 +140,7 @@ Review your success profile table – {{ serviceName }} – GOV.UK Prototype Kit
     }
 
 
-    chunkedSiftData.push("Abilities");
+    // chunkedSiftData.push("Abilities");
 
     var keys = chunkedSiftData;
     var values = chunkedSiftData2;
@@ -196,13 +234,13 @@ console.log(chunkedSiftData2)
 </script>
 
     {{ govukButton({
-      classes: "govuk-!-margin-top-9",
+      classes: "govuk-!-margin-top-6",
       text: "Continue"
     }) }}
     {{ govukButton({
       text: "Add another stage",
       href: "#",
-      classes: "govuk-button--secondary govuk-!-margin-top-9"
+      classes: "govuk-button--secondary govuk-!-margin-top-6"
     }) }}
 
 {% endblock %}
