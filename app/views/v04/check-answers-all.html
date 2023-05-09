@@ -1,0 +1,150 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <span class="govuk-caption-m govuk-!-margin-bottom-3 govuk-!-margin-top-1">{{ data["temp-copy-input-autocomplete"]}} ({{ data["grade-select"]}})</span>
+
+    <h1 class="govuk-heading-xl">
+      Summary of your answers
+    </h1>
+
+
+
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          Job title
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["temp-copy-input-autocomplete"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="questions-all-double?section=title">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          What field is the job role in?
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["field"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="questions-all-double?section=field">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          What grade is the job role?
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["grade-select"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="questions-all-double?section=grade">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          Number of roles?
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["num-roles"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="questions-all-double?section=number">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          Will this role be popular?
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["popular"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="questions-all-double?section=popular">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          Are you recruiting for a role with high turnover?
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["turnover"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="questions-all-double?section=turnover">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          Will this role include line management responsibilities?
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["line-mgmt"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="questions-all-double?section=line">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+
+  <form action="recommendations" method="post" novalidate>
+
+    <button class="govuk-button govuk-!-margin-top-9" onclick="sessionWrite()" data-module="govuk-button">Continue</button>
+
+
+  </form>
+
+</div>
+</div>
+<script>
+
+
+  function sessionWrite(){
+    const arr = [];
+    const title = req.session.data['tem     p-copy-input-autocomplete'];
+    const field = req.session.data['field'];
+    const nu      mber = req.session.data['num-roles'];
+    const popular = req.session.data['popular'];
+    const turnover = req.session.data['turnover'];
+    const linemgmt = req.session.data['line-mgmt'];
+
+    ar temp = {title: title, field: field, number: number, popular: popular, turnover: turnover, linemgmt: line}
+    arr.push(temp);
+    window.sessionStorage.setItem("recVars", JSON.stringify(arr));
+  }
+
+  </script>
+{% endblock %}

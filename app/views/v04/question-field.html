@@ -1,0 +1,200 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+
+{% block pageTitle %}
+Question 2 field – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+{% if data['checked'] == "field" %}
+{% set destination = "check-answers" %}
+{% else %}
+{% set destination = "question-grade" %}
+{% endif %}
+
+<form class="form" action="{{ destination }}" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-l">Job details</h1>
+    <span class="govuk-caption-m govuk-!-margin-bottom-3">Question 2 of 7</span>
+
+
+
+        <div class="govuk-!-margin-bottom-6">
+
+          {{ govukSelect({
+            id: "field",
+            name: "field",
+            label: {
+              text: "What field is the job role in?",
+              classes: "govuk-label--m"
+            },
+            items: [
+            {
+              value: "none",
+              text: "Select from the list"
+            },
+            {
+              value: "Analysis",
+              text: "Analysis",
+              selected: checked("field","Analysis")
+            },
+            {
+              value: "Commercial and Procurement",
+              text: "Commercial and Procurement",
+              selected: checked("field","Commercial and Procurement")
+            },
+            {
+              value: "Corporate Finance",
+              text: "Corporate Finance",
+              selected: checked("field","Corporate Finance")
+            },
+            {
+              value: "Communications",
+              text: "Communications",
+              selected: checked("field","Communications")
+            },
+            {
+              value: "Counter Fraud",
+              text: "Counter Fraud",
+              selected: checked("field","Counter Fraud")
+            },
+            {
+              value: "Digital, Data and Technology",
+              text: "Digital, Data and Technology",
+              selected: checked("field","Digital, Data and Technology")
+            },
+            {
+              value: "Government Economic Service",
+              text: "Government Economic Service",
+              selected: checked("field","Government Economic Service")
+            },
+            {
+              value: "Government Social Research",
+              text: "Government Social Research",
+              selected: checked("field","Government Social Research")
+            },
+            {
+              value: "Finance",
+              text: "Finance",
+              selected: checked("field","Finance")
+            },
+            {
+              value: "Human Resources",
+              text: "Human Resources",
+              selected: checked("field","Human Resources")
+            },
+            {
+              value: "Intelligence Analysis",
+              text: "Intelligence Analysis",
+              selected: checked("field","Intelligence Analysis")
+            },
+            {
+              value: "Internal Audit",
+              text: "Internal Audit",
+              selected: checked("field","Internal Audit")
+            },
+            {
+              value: "International Trade and Negotiation",
+              text: "International Trade and Negotiation",
+              selected: checked("field","International Trade and Negotiation")
+            },
+            {
+              value: "Knowledge &amp; Information Management",
+              text: "Knowledge &amp; Information Management",
+              selected: checked("field","Knowledge &amp; Information Management")
+            },
+            {
+              value: "Legal",
+              text: "Legal",
+              selected: checked("field","Legal")
+            },
+            {
+              value: "Medical",
+              text: "Medical",
+              selected: checked("field","Medical")
+            },
+            {
+              value: "Occupational Psychology",
+              text: "Occupational Psychology",
+              selected: checked("field","Occupational Psychology")
+            },
+            {
+              value: "Operational Delivery",
+              text: "Operational Delivery",
+              selected: checked("field","Operational Delivery")
+            },
+            {
+              value: "Operational Research",
+              text: "Operational Research",
+              selected: checked("field","Operational Research")
+            },
+            {
+              value: "Policy",
+              text: "Policy",
+              selected: checked("field","Policy")
+            },
+            {
+              value: "Project Management and Delivery",
+              text: "Project Management and Delivery",
+              selected: checked("field","Project Management and Delivery")
+            },
+            {
+              value: "Property",
+              text: "Property",
+              selected: checked("field","Property")
+            },
+            {
+              value: "Science and Engineering",
+              text: "Science and Engineering",
+              selected: checked("field","Science and Engineering")
+            },
+            {
+              value: "Security",
+              text: "Security",
+              selected: checked("field","Security")
+            },
+            {
+              value: "Tax",
+              text: "Tax",
+              selected: checked("field","Tax")
+            },
+            {
+              value: "Veterinary",
+              text: "Veterinary",
+              selected: checked("field","Veterinary")
+            },
+            {
+              value: "Other",
+              text: "Other",
+              selected: checked("field","Other")
+            }
+            ]
+          }) }}
+        </div>
+
+
+
+
+      <div  class="govuk-!-margin-top-9 govuk-!-margin-bottom-3">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </div>
+      </div>
+      </div>
+    </form>
+
+    {% endblock %}

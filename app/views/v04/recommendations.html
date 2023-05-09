@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+
+
+{% block pageTitle %}
+Recommendations – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<form class="form" action="#" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <span class="govuk-caption-m govuk-!-margin-bottom-3 govuk-!-margin-top-1">{{ data["temp-copy-input-autocomplete"]}} ({{ data["grade-select"]}})</span>
+      <h1 class="govuk-heading-xl">Recommendations for assessment methods</h1>
+      <p class="govuk-body-m">Based on the job details you have given. We recommend the following assessment methods at sift and interview.</p>
+      <h2 class="govuk-heading-l" >Sift</h2>
+      <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-3">
+        <ul class="govuk-list">
+          <li><p class="govuk-body-m"><strong>For the {{ data['field'] }} field:</strong><br>We recommend using the Civil Service Customer Service online test.</p></li>
+          {% if data['popular'] == "Yes" %}
+          <li><p class="govuk-body-m"><strong>For a popular role:</strong><br>We recommend using 2 online tests at sift.</p></li>
+          {% endif %}
+          {% if data['turnover'] == "Yes" %}
+          <li><p class="govuk-body-m"><strong>For a role with high turnover:</strong><br>We recommend assessing strengths at sift. Candidates with matching strengths are more likely to be engaged and resilient.</p></li>
+          {% endif %}
+          {% if data['line-mgmt'] == "Yes" %}
+          <li><p class="govuk-body-m"><strong>For a role with line management responsibilities:</strong><br>We recommend assessing the behaviour <strong>Leadership</strong> at sift.</p></li>
+          {% endif %}
+        </ul>
+        {% if data['line-mgmt'] === "Yes" %}
+        <h2 class="govuk-heading-l" >Interview</h2>
+        <ul class="govuk-list">
+          {% if data['line-mgmt'] == "Yes" %}
+          <li><p class="govuk-body-m"><strong>For a role with line management responsibilities:</strong><br>We recommend assessing the behaviour <strong>Leadership</strong> at interview.</p></li>
+          {% endif %}
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

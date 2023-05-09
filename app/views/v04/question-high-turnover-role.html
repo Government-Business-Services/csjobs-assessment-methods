@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+
+{% block pageTitle %}
+Question 6 high turnover role – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% if data['checked'] == "turnover" %}
+{% set destination = "check-answers" %}
+{% else %}
+{% set destination = "question-line-management" %}
+{% endif %}
+
+<form class="form" action="{{ destination }}" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+
+      <h1 class="govuk-heading-l">Job details</h1>
+    <span class="govuk-caption-m govuk-!-margin-bottom-3">Question 6 of 7</span>
+
+
+
+        <div class="govuk-!-margin-bottom-6">
+
+          {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "turnover",
+            name: "turnover",
+            fieldset: {
+              legend: {
+                text: "Are you recruiting for a role with high turnover?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("turnover","Yes")
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("turnover","No")
+            },
+            {
+              value: "I don't know",
+              text: "I don't know",
+              checked: checked("turnover","I don't know")
+            }
+            ]
+          }) }}
+        </div>
+
+
+
+
+      <div  class="govuk-!-margin-top-9 govuk-!-margin-bottom-3">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </div>
+      </div>
+      </div>
+    </form>
+
+    {% endblock %}

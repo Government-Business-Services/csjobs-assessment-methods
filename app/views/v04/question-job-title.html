@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+
+{% block pageTitle %}
+Question 1 job title – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% if data['checked'] == "title" %}
+{% set destination = "check-answers" %}
+{% else %}
+{% set destination = "question-field" %}
+{% endif %}
+
+<form class="form" action="{{ destination }}" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-l">Job details</h1>
+    <span class="govuk-caption-m govuk-!-margin-bottom-3">Question 1 of 7</span>
+
+
+      <p class="govuk-body-m">Fill in details about the job role you are recruiting for. We will be able to give recommendations for what you could assess at sift and interview.</p>
+
+        <div class="govuk-!-margin-bottom-6">
+
+          <div class="govuk-form-group govuk-input--width-30" value="var tempValue">
+            <label for="autocomplete-default"  class="govuk-label--m">Job title</label>
+            <div id="jobtitle" class="example autocomplete-wrapper"></div>
+          </div>
+
+        </div>
+
+
+
+
+      <div  class="govuk-!-margin-top-9 govuk-!-margin-bottom-3">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </div>
+      </div>
+      </div>
+    </form>
+
+    <script src="/public/javascripts/temp-copy.js"></script>
+    <script src="/public/javascripts/temp.js"></script>
+
+
+
+<script>
+
+  const node = document.getElementById("jobtitle")
+  if (node.type = "input"){
+  console.log(node)
+  }
+
+  // const nodeList = document.querySelectorAll(".example");
+  // for (let i = 0; i < nodeList.length; i++) {
+  //   nodeList[i].style.innerHTML("Hello there");
+  // }
+
+
+</script>
+
+    {% endblock %}

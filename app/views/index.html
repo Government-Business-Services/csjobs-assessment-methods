@@ -14,7 +14,7 @@
   tag: {
     text: "beta"
   },
-  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  html: 'This is a new service – your <a id="top" class="govuk-link" href="#">feedback</a> will help us to improve it.'
 
 }) }}
 {% endblock %}
@@ -22,6 +22,8 @@
 
 
 {% block content %}
+
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
@@ -45,23 +47,23 @@
     {% endset -%}
 
     {% set current %}
-    <strong style="font-size:14px" class="govuk-tag govuk-tag--">
-      in—production
+    <strong style="font-size:22px;float:right" class="govuk-tag govuk-tag--">
+      development
     </strong>
 
-    <h2 class="govuk-heading-l govuk-!-margin-top-3"><a href="/v03/pick-criteria-type">v.03</a></h2>
+    <h2 class="govuk-heading-l govuk-!-margin-top-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/start">v.04</a></h2>
 
     <div style="">
       {{ govukButton({
         classes: "govuk-!-margin-top-3",
-        href:"/v03/pick-criteria-type",
+        href:"/v04/start",
         text: "Launch prototype"
       }) }}
     </div>
 
 
 
-    <p class="govuk-body-m govuk-!-margin-top-6">.</p>
+    <p class="govuk-body-m govuk-!-margin-top-6">An experiment designed to test a simple model of recommending specific assessment methods based on a vacancy holder's answers to key questions.</p>
 
       {% endset -%}
 
@@ -88,23 +90,29 @@
 
 
         <tbody class="govuk-table__body">
-
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell "><strong><a href="/v03/pick-criteria-type">v.03</a></strong></td>
+            <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/start">v.04</a></strong></td>
+            <td class="govuk-table__cell ">In development</td>
+            <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--">
+              development
+            </strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v03/pick-criteria-type">v.03</a></strong></td>
             <td class="govuk-table__cell ">24-25 April 2023</td>
             <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--green">
               tested
             </strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell "><strong><a href="/v02/what-essential-criteria-do-you-want">v.02—Cristina's concept</a></strong></td>
+            <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v02/what-essential-criteria-do-you-want">v.02—Cristina's concept</a></strong></td>
             <td class="govuk-table__cell ">06-11 April 2023</td>
             <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--green">
               tested
             </strong></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell "><strong><a href="/v01/start">v.01—Mark's model</a></strong></td>
+            <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v01/start">v.01—Mark's model</a></strong></td>
             <td class="govuk-table__cell ">24-27 March 2023</td>
             <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--green">
               tested
@@ -118,83 +126,135 @@
       {% set notes %}
 
 
-<div class="govuk-!-margin-top-3 govuk-!-margin-bottom-3"  style="display:none;background: #f3f2f1;border:1px solid #bdbdbd;padding:10px">
-  jump to links.
+<div class="govuk-!-margin-top-3 govuk-!-margin-bottom-3"  style="background:#f3f2f1;border:1px solid #1d70b8;padding:10px">
+
+  <ul class="govuk-list" style="font-size:18px;display: inline;">
+    <li style="text-align: left;display: inline;padding-right:30px">Jump to:</li>
+    <li style="text-align: left;display: inline;padding-right:30px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v04"><strong>v.04</a></li>
+    <li style="text-align: left;display: inline;padding-right:30px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v03"><strong>v.03</strong></a></li>
+    <li style="text-align: left;display: inline;padding-right:30px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v02"><strong>v.02</strong></a></li>
+    <li style="text-align: left;display: inline;padding-right:30px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v01"><strong>v.01</strong></a></li>
+  </ul>
   </div>
 
-  <div style="border:1px solid #bdbdbd;padding:30px">
+  <div class="govuk-!-margin-bottom-6" style="border:1px solid #1d70b8;padding:30px">
 
-    <span style="float:right" class="govuk-caption-m">April-May 2023</span>
-    <h2 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-6"><a href="/v03/pick-criteria-type">v.03</a></h2>
 
+    <h2 id="v04" style="" class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/start">v.04</a></h2>
+<span  class="govuk-caption-m govuk-!-margin-bottom-6">May 2023</span>
 
 
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-three-quarters" style="border-right:1px solid #bdbdbd">
-        <h3 class="govuk-heading-m">Design questions</h3>
+      <div class="govuk-grid-column-three-quarters" style="border-right:1px solid #1d70b8">
+        <h3 class="govuk-heading-m">Hypotheses</h3>
 
-        <h3 class="govuk-heading-s" style="text-decoration: underline">Would blah blah  </h3>
+        <!-- <h3 class="govuk-heading-s" style="text-decoration: underline">Would blah blah  </h3> -->
 
         <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Cras mattis iudicium purus sit amet fermentum. Praeterea iter est quasdam res quas ex communi.
           Pellentesque habitant morbi tristique senectus et netus. Idque Caesaris facere voluntate liceret: sese habere. Tu quoque, Brute, fili mi, nihil timor populi, nihil! At nos hinc posthac, sitientis piros Afros. Hi omnes lingua, institutis, legibus inter se differunt.</p>
 
-          <h3 class="govuk-heading-s">What we tried</h3>
+        <h3 class="govuk-heading-m">Method</h3>
           <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae.</p>
-          <h3 class="govuk-heading-s">What we found</h3>
+        <h3 class="govuk-heading-m">Results</h3>
           <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+<h3 class="govuk-heading-m">Decisions</h3>
+<p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
 
         </div>
         <div class="govuk-grid-column-one-quarter">
-          <h3 class="govuk-heading-s">Differences</h3>
+          <!-- <h3 class="govuk-heading-s">Differences</h3>
           <ul class="govuk-list govuk-list--bullet">
             <li>Diff 1</li>
             <li>Diff 1</li>
             <li>Diff 1</li>
-          </ul>
-          <h3 class="govuk-heading-s">Assets</h3>
-
+          </ul> -->
+          <!-- <h3 class="govuk-heading-m">Assets</h3>
           <ul class="govuk-list">
-            <li><a class="govuk-link" href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1678651584974/02e1ee560166d60550bb2f2321bdb10254af5092?wid=0-1678816021622">Concept Mural</a></li>
-            <li><a class="govuk-link" href="#">Testing Mural</a></li>
-
-          </ul>
+            <li><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">Results</a></li>
+            <li><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">Testing Mural</a></li>
+            <li><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">Concept Mural</a></li>
+          </ul> -->
 
 
 
         </div>
       </div>
     </div>
-      <div style="border:1px solid #bdbdbd;padding:30px">
 
-        <span class="govuk-caption-m">April 2023</span>
-        <h2 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-6">v.02—Cristina's concept</h2>
+  <div id="v03" class="govuk-!-margin-bottom-6" style="border:1px solid #1d70b8;padding:30px">
+
+
+    <h2 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v03/pick-criteria-type">v.03</a></h2>
+<span  class="govuk-caption-m govuk-!-margin-bottom-6">April-May 2023</span>
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters" style="border-right:1px solid #1d70b8">
+        <h3 class="govuk-heading-m">Hypotheses</h3>
+
+        <!-- <h3 class="govuk-heading-s" style="text-decoration: underline">Would blah blah  </h3> -->
+
+        <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Cras mattis iudicium purus sit amet fermentum. Praeterea iter est quasdam res quas ex communi.
+          Pellentesque habitant morbi tristique senectus et netus. Idque Caesaris facere voluntate liceret: sese habere. Tu quoque, Brute, fili mi, nihil timor populi, nihil! At nos hinc posthac, sitientis piros Afros. Hi omnes lingua, institutis, legibus inter se differunt.</p>
+
+        <h3 class="govuk-heading-m">Method</h3>
+          <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae.</p>
+        <h3 class="govuk-heading-m">Results</h3>
+          <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+<h3 class="govuk-heading-m">Decisions</h3>
+<p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+          <!-- <h3 class="govuk-heading-s">Differences</h3>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Diff 1</li>
+            <li>Diff 1</li>
+            <li>Diff 1</li>
+          </ul> -->
+          <!-- <h3 class="govuk-heading-m">Assets</h3>
+          <ul class="govuk-list">
+            <li><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">Results</a></li>
+            <li><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">Testing Mural</a></li>
+            <li><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">Concept Mural</a></li>
+          </ul> -->
+
+
+
+        </div>
+      </div>
+    </div>
+      <div id="v02" style="border:1px solid #1d70b8;padding:30px">
+
+        <h2 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v02/what-essential-criteria-do-you-want">v.02—Cristina's concept</a></h2>
+        <span  class="govuk-caption-m govuk-!-margin-bottom-6">April 2023</span>
 
 
 
         <div class="govuk-grid-row">
-          <div class="govuk-grid-column-three-quarters" style="border-right:1px solid #bdbdbd">
-            <h3 class="govuk-heading-m">Design questions</h3>
+          <div class="govuk-grid-column-three-quarters" style="border-right:1px solid #1d70b8">
+            <h3 class="govuk-heading-m">Hypotheses</h3>
 
-            <h3 class="govuk-heading-s" style="text-decoration: underline">Would blah blah  </h3>
+            <!-- <h3 class="govuk-heading-s" style="text-decoration: underline">Would blah blah  </h3> -->
 
             <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Cras mattis iudicium purus sit amet fermentum. Praeterea iter est quasdam res quas ex communi.
               Pellentesque habitant morbi tristique senectus et netus. Idque Caesaris facere voluntate liceret: sese habere. Tu quoque, Brute, fili mi, nihil timor populi, nihil! At nos hinc posthac, sitientis piros Afros. Hi omnes lingua, institutis, legibus inter se differunt.</p>
 
-              <h3 class="govuk-heading-s">What we tried</h3>
+            <h3 class="govuk-heading-m">Method</h3>
               <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae.</p>
-              <h3 class="govuk-heading-s">What we found</h3>
+            <h3 class="govuk-heading-m">Results</h3>
               <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+    <h3 class="govuk-heading-m">Decisions</h3>
+    <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
 
             </div>
             <div class="govuk-grid-column-one-quarter">
-              <h3 class="govuk-heading-s">Assets</h3>
-
+              <!-- <h3 class="govuk-heading-m">Assets</h3>
               <ul class="govuk-list">
-                <li><p class="govuk-body-m"><a class="govuk-link" href="#">Launch prototype</a></p></li>
-                <li><p class="govuk-body-m"><a class="govuk-link" href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1678651584974/02e1ee560166d60550bb2f2321bdb10254af5092?wid=0-1678816021622">Concept Mural</a></p></li>
-                <li><p class="govuk-body-m"><a class="govuk-link" href="#">Testing Mural</a></p></li>
-
-              </ul>
+                <li><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">Results</a></li>
+                <li><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">Testing Mural</a></li>
+                <li><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">Concept Mural</a></li>
+              </ul> -->
 
 
 
@@ -202,36 +262,36 @@
           </div>
         </div>
 
-        <div class="govuk-!-margin-top-6" style="border:1px solid #bdbdbd;padding:30px">
+        <div id="v01" class="govuk-!-margin-top-6" style="border:1px solid #1d70b8;padding:30px">
 
-            <span class="govuk-caption-m">March 2023</span>
-            <h2 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-6">v.01—Mark's model</h2>
+            <h2 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v01/start">v.01—Mark's model</a></h2>
+            <span  class="govuk-caption-m govuk-!-margin-bottom-6">March 2023</span>
 
 
             <div class="govuk-grid-row">
-              <div class="govuk-grid-column-three-quarters" style="border-right:1px solid #bdbdbd">
-                <h3 class="govuk-heading-m">Design questions</h3>
+              <div class="govuk-grid-column-three-quarters" style="border-right:1px solid #1d70b8">
+                <h3 class="govuk-heading-m">Hypotheses</h3>
 
-                <h3 class="govuk-heading-s" style="text-decoration: underline">Would blah blah  </h3>
+                <!-- <h3 class="govuk-heading-s" style="text-decoration: underline">Would blah blah  </h3> -->
 
                 <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Cras mattis iudicium purus sit amet fermentum. Praeterea iter est quasdam res quas ex communi.
                   Pellentesque habitant morbi tristique senectus et netus. Idque Caesaris facere voluntate liceret: sese habere. Tu quoque, Brute, fili mi, nihil timor populi, nihil! At nos hinc posthac, sitientis piros Afros. Hi omnes lingua, institutis, legibus inter se differunt.</p>
 
-                  <h3 class="govuk-heading-s">What we tried</h3>
-                  <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae.</p>
-                  <h3 class="govuk-heading-s">What we found</h3>
+                <h3 class="govuk-heading-m">Method</h3>
+                  <p class="govuk-body-m">The concept Quisque placerat facilisis egestas cillum dolore. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae.</p>
+                <h3 class="govuk-heading-m">Results</h3>
                   <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+        <h3 class="govuk-heading-m">Decisions</h3>
+        <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
 
                 </div>
                 <div class="govuk-grid-column-one-quarter">
-                  <h3 class="govuk-heading-s">Assets</h3>
-
+                  <!-- <h3 class="govuk-heading-m">Assets</h3>
                   <ul class="govuk-list">
-                    <li><p class="govuk-body-m"><a class="govuk-link" href="#">Launch prototype</a></p></li>
-                    <li><p class="govuk-body-m"><a class="govuk-link" href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1678651584974/02e1ee560166d60550bb2f2321bdb10254af5092?wid=0-1678652630615">Concept Mural</a></p></li>
-                    <li><p class="govuk-body-m"><a class="govuk-link" href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1679588279182/6484ca94573865c67b5583e9eaa1254ce1a6ede2?sender=u9d7a8583663a3236872e1924">Testing Mural</a></p></li>
-
-                  </ul>
+                    <li><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">Results</a></li>
+                    <li><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">Testing Mural</a></li>
+                    <li><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">Concept Mural</a></li>
+                  </ul> -->
 
 
                 </div>
@@ -254,10 +314,8 @@
 
 
               {% set backstory %}
-
-              <p class="govuk-body-m">Prima luce, cum quibus mons aliud consensu ab eo. Mercedem aut nummos unde unde extricat, amaras. Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Quae vero auctorem tractata ab fiducia dicuntur. Paullum deliquit, ponderibus modulisque suis ratio utitur.
-At nos hinc posthac, sitientis piros Afros. Hi omnes lingua, institutis, legibus inter se differunt. Tu quoque, Brute, fili mi, nihil timor populi, nihil! Non equidem invideo, miror magis posuere velit aliquet. Plura mihi bona sunt, inclinet, amari petere vellent. A communi observantia non est recedendum.
-Pellentesque habitant morbi tristique senectus et netus. Fictum, deserunt mollit anim laborum astutumque! Excepteur sint obcaecat cupiditat non proident culpa.</p>
+<h3 class="govuk-heading-m">Overarching hypothesis</h3>
+              <p class="govuk-body-m">Whichever way you look at it, the choice of selection criteria and assessment methods is indelibly connected with all aspects of Civil Service recruitment, end to end and front to back.  Given this, we shouldn’t be surprised to learn how far reaching its impact is felt. Take, for example,  the job library concept and job templates, or how reserve list matching works, or,  possibly most significantly, the flavour of journey and experience offered to candidates if they wish to join the service.</p>
 
               {% endset -%}
 

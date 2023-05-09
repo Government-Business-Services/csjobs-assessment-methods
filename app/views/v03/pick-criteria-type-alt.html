@@ -16,6 +16,7 @@ What essential criteria do you want – {{ serviceName }} – GOV.UK Prototype K
 
 {% block content %}
 
+
 {% set choices = [
 ['Behaviours','Behaviours are the actions and activities that people do which result in effective performance in a job. Behaviours are best for assessing the core transferable skills and behavioural styles. Candidates can provide examples from work or home contexts. You can assess behaviours at the sift stage with a personal statement, written examples and online tests. At the interview, you can assess behaviours by presentation and assessment exercises.'],
 ['Experience','The knowledge or mastery of an activity or subject gained through involvement in or exposure to it. Experience element is best used for assessing contextual knowledge or applied skills required for performing well in a job role. You can assess experience at sift with a personal statement, CV and Basic Knowledge online test and at interview you can assess by interview questions and a presentation.'],
@@ -42,7 +43,49 @@ What essential criteria do you want – {{ serviceName }} – GOV.UK Prototype K
 
         <p class="govuk-body-m">If you would like to learn more about how to assess candidates, you can sign up for <a href="#">Success Profile training</a>.</p>
 
+        <div style="border:3px solid #B11B83; height:210px; width:50%;padding:20px">
+          {{ govukCheckboxes({
+            name: "pick-elements",
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Behaviours",
+                text: "Strengths"
+              }
+            ]
+          }) }}
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                How to use strengths
+              </span>
+            </summary>
+            <div class="govuk-details__text">Curabitur blandit tempus ardua ridiculus sed magna. Donec sed odio operae, eu vulputate felis rhoncus. Curabitur est gravida et libero vitae dictum. Contra legem facit qui id facit quod lex prohibet. Hi omnes lingua, institutis, legibus inter se differunt.
+            </div>
+          </details>
+          <p class="govuk-body-m">
+
+        </div>
+
+
+
+
+
+
+
+
+
+
         {% for choice, description in choices %}
+
+
+
 
         {{ govukCheckboxes({
           name: "selected",

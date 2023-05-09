@@ -1,0 +1,132 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">
+      Check your answers
+    </h1>
+
+
+
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          Job title
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["temp-copy-input-autocomplete"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="question-job-title-stuntdouble">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          What field is the job role in?
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["field"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="question-field?checked=field">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          What grade is the job role?
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["grade-select"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="question-grade?checked=grade">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          Number of roles?
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["num-roles"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="question-number-roles?checked=number">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          Will this role be popular?
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["popular"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="question-popular-role?checked=popular">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          Are you recruiting for a role with high turnover?
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["turnover"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="question-high-turnover-role?checked=turnover">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" style="width:40%">
+          Will this role include line management responsibilities?
+        </dt>
+        <dd class="govuk-summary-list__value" style="width:35%">
+          {{ data["line-mgmt"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions"  style="width:15%">
+          <a class="govuk-link" href="question-line-management?checked=line">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+
+  <form action="recommendations" method="post" novalidate>
+
+    {{ govukButton({
+      text: "Accept and submit"
+    }) }}
+
+  </form>
+
+</div>
+</div>
+{% endblock %}

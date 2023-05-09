@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">Choosing how to assess candidates</h1>
+      </div>
+    <div class="govuk-grid-column-three-quarters">
+
+
+      <p class="govuk-body-m" >Use the job role description to create a 'success profile'. The Success Profile framework breaks down characteristics into 5 elements to help you find the right candidate for your job role.</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Behaviours</li>
+        <li>Experience</li>
+        <li>Technical skills</li>
+        <li>Strengths</li>
+        <li>Abilities</li>
+      </ul>
+
+      <p class="govuk-body-m">When selecting your assessment methods you will be given recommendations for what to include depending on the:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>requirements related to the role</li>
+        <li>how many candidates could potentially apply for this role</li>
+      </ul>
+
+      <p class="govuk-body-m">These recommendations are a result of:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>consulting with Occupational Psychologists</li>
+        <li>analysis of previous job vacancies</li>
+      </ul>
+
+      <p class="govuk-body-m">When choosing your assessment methods, you should:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>make sure the criteria is essential and relevant to the role</li>
+        <li>define the criteria carefully to avoid confusion</li>
+        <li>design a scoring criteria so that assessment is objective, consistent and fair</li>
+      </ul>
+
+      <p class="govuk-body-m">You will create a 'success profile' for your job role using the 5 elements to assess the job role's requirements.</p>
+      <p class="govuk-body-m">Each element can be assessed in a number of ways to suit the nature of the vacancy and used at any stage of the assessment process. Not all of the elements are relevant to every role, amd will vary depending on the profession, level and type of role. Vacancy holders can decide what elements are most important to assess based on the job role requirements.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "questions-all",
+        isStartButton: true
+      }) }}
+
+      <p class="govuk-body-m">If you would like to learn more about how to assess candidates, you can <a href="#">sign up for Success Profiles training</a>.</p>
+
+
+
+    </div>
+
+  </div>
+
+{% endblock %}

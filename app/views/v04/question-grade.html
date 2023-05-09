@@ -1,0 +1,103 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+
+{% block pageTitle %}
+Question 3 grade – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+{% if data['checked'] == "grade" %}
+{% set destination = "check-answers" %}
+{% else %}
+{% set destination = "question-number-roles" %}
+{% endif %}
+
+<form class="form" action="{{ destination }}" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+
+      <h1 class="govuk-heading-l">Job details</h1>
+    <span class="govuk-caption-m govuk-!-margin-bottom-3">Question 3 of 7</span>
+
+
+
+        <div class="govuk-!-margin-bottom-6">
+          {{ govukSelect({
+            id: "grade-select",
+            name: "grade-select",
+            label: {
+              text: "What grade is the job role?",
+              classes: "govuk-label--m"
+            },
+            items: [
+            {
+              value: "none",
+              text: "Select from the list"
+            },
+
+            {
+              value: "Administrative Assistant",
+              text: "Administrative Assistant",
+              selected: checked("grade-select","Administrative Assistant")
+            },
+            {
+              value: "Administrative Officer",
+              text: "Administrative Officer",
+              selected: checked("grade-select","Administrative Officer")
+            },
+            {
+              value: "Executive Officer",
+              text: "Executive Officer",
+              selected: checked("grade-select","Executive Officer")
+            },
+            {
+              value: "Higher Executive Officer",
+              text: "Higher Executive Officer",
+              selected: checked("grade-select","Higher Executive Officer")
+            },
+            {
+              value: "Senior Executive Officer",
+              text: "Senior Executive Officer",
+              selected: checked("grade-select","Senior Executive Officer")
+            },
+            {
+              value: "Grade 7",
+              text: "Grade 7",
+              selected: checked("grade-select","Grade 7")
+            },
+            {
+              value: "Grade 6",
+              text: "Grade 6",
+              selected: checked("grade-select","Grade 6")
+            }
+            ]
+          }) }}
+
+        </div>
+
+
+
+
+      <div  class="govuk-!-margin-top-9 govuk-!-margin-bottom-3">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </div>
+      </div>
+      </div>
+    </form>
+
+    {% endblock %}
