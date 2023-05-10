@@ -17,6 +17,9 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
+
+
+
 <form class="form" action="questions-all-prefilled" method="post">
 
   <div class="govuk-grid-row">
@@ -44,7 +47,7 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
           id: "ffdield",
           name: "ffdield",
           label: {
-            text: "What field is the job role in?",
+            text: "Select profession",
             classes: "govuk-label--m"
           },
           items: [
@@ -196,7 +199,7 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
           id: "gradet",
           name: "gradet",
           label: {
-            text: "What grade is the job role?",
+            text: "Select grade",
             classes: "govuk-label--m"
           },
           items: [
@@ -258,6 +261,8 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
 
 
+
+
       <div id="popular" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
         {{ govukRadios({
           classes: "govuk-radios--inline",
@@ -272,6 +277,7 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
           },
           items: [
           {
+            id: "popTrigger",
             value: "Yes",
             text: "Yes",
             checked: checked("popular","Yes")
@@ -288,6 +294,41 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
           }
           ]
         }) }}
+
+        <div id="conditional" style="display:none;padding-top:30px;padding-bottom:10px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+              {{ govukRadios({
+                classes: "govuk-radios--inline",
+                idPrefix: "pop2",
+                name: "pop2",
+                fieldset: {
+                  legend: {
+                    text: "Would you like the option to include an additional automated assessment if the number of applicants are higher than you're able to assess manually?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                items: [
+                {
+                  value: "Yes",
+                  text: "Yes",
+                  checked: checked("pop2","Yes")
+                },
+                {
+                  value: "No",
+                  text: "No",
+                  checked: checked("pop2","No")
+                },
+                {
+                  value: "I don't know",
+                  text: "I don't know",
+                  checked: checked("pop2","I don't know")
+                }
+                ]
+              }) }}
+            </div>
+
+
+
       </div>
       <div id="turnover" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
 
@@ -365,5 +406,29 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
 
     <script src="/public/javascripts/temp-copy.js"></script>
     <script src="/public/javascripts/temp.js"></script>
+
+<script>
+           const extra = document.getElementById('popTrigger');
+           var divv = document.getElementById('conditional').style.display;
+           extra.addEventListener('change', (event) => {
+            if (extra.checked) {
+              console.log(extra.value)
+              showDiv("conditional");
+            }
+
+           });
+
+           function showDiv(div1) {
+             document.getElementById(div1).style.display = 'block';
+
+             }
+
+             function hideDiv(div1) {
+               document.getElementById(div1).style.display = 'none';
+
+               }
+
+
+</script>
 
     {% endblock %}
