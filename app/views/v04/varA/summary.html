@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Use a template – Civil service jobs – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <span class="govuk-caption-xl">Summary</span>
+    <h1 class="govuk-heading-xl">Finalise and submit</h1>
+
+    <h2 class="govuk-heading-m">Panel</h2>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Panel selected for sift and interview?</dt>
+        <dd class="govuk-summary-list__value">{{ data['panel-selected']}}</dd>
+        <dd class="govuk-summary-list__actions"><a href="interviews?edit25=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Same panel for sift and interview?</dt>
+        <dd class="govuk-summary-list__value">{{ data['panel-sift-int']}}</dd>
+        <dd class="govuk-summary-list__actions"><a href="interviews?edit25=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Email addresses of panelists</dt>
+        <dd class="govuk-summary-list__value">{{ data['panelist1']}}<br>{{ data['panelist2']}}<br>{{ data['panelist3']}}</dd>
+        <dd class="govuk-summary-list__actions"><a href="interviews?edit25=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+      </div>
+    </dl>
+
+    <h2 class="govuk-heading-m">Campaign dates</h2>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Preferred launch (TBC)</dt>
+        <dd class="govuk-summary-list__value">{{ data['day']}}/{{ data['month']}}/{{ data['year']}}</dd>
+        <dd class="govuk-summary-list__actions"><a href="campaign-dates?edit26=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Duration</dt>
+        <dd class="govuk-summary-list__value">{{ data['advert-time']}}</dd>
+        <dd class="govuk-summary-list__actions"><a href="campaign-dates?edit26=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+      </div>
+    </dl>
+    <h2 class="govuk-heading-m">Share with internal reviewers</h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-30">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Share with reviewer</dt>
+        <dd class="govuk-summary-list__value">{{ data['reviewer']}}</dd>
+        <dd class="govuk-summary-list__actions"><a href="pre-submit-reviewer?edit27=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+      </div>
+    </dl>
+
+    <span class="govuk-caption-l">Are you ready to submit?</span>
+    <h2 class="govuk-heading-l">What happens next</h2>
+    <p>Non equidem invideo, miror magis posuere velit aliquet. Fictum, deserunt mollit anim laborum astutumque! Ab illo tempore, ab est sed immemorabili. Sed haec quis possit intrepidus aestimare tellus.
+    </p>
+    <form action="confirmation" method="post" novalidate>
+      <input type="hidden" name="summary6" value="true">
+      <input type="hidden" name="submitted" value="true">
+      <button type="submit" class="govuk-button" data-module="govuk-button">Submit for approval</button>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

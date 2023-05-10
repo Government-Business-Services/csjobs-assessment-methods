@@ -1,0 +1,196 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Use a template – Civil service jobs – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <span class="govuk-caption-xl">Summary</span>
+    <h1 class="govuk-heading-xl">Sifting and selection methods</h1>
+
+    <h2 class="govuk-heading-l">At Sift</h2>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Sift methods</dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['howsift']|length > 0 %}
+          {% for items in data['howsift'] | slice(1) %}
+          <ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+            {% for item in items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endfor %}
+          {% else %}
+          {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions"><a href="how-sift?edit13=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Essential criteria</dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['selsiftexp']|length > 0 %}
+            {% for items in data['selsiftexp'] | slice(1) %}
+            <ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+              {% for item in items %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+            {% endfor %}
+          {% else %}
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions"><a href="experience?edit15=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Technical skills and qualifications</dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['selsiftskills']|length > 0 %}
+          {% for items in data['selsiftskills'] | slice(1) %}
+          <ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+            {% for item in items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endfor %}
+          {% else %}
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions"><a href="technical?edit16=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+      </div>
+
+      {% if data['siftbehaviours'].length >= 1 %}
+      {% include 'includes/siftbeh.html' %}
+      {% else %}
+      {% endif %}
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Online tests</dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['tests']|length > 0 %}
+          {% for items in data['tests'] | slice(1) %}
+          <ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+            {% for item in items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endfor %}
+          {% else %}
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions"><a href="online-tests?edit17=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+      </div>
+    </dl>
+
+
+    <h2 class="govuk-heading-l">At Interview</h2>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Interview method</dt>
+        <dd class="govuk-summary-list__value">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>{{ data['interview-assessments']}}</li>
+            </ul>
+              {% if data['what-assessments']|length > 0 %}
+              {% for items in data['what-assessments'] | slice(1) %}
+          <ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+            {% for item in items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endfor %}
+          {% else %}
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions"><a href="interview-evidence?edit14=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Essential criteria</dt>
+        <dd class="govuk-summary-list__value">
+            {% if data['selinterviewexp']|length > 0 %}
+          {% for items in data['selinterviewexp'] | slice(1) %}
+          <ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+            {% for item in items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endfor %}
+          {% else %}
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions"><a href="experience?edit15=true">Change<span class="govuk-visually-hidden"> job title</span></a></dd>
+      </div>
+
+      {% if data['selinterviewskills'].length >= 1 %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Technical skills and qualifications</dt>
+        <dd class="govuk-summary-list__value">
+          {% for items in data['selinterviewskills'] | slice(1) %}
+          <ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+            {% for item in items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endfor %}
+        </dd>
+        <dd class="govuk-summary-list__actions"><a href="technical?edit16=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+      </div>
+      {% else %}
+      {% endif %}
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Behaviours</dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['interviewbehaviours'].length >= 1 %}
+          {% for items in data['interviewbehaviours'] | slice(1) %}
+          <ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+            {% for item in items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endfor %}
+          {% else %}
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions"><a href="sift-or-interview?edit19=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Stengths</dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['strengths'].length >= 1 %}
+          {% for items in data['strengths'] | slice(1) %}
+          <ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+            {% for item in items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% endfor %}
+          {% else %}
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions"><a href="strengths-change?edit20=true">Change<span class="govuk-visually-hidden"> grade</span></a></dd>
+      </div>
+    </dl>
+  </div>
+</div>
+<span class="govuk-caption-l">Next section</span>
+<h2 class="govuk-heading-l">Recruitment channels</h2>
+<form action="approach" method="post" novalidate>
+  <input type="hidden" name="summary4" value="true">
+  <button type="submit" class="govuk-button" data-module="govuk-button">Continue</button>
+</form>
+
+
+{% endblock %}

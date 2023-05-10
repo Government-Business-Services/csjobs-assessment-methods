@@ -1,0 +1,369 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+
+{% block pageTitle %}
+Questions all – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="questions-all-prefilled" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">Job details</h1>
+
+      <p class="govuk-body-m">Fill in details about the job role you are recruiting for. We will be able to give recommendations for what you could assess at sift and interview.</p>
+
+
+      <div id="title" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1">
+
+
+        <div class="govuk-!-margin-bottom-6">
+          <div class="govuk-form-group govuk-input--width-30">
+            <label for="autocomplete-default" class="govuk-label--m">Job title</label>
+            <div id="jobtitle" class="autocomplete-wrapper"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="field" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+        {{ govukSelect({
+          id: "field",
+          name: "field",
+          label: {
+            text: "What field is the job role in?",
+            classes: "govuk-label--m"
+          },
+          items: [
+          {
+            value: "none",
+            text: "Select from the list"
+          },
+          {
+            value: "Analysis",
+            text: "Analysis",
+            selected: checked("field","Analysis")
+          },
+          {
+            value: "Commercial and Procurement",
+            text: "Commercial and Procurement",
+            selected: checked("field","Commercial and Procurement")
+          },
+          {
+            value: "Corporate Finance",
+            text: "Corporate Finance",
+            selected: checked("field","Corporate Finance")
+          },
+          {
+            value: "Communications",
+            text: "Communications",
+            selected: checked("field","Communications")
+          },
+          {
+            value: "Counter Fraud",
+            text: "Counter Fraud",
+            selected: checked("field","Counter Fraud")
+          },
+          {
+            value: "Digital, Data and Technology",
+            text: "Digital, Data and Technology",
+            selected: checked("field","Digital, Data and Technology")
+          },
+          {
+            value: "Government Economic Service",
+            text: "Government Economic Service",
+            selected: checked("field","Government Economic Service")
+          },
+          {
+            value: "Government Social Research",
+            text: "Government Social Research",
+            selected: checked("field","Government Social Research")
+          },
+          {
+            value: "Finance",
+            text: "Finance",
+            selected: checked("field","Finance")
+          },
+          {
+            value: "Human Resources",
+            text: "Human Resources",
+            selected: checked("field","Human Resources")
+          },
+          {
+            value: "Intelligence Analysis",
+            text: "Intelligence Analysis",
+            selected: checked("field","Intelligence Analysis")
+          },
+          {
+            value: "Internal Audit",
+            text: "Internal Audit",
+            selected: checked("field","Internal Audit")
+          },
+          {
+            value: "International Trade and Negotiation",
+            text: "International Trade and Negotiation",
+            selected: checked("field","International Trade and Negotiation")
+          },
+          {
+            value: "Knowledge &amp; Information Management",
+            text: "Knowledge &amp; Information Management",
+            selected: checked("field","Knowledge &amp; Information Management")
+          },
+          {
+            value: "Legal",
+            text: "Legal",
+            selected: checked("field","Legal")
+          },
+          {
+            value: "Medical",
+            text: "Medical",
+            selected: checked("field","Medical")
+          },
+          {
+            value: "Occupational Psychology",
+            text: "Occupational Psychology",
+            selected: checked("field","Occupational Psychology")
+          },
+          {
+            value: "Operational Delivery",
+            text: "Operational Delivery",
+            selected: checked("field","Operational Delivery")
+          },
+          {
+            value: "Operational Research",
+            text: "Operational Research",
+            selected: checked("field","Operational Research")
+          },
+          {
+            value: "Policy",
+            text: "Policy",
+            selected: checked("field","Policy")
+          },
+          {
+            value: "Project Management and Delivery",
+            text: "Project Management and Delivery",
+            selected: checked("field","Project Management and Delivery")
+          },
+          {
+            value: "Property",
+            text: "Property",
+            selected: checked("field","Property")
+          },
+          {
+            value: "Science and Engineering",
+            text: "Science and Engineering",
+            selected: checked("field","Science and Engineering")
+          },
+          {
+            value: "Security",
+            text: "Security",
+            selected: checked("field","Security")
+          },
+          {
+            value: "Tax",
+            text: "Tax",
+            selected: checked("field","Tax")
+          },
+          {
+            value: "Veterinary",
+            text: "Veterinary",
+            selected: checked("field","Veterinary")
+          },
+          {
+            value: "Other",
+            text: "Other",
+            selected: checked("field","Other")
+          }
+          ]
+        }) }}
+      </div>
+
+      <div id="grade" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+        {{ govukSelect({
+          id: "gradet",
+          name: "gradet",
+          label: {
+            text: "What grade is the job role?",
+            classes: "govuk-label--m"
+          },
+          items: [
+          {
+            value: "none",
+            text: "Select from the list"
+          },
+
+          {
+            value: "Administrative Assistant",
+            text: "Administrative Assistant",
+            selected: checked("gradet","Administrative Assistant")
+          },
+          {
+            value: "Administrative Officer",
+            text: "Administrative Officer",
+            selected: checked("gradet","Administrative Officer")
+          },
+          {
+            value: "Executive Officer",
+            text: "Executive Officer",
+            selected: checked("gradet","Executive Officer")
+          },
+          {
+            value: "Higher Executive Officer",
+            text: "Higher Executive Officer",
+            selected: checked("gradet","Higher Executive Officer")
+          },
+          {
+            value: "Senior Executive Officer",
+            text: "Senior Executive Officer",
+            selected: checked("gradet","Senior Executive Officer")
+          },
+          {
+            value: "Grade 7",
+            text: "Grade 7",
+            selected: checked("gradet","Grade 7")
+          },
+          {
+            value: "Grade 6",
+            text: "Grade 6",
+            selected: checked("gradet","Grade 6")
+          }
+          ]
+        }) }}
+      </div>
+
+      <div id="number" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+        {{ govukInput({
+          label: {
+            text: "Number of roles",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-input--width-3",
+          id: "num-roles",
+          value: data['num-roles'],
+          name: "num-roles"
+        }) }}
+      </div>
+
+
+      <div id="popular" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "popular",
+          name: "popular",
+          fieldset: {
+            legend: {
+              text: "Will this role be popular?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("popular","Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("popular","No")
+          },
+          {
+            value: "I don't know",
+            text: "I don't know",
+            checked: checked("popular","I don't know")
+          }
+          ]
+        }) }}
+      </div>
+      <div id="turnover" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "turnover",
+          name: "turnover",
+          fieldset: {
+            legend: {
+              text: "Are you recruiting for a role with high turnover?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("turnover","Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("turnover","No")
+          },
+          {
+            value: "I don't know",
+            text: "I don't know",
+            checked: checked("turnover","I don't know")
+          }
+          ]
+        }) }}
+
+      </div>
+      <div id="line" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "line-mgmt",
+          name: "line-mgmt",
+          fieldset: {
+            legend: {
+              text: "Will this role include line management responsibilities?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("line-mgmt","Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("line-mgmt","No")
+          },
+          {
+            value: "I don't know",
+            text: "I don't know",
+            checked: checked("line-mgmt","I don't know")
+          }
+          ]
+        }) }}
+      </div>
+
+      <div  class="govuk-!-margin-top-6 govuk-!-margin-bottom-3">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </div>
+    </form>
+
+    <script src="/public/javascripts/temp-copy.js"></script>
+    <script src="/public/javascripts/temp.js"></script>
+
+    {% endblock %}

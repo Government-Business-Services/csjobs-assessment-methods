@@ -17,7 +17,7 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
-<form class="form" action="check-answers-all" method="post">
+<form class="form" action="check-answers-prefilled" method="post">
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
@@ -30,11 +30,14 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
       <div id="title" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1">
 
 
-        <div class="govuk-!-margin-bottom-6">
-          <div class="govuk-form-group govuk-input--width-30">
-            <label for="autocomplete-default" class="govuk-label--m">Job title</label>
-            <div id="jobtitle" class="autocomplete-wrapper"></div>
-          </div>
+        <div class="govuk-form-group">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="event-name">
+              Job title
+            </label>
+          </h2>
+          <input style="width:470px" class="govuk-input" id="event-name" name="event-name" type="text" value="Product manager">
+
 
         </div>
       </div>
@@ -54,138 +57,112 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
           },
           {
             value: "Analysis",
-            text: "Analysis",
-            selected: checked("field","Analysis")
+            text: "Analysis"
           },
           {
             value: "Commercial and Procurement",
-            text: "Commercial and Procurement",
-            selected: checked("field","Commercial and Procurement")
+            text: "Commercial and Procurement"
           },
           {
             value: "Corporate Finance",
-            text: "Corporate Finance",
-            selected: checked("field","Corporate Finance")
+            text: "Corporate Finance"
           },
           {
             value: "Communications",
-            text: "Communications",
-            selected: checked("field","Communications")
+            text: "Communications"
           },
           {
             value: "Counter Fraud",
-            text: "Counter Fraud",
-            selected: checked("field","Counter Fraud")
+            text: "Counter Fraud"
           },
           {
             value: "Digital, Data and Technology",
-            text: "Digital, Data and Technology",
-            selected: checked("field","Digital, Data and Technology")
+            text: "Digital, Data and Technology"
           },
           {
             value: "Government Economic Service",
-            text: "Government Economic Service",
-            selected: checked("field","Government Economic Service")
+            text: "Government Economic Service"
           },
           {
             value: "Government Social Research",
-            text: "Government Social Research",
-            selected: checked("field","Government Social Research")
+            text: "Government Social Research"
           },
           {
             value: "Finance",
-            text: "Finance",
-            selected: checked("field","Finance")
+            text: "Finance"
           },
           {
             value: "Human Resources",
-            text: "Human Resources",
-            selected: checked("field","Human Resources")
+            text: "Human Resources"
           },
           {
             value: "Intelligence Analysis",
-            text: "Intelligence Analysis",
-            selected: checked("field","Intelligence Analysis")
+            text: "Intelligence Analysis"
           },
           {
             value: "Internal Audit",
-            text: "Internal Audit",
-            selected: checked("field","Internal Audit")
+            text: "Internal Audit"
           },
           {
             value: "International Trade and Negotiation",
-            text: "International Trade and Negotiation",
-            selected: checked("field","International Trade and Negotiation")
+            text: "International Trade and Negotiation"
           },
           {
             value: "Knowledge &amp; Information Management",
-            text: "Knowledge &amp; Information Management",
-            selected: checked("field","Knowledge &amp; Information Management")
+            text: "Knowledge &amp; Information Management"
           },
           {
             value: "Legal",
-            text: "Legal",
-            selected: checked("field","Legal")
+            text: "Legal"
           },
           {
             value: "Medical",
-            text: "Medical",
-            selected: checked("field","Medical")
+            text: "Medical"
           },
           {
             value: "Occupational Psychology",
-            text: "Occupational Psychology",
-            selected: checked("field","Occupational Psychology")
+            text: "Occupational Psychology"
           },
           {
             value: "Operational Delivery",
-            text: "Operational Delivery",
-            selected: checked("field","Operational Delivery")
+            text: "Operational Delivery"
           },
           {
             value: "Operational Research",
-            text: "Operational Research",
-            selected: checked("field","Operational Research")
+            text: "Operational Research"
           },
           {
             value: "Policy",
-            text: "Policy",
-            selected: checked("field","Policy")
+            text: "Policy"
           },
           {
             value: "Project Management and Delivery",
             text: "Project Management and Delivery",
-            selected: checked("field","Project Management and Delivery")
+            selected: checked
           },
           {
             value: "Property",
-            text: "Property",
-            selected: checked("field","Property")
+            text: "Property"
           },
           {
             value: "Science and Engineering",
-            text: "Science and Engineering",
-            selected: checked("field","Science and Engineering")
+            text: "Science and Engineering"
           },
           {
             value: "Security",
-            text: "Security",
-            selected: checked("field","Security")
+            text: "Security"
           },
           {
             value: "Tax",
-            text: "Tax",
-            selected: checked("field","Tax")
+            text: "Tax"
           },
           {
             value: "Veterinary",
-            text: "Veterinary",
-            selected: checked("field","Veterinary")
+            text: "Veterinary"
           },
           {
             value: "Other",
-            text: "Other",
-            selected: checked("field","Other")
+            text: "Other"
           }
           ]
         }) }}
@@ -207,38 +184,32 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
 
           {
             value: "Administrative Assistant",
-            text: "Administrative Assistant",
-            selected: checked("grade-select","Administrative Assistant")
+            text: "Administrative Assistant"
           },
           {
             value: "Administrative Officer",
-            text: "Administrative Officer",
-            selected: checked("grade-select","Administrative Officer")
+            text: "Administrative Officer"
           },
           {
             value: "Executive Officer",
-            text: "Executive Officer",
-            selected: checked("grade-select","Executive Officer")
+            text: "Executive Officer"
           },
           {
             value: "Higher Executive Officer",
-            text: "Higher Executive Officer",
-            selected: checked("grade-select","Higher Executive Officer")
+            text: "Higher Executive Officer"
           },
           {
             value: "Senior Executive Officer",
             text: "Senior Executive Officer",
-            selected: checked("grade-select","Senior Executive Officer")
+            selected: checked
           },
           {
             value: "Grade 7",
-            text: "Grade 7",
-            selected: checked("grade-select","Grade 7")
+            text: "Grade 7"
           },
           {
             value: "Grade 6",
-            text: "Grade 6",
-            selected: checked("grade-select","Grade 6")
+            text: "Grade 6"
           }
           ]
         }) }}
@@ -252,7 +223,7 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
           },
           classes: "govuk-input--width-3",
           id: "num-roles",
-          value: data['num-roles'],
+          value: "1",
           name: "num-roles"
         }) }}
       </div>
@@ -274,17 +245,15 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
           {
             value: "Yes",
             text: "Yes",
-            checked: checked("popular","Yes")
+            checked: checked
           },
           {
             value: "No",
-            text: "No",
-            checked: checked("popular","No")
+            text: "No"
           },
           {
             value: "I don't know",
-            text: "I don't know",
-            checked: checked("popular","I don't know")
+            text: "I don't know"
           }
           ]
         }) }}
@@ -306,17 +275,15 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
           {
             value: "Yes",
             text: "Yes",
-            checked: checked("turnover","Yes")
+            checked: checked
           },
           {
             value: "No",
-            text: "No",
-            checked: checked("turnover","No")
+            text: "No"
           },
           {
             value: "I don't know",
-            text: "I don't know",
-            checked: checked("turnover","I don't know")
+            text: "I don't know"
           }
           ]
         }) }}
@@ -339,17 +306,15 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
           {
             value: "Yes",
             text: "Yes",
-            checked: checked("line-mgmt","Yes")
+            checked: checked
           },
           {
             value: "No",
-            text: "No",
-            checked: checked("line-mgmt","No")
+            text: "No"
           },
           {
             value: "I don't know",
-            text: "I don't know",
-            checked: checked("line-mgmt","I don't know")
+            text: "I don't know"
           }
           ]
         }) }}

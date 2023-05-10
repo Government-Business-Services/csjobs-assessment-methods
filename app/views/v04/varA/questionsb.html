@@ -1,0 +1,122 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+
+{% block pageTitle %}
+Questions all – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<style>
+
+.govukSelect {
+  min-width:700px;
+
+
+}
+</style>
+<form class="form" action="check-answers-all" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">Job details</h1>
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+      {{ govukInput({
+      label: {
+      text: "Job title",
+      classes: "govuk-label--m",
+      isPageHeading: false
+      },
+      classes: "govuk-input--width-20",
+      id: "title",
+      name: "title",
+      value: data['temp-copy-input-autocomplete']
+      }) }}
+
+
+
+
+      {% from "govuk/components/select/macro.njk" import govukSelect %}
+              {{ govukSelect({
+                id: "reshow",
+                name: "reshow",
+                label: {
+                  text: ""
+                },
+                items: [
+                  {
+                    value: "Administrative Assistant (AA)",
+                    text: "Administrative Assistant",
+                    selected: checked("grade","Administrative Assistant (AA)")
+                  },
+                  {
+                    value: "Administrative Officer (AO)",
+                    text: "Administrative Officer",
+                    selected: checked("grade","Administrative Officer (AO)")
+                  },
+                  {
+                    value: "Executive Officer (EO)",
+                    text: "Executive Officer",
+                    selected: checked("grade","Executive Officer (EO)")
+                  },
+                  {
+                    value: "Higher Executive Officer (HEO)",
+                    text: "Higher Executive Officer",
+                    selected: checked("grade","Higher Executive Officer (HEO)")
+                  },
+                  {
+                    value: "Senior Executive Officer (SEO)",
+                    text: "Senior Executive Officer",
+                    selected: checked("grade","Senior Executive Officer (SEO)")
+                  },
+                  {
+                    value: "Grade 7",
+                    text: "Grade 7",
+                    selected: checked("grade","Grade 7")
+                  },
+                  {
+                    value: "Grade 6",
+                    text: "Grade 6",
+                    selected: checked("grade","Grade 6")
+                  }
+                ]
+              }) }}
+
+
+              {% from "govuk/components/input/macro.njk" import govukInput %}
+              {{ govukInput({
+              label: {
+              text: "Department",
+              classes: "govuk-label--m",
+              isPageHeading: false
+              },
+              classes: "govuk-input--width-20",
+              id: "dept",
+              name: "dept",
+              value: "Cabinet Office"
+
+              }) }}
+
+      <div  class="govuk-!-margin-top-6 govuk-!-margin-bottom-3">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </div>
+    </form>
+
+    <script src="/public/javascripts/temp-copy.js"></script>
+    <script src="/public/javascripts/dept.js"></script>
+
+    {% endblock %}

@@ -29,7 +29,7 @@
   <div class="govuk-grid-column-full">
 
     <h2 class="govuk-heading-l">Civil Service Jobs</h2>
-    <h1 class="govuk-heading-xl">Assessment methods prototype</h1>
+    <h2 class="govuk-heading-xl">Assessment methods prototype</h2>
 
 
     {% set tagGreen %}
@@ -51,19 +51,37 @@
       development
     </strong>
 
-    <h2 class="govuk-heading-l govuk-!-margin-top-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/start">v.04</a></h2>
+<h1 class="govuk-heading-xl govuk-!-margin-top-3 ">v.04</h1>
+<div class="govuk-!-margin-bottom-3" style="border-radius:5px;border:1px solid #1d70b8;padding:10px">
+    <h2 class="govuk-heading-l govuk-!-margin-top-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/varA/home">Journey A: </a></h2>
+    <span  style="font-size:28px" class="govuk-caption-xl govuk-!-margin-bottom-3"><strong>VH selects a job-library template</strong></span>
+
+    <p class="govuk-body-m">The usual campaign set-up prototype with a fast-tracked journey after the vacancy holder opts to use a job template. Assessment methods are summarised for a review by the vacancy holder (task-list steps are 'completed').</p>
 
     <div style="">
       {{ govukButton({
-        classes: "govuk-!-margin-top-3",
-        href:"/v04/start",
+        classes: "govuk-button--secondary govuk-!-margin-top-3",
+        href:"/v04/varA/home",
         text: "Launch prototype"
       }) }}
     </div>
+    </div>
 
+    <div style="border-radius:5px;border:1px solid #1d70b8;padding:10px">
+        <h2 class="govuk-heading-l govuk-!-margin-top-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/varB/start">Journey B: </a></h2>
+        <span  style="font-size:28px" class="govuk-caption-xl govuk-!-margin-bottom-3"><strong>VH answers 'triage' questions to obtain recommendations</strong></span>
 
+        <p class="govuk-body-m">Assessment methods are recommended in response to 'triage' question answered by the vacancy holder. This journey is not integrated into the campaign set-up structure, this is to allow the experiment to focus on the questions and recommending aspects only.</p>
 
-    <p class="govuk-body-m govuk-!-margin-top-6">An experiment designed to test a simple model of recommending specific assessment methods based on a vacancy holder's answers to key questions.</p>
+        <div style="">
+          {{ govukButton({
+            classes: "govuk-button--secondary govuk-!-margin-top-3",
+            href:"/v04/varB/start",
+            text: "Launch prototype"
+          }) }}
+        </div>
+        </div>
+
 
       {% endset -%}
 
@@ -150,8 +168,7 @@
 
         <!-- <h3 class="govuk-heading-s" style="text-decoration: underline">Would blah blah  </h3> -->
 
-        <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Cras mattis iudicium purus sit amet fermentum. Praeterea iter est quasdam res quas ex communi.
-          Pellentesque habitant morbi tristique senectus et netus. Idque Caesaris facere voluntate liceret: sese habere. Tu quoque, Brute, fili mi, nihil timor populi, nihil! At nos hinc posthac, sitientis piros Afros. Hi omnes lingua, institutis, legibus inter se differunt.</p>
+        <p class="govuk-body-m"></p>
 
         <h3 class="govuk-heading-m">Method</h3>
           <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae.</p>

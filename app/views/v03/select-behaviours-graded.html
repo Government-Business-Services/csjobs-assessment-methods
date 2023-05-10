@@ -1,0 +1,680 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+<style>
+  /* Example page specific styling. */
+  p, div {
+    font-family: "GDS Transport", arial, sans-serif;
+    line-height: 1.2;
+    margin: 0.8
+  }
+  p, li {
+    font-size: 22px; line-height: 1.2;
+    vertical-align: text-top;
+
+  }
+
+
+  h2 {
+    font-size: 30px; line-height: 0.5;
+    vertical-align: text-top;
+
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 1.5;
+
+  }
+
+  label {
+    font-size: 22px;
+    font-weight:normal;
+    line-height: 1;
+    vertical-align: text-top;
+  }
+
+  hint {
+    font-size: 18px;
+    font-weight:normal;
+    line-height: 1.2;
+    vertical-align: text-top;
+  }
+
+
+  input[type="checkbox"]:checked  {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: white;
+    height: 40px;
+    width: 40px;
+    border: 2px solid black;
+    color: black;
+  }
+
+  input[type="checkbox"]:after {
+    content:"";
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    width: 15%;
+    height: 40%;
+    border: 5px solid #000000;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    display: none;
+  }
+
+  input[type="checkbox"]:checked:after {
+    display: block;
+  }
+</style>
+{% set behavioursDefinitions = [
+  ['Seeing the big picture','Understand how your role fits with and supports organisational objectives. Recognise the wider Civil Service priorities and ensure work is in the national interest.'],
+  ['Changing and Improving','Seek out opportunities to create effective change and suggest innovative ideas for improvement. Review ways of working, including seeking and providing feedback.'],
+  ['Making Effective Decisions','Use evidence and knowledge to support accurate, expert decisions and advice. Carefully consider alternative options, implications and risks of decisions.'],
+  ['Leadership','Show pride and passion for public service. Create and engage others in delivering a shared vision. Value difference, diversity and inclusion, ensuring fairness and opportunity for all.'],
+  ['Communicating and Influencing','Communicate purpose and direction with clarity, integrity and enthusiasm. Respect the needs, responses and opinions of others.'],
+  ['Working together','Form effective partnerships and relationships with people both internally and externally, from a range of diverse backgrounds, sharing information, resources and support.'],
+  ['Developing Self and Others','Focus on continuous learning and development for self, others and the organisation as a whole.'],
+  ['Managing a quality service','Deliver service objectives with professional excellence, expertise and efficiency, taking account of diverse customer needs.'],
+  ['Delivering at pace','Take responsibility for delivering timely and quality results with focus and drive.'] ] %}
+
+
+<form class="form" action="/check-next-step" method="post">
+
+  <H2 class="govuk-heading-l govuk-!-margin-top-3 govuk-!-margin-bottom-3">What will you assess within each element at sift and interview?</h2>
+  <p class="govuk-body-l govuk-!-margin-bottom-6 govuk-!-margin-top-3">You have selected which elements are important to assess for this job role. You should now select what you will assess within each element at sift and interview.</p>
+
+  <H1 style="padding-top:20px;padding-bottom:5px;border-bottom:1px solid #1d70b8; " class="govuk-heading-xl govuk-!-margin-top-3 govuk-!-margin-bottom-6">Behaviours</H1>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter" style="width:20%">
+
+      {% for items in data['selected'] %}
+      <ul class="govuk-!-margin-top-6 govuk-list govuk-list--bullet-">
+
+        {% if items == "behaviours" %}
+        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items | capitalize }}</a></p></strong></li>
+
+        {% else %}
+        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items | capitalize }}</a></p></strong></li>
+
+
+      </ul>
+      {% endif %}
+      {% endfor %}
+
+    </div>
+    <div class="govuk-grid-column-three-quarters" style="width:80%;">
+
+
+      <div id="behaviours" >
+
+
+
+                  <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-half govuk-!-margin-bottom-3" >
+                  <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-quarter" style="width:70%">
+                    {% from "govuk/components/select/macro.njk" import govukSelect %}
+                    {{ govukSelect({
+                      id: "grade-select",
+                      name: "grade-select",
+                      label: {
+                        text: "Select grade"
+                      },
+                      items: [
+                      {
+                        value: "level0",
+                        text: "None",
+                        selected: checked("grade-select","None")
+                      },
+
+                      {
+                        value: "level1",
+                        text: "Administrative Assistant",
+                        selected: checked("grade-select","Administrative Assistant")
+                      },
+                      {
+                        value: "level1",
+                        text: "Administrative Officer",
+                        selected: checked("grade-select","Administrative Officer")
+                      },
+                      {
+                        value: "level2",
+                        text: "Executive Officer",
+                        selected: checked("grade-select","Executive Officer")
+                      },
+                      {
+                        value: "level3",
+                        text: "Higher Executive Officer",
+                        selected: checked("grade-select","Higher Executive Officer")
+                      },
+                      {
+                        value: "level3",
+                        text: "Senior Executive Officer",
+                        selected: checked("grade-select","Senior Executive Officer")
+                      },
+                      {
+                        value: "level4",
+                        text: "Grade 7",
+                        selected: checked("grade-select","Grade 7")
+                      },
+                      {
+                        value: "level4",
+                        text: "Grade 6",
+                        selected: checked("grade-select","Grade 6")
+                      }
+                      ]
+                    }) }}
+
+                  </div>
+                  <div style="float:left;padding-top:30px" class="govuk-grid-column-one-quarter " style="width:40%">
+                    <a class="govuk-button govuk-button--secondary" href="#" onclick="graSelecta('grade-select')" type="button">Show</a>
+
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+                  <div id="header1">
+                    <!-- {% for title, description in behavioursDefinitions %}
+                      {{ govukCheckboxes({
+                        id: "behaviours",
+                        name: "behaviours",
+                        classes: "govuk-checkboxes--small",
+                        fieldset: {
+                          legend: {
+                            text: "",
+                            isPageHeading: false,
+                            classes: "govuk-fieldset__legend--l"
+                          }
+                        },
+                        items: [
+                        {
+                          value: title,
+                          checked: checked('behaviours',title),
+                          text: title,
+                          hint: {
+                            text: description
+                          }
+                        }
+                        ]
+                      }) }}
+                      {% endfor %} -->
+                  </div>
+
+
+                </div>
+                <button class="govuk-button govuk-!-margin-top-6"  data-module="govuk-button">Continue</button>
+
+              </div>
+            </div>
+            <input type="hidden" name="source" value="behaviours">
+            <!-- </FORM> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <script>
+
+              const behavioursGraded = {
+                "level0": {
+                  "1": {
+                    "title": "Seeing the big picture",
+                    "description": "Understand how your role fits with and supports organisational objectives. Recognise the wider Civil Service priorities and ensure work is in the national interest."
+                  },
+                  "2": {
+                    "title": "Changing and improving",
+                    "description": "Seek out opportunities to create effective change and suggest innovative ideas for improvement. Review ways of working, including seeking and providing feedback."
+                  },
+                  "3": {
+                    "title": "Making Effective Decisions",
+                    "description": "Use evidence and knowledge to support accurate, expert decisions and advice. Carefully consider alternative options, implications and risks of decisions."
+                  },
+                  "4": {
+                    "title": "Leadership",
+                    "description": "Show pride and passion for public service. Create and engage others in delivering a shared vision. Value difference, diversity and inclusion, ensuring fairness and opportunity for all."
+                  },
+                  "5": {
+                    "title": "Communicating and Influencing",
+                    "description": "Communicate purpose and direction with clarity, integrity and enthusiasm. Respect the needs, responses and opinions of others."
+                  },
+                  "6": {
+                    "title": "Working Together",
+                    "description": "Form effective partnerships and relationships with people both internally and externally, from a range of diverse backgrounds, sharing information, resources and support."
+                  },
+                  "7": {
+                    "title": "Developing Self and Others",
+                    "description": "Focus on continuous learning and development for self, others and the organisation as a whole."
+                  },
+                  "8": {
+                    "title": "Managing a Quality Service",
+                    "description": "Deliver service objectives with professional excellence, expertise and efficiency, taking account of diverse customer needs."
+                  },
+                  "9": {
+                    "title": "Delivering at Pace",
+                    "description": "Take responsibility for delivering timely and quality results with focus and drive."
+                  }
+                },
+                "level1": {
+                  "1": {
+                    "title": "Seeing the big picture",
+                    "description": "Understand what your responsibilities are and how these contribute to the priorities of your team. Consider the varied impact your work could have on individuals with different needs and from other backgrounds. Gather information from both inside and outside of the organisation to inform your area of work."
+                  },
+                  "2": {
+                    "title": "Changing and improving",
+                    "description": "Review ways of working and suggest improvements, including how to make full use of new digital technologies. Learn new procedures and help colleagues to do the same. Query any issues that arise from changes in a suitable way. Respond in an effective and appropriate manner when emergencies arise."
+                  },
+                  "3": {
+                    "title": "Making Effective Decisions",
+                    "description": "Use guidance, analyse relevant information and ask colleagues for input to support decision making. Identify and deal with any errors or gaps in information before making a decision. Consider the diverse needs of those affected by decisions and how it will impact them. Provide advice and feedback to support others in making accurate decisions. Ask others to clarify decisions when confused and query any issues that arise constructively."
+                  },
+                  "4": {
+                    "title": "Leadership",
+                    "description": "Show enthusiasm for your work and take personal accountability for your role. Demonstrate responsibility for your own objectives. Act in a fair, inclusive and respectful way when dealing with others. Be considerate and understanding of other people’s points of view. Understand and support the objectives of the wider team. Demonstrate consideration of the wider consequences of own actions."
+                  },
+                  "5": {
+                    "title": "Communicating and Influencing",
+                    "description": "Put forward your views in a clear, constructive and considerate manner. Use an appropriate method of communication for each person such as an email, telephone call or face-to-face, taking into consideration their individual needs. Use plain and simple language, being careful to check written work for errors. Consider the impact of language used on different groups of stakeholders. Remain honest and truthful when explaining opinions. Listen and ask questions to ensure your understanding."
+                  },
+                  "6": {
+                    "title": "Working Together",
+                    "description": "Proactively contribute to the work of the whole team and remain open to taking on new and different roles. Get to know your colleagues and build supportive relationships. Listen to alternative perspectives and needs, responding sensitively and checking understanding where necessary. Ask for help when needed and support others when the opportunity arises. Be aware of the need to consider your own wellbeing and that of your colleagues. Understand that bullying, harassment and discrimination are unacceptable."
+                  },
+                  "7": {
+                    "title": "Developing Self and Others",
+                    "description": "Identify gaps in your skills and knowledge and make plans of how to develop these. Take time to achieve development objectives. Listen to and act on feedback from colleagues to find areas you can develop. Share knowledge and skills learnt with colleagues to contribute to the learning and development of the whole team."
+                  },
+                  "8": {
+                    "title": "Managing a Quality Service",
+                    "description": "Gain a clear understanding of customers’ needs and expectations. Plan, organise and manage your own time to deliver a high quality service which gives taxpayers a good return for their money. Act to prevent problems by identifying issues, reporting them and providing solutions. Keep customers and all colleagues up to date with progress. Show customers where to access relevant information and support that will help them to use services more effectively."
+                  },
+                  "9": {
+                    "title": "Delivering at Pace",
+                    "description": "Always work with focus and pace to get the job done on time and to a high standard. Follow the relevant policies, procedures and rules that apply to the job. Use own knowledge and expertise to organise work. Keep focused on delivery and take responsibility for the quality of work produced. Keep a consistent level of personal performance. Keep managers and stakeholders updated on how work is progressing."
+                  }
+                },
+                "level2": {
+                  "1": {
+                    "title": "Seeing the big picture",
+                    "description": "Understand how your work and the work of your team supports wider objectives and meets the diverse needs of stakeholders. Keep up to date with the issues that affect your work area. Take a keen interest in expanding knowledge in areas related to your work. Focus on overall goals and not just specific tasks to meet priorities."
+                  },
+                  "2": {
+                    "title": "Changing and improving",
+                    "description": "Regularly review own and team’s work and take the initiative to suggest ideas to make improvements. Give feedback on changes in a constructive manner. Take a positive, open approach to the possibility of change and encourage others to do the same. Help others to understand changes and the reasons they are being put in place. Identify and act on the effects changes are having on your role and that of the team. Look for ways to use technology to achieve efficient and effective results. Consider accessibility needs of the diverse range of end users."
+                  },
+                  "3": {
+                    "title": "Making Effective Decisions",
+                    "description": "Take responsibility for making effective and fair decisions, in a timely manner. Analyse and research further information to support decisions. Talk to relevant people to get advice and information when unsure how to proceed. Explain how decisions have been reached in a clear and concise way, both verbally and in writing. Demonstrate the consideration of all options, costs, risks and wider implications, including the diverse needs of end users and any accessibility requirements."
+                  },
+                  "4": {
+                    "title": "Leadership",
+                    "description": "Show pride and passion for your work and positive, inclusive engagement with your team. Understand your areas of responsibility and display awareness of the wider impact of your actions. Proactively role model and promote an inclusive workplace, promptly dealing with inappropriate language and behaviours when they arise, including any instances of discrimination or misconduct. Give praise and credit to colleagues and stakeholders where appropriate."
+                  },
+                  "5": {
+                    "title": "Communicating and Influencing",
+                    "description": "Communicate clearly and concisely both orally and in writing. Take time to consider the best communication channel to use for the audience, including making the best of digital resources and considering value for money. Interact with others in an enthusiastic way. Express ideas clearly and with respect for others. Listen to and value different ideas, views and ways of working. Respond constructively and objectively to comments and questions. Handle challenging conversations with confidence and sensitivity."
+                  },
+                  "6": {
+                    "title": "Working Together",
+                    "description": "Develop a range of contacts outside own team and identify opportunities to share knowledge, information and learning. Show genuine interest when listening to others. Contribute to an inclusive working environment where all opinions and challenges are listened to and all individual needs are taken into account. Ensure it is clear that bullying, harassment and discrimination are unacceptable. Offer support and help to colleagues when in need, including consideration of your own and their wellbeing. Change ways of working to aid cooperation within and between teams in order to achieve results."
+                  },
+                  "7": {
+                    "title": "Developing Self and Others",
+                    "description": "Identify gaps in own and team’s skills and knowledge. Set and consistently meet development objectives. Seek learning opportunities. Support the development plans of all colleagues, recognising how diversity of experience/background can help to build an inclusive team culture. Consider the contributions of all team members and delegate work to aid the learning and development of all. Encourage and listen to developmental feedback from colleagues."
+                  },
+                  "8": {
+                    "title": "Managing a Quality Service",
+                    "description": "Work with customers to understand their needs and expectations. Create clear plans and set priorities which meet the needs of both the customer and the business. Clearly explain to customers what can be done. Keep colleagues and stakeholders fully informed of plans, possibilities and progress. Identify common problems that affect service, report them and find possible solutions. Deliver good customer service which balances quality and cost effectiveness."
+                  },
+                  "9": {
+                    "title": "Delivering at Pace",
+                    "description": "Regularly review the success of activities in the team to identify barriers to progress or challenging objectives. Identify who and what is required to ensure success, set clear goals and areas of responsibility and continually assess workloads considering individual needs. Follow relevant policies, procedures and legislation to complete your work. Ensure colleagues have the correct tools and resources available to them to do their jobs. Have a positive and focused attitude to achieving outcomes, despite any setbacks. Regularly check performance against objectives, making suggestions for improvement or taking corrective action where necessary. Ensure that colleagues are supported where tasks are challenging."
+                  }
+                },
+                "level3": {
+                  "1": {
+                    "title": "Seeing the big picture",
+                    "description": "Understand the strategic drivers for your area of work. Align activities to contribute to wider organisational priorities. Remain alert to emerging issues and trends which might impact your work area. Seek out and share experiences to develop knowledge of the team’s business area. Understand how the strategies and activities of the team create value and meet the diverse needs of all stakeholders."
+                  },
+                  "2": {
+                    "title": "Changing and improving",
+                    "description": "Work with others to identify areas for improvement and simplify processes to use fewer resources. Use technology where possible to increase efficiency. Encourage ideas for change from a wide range of sources. Clearly explain the reasons for change to colleagues and how to implement them, supporting individuals with different needs to adapt to change. Encourage an environment where colleagues know that they can challenge decisions and issues safely. Take managed risks by fully considering the varied impacts changes could have on the diverse range of end users."
+                  },
+                  "3": {
+                    "title": "Making Effective Decisions",
+                    "description": "Understand own level of responsibility and empower others to make decisions where appropriate. Analyse and use a range of relevant, credible information from internal and external sources to support decisions. Invite challenge and where appropriate involve others in decision making. Display confidence when making difficult decisions, even if they prove to be unpopular. Consult with others to ensure the potential impacts on end users have been considered. Present strong recommendations in a timely manner outlining the consideration of other options, costs, benefits and risks."
+                  },
+                  "4": {
+                    "title": "Leadership",
+                    "description": "Ensure colleagues and stakeholders have a clear understanding of objectives, activities and time-frames. Take into account different individual needs, views, and ideas, championing inclusion and equality of opportunity for all. Consider the impacts of own and team’s activities on stakeholders and end users. Role-model commitment and satisfaction with role. Recognise and praise the achievements of others to drive positivity within the team. Effectively manage conflict, misconduct and non-inclusive behaviour, raising with senior managers where appropriate."
+                  },
+                  "5": {
+                    "title": "Communicating and Influencing",
+                    "description": "Communicate in a straightforward, honest and engaging manner, choosing appropriate styles to maximise understanding and impact. Encourage the use of different communication methods, including digital resources and highlight the benefits, including ensuring cost effectiveness. Ensure communication has a clear purpose and takes into account people’s individual needs. Share information as appropriate and check understanding. Show positivity and enthusiasm towards work, encouraging others to do the same. Ensure that important messages are communicated with colleagues and stakeholders respectfully, taking into consideration the diversity of interests."
+                  },
+                  "6": {
+                    "title": "Working Together",
+                    "description": "Encourage joined up team work within own team and across other groups. Establish professional relationships with a range of stakeholders. Collaborate with these to share information, resources and support. Invest time to develop a common focus and genuine positive team spirit where colleagues feel valued and respect one another. Put in place support for the wellbeing of individuals within the team, including consideration of your own needs. Make it clear to all team members that bullying, harassment and discrimination are unacceptable. Actively seek and consider input of people from diverse backgrounds and perspectives."
+                  },
+                  "7": {
+                    "title": "Developing Self and Others",
+                    "description": "Identify capability gaps for self and team. Ensure development objectives are set and achieved to address any gaps and enable delivery of current and future work. Take time to coach, mentor and develop other colleagues to support succession planning. Promote inclusiveness by respecting different personal needs in the team and use these to develop others. Reflect on own work, continuously seek and act on feedback to improve own and team’s performance."
+                  },
+                  "8": {
+                    "title": "Managing a Quality Service",
+                    "description": "Develop, implement, maintain and review systems and services to ensure delivery of professional excellence. Work with stakeholders to set priorities, objectives and timescales. Successfully deliver high quality outcomes that meet the customers’ needs and gives value for money. Identify risks and resolve issues efficiently. Involve a diverse range of colleagues, stakeholders and delivery partners in developing suggestions for improvements. Establish ways to find and respond to feedback from customers about the services provided."
+                  },
+                  "9": {
+                    "title": "Delivering at Pace",
+                    "description": "Show a positive approach to keeping the whole team’s efforts focused on the top priorities. Promote a culture of following the appropriate procedures to ensure results are achieved on time whilst still enabling innovation. Ensure the most appropriate resources are available for colleagues to use to do their job effectively. Regularly monitor your own and team’s work against milestones ensuring individual needs are considered when setting tasks. Act promptly to reassess workloads and priorities when there are conflicting demands to maintain performance. Allow individuals the space and authority to meet objectives, providing additional support where necessary, whilst keeping overall responsibility."
+                  }
+                },
+                "level4": {
+                  "1": {
+                    "title": "Seeing the big picture",
+                    "description": "Develop and maintain an understanding of economic, social, political, environmental and technological developments to ensure activity is relevant. Ensure plans and activities in your area of work reflect wider strategic priorities and communicate effectively with senior leaders to influence future strategies. Adopt a governmentwide perspective to ensure alignment of activity and policy. Bring together views, perspectives and diverse needs of stakeholders to gain a broader understanding of the issues surrounding policies and activities."
+                  },
+                  "2": {
+                    "title": "Changing and improving",
+                    "description": "Encourage, recognise and share innovative ideas from a diverse range of colleagues and stakeholders. Give people space to take initiative and praise them for their creativity. Create an environment where people feel safe to challenge and know their voice will be heard. Make changes which add value and clearly articulate how changes will benefit the business. Understand and identify the role of technology in public service delivery and policy implementation. Consider the full impact of implementing changes on culture, structure, morale and the impacts on the diverse range of end users, including accessibility needs. Identify early signs that things are going wrong and respond promptly. Provide constructive challenge to senior management on change proposals."
+                  },
+                  "3": {
+                    "title": "Making Effective Decisions",
+                    "description": "Clarify your own understanding and stakeholder needs and expectations, before making decisions. Ensure decision making happens at the right level, not allowing unnecessary bureaucracy to hinder delivery. Encourage both innovative suggestions and challenge from others, to inform decision making. Analyse and accurately interpret data from various sources to support decisions. Find the best option by identifying positives, negatives, risks and implications. Present reasonable conclusions from a wide range of complex and sometimes incomplete evidence. Make decisions confidently even when details are unclear or if they prove to be unpopular."
+                  },
+                  "4": {
+                    "title": "Leadership",
+                    "description": "Promote diversity, inclusion and equality of opportunity, respecting difference and external experience. Welcome and respond to views and challenges from others, despite any conflicting pressures to ignore or give in to them. Stand by, promote or defend own and team’s actions and decisions where needed. Seek out shared interests beyond own area of responsibility, understanding the extent of the impact actions have on the organisation. Inspire and motivate teams to be fully engaged in their work and dedicated to their role."
+                  },
+                  "5": {
+                    "title": "Communicating and Influencing",
+                    "description": "Communicate with others in a clear, honest and enthusiastic way in order to build trust. Explain complex issues in a way that is easy to understand. Take into account people’s individual needs. Deliver difficult messages with clarity and sensitivity, being persuasive when required. Consider the impact of the language used. Remain open-minded and impartial in discussions, whilst respecting the diverse interests and opinions of others. Introduce different methods for communication, including making the most of digital resources whilst getting value for money. Monitor the effectiveness of own and team communications and take action to improve where necessary."
+                  },
+                  "6": {
+                    "title": "Working Together",
+                    "description": "Actively build and maintain a network of colleagues and contacts to achieve progress on shared objectives. Challenge assumptions while being willing to compromise if beneficial to progress. Build strong interpersonal relationships and show genuine care for colleagues. Ensure consideration and support for the wellbeing of yourself and individuals throughout the team. Understand the varying needs of the team to ensure they are supported and their experiences are utilised. Create an inclusive working environment where all opinions and challenges are taken into account and bullying, harassment and discrimination are unacceptable. Remain available and approachable to all colleagues and be receptive to new ideas."
+                  },
+                  "7": {
+                    "title": "Developing Self and Others",
+                    "description": "Prioritise and role-model continuous self-learning and development. Identify areas individuals and teams need to develop in order to achieve future objectives. Support colleagues to take responsibility for their own learning and development. Ensure that development opportunities are available for all individuals regardless of their background or desire to achieve promotion. Ensure individuals take full advantage of learning and development opportunities available to them, including workplace based learning. Encourage discussions within and between teams to learn from each other’s experiences and change organisational plans and processes accordingly."
+                  },
+                  "8": {
+                    "title": "Managing a Quality Service",
+                    "description": "Demonstrate positive customer service by understanding the complexity and diversity of customer needs and expectations. Deliver a high quality, efficient and cost effective service by considering a broad range of methods for delivery. Ensure full consideration of new technologies, accessibility and costings. Make clear, practical and manageable plans for service delivery. Ensure adherence to legal, regulatory and security requirements in service delivery. Proactively manage risks and identify solutions. Establish how the business area compares to industry best practice. Create regular opportunities for colleagues, stakeholders, delivery partners and customers to help improve the quality of service."
+                  },
+                  "9": {
+                    "title": "Delivering at Pace",
+                    "description": "Ensure everyone clearly understands and owns their roles, responsibilities and business priorities. Give honest, motivating and enthusiastic messages about priorities, objectives and expectations to get the best out of people. Comply with legal, regulatory and security requirements in service delivery. Set out clear processes and standards for managing performance at all levels. Ensure delivery of timely quality outcomes, through providing the right resources to do the job, reviewing and adjusting performance expectations and rewarding success. Maintain own levels of performance in challenging circumstances and encourage others to do the same."
+                  }
+                }
+              }
+
+                    window.sessionStorage.setItem("behavioursGraded", JSON.stringify(behavioursGraded));
+                  var hea1 = document.getElementById("header1");
+
+
+                  const object = JSON.parse(window.sessionStorage.getItem("behavioursGraded"));
+
+                  var obj0 = Object.values(object.level0);
+        var level = obj0;
+
+
+                for (var t=0;t<level.length;t++) {
+                  // console.log(level1[t].title)
+                  // console.log(level1[t].description)
+
+                  var hintText = level[t].description;
+
+
+                  var label = document.createElement("label");
+                  var checkBox = document.createElement("input");
+                  var hint = document.createElement("hint");
+                  checkBox.type = "checkbox";
+                  checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+                  label.style.cssText = "display: block;padding-left: 15px;padding-top:30px;text-indent: 40px;";
+                  hint.style.cssText = "display: block;padding-left: 55px;";
+                  checkBox.value = level[t].title;
+                  hint.value = level[t].description;
+                  checkBox.setAttribute("id","behaviours-"+t);
+                  checkBox.setAttribute("name","behaviours");
+
+                  label.appendChild(document.createTextNode(level[t].title));
+
+                  hea1.appendChild(label);
+
+
+                  hea1.appendChild(checkBox);
+                  hint.appendChild(document.createTextNode(level[t].description));
+                  hea1.appendChild(hint);
+                }
+
+
+
+
+
+
+              function graSelecta(grade){
+                var grade = document.getElementById(grade).value;
+
+                var hea1 = document.getElementById("header1");
+                hea1.innerText = "";
+                const object = JSON.parse(window.sessionStorage.getItem("behavioursGraded"));
+
+
+                var level;
+                var obj0 = Object.values(object.level0);
+                var obj1 = Object.values(object.level1);
+                var obj2 = Object.values(object.level2);
+                var obj3 = Object.values(object.level3);
+                var obj4 = Object.values(object.level4);
+                console.log(obj0);
+
+
+                if (grade == "level0") {
+                  level = obj0;
+                }
+
+
+                if (grade == "level1") {
+                  level = obj1;
+
+                } else if (grade == "level2") {
+                  level = obj2;
+
+                } else if (grade == "level3") {
+                  level = obj3;
+                }   else if (grade == "level4") {
+                  level = obj4;
+                }
+
+
+
+
+                for (var t=0;t<level.length;t++) {
+                  // console.log(level1[t].title)
+                  // console.log(level1[t].description)
+
+                  var hintText = level[t].description;
+
+
+                  var label = document.createElement("label");
+                  var checkBox = document.createElement("input");
+                  var hint = document.createElement("hint");
+                  checkBox.type = "checkbox";
+                  checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+                  label.style.cssText = "display: block;padding-left: 15px;padding-top:30px;text-indent: 40px;";
+                  hint.style.cssText = "display: block;padding-left: 55px;";
+                  checkBox.value = level[t].title;
+                  hint.value = level[t].description;
+                  label.appendChild(document.createTextNode(level[t].title));
+
+                  hea1.appendChild(label);
+
+
+                  hea1.appendChild(checkBox);
+                  hint.appendChild(document.createTextNode(level[t].description));
+                  hea1.appendChild(hint);
+                }
+
+              }
+
+
+            </script>
+
+
+
+
+
+
+
+
+
+      <!-- <div id="behaviours" style="padding:10px;">
+        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-6"><strong>If you select 3 or more behaviours you can assess with an online test at sift.</strong></p>
+        <div id="behaviours" style="border-bottom:1px solid #1d70b8">
+
+          {% for title, description in behavioursDefinitions %}
+          <div  style="">
+            {{ govukCheckboxes({
+              idPrefix: "selected-types",
+              id: "criteria-behaviours",
+              name: "criteria[behaviours]",
+              classes: "govuk-checkboxes",
+              fieldset: {
+                legend: {
+                  text: "",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--l"
+                }
+              },
+              items: [
+              {
+                value: title,
+                text: title,
+                checked: checked("criteria[behaviours]", title),
+                hint: {
+                  text: description
+                }
+              }
+              ]
+            }) }}
+          </div>
+          {% endfor %}
+
+
+
+        </div>
+        {{ govukButton({
+          classes: "govuk-!-margin-top-9",
+          text: "Continue"
+        }) }}
+      </div>
+    </div>
+  </div>
+  <input type="hidden" name="source" value="behaviours">
+</FORM>
+<script>
+
+
+const behaviours =
+
+  { "behaviours": {
+                    {"id": "1",
+                    "title": "Seeing the big picture",
+                    "description": "Understand how your role fits with and supports organisational objectives. Recognise the wider Civil Service priorities and ensure work is in the national interest."
+                    },
+
+                    {
+                      "id": "2",
+                      "title": "Changing and Improving",
+                      "description": "Seek out opportunities to create effective change and suggest innovative ideas for improvement. Review ways of working, including seeking and providing feedback."
+                    },
+                    {
+                      "id": "3",
+                      "title": "Making Effective Decisions",
+                      "description": "Use evidence and knowledge to support accurate, expert decisions and advice. Carefully consider alternative options, implications and risks of decisions."
+                    },
+                    {
+                      "id": "4",
+                      "title": "Leadership",
+                      "description": "Show pride and passion for public service. Create and engage others in delivering a shared vision. Value difference, diversity and inclusion, ensuring fairness and opportunity for all."
+                    },
+                    {
+                      "id": "5",
+                      "title": "Communicating and Influencing",
+                      "description": "Communicate purpose and direction with clarity, integrity and enthusiasm. Respect the needs, responses and opinions of others."
+                    },
+                    {
+                      "id": "6",
+                      "title": "Working together",
+                      "description": "Form effective partnerships and relationships with people both internally and externally, from a range of diverse backgrounds, sharing information, resources and support."
+                    },
+                    {
+                      "id": "7",
+                      "title": "Developing Self and Others",
+                      "description": "Focus on continuous learning and development for self, others and the organisation as a whole."
+                    },
+                    {
+                      "id": "8",
+                      "title": "Managing a quality service",
+                      "description": "Deliver service objectives with professional excellence, expertise and efficiency, taking account of diverse customer needs."
+                    },
+                    {
+                      "id": "9",
+                      "title": "Delivering at pace",
+                      "description": "Take responsibility for delivering timely and quality results with focus and drive"
+                    }
+    }
+  }
+
+
+
+
+</script> -->
+{% endblock %}

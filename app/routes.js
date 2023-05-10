@@ -9,6 +9,21 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 
 // Add your routes here
+
+
+router.post("/tempo", function (req, res) {
+    var te = req.session.data['template'];
+
+    if (te == "temp"){
+      res.redirect("/v04/varA/results");
+    } else {
+      
+    }
+
+
+})
+
+
 router.get("/selection-handler", function (req, res) {
   var list = req.session.data['selected'];
 

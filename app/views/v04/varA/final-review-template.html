@@ -1,0 +1,262 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+{% block pageTitle %}
+Review your success profile table – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="#" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <p style="font-size:24px" class="govuk-body-l govuk-!-margin-bottom-2">Vacancy <strong>853447</strong></p>
+
+      <p style="font-size:24px" class="govuk-body-l govuk-!-margin-bottom-2">Grade <strong>SEO</strong></p>
+
+      <h1 style="border-bottom:1px solid #1d70b8;;padding-bottom:10px;" class="govuk-heading-xl">Product manager</h1>
+
+      <h2 class="govuk-heading-xl govuk-!-margin-top-6" >
+        Review assessment methods
+      </h2>
+      <!-- <p class="govuk-body-l govuk-!-margin-bottom-3">Review how you will assess candidates at sift and interview.</p> -->
+
+
+
+
+      <div class="govuk-summary-card govuk-summary-list--no-border" style="border:0px;">
+        <div style="height:30px; background: white" class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-heading-l govuk-!-margin-bottom-0" ">Sift</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row" style="background:#f3f2f1;border-bottom:1px solid #1d70b8;padding-bottom:10px">
+              <dt style="padding-left:5px;width:10%;font-weight:normal" class="govuk-summary-list__key">
+                <strong>Plan</strong>
+              </dt>
+              <dd style="width:30%" class="govuk-summary-list__value">
+                <strong>Assessment method</strong>
+              </dd>
+              <dd style="width:15%" class="govuk-summary-list__value">
+                  <strong>Element</strong>
+              </dd>
+              <dd style="width:45%" class="govuk-summary-list__value">
+                <strong>Selection criteria</strong>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt style="padding-left:5px;width:10%;font-weight:normal" class="govuk-summary-list__key">
+                Stage 1
+              </dt>
+              <dd style="width:30%" class="govuk-summary-list__value">
+                CV
+              </dd>
+              <dd style="width:15%" class="govuk-summary-list__value">
+                Behaviours
+              </dd>
+              <dd style="width:45%" class="govuk-summary-list__value">
+                Changing and improving
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt style="width:10%" class="govuk-summary-list__key">
+              </dt>
+              <dd style="width:30%" class="govuk-summary-list__value">
+              Personal statement
+              </dd>
+              <dd style="width:15%" class="govuk-summary-list__value">
+                Behaviours
+              </dd>
+              <dd style="width:45%" class="govuk-summary-list__value">
+                Working together
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row" style="border-bottom:1px solid #1d70b8;padding-bottom:10px">
+              <dt style="width:10%" class="govuk-summary-list__key">
+              </dt>
+              <dd style="width:30%" class="govuk-summary-list__value">
+              </dd>
+              <dd style="width:15%" class="govuk-summary-list__value">
+              </dd>
+              <dd style="width:45%" class="govuk-summary-list__value">
+                Communicating and Influencing
+              </dd>
+            </div>
+
+
+
+            <!-- <div class="govuk-summary-list__row">
+              <dt style="padding-left:5px;width:10%;font-weight:normal" class="govuk-summary-list__key">
+                Stage 2
+              </dt>
+              <dd style="width:30%" class="govuk-summary-list__value">
+                CV
+              </dd>
+              <dd style="width:15%" class="govuk-summary-list__value">
+                Experience
+              </dd>
+              <dd style="width:45%" class="govuk-summary-list__value">
+                Using complex mathematical modelling tools to design and scale data science tools.
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt style="width:10%" class="govuk-summary-list__key">
+              </dt>
+              <dd style="width:30%" class="govuk-summary-list__value">
+                Personal statement
+              </dd>
+              <dd style="width:15%" class="govuk-summary-list__value">
+                Experience
+              </dd>
+              <dd style="width:45%" class="govuk-summary-list__value">
+                Building professional relationships with stakeholders across the organisation.
+              </dd>
+            </div>
+
+
+
+            <div class="govuk-summary-list__row" style="border-bottom:1px solid #1d70b8;padding-bottom:10px">
+              <dt style="width:10%" class="govuk-summary-list__key">
+              </dt>
+              <dd style="width:30%" class="govuk-summary-list__value">
+                Application form
+              </dd>
+              <dd style="width:15%" class="govuk-summary-list__value">
+                Skills
+              </dd>
+              <dd style="width:45%" class="govuk-summary-list__value">
+                Active membership with the Engineering Council as a Chartered Engineer CEng.
+              </dd>
+            </div> -->
+
+
+          </dl>
+        </div>
+      </div>
+
+    <div class="govuk-summary-card govuk-summary-list--no-border" style="border:0px">
+      <div style="height:30px; background: white" class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-heading-l govuk-!-margin-bottom-0" ">Interview</h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row" style="background:#f3f2f1;border-bottom:1px solid #1d70b8;padding-bottom:10px">
+            <dt style="padding-left:5px;width:10%;font-weight:normal" class="govuk-summary-list__key">
+              <strong>Plan</strong>
+            </dt>
+            <dd style="width:30%" class="govuk-summary-list__value">
+              <strong>Assessment method</strong>
+            </dd>
+            <dd style="width:15%" class="govuk-summary-list__value">
+                <strong>Element</strong>
+            </dd>
+            <dd style="width:45%" class="govuk-summary-list__value">
+              <strong>Selection criteria</strong>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt style="padding-left:5px;width:10%;font-weight:normal" class="govuk-summary-list__key">
+              Stage 2
+            </dt>
+            <dd style="width:30%" class="govuk-summary-list__value">
+              Behavioural based questions
+            </dd>
+            <dd style="width:15%" class="govuk-summary-list__value">
+              Behaviours
+            </dd>
+            <dd style="width:45%" class="govuk-summary-list__value">
+              Managing a quality service
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt style="width:10%" class="govuk-summary-list__key">
+            </dt>
+            <dd style="width:30%" class="govuk-summary-list__value">
+            </dd>
+            <dd style="width:15%" class="govuk-summary-list__value">
+            </dd>
+            <dd style="width:45%" class="govuk-summary-list__value">
+              Changing and improving
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row" style="padding-bottom:10px">
+            <dt style="width:10%" class="govuk-summary-list__key">
+            </dt>
+            <dd style="width:30%" class="govuk-summary-list__value">
+            </dd>
+            <dd style="width:15%" class="govuk-summary-list__value">
+            </dd>
+            <dd style="width:45%" class="govuk-summary-list__value">
+              Communicating and Influencing
+            </dd>
+          </div>
+
+
+
+          <div class="govuk-summary-list__row">
+            <dt style="padding-left:5px;width:10%;font-weight:normal" class="govuk-summary-list__key">
+            </dt>
+            <dd style="width:30%" class="govuk-summary-list__value">
+              Strengths interview questions
+            </dd>
+            <dd style="width:15%" class="govuk-summary-list__value">
+              Strengths
+            </dd>
+            <dd style="width:45%" class="govuk-summary-list__value">
+Problem solver
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt style="width:10%" class="govuk-summary-list__key">
+            </dt>
+            <dd style="width:30%" class="govuk-summary-list__value">
+            </dd>
+            <dd style="width:15%" class="govuk-summary-list__value">
+            </dd>
+            Disciplined
+            <dd style="width:45%" class="govuk-summary-list__value">
+            </dd>
+          </div>
+
+
+
+          <div class="govuk-summary-list__row" style="border-bottom:1px solid #1d70b8;padding-bottom:0px">
+            <dt style="padding-left:5px;width:10%;font-weight:normal" class="govuk-summary-list__key">
+            </dt>
+            <dd style="width:30%" class="govuk-summary-list__value">
+            </dd>
+            <dd style="width:15%" class="govuk-summary-list__value">
+            </dd>
+
+          <dd style="width:45%" class="govuk-summary-list__value">
+ Mission
+            </dd>
+          </div>
+
+
+        </dl>
+      </div>
+    </div>
+
+        {{ govukButton({
+        classes: "govuk-!-margin-top-6",
+        text: "Accept and continue",
+        href: "task-list"
+      }) }}
+      <!-- {{ govukButton({
+        text: "Add another stage",
+        href: "#",
+        classes: "govuk-button--secondary govuk-!-margin-top-9"
+      }) }} -->
+
+      {% endblock %}
