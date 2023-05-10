@@ -39,8 +39,8 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
 
       <div id="grade" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
         {{ govukSelect({
-          id: "grade-select",
-          name: "grade-select",
+          id: "gselect",
+          name: "gselect",
           label: {
             text: "What grade is the job role?",
             classes: "govuk-label--m"
@@ -54,37 +54,37 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
           {
             value: "Administrative Assistant",
             text: "Administrative Assistant",
-            selected: checked("grade-select","Administrative Assistant")
+            selected: checked("gselect","Administrative Assistant")
           },
           {
             value: "Administrative Officer",
             text: "Administrative Officer",
-            selected: checked("grade-select","Administrative Officer")
+            selected: checked("gselect","Administrative Officer")
           },
           {
             value: "Executive Officer",
             text: "Executive Officer",
-            selected: checked("grade-select","Executive Officer")
+            selected: checked("gselect","Executive Officer")
           },
           {
             value: "Higher Executive Officer",
             text: "Higher Executive Officer",
-            selected: checked("grade-select","Higher Executive Officer")
+            selected: checked("gselect","Higher Executive Officer")
           },
           {
             value: "Senior Executive Officer",
             text: "Senior Executive Officer",
-            selected: checked("grade-select","Senior Executive Officer")
+            selected: checked("gselect","Senior Executive Officer")
           },
           {
             value: "Grade 7",
             text: "Grade 7",
-            selected: checked("grade-select","Grade 7")
+            selected: checked("gselect","Grade 7")
           },
           {
             value: "Grade 6",
             text: "Grade 6",
-            selected: checked("grade-select","Grade 6")
+            selected: checked("gselect","Grade 6")
           }
           ]
         }) }}
