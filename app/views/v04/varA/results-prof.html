@@ -12,12 +12,21 @@ CV and personal statement – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 {% block content %}
 
+<style>
+
+.govuk-button--secondary {
+border:1px solid black;
+background: white;
+}
+</style>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
-    <h1 style="border-bottom:1px solid #1d70b8;padding-bottom:20px" class="govuk-heading-xl govuk-!-margin-bottom-6">3 matching templates found</h1>
+    <h1 style="border-bottom:1px solid #1d70b8;padding-bottom:20px" class="govuk-heading-xl govuk-!-margin-bottom-3">We've found a match</h1>
+    <!-- <h1 style="border-bottom:1px solid #1d70b8;padding-bottom:20px" class="govuk-heading-xl govuk-!-margin-bottom-6">3 matching templates found</h1> -->
 
 
-  <div id="first">
+  <div id="first" style="border:1px solid lightgrey;background:#FCFCFB;padding:10px">
     <div style="float:right">
       {{ govukButton({
         text: "Use this template",
@@ -25,24 +34,24 @@ CV and personal statement – {{ serviceName }} – GOV.UK Prototype Kit
         classes: "govuk-button--secondary govuk-!-margin-top-9"
       }) }}
     </div>
-    <div style="border-bottom:1px solid #1d70b8;padding-top:20px;padding-bottom:20px;">
+    <div style="padding-top:20px;padding-bottom:20px;">
       <span style="font-size:18px" class="govuk-caption-m govuk-!-margin-top-0"><strong>13 Oct 2022</strong></span>
       <h2 class="govuk-heading-m govuk-!-margin-top-3"><a class="govuk-link govuk-link--no-visited-state" href="#">Product manager, SEO</a></h2>
-      <div style="padding-bottom:10px">
-      <ul class="govuk-list govuk-list--bullet">
-        <li><p  style="font-weight:bold" class="govuk-body-m govuk-!-margin-bottom-1">High number of completed applications</p></li>
-        <li><p  style="font-weight:bold" class="govuk-body-m govuk-!-margin-bottom-1">High number of shortlisted to interview candidates</p></li>
-        </ul>
+      <div style="padding-bottom:0px">
+
+        <img class="govuk-!-margin-top-0" src="/public/images/line1.png" style="height:50px;padding-left:40px;padding-bottom:5px;">
+          <img class="govuk-!-margin-top-0" src="/public/images/line2.png" style=";height:50px;padding-left:40px">
+
+
       </div>
-      <img class="govuk-!-margin-top-0" src="/public/images/dddaaattt.png" style="height:53px">
+      <img class="govuk-!-margin-top-3" src="/public/images/co-logo.png" style="height:43px">
     </div>
   </div>
 
+  <h2 style="border-bottom:1px solid #1d70b8;padding-bottom:20px" class="govuk-heading-l govuk-!-margin-top-9">We've found other matches</h2>
+<p  style="font-weight:bold" class="govuk-body-m govuk-!-margin-bottom-1">These matches are from different departments, so will have some different details.</p>
 
-
-
-
-  <div id="se">
+  <div style="border:1px solid lightgrey;background:#FCFCFB;padding:10px" class="govuk-!-margin-top-9" id="ss">
     <div style="float:right">
       {{ govukButton({
         text: "Use this template",
@@ -50,20 +59,21 @@ CV and personal statement – {{ serviceName }} – GOV.UK Prototype Kit
         classes: "govuk-button--secondary govuk-!-margin-top-9"
       }) }}
     </div>
-    <div style="border-bottom:1px solid #1d70b8;padding-top:20px;padding-bottom:20px;">
+    <div style="padding-top:20px;padding-bottom:20px;">
       <span style="font-size:18px" class="govuk-caption-m govuk-!-margin-top-0"><strong>09 Jan 2021</strong></span>
       <h2 class="govuk-heading-m govuk-!-margin-top-3"><a class="govuk-link govuk-link--no-visited-state" href="#">Product manager, SEO</a></h2>
-      <div style="padding-bottom:10px">
-      <ul class="govuk-list govuk-list--bullet">
-        <li><p  style="font-weight:bold" class="govuk-body-m govuk-!-margin-bottom-1">High number of completed applications</p></li>
-        <li><p  style="font-weight:bold" class="govuk-body-m govuk-!-margin-bottom-1">High number of shortlisted to interview candidates</p></li>
-        </ul>
+      <div style="padding-bottom:0px">
+
+        <img class="govuk-!-margin-top-0" src="/public/images/line4.png" style="height:50px;padding-left:40px;padding-bottom:5px;">
+          <img class="govuk-!-margin-top-0" src="/public/images/line3.png" style=";height:50px;padding-left:40px">
+
+
       </div>
-      <img class="govuk-!-margin-top-0" src="/public/images/fra.png" style="height:53px">
+      <img class="govuk-!-margin-top-3" src="/public/images/dddaaattt.png" style="height:53px">
     </div>
   </div>
 
-  <div id="rt">
+  <div style="border:1px solid lightgrey;background:#FCFCFB;padding:10px" class="govuk-!-margin-top-9" id="rrr">
     <div style="float:right">
       {{ govukButton({
         text: "Use this template",
@@ -74,15 +84,19 @@ CV and personal statement – {{ serviceName }} – GOV.UK Prototype Kit
     <div style=";padding-top:20px;padding-bottom:20px;">
       <span style="font-size:18px" class="govuk-caption-m govuk-!-margin-top-0"><strong>31 Mar 2019</strong></span>
       <h2 class="govuk-heading-m govuk-!-margin-top-3"><a class="govuk-link govuk-link--no-visited-state" href="#">Product manager, SEO</a></h2>
-      <div style="padding-bottom:10px">
-      <ul class="govuk-list govuk-list--bullet">
-        <li><p  style="font-weight:bold" class="govuk-body-m govuk-!-margin-bottom-1">High number of completed applications</p></li>
-        <li><p  style="font-weight:bold" class="govuk-body-m govuk-!-margin-bottom-1">High number of shortlisted to interview candidates</p></li>
-        </ul>
+      <div style="padding-bottom:0px">
+
+        <img class="govuk-!-margin-top-0" src="/public/images/line5.png" style="height:50px;padding-left:40px;padding-bottom:5px;">
+          <img class="govuk-!-margin-top-0" src="/public/images/line6.png" style=";height:50px;padding-left:40px">
+
+
       </div>
-      <img class="govuk-!-margin-top-0" src="/public/images/ggeess.png" style="height:53px">
+      <img class="govuk-!-margin-top-3" src="/public/images/ggeess.png" style="height:53px">
     </div>
   </div>
+
+
+
 
 
 </div>

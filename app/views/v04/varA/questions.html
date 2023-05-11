@@ -20,12 +20,12 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
 <form class="form" action="questions-prefilled" method="post">
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Job details</h1>
+      <h1 class="govuk-heading-xl">Create a job vacancy</h1>
 
       <p class="govuk-body-m">Enter the details for your job vacancy.</p>
-      <div id="grade" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+      <div id="grade" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:10px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
 
 
       <div class="govuk-!-margin-bottom-6">
@@ -37,18 +37,21 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
 </div>
 
-      <div id="grade" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+      <div id="grade" style="border-bottom:1px solid #1d70b8;padding-top:20px;padding-bottom:10px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+
         {{ govukSelect({
           id: "gselect",
           name: "gselect",
           label: {
-            text: "Select grade",
+            text: "What grade is the job role?",
             classes: "govuk-label--m"
           },
           items: [
           {
             value: "none",
-            text: "Select from the list"
+            selected: "true",
+            disabled: "true",
+            text: "Select grade"
           },
 
           {
@@ -91,18 +94,20 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
 
 
-      <div id="field" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+      <div id="field" style="border-bottom:1px solid #1d70b8;padding-top:20px;padding-bottom:10px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
         {{ govukSelect({
           id: "proff",
           name: "proff",
           label: {
-            text: "Select profession",
+            text: "What profession is the job role in?",
             classes: "govuk-label--m"
           },
           items: [
           {
             value: "none",
-            text: "Select from the list"
+            selected: "true",
+            disabled: "true",
+            text: "Select profession"
           },
           {
             value: "Analysis",
@@ -243,8 +248,7 @@ Questions all – {{ serviceName }} – GOV.UK Prototype Kit
         }) }}
       </div>
 
-      <div id="dept" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:30px" class="govuk-!-margin-top-1">
-
+      <div id="dept" style="padding-top:20px;padding-bottom:10px" class="govuk-!-margin-top-1">
 
         <div class="govuk-!-margin-bottom-6">
 

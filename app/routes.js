@@ -15,9 +15,9 @@ router.post("/tempo", function (req, res) {
     var te = req.session.data['template'];
 
     if (te == "temp"){
-      res.redirect("/v04/varA/results");
+      res.redirect("/v04/varA/task-list");
     } else {
-      
+
     }
 
 

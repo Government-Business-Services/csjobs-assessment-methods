@@ -17,7 +17,7 @@ Review your success profile table – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
-<form class="form" action="#" method="post">
+<form class="form" action="task-list" method="post">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <p style="font-size:24px" class="govuk-body-l govuk-!-margin-bottom-2">Vacancy <strong>853447</strong></p>
@@ -247,16 +247,17 @@ Problem solver
         </dl>
       </div>
     </div>
+    <input type="hidden" name="accept" value="true">
 
         {{ govukButton({
         classes: "govuk-!-margin-top-6",
-        text: "Accept and continue",
-        href: "task-list"
+        text: "Accept and continue"
       }) }}
-      <!-- {{ govukButton({
-        text: "Add another stage",
-        href: "#",
-        classes: "govuk-button--secondary govuk-!-margin-top-9"
-      }) }} -->
+      </form>
+      {{ govukButton({
+        text: "Return to task-list",
+        href: "task-list",
+        classes: "govuk-button--secondary govuk-!-margin-top-6"
+      }) }}
 
       {% endblock %}

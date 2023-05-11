@@ -1,23 +1,28 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-CV and personal statement – {{ serviceName }} – GOV.UK Prototype Kit
+We've found a match – Civil service jobs – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
+
 {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
 }) }}
-
 <a style="float:right" href="results-prof">Alt-1</a>
 
 {% endblock %}
-{% block content %}
 
+{% block content %}
+  <form action="/tempo" method="post">
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
+
+  <form action="/tempo" method="post">
+
     <h1 style="border-bottom:1px solid #1d70b8;padding-bottom:20px" class="govuk-heading-xl govuk-!-margin-bottom-6">We've found a match</h1>
+    <p class="govuk-body-l"><strong>From the job details you've given, we have found a previous job advert you can use.</strong></p>
 
 
   <div id="first">
@@ -41,11 +46,38 @@ CV and personal statement – {{ serviceName }} – GOV.UK Prototype Kit
   </div>
 </div>
   </div>
+
+  {{ govukRadios({
+    idPrefix: "template",
+    name: "template",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6"
+      }
+    },
+    hint: {
+      text: ""
+    },
+    items: [
+      {
+        value: "temp",
+        text: "Use this template"
+      },
+      {
+        value: "no",
+        text: "No, I don't want to use a template"
+      }
+    ]
+  }) }}
+
+
   {{ govukButton({
-    text: "Use this template",
-    href: "task-list",
+    text: "Continue",
     classes: "govuk-button govuk-!-margin-top-3"
   }) }}
+</form>
   </div>
 
   </div>
