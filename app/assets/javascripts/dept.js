@@ -228,6 +228,9 @@ var department = [
 "Wilton Park",
 "Youth Justice Board"
 ]
+
+console.log(department)
+
 var element = document.querySelector('#department')
 var id = 'autocomplete-default'
 accessibleAutocomplete({element: element, id: id, source: department})

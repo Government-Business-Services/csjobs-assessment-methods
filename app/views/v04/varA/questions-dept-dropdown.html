@@ -1,0 +1,753 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/select/macro.njk" import govukSelect %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+
+{% block pageTitle %}
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="questions-prefilled" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div id="sele"></div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+  {{ govukSelect({
+    id: "dept",
+    name: "dept",
+    label: {
+      text: "dept select dropdown",
+      classes: "govuk-label--m"
+    },
+    items: [
+    {
+      text:"Select department"
+    },
+    {
+      text:"Accountant in Bankruptcy"
+    },
+    {
+      text:"Active Travel England"
+    },
+    {
+      text:"Advisory, Conciliation and Arbitration Service"
+    },
+    {
+      text:"Animal and Plant Health Agency"
+    },
+    {
+      text:"Army Reserves"
+    },
+    {
+      text:"Arts and Humanities Research Council"
+    },
+    {
+      text:"Attorney General's Office"
+    },
+    {
+      text:"Biotechnology and Biological Sciences Research Council"
+    },
+    {
+      text:"British Council"
+    },
+    {
+      text:"Building Digital UK (BDUK)"
+    },
+    {
+      text:"Cabinet Office"
+    },
+    {
+      text:"Cairngorms National Park Authority"
+    },
+    {
+      text:"Care Quality Commission"
+    },
+    {
+      text:"Centre for Environment, Fisheries and Aquaculture Science"
+    },
+    {
+      text:"Charity Commission"
+    },
+    {
+      text:"Children and Family Court Advisory and Support Service"
+    },
+    {
+      text:"Climate Change Committee"
+    },
+    {
+      text:"College of Policing"
+    },
+    {
+      text:"Commonwealth Parliamentary Association UK"
+    },
+    {
+      text:"Companies House"
+    },
+    {
+      text:"Competition &amp; Markets Authority"
+    },
+    {
+      text:"Competition Service/Competition Appeal Tribunal"
+    },
+    {
+      text:"Consumer Council for Water "
+    },
+    {
+      text:"Consumer Scotland"
+    },
+    {
+      text:"Criminal Cases Review Commission"
+    },
+    {
+      text:"Criminal Injuries Compensation Authority"
+    },
+    {
+      text:"Cross Departmental Opportunities"
+    },
+    {
+      text:"Crown Commercial Service"
+    },
+    {
+      text:"Crown Office and Procurator Fiscal Service"
+    },
+    {
+      text:"Crown Prosecution Service"
+    },
+    {
+      text:"Defence Electronics &amp; Components Agency"
+    },
+    {
+      text:"Defence Science and Technology Laboratory"
+    },
+    {
+      text:"Department for Business, Energy &amp; Industrial Strategy"
+    },
+    {
+      text:"Department for Communities (Northern Ireland)"
+    },
+    {
+      text:"Department for Digital, Culture, Media and Sport"
+    },
+    {
+      text:"Department for Education"
+    },
+    {
+      text:"Department for Environment, Food and Rural Affairs"
+    },
+    {
+      text:"Department for Infrastructure (Northern Ireland)"
+    },
+    {
+      text:"Department for International Trade"
+    },
+    {
+      text:"Department for Levelling Up, Housing and Communities"
+    },
+    {
+      text:"Department for the Economy (Northern Ireland)"
+    },
+    {
+      text:"Department for Transport"
+    },
+    {
+      text:"Department for Work and Pensions"
+    },
+    {
+      text:"Department of Agriculture, Environment &amp; Rural Affairs (Northern Ireland)"
+    },
+    {
+      text:"Department of Education (Northern Ireland)"
+    },
+    {
+      text:"Department of Finance (Northern Ireland)"
+    },
+    {
+      text:"Department of Health (Northern Ireland)"
+    },
+    {
+      text:"Department of Health and Social Care"
+    },
+    {
+      text:"Department of Justice (Northern Ireland)"
+    },
+    {
+      text:"Disclosure &amp; Barring Service"
+    },
+    {
+      text:"Disclosure Scotland "
+    },
+    {
+      text:"Driver and Vehicle Standards Agency"
+    },
+    {
+      text:"Economic and Social Research Council"
+    },
+    {
+      text:"Education and Skills Funding Agency"
+    },
+    {
+      text:"Education Scotland"
+    },
+    {
+      text:"Engineering and Physical Sciences Research Council"
+    },
+    {
+      text:"Environment Agency"
+    },
+    {
+      text:"Environmental Standards Scotland"
+    },
+    {
+      text:"Equality and Human Rights Commission"
+    },
+    {
+      text:"ESTYN"
+    },
+    {
+      text:"FCDO Services"
+    },
+    {
+      text:"Food Standards Agency"
+    },
+    {
+      text:"Food Standards Scotland"
+    },
+    {
+      text:"Foreign, Commonwealth &amp; Development Office"
+    },
+    {
+      text:"Forestry and Land Scotland"
+    },
+    {
+      text:"Forestry Commission"
+    },
+    {
+      text:"Forestry Commission - Forest Research"
+    },
+    {
+      text:"Forestry Commission Scotland"
+    },
+    {
+      text:"Gambling Commission"
+    },
+    {
+      text:"Gangmasters and Labour Abuse Authority"
+    },
+    {
+      text:"GCHQ"
+    },
+    {
+      text:"Government Actuary's Department"
+    },
+    {
+      text:"Government Commercial Function"
+    },
+    {
+      text:"Government Communication Service"
+    },
+    {
+      text:"Government Digital Service"
+    },
+    {
+      text:"Government Economic Service &amp; Social Research Profession"
+    },
+    {
+      text:"Government Economic Services"
+    },
+    {
+      text:"Government Equalities Office"
+    },
+    {
+      text:"Government Internal Audit Agency"
+    },
+    {
+      text:"Government Legal Department"
+    },
+    {
+      text:"Government Legal Service"
+    },
+    {
+      text:"Government Office for Science"
+    },
+    {
+      text:"Government Operational Research Service"
+    },
+    {
+      text:"Government Project Delivery Profession"
+    },
+    {
+      text:"Government Property Agency"
+    },
+    {
+      text:"Government Recruitment Service"
+    },
+    {
+      text:"Government Statistical Service"
+    },
+    {
+      text:"Great Britain-China Centre"
+    },
+    {
+      text:"Groceries Code Adjudicator"
+    },
+    {
+      text:"Health and Safety Executive"
+    },
+    {
+      text:"Her Majesty's Government Communications Centre"
+    },
+    {
+      text:"Higher Education Funding Council for Wales"
+    },
+    {
+      text:"His Majesty's Inspectorate of Constabulary and Fire &amp; Rescue Services"
+    },
+    {
+      text:"Historic Environment Scotland"
+    },
+    {
+      text:"HM Courts and Tribunals Service"
+    },
+    {
+      text:"HM Crown Prosecution Service Inspectorate"
+    },
+    {
+      text:"HM Land Registry"
+    },
+    {
+      text:"HM Prison &amp; Probation Service"
+    },
+    {
+      text:"HM Revenue and Customs"
+    },
+    {
+      text:"HM Treasury"
+    },
+    {
+      text:"Home Office"
+    },
+    {
+      text:"Homes England"
+    },
+    {
+      text:"House of Commons"
+    },
+    {
+      text:"House of Lords"
+    },
+    {
+      text:"Housing Ombudsman Service"
+    },
+    {
+      text:"Human Fertilisation &amp; Embryology Authority"
+    },
+    {
+      text:"Human Tissue Authority"
+    },
+    {
+      text:"Independent Anti-Slavery Commission"
+    },
+    {
+      text:"Independent Inquiry into Child Sexual Abuse"
+    },
+    {
+      text:"Independent Living Fund Scotland"
+    },
+    {
+      text:"Independent Monitoring Authority"
+    },
+    {
+      text:"Independent Office for Police Conduct"
+    },
+    {
+      text:"Independent Parliamentary Standards Authority"
+    },
+    {
+      text:"Information Commissioner's Office"
+    },
+    {
+      text:"Innovate UK"
+    },
+    {
+      text:"Insolvency Service"
+    },
+    {
+      text:"Institute for Apprenticeships and Technical Education"
+    },
+    {
+      text:"Intellectual Property Office"
+    },
+    {
+      text:"Joint Nature Conservation Committee"
+    },
+    {
+      text:"Legal Aid Agency"
+    },
+    {
+      text:"Livestock Information Ltd"
+    },
+    {
+      text:"Local Democracy and Boundary Commission for Wales"
+    },
+    {
+      text:"Local Government &amp; Social Care Ombudsman"
+    },
+    {
+      text:"Marine Management Organisation"
+    },
+    {
+      text:"Maritime and Coastguard Agency"
+    },
+    {
+      text:"Medical Research Council"
+    },
+    {
+      text:"Medicines and Healthcare Products Regulatory Agency"
+    },
+    {
+      text:"Met Office"
+    },
+    {
+      text:"MI5"
+    },
+    {
+      text:"MI6 - Secret Intelligence Service"
+    },
+    {
+      text:"Ministry of Defence"
+    },
+    {
+      text:"Ministry of Justice"
+    },
+    {
+      text:"National Crime Agency"
+    },
+    {
+      text:"National Infrastructure Commission"
+    },
+    {
+      text:"National Institute for Health and Care Excellence (NICE)"
+    },
+    {
+      text:"National Lottery Community Fund"
+    },
+    {
+      text:"National Records of Scotland"
+    },
+    {
+      text:"National Savings and Investments"
+    },
+    {
+      text:"Natural England"
+    },
+    {
+      text:"Natural Environment Research Council"
+    },
+    {
+      text:"Natural History Museum"
+    },
+    {
+      text:"Natural Resources Wales"
+    },
+    {
+      text:"NatureScot"
+    },
+    {
+      text:"NHS Digital"
+    },
+    {
+      text:"NHS Education for Scotland"
+    },
+    {
+      text:"NHS Resolution"
+    },
+    {
+      text:"Non Departmental Public Body"
+    },
+    {
+      text:"Northern Ireland Office"
+    },
+    {
+      text:"Office for Budget Responsibility"
+    },
+    {
+      text:"Office for Environmental Protection"
+    },
+    {
+      text:"Office for National Statistics"
+    },
+    {
+      text:"Office for Nuclear Regulation"
+    },
+    {
+      text:"Office for Standards in Education, Children's Services and Skills"
+    },
+    {
+      text:"Office for Students"
+    },
+    {
+      text:"Office for the Scottish Charity Regulator"
+    },
+    {
+      text:"Office of Rail and Road"
+    },
+    {
+      text:"Office of Tax Simplification"
+    },
+    {
+      text:"Office of the Advocate General for Scotland"
+    },
+    {
+      text:"Office of the Children's Commissioner"
+    },
+    {
+      text:"Office of the Immigration Services Commissioner"
+    },
+    {
+      text:"Office of the Public Guardian"
+    },
+    {
+      text:"Office of the Secretary of State for Scotland"
+    },
+    {
+      text:"Office of the Secretary of State for Wales"
+    },
+    {
+      text:"OFGEM"
+    },
+    {
+      text:"Ofqual (Office of Qualifications and Examinations Regulation)"
+    },
+    {
+      text:"Ofwat (Water Services Regulation Authority)"
+    },
+    {
+      text:"Parliamentary and Health Service Ombudsman"
+    },
+    {
+      text:"Parliamentary Works Sponsor Body"
+    },
+    {
+      text:"Parole Board"
+    },
+    {
+      text:"Pensions Advisory Service"
+    },
+    {
+      text:"Pensions Regulator"
+    },
+    {
+      text:"Planning Inspectorate"
+    },
+    {
+      text:"Public Health England"
+    },
+    {
+      text:"Public Prosecution Service for Northern Ireland"
+    },
+    {
+      text:"Pubs Code Adjudicator"
+    },
+    {
+      text:"Qualifications and Curriculum Authority"
+    },
+    {
+      text:"Queen Elizabeth II Centre"
+    },
+    {
+      text:"Registers of Scotland "
+    },
+    {
+      text:"Regulator of Social Housing"
+    },
+    {
+      text:"Research England"
+    },
+    {
+      text:"Revenue and Customs Digital Technology Services Limited"
+    },
+    {
+      text:"Royal Air Force Reserves"
+    },
+    {
+      text:"Royal Botanic Gardens Kew"
+    },
+    {
+      text:"Royal Commission on the Ancient and Historical Monuments of Wales"
+    },
+    {
+      text:"Royal Navy Reserves"
+    },
+    {
+      text:"Rural Payments Agency"
+    },
+    {
+      text:"Science and Advice for Scottish Agriculture"
+    },
+    {
+      text:"Scottish Courts and Tribunals Service"
+    },
+    {
+      text:"Scottish Forestry"
+    },
+    {
+      text:"Scottish Further and Higher Education Funding Council"
+    },
+    {
+      text:"Scottish Government"
+    },
+    {
+      text:"Scottish Prison Service"
+    },
+    {
+      text:"Scottish Public Pensions Agency"
+    },
+    {
+      text:"Security Industry Authority"
+    },
+    {
+      text:"Serious Fraud Office"
+    },
+    {
+      text:"Single Source Regulations Office"
+    },
+    {
+      text:"Social Security Scotland"
+    },
+    {
+      text:"Sports Grounds Safety Authority"
+    },
+    {
+      text:"States of Jersey"
+    },
+    {
+      text:"Student Awards Agency"
+    },
+    {
+      text:"Student Loans Company"
+    },
+    {
+      text:"The Executive Office (Northern Ireland)"
+    },
+    {
+      text:"The Money and Pensions Service"
+    },
+    {
+      text:"The National Archives"
+    },
+    {
+      text:"The National Gallery"
+    },
+    {
+      text:"The National Lottery Community Fund"
+    },
+    {
+      text:"The Supreme Court of the United Kingdom"
+    },
+    {
+      text:"Trade Remedies Authority"
+    },
+    {
+      text:"Transport Focus"
+    },
+    {
+      text:"UK Debt Management Office"
+    },
+    {
+      text:"UK Export Finance"
+    },
+    {
+      text:"UK Health Security Agency"
+    },
+    {
+      text:"UK Hydrographic Office"
+    },
+    {
+      text:"UK Research and Innovation"
+    },
+    {
+      text:"UK Space Agency"
+    },
+    {
+      text:"UK Statistics Authority"
+    },
+    {
+      text:"Valuation Office Agency"
+    },
+    {
+      text:"Valuation Tribunal Service"
+    },
+    {
+      text:"Vehicle Certification Agency"
+    },
+    {
+      text:"Veterinary Medicines Directorate"
+    },
+    {
+      text:"VisitBritain/VisitEngland"
+    },
+    {
+      text:"Welsh Government"
+    },
+    {
+      text:"Welsh Parliament"
+    },
+    {
+      text:"Welsh Revenue Authority"
+    },
+    {
+      text:"Westminster Foundation for Democracy"
+    },
+    {
+      text:"Wilton Park"
+    }
+    ]
+  }) }}
+
+
+  <div id="dept" style="padding-top:20px;padding-bottom:10px" class="govuk-!-margin-top-1">
+
+    <div class="govuk-!-margin-bottom-6">
+
+      <div class="govuk-!-margin-bottom-6">
+        <div class="govuk-form-group govuk-input--width-30">
+          <label for="autocomplete-default" class="govuk-label--m">dept autocomplete</label>
+          <div id="department" class="autocomplete-wrapper"></div>
+        </div>
+
+      </div>
+</div>
+  </div>
+
+
+
+
+
+
+
+<script src="/public/javascripts/accessibleAutocomplete.js"></script>
+
+<!-- <script src="/public/javascripts/temp-copy.js"></script> -->
+<script src="/public/javascripts/dept.js"></script>
+<script src="/public/javascripts/temp.js"></script>
+
+
+
+{% endblock %}
