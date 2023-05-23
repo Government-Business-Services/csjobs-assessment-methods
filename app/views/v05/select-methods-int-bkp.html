@@ -1,0 +1,407 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+
+{% block pageTitle %}
+Select methods for interview – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+<style>
+  /* Example page specific styling. */
+  p, div {
+    font-family: "GDS Transport", arial, sans-serif;
+    line-height: 1.2;
+    margin: 0.8
+  }
+  p, li {
+    font-size: 22px; line-height: 1.2;
+    vertical-align: text-top;
+
+  }
+
+ h2 {
+    font-size: 30px; line-height: 0.5;
+    vertical-align: text-top;
+
+  }
+
+h3 {
+    font-size: 24px;
+    line-height: 1.5;
+
+}
+
+  label {
+    font-size: 22px;
+    line-height: 1;
+    vertical-align: text-top;
+}
+
+
+    input[type="checkbox"]:checked  {
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: 0;
+      background: white;
+      height: 40px;
+      width: 40px;
+      border: 2px solid black;
+      color: black;
+    }
+
+    input[type="checkbox"]:after {
+      content:"";
+      position: absolute;
+      left: 40%;
+      top: 20%;
+      width: 15%;
+      height: 40%;
+      border: 5px solid #000000;
+      border-width: 0 4px 4px 0;
+      transform: rotate(45deg);
+      display: none;
+    }
+
+    input[type="checkbox"]:checked:after {
+      display: block;
+    }
+
+
+
+
+</style>
+
+<form class="form" action="select-interview-details" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">How will you assess at the interview?</h1>
+      <p class="govuk-body-l"><strong>Select how you will assess each element at the interview.</strong></p>
+        <p class="govuk-body-l">At interview, you have selected to assess:</p>
+
+      <ul id="counter" style="" class="govuk-body-m govuk-list govuk-list--bullet"></ul>
+
+      <div  class="govuk-!-margin-top-9" id="header1"></div>
+      <div id="header2"></div>
+      <div id="header3"></div>
+      <div id="header4"></div>
+      <div id="header5"></div>
+
+      <script>
+        var beCount;
+        var stCount;
+        var skCount;
+        var exCount;
+        var beHead;
+        var stHead;
+        var skHead;
+        var exHead;
+
+        var interview = [];
+        var interviewSet = [];
+        var interviewSet2 = [];
+
+
+        interview = JSON.parse(window.sessionStorage.getItem("interview"));
+
+        var interviewChunkSize = 2;
+        for (let sif = 0; sif < interview.length; sif += interviewChunkSize) {
+          const interviewChunk = interview.slice(sif, sif + interviewChunkSize);
+
+          interviewSet[sif] = interviewChunk[0].split("-",1).pop();
+          interviewSet2[sif] = interviewChunk[1];
+
+        }
+        var interviewTstVars = interviewSet.filter(trim);
+        var interviewTstVars2  = interviewSet2.filter(trim);
+
+
+        beCount = interviewTstVars.filter(countb).length;
+
+        stCount = interviewTstVars.filter(counts).length;
+
+        skCount = interviewTstVars.filter(countk).length;
+        exCount = interviewTstVars.filter(counte).length;
+
+
+
+
+        beHead = interviewTstVars.filter(countb);
+          // console.log(beHead)
+        stHead = interviewTstVars.filter(counts);
+          // console.log(stHead)
+        exHead = interviewTstVars.filter(counte);
+        // console.log(exHead)
+
+        skHead = interviewTstVars.filter(countk);
+        // console.log(skHead)
+
+
+
+
+        beCount = beHead.length;
+        stCount = stHead.length;
+        exCount = exHead.length;
+        skCount = skHead.length;
+
+
+        var sum = beCount+stCount+exCount+skCount;
+
+        var countArr = [];
+
+        countArr.push(beCount+" "+"behaviours",exCount+" "+"experience",skCount+" "+"skills",stCount+" "+"strengths");
+
+        var headArr = [];
+
+        // headArr.push(beHead.split(",",1).pop(),stHead.split(",",1).pop(), skHead.split(",",1).pop(), exHead.split(",",1).pop())
+
+
+        var newHead1 = eliminateDuplicates(beHead);
+        var newHead2 = eliminateDuplicates(exHead);
+        var newHead3 = eliminateDuplicates(skHead);
+        var newHead4 = eliminateDuplicates(stHead);
+        headArr.push(newHead1,newHead2,newHead3,newHead4);
+
+
+        var exp = eliminateDuplicates(headArr);
+
+
+
+         exp = exp.join(" ")
+console.log(headArr)
+        function trim(val) {
+          return val !="" ;
+        }
+
+
+        function eliminateDuplicates(arr) {
+
+          var i,
+          len = arr.length,
+          out = [],
+          obj = {};
+
+          for (i = 0; i < len; i++) {
+            obj[arr[i]] = 0;
+          }
+          for (i in obj) {
+            out.push(i);
+          }
+          return out;
+
+        }
+
+
+        function countb(cc) {
+          return cc == "Behaviours" ;
+        }
+
+        function counts(cc) {
+          return cc == "Strengths" ;
+        }
+
+        function countk(cc) {
+          return cc == "Skills" ;
+        }
+
+        function counte(cc) {
+          return cc == "Experience" ;
+        }
+
+        var siftCount = document.getElementById("counter");
+        for (ccc = 0; ccc < countArr.length; ++ccc) {
+          if (countArr[ccc][0] > 0){
+            var sifCCC = document.createElement('li');
+            sifCCC.innerText = countArr[ccc];
+            siftCount.appendChild(sifCCC);
+          }
+        }
+
+        // var chkList = ['Interview question(s)','Portfolio','Presentation']
+
+
+      //   if (beCount != 0){
+      //       // console.log("be"+beCount)
+      //   var interviewhea1 = document.getElementById("header1");
+      //   var h21 = document.createElement("h2");
+      //   h21.innerText = headArr[0];
+      //   interviewhea1.appendChild(h21);
+      //   for (var be = 0; be < beCount; be++){
+      //     // console.log("-be"+be)
+      //     var h31 = document.createElement("h3");
+      //     h31.innerText = interviewTstVars2[be];
+      //     interviewhea1.appendChild(h31);
+      //     for (var i = 0; i < chkList.length; i++) {
+      //       var label = document.createElement("label");
+      //       var checkBox = document.createElement("input");
+      //       checkBox.type = "checkbox";
+      //       checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+      //       label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
+      //       checkBox.value = chkList[i];
+      //       label.appendChild(document.createTextNode(chkList[i]));
+      //       interviewhea1.appendChild(label);
+      //       interviewhea1.appendChild(checkBox);
+      //     }
+      //   }
+      // } else {
+      //
+      // }
+
+
+
+      var chkList = ['Interview question(s)','Portfolio','Presentation']
+      var strengthsChkList = ['Interview question(s)']
+
+      var interviewhea1 = document.getElementById("header1");
+
+      if (beCount != 0) {
+        var h21 = document.createElement("h2");
+        h21.innerText = headArr[0];
+        interviewhea1.appendChild(h21);
+        for (var be = 0; be < beCount; be++){
+          var h31 = document.createElement("h3");
+          h31.innerText = interviewTstVars2[be];
+          interviewhea1.appendChild(h31);
+          for (var i = 0; i < chkList.length; i++) {
+            var label = document.createElement("label");
+            var checkBox = document.createElement("input");
+            checkBox.type = "checkbox";
+            checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+            label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
+            checkBox.value = chkList[i];
+            checkBox.setAttribute("id","interview-"+i+be)
+            checkBox.setAttribute("name",headArr[0]+"-"+interviewTstVars2[be])
+            label.appendChild(document.createTextNode(chkList[i]));
+            interviewhea1.appendChild(label);
+            interviewhea1.appendChild(checkBox);
+          }
+        }
+      }
+
+
+      if (exCount != 0){
+        var h22 = document.createElement("h2");
+        h22.innerText = headArr[1];
+        interviewhea1.appendChild(h22);
+        for (var ex = beCount; ex < beCount+exCount; ex++){
+          var h32 = document.createElement("h3");
+          h32.innerText = interviewTstVars2[ex];
+          interviewhea1.appendChild(h32);
+          for (var i = 0; i < chkList.length; i++) {
+            var label = document.createElement("label");
+            var checkBox = document.createElement("input");
+            checkBox.type = "checkbox";
+            checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+            label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
+            checkBox.value = chkList[i];
+            checkBox.setAttribute("id","interview-"+i+ex)
+            checkBox.setAttribute("name",headArr[1]+"-"+interviewTstVars2[ex])
+            label.appendChild(document.createTextNode(chkList[i]));
+            interviewhea1.appendChild(label);
+            interviewhea1.appendChild(checkBox);
+          }
+        }
+      }
+
+      if (skCount != 0){
+        var h23 = document.createElement("h2");
+        h23.innerText = headArr[2];
+        interviewhea1.appendChild(h23);
+        for (var sk = exCount+beCount; sk < beCount+exCount+skCount; sk++){
+          var h33 = document.createElement("h3");
+          h33.innerText = interviewTstVars2[sk];
+          interviewhea1.appendChild(h33);
+          for (var i = 0; i < chkList.length; i++) {
+            var label = document.createElement("label");
+            var checkBox = document.createElement("input");
+            checkBox.type = "checkbox";
+            checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+            label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
+            checkBox.value = chkList[i];
+            checkBox.setAttribute("id","interview"+i+sk)
+            checkBox.setAttribute("name",headArr[2]+"-"+interviewTstVars2[sk])
+            label.appendChild(document.createTextNode(chkList[i]));
+            interviewhea1.appendChild(label);
+            interviewhea1.appendChild(checkBox);
+          }
+
+        }
+      }
+
+
+
+
+      if (stCount != 0){
+        var h24 = document.createElement("h2");
+        h24.innerText = headArr[3];
+        interviewhea1.appendChild(h24);
+        var h24a = document.createElement("p");
+        // h21a.innerHTML.cssText = "font-size:18px";
+        h24a.innerText = "You can ask strengths as rapid-fire questions in the interview.";
+        interviewhea1.appendChild(h24a);
+        for (var st = skCount+exCount+beCount; st < skCount+exCount+beCount+stCount; st++){
+          var h34 = document.createElement("h3");
+          h34.innerText = interviewTstVars2[st];
+          interviewhea1.appendChild(h34);
+          for (var i = 0; i < strengthsChkList.length; i++) {
+            var label = document.createElement("label");
+            var checkBox = document.createElement("input");
+            checkBox.type = "checkbox";
+            checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+            label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
+            checkBox.value = strengthsChkList[i];
+            checkBox.setAttribute("id","interview-"+i+st)
+            checkBox.setAttribute("name",headArr[3]+"-"+interviewTstVars2[st])
+            label.appendChild(document.createTextNode(strengthsChkList[i]));
+            interviewhea1.appendChild(label);
+            interviewhea1.appendChild(checkBox);
+          }
+        }
+      }
+
+
+        function checkCheckboxesInt() {
+          var interviewCheck = [];
+
+          var checkboxInt = document.getElementsByTagName('input');
+          console.log(checkboxInt)
+          for (i = 0; i < checkboxInt.length; i++) {
+            if (checkboxInt[i].type == 'checkbox' && checkboxInt[i].checked ) {
+              interviewCheck.push(checkboxInt[i].id,checkboxInt[i].name,checkboxInt[i].value);
+              window.sessionStorage.setItem("interviewCheck", JSON.stringify(interviewCheck));
+            }
+          }
+        }
+
+
+      </script>
+
+
+                      <button class="govuk-button govuk-!-margin-top-9" onclick="checkCheckboxesInt()" data-module="govuk-button">Continue</button>
+
+
+
+      <BR><BR>
+
+      </div>
+    </div>
+
+
+
+  </form>
+
+  {% endblock %}

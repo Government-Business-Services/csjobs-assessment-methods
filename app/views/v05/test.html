@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<script>
+function add_text_input() {
+  var table = document.getElementById('mytable');
+  var x = table.rows.length;
+  table.insertRow(-1).innerHTML = '<tr>' +
+    '<td> <input type="text" id="title'+x+'" /></td>'+
+    '<td> <input type="text" id="description'+x+'" /></td></tr>';
+}
+function save_data(){
+  var table = document.getElementById('mytable');
+  var tableRows = table.rows.length;
+  var data = [];
+  for (var i = 1; i <= tableRows-1; i++) {
+    var title = document.getElementById('title'+ i).value;
+    var desc = document.getElementById('description'+ i).value;
+    var temp = {title: title, description: desc};
+    data.push(temp);
+  }
+  window.localStorage.setItem('Table1', JSON.stringify(data));
+}
+
+loadData = function(){
+  let data = JSON.parse(window.localStorage.getItem('Table1'));
+  for(i=0; i<data.length;i++){
+    add_text_input();
+    document.getElementById('title'+ (i+1)).value = data[i].title;
+    document.getElementById('description'+ (i+1)).value = data[i].description;
+  }
+}
+
+
+loadData();
+
+</script>
+
+
+<table id="mytable">
+        <tr>
+            <td> Title </td>
+            <td> Description </td>
+        </tr>
+    </table>
+
+    <input type="button" onclick="add_text_input()" value="add row">
+    <input type="button" onclick="save_data()" value="save">
+
+
+
+
+{% endblock %}

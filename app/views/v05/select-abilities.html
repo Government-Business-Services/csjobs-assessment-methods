@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+{% set onlineTests = [
+  ['Civil Service Numerical online test','Description lorem ipsumm dolor sit amet.'],
+  ['Civil Service Verbal online test','Description lorem ipsumm dolor sit amet.'] ] %}
+
+
+<form class="form" action="/check-next-stepV5" method="post">
+
+  <H2 class="govuk-heading-l govuk-!-margin-top-3 govuk-!-margin-bottom-3">What will you assess within each element at sift and interview?</h2>
+    <p class="govuk-body-l govuk-!-margin-bottom-6 govuk-!-margin-top-3">You have selected which elements are important to assess for this job role. You should now select what you will assess within each element at sift and interview.</p>
+
+    <H1 style="padding-top:20px;padding-bottom:5px;border-bottom:1px solid #1d70b8; " class="govuk-heading-xl govuk-!-margin-top-3 govuk-!-margin-bottom-6">Abilities</H1>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter" style="width:20%">
+
+      {% for items in data['selected'] %}
+      <ul class="govuk-!-margin-top-6 govuk-list govuk-list--bullet-">
+
+        {% if items == "abilities" %}
+        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items | capitalize }}</a></p></strong></li>
+
+        {% else %}
+        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items | capitalize }}</a></p></strong></li>
+
+
+      </ul>
+      {% endif %}
+      {% endfor %}
+
+    </div>
+    <div class="govuk-grid-column-three-quarters" style="width:80%;">
+      <div id="behaviours" style="padding:10px;">
+        <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-6"><strong>You can only assess abilities at sift with Civil Service Numerical and Verbal online tests.<br> Include as many abilities as you want to assess at sift.</strong></p>
+        <div id="behaviours" style="border-bottom:1px solid #1d70b8">
+
+
+
+
+                {% set abbaArray = ['What ability do you want to assess?',"2","3"] %}
+
+
+                {% for items in abbaArray | slice(1) %}
+                {% for item in items %}
+
+
+                {{ govukTextarea({
+                  label: {
+                    text: "",
+                    classes: "govuk-label--s"
+                  },
+                  rows: "2",
+                  id: "criteria-ability",
+                  name: item,
+                  value: data[item]
+                }) }}
+
+
+
+
+                {% endfor %}{% endfor %}
+
+                <p class="govuk-body-m"><a style="color:#1d70b8"><strong>Add another ability</strong></a></p>
+
+
+        </div>
+        {{ govukButton({
+          classes: "govuk-!-margin-top-9",
+          text: "Continue"
+        }) }}
+      </div>
+    </div>
+  </div>
+  <input type="hidden" name="source" value="abilities">
+</FORM>
+
+{% endblock %}

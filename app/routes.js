@@ -23,6 +23,13 @@ router.post("/tempo", function (req, res) {
 
 })
 
+router.get("/selection-handlerV5", function (req, res) {
+  var list = req.session.data['selected'];
+
+  for (var i=0;i<1;i++){
+    res.redirect("/v05/select-"+list[i]);
+  }
+})
 
 router.get("/selection-handler", function (req, res) {
   var list = req.session.data['selected'];
@@ -31,6 +38,24 @@ router.get("/selection-handler", function (req, res) {
     res.redirect("/v03/select-"+list[i]);
   }
 })
+
+router.post("/check-next-stepV5", function (req, res) {
+  var src = req.session.data['source'];
+
+  var list = req.session.data['selected'];
+  var num = list.length;
+
+  for (var a=0;a<num;a++){
+    if (src == list[num]) {
+      res.redirect("/v05/select-criteria-stage");
+    } else if (src == list[a]){
+      a=a+1;
+      res.redirect("/v05/select-"+list[a]);
+      break;
+    }
+  }
+  })
+
 
 router.post("/check-next-step", function (req, res) {
   var src = req.session.data['source'];
@@ -49,6 +74,10 @@ router.post("/check-next-step", function (req, res) {
   }
   })
 
+
+  router.get("/v05/select-undefined", function (req, res) {
+    res.redirect("/v05/select-criteria-stage");
+  })
 
   router.get("/v03/select-undefined", function (req, res) {
     res.redirect("/v03/select-criteria-stage");

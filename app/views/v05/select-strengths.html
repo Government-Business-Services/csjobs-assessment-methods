@@ -1,0 +1,509 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block header %}
+<header class="govuk-header govuk-!-padding-top-0" strole="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__logo">
+      <a href="#" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <!--[if gt IE 8]><!-->
+          <svg
+          aria-hidden="true"
+          focusable="false"
+          class="govuk-header__logotype-crown"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 132 97"
+          height="30"
+          width="36">
+          <path
+          fill="currentColor" fill-rule="evenodd"
+          d="M25 30.2c3.5 1.5 7.7-.2 9.1-3.7 1.5-3.6-.2-7.8-3.9-9.2-3.6-1.4-7.6.3-9.1 3.9-1.4 3.5.3 7.5 3.9 9zM9 39.5c3.6 1.5 7.8-.2 9.2-3.7 1.5-3.6-.2-7.8-3.9-9.1-3.6-1.5-7.6.2-9.1 3.8-1.4 3.5.3 7.5 3.8 9zM4.4 57.2c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.5-1.5-7.6.3-9.1 3.8-1.4 3.5.3 7.6 3.9 9.1zm38.3-21.4c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.6-1.5-7.6.3-9.1 3.8-1.3 3.6.4 7.7 3.9 9.1zm64.4-5.6c-3.6 1.5-7.8-.2-9.1-3.7-1.5-3.6.2-7.8 3.8-9.2 3.6-1.4 7.7.3 9.2 3.9 1.3 3.5-.4 7.5-3.9 9zm15.9 9.3c-3.6 1.5-7.7-.2-9.1-3.7-1.5-3.6.2-7.8 3.7-9.1 3.6-1.5 7.7.2 9.2 3.8 1.5 3.5-.3 7.5-3.8 9zm4.7 17.7c-3.6 1.5-7.8-.2-9.2-3.8-1.5-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.3 3.5-.4 7.6-3.9 9.1zM89.3 35.8c-3.6 1.5-7.8-.2-9.2-3.8-1.4-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.4 3.6-.3 7.7-3.9 9.1zM69.7 17.7l8.9 4.7V9.3l-8.9 2.8c-.2-.3-.5-.6-.9-.9L72.4 0H59.6l3.5 11.2c-.3.3-.6.5-.9.9l-8.8-2.8v13.1l8.8-4.7c.3.3.6.7.9.9l-5 15.4v.1c-.2.8-.4 1.6-.4 2.4 0 4.1 3.1 7.5 7 8.1h.2c.3 0 .7.1 1 .1.4 0 .7 0 1-.1h.2c4-.6 7.1-4.1 7.1-8.1 0-.8-.1-1.7-.4-2.4V34l-5.1-15.4c.4-.2.7-.6 1-.9zM66 92.8c16.9 0 32.8 1.1 47.1 3.2 4-16.9 8.9-26.7 14-33.5l-9.6-3.4c1 4.9 1.1 7.2 0 10.2-1.5-1.4-3-4.3-4.2-8.7L108.6 76c2.8-2 5-3.2 7.5-3.3-4.4 9.4-10 11.9-13.6 11.2-4.3-.8-6.3-4.6-5.6-7.9 1-4.7 5.7-5.9 8-.5 4.3-8.7-3-11.4-7.6-8.8 7.1-7.2 7.9-13.5 2.1-21.1-8 6.1-8.1 12.3-4.5 20.8-4.7-5.4-12.1-2.5-9.5 6.2 3.4-5.2 7.9-2 7.2 3.1-.6 4.3-6.4 7.8-13.5 7.2-10.3-.9-10.9-8-11.2-13.8 2.5-.5 7.1 1.8 11 7.3L80.2 60c-4.1 4.4-8 5.3-12.3 5.4 1.4-4.4 8-11.6 8-11.6H55.5s6.4 7.2 7.9 11.6c-4.2-.1-8-1-12.3-5.4l1.4 16.4c3.9-5.5 8.5-7.7 10.9-7.3-.3 5.8-.9 12.8-11.1 13.8-7.2.6-12.9-2.9-13.5-7.2-.7-5 3.8-8.3 7.1-3.1 2.7-8.7-4.6-11.6-9.4-6.2 3.7-8.5 3.6-14.7-4.6-20.8-5.8 7.6-5 13.9 2.2 21.1-4.7-2.6-11.9.1-7.7 8.8 2.3-5.5 7.1-4.2 8.1.5.7 3.3-1.3 7.1-5.7 7.9-3.5.7-9-1.8-13.5-11.2 2.5.1 4.7 1.3 7.5 3.3l-4.7-15.4c-1.2 4.4-2.7 7.2-4.3 8.7-1.1-3-.9-5.3 0-10.2l-9.5 3.4c5 6.9 9.9 16.7 14 33.5 14.8-2.1 30.8-3.2 47.7-3.2z"></path>
+        </svg>
+        <!--<![endif]-->
+        <!--[if IE 8]>
+        <img src="/assets/images/govuk-logotype-crown.png" class="govuk-header__logotype-crown-fallback-image" width="36" height="32" alt="">
+        <![endif]-->
+        <span class="govuk-header__logotype-text">
+          GOV.UK
+        </span>
+      </span>
+    </a>
+  </div>
+  <div class="govuk-header__content">
+
+    <a href="home" class="govuk-header__link govuk-header__service-name govuk-!-margin-top-0">
+      Civil Service Jobs
+    </a>
+
+    <nav style="float:right" aria-label="Menu" class="govuk-header__navigation ">
+
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu" hidden>Menu</button>
+      <ul id="navigation" class="govuk-header__navigation-list">
+        <li style="text-align: left;display: inline;"><p class="govuk-body-s govuk-!-margin-top-1" style=";line-height:1.5;font-size:16px;border-radius:3px;;;float:right;padding-right:10px;padding-left:10px;;margin-right:20px"><strong><a style="color:white;" class="govuk-link  govuk-link--no-underline govuk-link--no-visited-state" href="#">Sign out</a></strong></p></li>
+        <li class="govuk-header__navigation-item">
+          <a class="govuk-header__link" href="#">
+          </a>
+        </li>
+
+        <li style="text-align: left;display: inline;"><p class="govuk-body-s govuk-!-margin-top-1" style="line-height:1.5;font-size:16px;border-radius:2px;;;float:right;padding-left:5px;;margin-right:20px"><a style="color:white;" class="govuk-link  govuk-link--no-underline govuk-link--no-visited-state" href="#"><img class="govuk-!-margin-top-0" src="/public/images/theact.png" style="height:30px;float:right;padding-left:0px;padding-right:0px;margin-right:5px;"></a></li>
+          <!-- <li style="text-align: left;display: inline;"><p class="govuk-body-s govuk-!-margin-top-2" style="line-height:1.5;font-size:16px;border-radius:2px;;;float:right;padding-left:5px;;margin-right:2px"><strong><a style="color:white;" class="govuk-link  govuk-link--no-underline govuk-link--no-visited-state" href="#">Jane Smith</a></strong></p></li> -->
+
+
+        </ul>
+      </nav>
+
+
+
+
+    </div>
+  </header>
+  {% endblock %}
+
+  {% block pageTitle %}
+  Home – {{ serviceName }} – GOV.UK Prototype Kit
+  {% endblock %}
+  {% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+  {% endblock %}
+
+  {% block content %}
+
+
+  <style>
+    p, div {
+      font-family: "GDS Transport", arial, sans-serif;
+      line-height: 1.2;
+      margin: 0.8
+    }
+    p, li {
+      font-size: 18px; line-height: 1.2;
+      vertical-align: text-top;
+
+    }
+
+
+    h2 {
+      font-size: 30px; line-height: 0.5;
+      vertical-align: text-top;
+
+    }
+
+    hint {
+
+
+      font-size: 18px;
+      font-weight:normal;
+      line-height: 1.3;
+      vertical-align: text-top;
+    }
+
+
+    h3 {
+      font-size: 20px;
+      line-height: 1.5;
+
+    }
+
+    label {
+      font-size: 18px;
+      line-height: 1;
+      vertical-align: text-top;
+    }
+
+
+    input[type="checkbox"]:checked  {
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: 0;
+      background: white;
+      height: 40px;
+      width: 40px;
+      border: 2px solid black;
+      color: black;
+    }
+
+    input[type="checkbox"]:after {
+      content:"";
+      position: absolute;
+      left: 40%;
+      top: 20%;
+      width: 15%;
+      height: 40%;
+      border: 5px solid #000000;
+      border-width: 0 4px 4px 0;
+      transform: rotate(45deg);
+      display: none;
+    }
+
+    input[type="checkbox"]:checked:after {
+      display: block;
+    }
+  </style>
+
+
+  <form class="form" action="/check-next-stepV5" method="post">
+
+    <H2 class="govuk-heading-l govuk-!-margin-top-3 govuk-!-margin-bottom-3">What will you assess within each element at sift and interview?</h2>
+      <p class="govuk-body-l govuk-!-margin-bottom-6 govuk-!-margin-top-3">You have selected which elements are important to assess for this job role. You should now select what you will assess within each element at sift and interview.</p>
+
+      <H1 style="padding-top:20px;padding-bottom:5px;border-bottom:1px solid #1d70b8; " class="govuk-heading-xl govuk-!-margin-top-3 govuk-!-margin-bottom-6">Strengths</H1>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter" style="width:20%">
+
+          {% for items in data['selected'] %}
+          <ul class="govuk-!-margin-top-6 govuk-list govuk-list--bullet- ">
+
+            {% if items == "strengths" %}
+            <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items | capitalize }}</a></p></strong></li>
+            {% else %}
+            <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items | lower}}"><strong>{{ items | capitalize }}</a></p></strong></li>
+          </ul>
+
+
+          {% endif %}
+          {% endfor %}
+
+        </div>
+        <div class="govuk-grid-column-three-quarters">
+
+
+
+          <div style="position:relative;width:45%;" class="govuk-form-group govuk-input--width-30 govuk-!-margin-top-6 govuk-!-margin-left-3">
+            <label for="autocomplete-default" class="govuk-label--s">Search the strengths dictionary</label>
+            <div id="strengthsList" class="autocomplete-wrapper"></div>
+
+
+
+            <a style="float:right;position:absolute;right:-120px;top:25px" class="govuk-button govuk-button--secondary govuk-!-margin-top-0"  href="#">Add to list</a>
+
+          </div>
+          <div id="bar" class="govuk-!-margin-top-6"  style="border-top:1px solid #1d70b8"></div>
+
+          <p class="govuk-!-margin-left-3 govuk-!-margin-top-3" id="item"></p>
+
+
+
+
+
+
+
+
+          <div id="recom" style="background:#F4FAFF;border-left:5px solid #1d70b8;padding:10px">
+            <!-- <p class="govuk-body-m "><strong>Would you like to see strengths that are compatible with your selected behaviours? </strong></p> -->
+
+            <div >
+              {{ govukRadios({
+                classes: "govuk-radios--inline govuk-radios--small",
+                idPrefix: "strenRec",
+                name: "strenRec",
+                fieldset: {
+                  legend: {
+                    text: "Would you like to see strengths that are most compatible with your selected behaviours?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+                items: [
+                {
+                  id: "reveal",
+                  value: "Yes",
+                  text: "Yes",
+                  checked: checked("strenRec","Yes")
+                },
+                {
+                  id: "hiderec",
+                  value: "No",
+                  text: "No",
+                  checked: checked("strenRec","No")
+                }
+                ]
+              }) }}
+            </div>
+
+
+
+          </div>
+
+
+          <div id="recom2" style="display:none;background:#F4FAFF;;border-left:5px solid #1d70b8;padding:10px">
+            <p class="govuk-body-m" style="font-size:22px;line-height:1.6"><strong>We recommend selecting 4-6 strengths in total. They can be assessed at either sift, interview or both.</strong></p>
+
+
+          </div>
+
+          <div id="conditional" style="display:none;padding-top:10px;padding-bottom:10px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+
+            <div class="govuk-!-margin-top-6" id="behave"></div>
+
+
+          </div>
+
+          <script src="/public/javascripts/temp-copy.js"></script>
+          <script src="/public/javascripts/temp.js"></script>
+
+
+
+          <input type="hidden" name="source" value="strengths">
+
+          <button class="govuk-button govuk-!-margin-top-6" onclick="checkCheckBoxes()" data-module="govuk-button">Continue</button>
+
+        </form>
+        <script>
+
+          if (document.getElementById('reveal').checked) {
+            hideDiv('recom');
+            showDiv("conditional");
+            showDiv('recom2');
+          }
+
+
+          var matchStrengths = [];
+          const streBo = JSON.parse(window.sessionStorage.getItem("behaviourStrengths"));
+
+
+
+
+
+
+          const strengthsArray = [];
+          const object = JSON.parse(window.sessionStorage.getItem("strengths"));
+          const entry = document.getElementById("autocomplete-default");
+          var item = document.getElementById('item');
+          entry.addEventListener('change', (event) => {
+
+            var strength = event.target.value;
+            var description;
+            var content = document.createElement("p");
+
+
+            for (items in object){
+              if (strength == object[items].title){
+                content.innerHTML = "<strong style='font-size:20px'>"+strength+"</strong>"+"<BR>"+object[items].description+"<br><a id='del"+items+"' onclick='' href='#'>delete</a>";
+                  item.appendChild(content);
+                }
+              }
+              strengthsArray.push(strength);
+              const del = document.getElementsByTagName('a');
+
+            });
+
+            const extra = document.getElementById('reveal');
+            const nothanks = document.getElementById('hiderec');
+            var divv = document.getElementById('conditional').style.display;
+            extra.addEventListener('change', (event) => {
+              if (extra.checked) {
+                hideDiv('recom');
+                showDiv("conditional");
+                showDiv('recom2');
+              }
+
+            });
+
+            nothanks.addEventListener('change', (event) => {
+              if (nothanks.checked) {
+                hideDiv("conditional");
+                hideDiv("recom");
+                hideDiv("bar");
+              }
+
+            });
+
+            function showDiv(div1) {
+              document.getElementById(div1).style.display = 'block';
+
+            }
+
+            function hideDiv(div1) {
+              document.getElementById(div1).style.display = 'none';
+
+            }
+
+            const beStrengths = JSON.parse(window.sessionStorage.getItem("behaviourStrengths"));
+            const behaviours = JSON.parse(window.sessionStorage.getItem("BehavioursSelected"));
+            const strengths = JSON.parse(window.sessionStorage.getItem("strengths"));
+
+
+            var beLong = behaviours.length;
+
+
+            var strewn = [];
+            var hinter = [];
+
+
+            for (var log=0; log < beLong; log++) {
+              var outputB = document.getElementById('behave');
+              var contentB = document.createElement("p");
+              contentB.style.cssText = "font-size:22px;background:#F4FAFF;border-bottom:1px solid #1d70b8;padding-bottom:10px";
+              contentB.innerHTML = "Behaviour <strong>"+behaviours[log]+"</strong>";
+              outputB.appendChild(contentB)
+
+
+              for (things in beStrengths){
+                if (behaviours[log] == beStrengths[things].title) {
+                  var contentS = document.createElement("p");
+
+
+                  // contentS.innerHTML = beStrengths[things].strengths;
+                  // outputB.appendChild(contentS)
+
+
+                  strewn = beStrengths[things].strengths;
+
+
+
+
+
+
+
+                  for (var tings=0;tings<strewn.length;tings++){
+
+
+                    for (stick in strengths) {
+                      if (strewn[tings] == strengths[stick].title) {
+
+
+                        hinter[tings] = strengths[stick].description;
+                        console.log(strewn[tings])
+
+                      }
+
+                    }
+                  }
+
+
+                  var outputB = document.getElementById('behave');
+                  for (var i = 0; i < strewn.length; i++) {
+                    var label = document.createElement("label");
+                    var checkBox = document.createElement("input");
+                    var hint = document.createElement("hint");
+                    checkBox.type = "checkbox";
+                    checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+                    label.style.cssText = "display: block;font-size:20px;padding-left: 15px;text-indent: 40px;";
+                    checkBox.value = strewn[i];
+                    hint.style.cssText = "display: block;padding-bottom: 35px;";
+                    hint.value = hinter[i];
+                    checkBox.setAttribute("id","strengths"+behaviours[log]+i);
+                    checkBox.setAttribute("name","strengths");
+
+                    label.appendChild(document.createTextNode(strewn[i]));
+                    outputB.appendChild(label);
+                    outputB.appendChild(checkBox);
+                    hint.appendChild(document.createTextNode(hinter[i]));
+                    outputB.appendChild(hint);
+
+                  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  // checkBoxxed(strewn, hinter)
+
+
+
+
+
+
+
+
+                  // for (var sss = 0; sss < strewn.length;sss++) {
+                  //   contentS.innerHTML = strewn[sss]
+                  //   outputB.appendChild(contentS)
+
+                  // }
+
+
+
+
+                }
+              }
+            }
+
+
+
+            function checkBoxxed(array, hintArray){
+              console.log(hintArray)
+              var outputB = document.getElementById('behave');
+              for (var i = 0; i < array.length; i++) {
+                var label = document.createElement("label");
+                var checkBox = document.createElement("input");
+                var hint = document.createElement("hint");
+                checkBox.type = "checkbox";
+                checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+                label.style.cssText = "display: block;font-size:20px;padding-left: 15px;text-indent: 40px;";
+                checkBox.value = array[i];
+                hint.value = hintArray[i];
+                checkBox.setAttribute("id",beStrengths[things].title+array[i]+i)
+                checkBox.setAttribute("name",i)
+                label.appendChild(document.createTextNode(array[i]));
+                outputB.appendChild(label);
+                outputB.appendChild(hint);
+                outputB.appendChild(checkBox);
+              }
+            }
+
+
+
+            // for (var i = 0; i < strengthsChkList.length; i++) {
+            //   var label = document.createElement("label");
+            //   var checkBox = document.createElement("input");
+            //   checkBox.type = "checkbox";
+            //   checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+            //   label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
+            //   checkBox.value = strengthsChkList[i];
+            //   checkBox.setAttribute("id","interview-"+i+st)
+            //   checkBox.setAttribute("name",headArr[3]+"-"+interviewTstVars2[st])
+            //   label.appendChild(document.createTextNode(strengthsChkList[i]));
+            //   interviewhea1.appendChild(label);
+            //   interviewhea1.appendChild(checkBox);
+            // }
+
+            function checkCheckBoxes() {
+              var strengthCheck = [];
+
+              var checkboxS = document.getElementsByTagName('input');
+
+              for (i = 0; i < checkboxS.length; i++) {
+                if (checkboxS[i].type == 'checkbox' && checkboxS[i].checked ) {
+                  strengthCheck.push(checkboxS[i].value);
+                  window.sessionStorage.setItem("StrengthsSelected", JSON.stringify(strengthCheck));
+                }
+              }
+            }
+
+
+
+          </script>
+          {% endblock %}

@@ -1,0 +1,258 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Strengths – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<style>
+
+
+
+  p {
+
+
+      font-size: 20px;
+
+
+  }
+
+
+
+hint {
+  font-size: 18px;
+  font-weight:normal;
+  line-height: 1.2;
+  vertical-align: text-top;
+}
+
+}
+
+  .autocomplete__wrapper {
+    position: relative;
+  }
+
+  .autocomplete__hint,
+  .autocomplete__input {
+    -webkit-appearance: none;
+    border: 2px solid #0b0c0c;
+    border-radius: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  .autocomplete__input {
+    background-color: transparent;
+    position: relative;
+  }
+
+  .autocomplete__hint {
+    color: #b1b4b6;
+    position: absolute;
+  }
+
+  .autocomplete__input--default {
+    padding: 5px;
+  }
+
+  .autocomplete__input--focused {
+    outline: 3px solid #fd0;
+    outline-offset: 0;
+    box-shadow: inset 0 0 0 2px;
+  }
+
+  .autocomplete__input--show-all-values {
+    padding: 5px 34px 5px 5px;
+    cursor: pointer;
+  }
+
+  .autocomplete__dropdown-arrow-down {
+    z-index: -1;
+    display: inline-block;
+    position: absolute;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    top: 10px;
+  }
+
+  .autocomplete__menu {
+    background-color: #fff;
+    border: 2px solid #0b0c0c;
+    border-top: 0;
+    color: #0b0c0c;
+    margin: 0;
+    max-height: 342px;
+    overflow-x: hidden;
+    padding: 0;
+    width: 100%;
+    width: calc(100% - 4px);
+  }
+
+  .autocomplete__menu--visible {
+    display: block;
+  }
+
+  .autocomplete__menu--hidden {
+    display: none;
+  }
+
+  .autocomplete__menu--overlay {
+    box-shadow: rgba(0,0,0,.256863) 0 2px 6px;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    z-index: 100;
+  }
+
+  .autocomplete__menu--inline {
+    position: relative;
+  }
+
+  .autocomplete__option {
+    border-bottom: solid #b1b4b6;
+    border-width: 1px 0;
+    cursor: pointer;
+    display: block;
+    position: relative;
+  }
+
+  .autocomplete__option > * {
+    pointer-events: none;
+  }
+
+  .autocomplete__option:first-of-type {
+    border-top-width: 0;
+  }
+
+  .autocomplete__option:last-of-type {
+    border-bottom-width: 0;
+  }
+
+  .autocomplete__option--odd {
+    background-color: #fafafa;
+  }
+
+  .autocomplete__option--focused,
+  .autocomplete__option:hover {
+    background-color: #1d70b8;
+    border-color: #1d70b8;
+    color: #fff;
+    outline: 0;
+  }
+
+  .autocomplete__option--no-results {
+    background-color: #fafafa;
+    color: #646b6f;
+    cursor: not-allowed;
+  }
+
+  .autocomplete__hint,
+  .autocomplete__input,
+  .autocomplete__option {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .autocomplete__hint,
+  .autocomplete__option {
+    padding: 5px;
+  }
+  @media (min-width:641px) {
+    .autocomplete__hint,
+    .autocomplete__input,
+    .autocomplete__option {
+      font-size: 19px;
+      line-height: 1.31579;
+    }
+  }
+
+
+</style>
+
+
+
+<form class="form" action="/magic" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l">Strengths Dictionary</h1>
+
+
+      <div style="position:relative;width:45%;" class="govuk-form-group govuk-input--width-30">
+        <label for="autocomplete-default" class="govuk-label--s">Strengths</label>
+        <div id="strengthsList" class="autocomplete-wrapper"></div>
+
+
+<span class="govuk-!-margin-top-9" style="float:left" id="here"></span>
+        <div id="there"></div>
+        <a style="float:right;position:absolute;right:-120px;top:25px" class="govuk-button govuk-button--secondary govuk-!-margin-top-0"  href="#">Add to list</a>
+
+      </div>
+
+
+
+      <script src="/public/javascripts/temp-copy.js"></script>
+      <script src="/public/javascripts/temp.js"></script>
+
+
+
+    </FORM>
+
+
+    <script>
+      var a=0;
+      const object = JSON.parse(window.sessionStorage.getItem("strengths"));
+
+      const dest = document.getElementById("here");
+      const story = document.getElementById("there");
+      const entry = document.getElementById("autocomplete-default");
+      entry.addEventListener('change', (event) => {
+      // var descItem = document.createElement("p")
+      var listItem = document.createElement("p")
+      listItem.setAttribute("id",a=a+1)
+
+
+
+
+      var output = event.target.value;
+      // dest.innerText = "";
+      // for (var i in object) {
+      //   if (output == object[i].title) {
+      //     var desc = object[i].description
+      //   }
+      // }
+      listItem.innerHTML = event.target.value;
+
+      // descItem.innerText = "Cheeeeese";
+      dest.appendChild(listItem);
+      // story.appendChild(descItem);
+      });
+
+      // entry.addEventListener('focus', (event) => {
+      //   console.log("input")
+      // var descItem = document.createElement("p")
+      // var listItem = document.createElement("li")
+      // var output = event.target.value;
+      // story.innerText = "";
+      //
+      //
+      // // listItem.innerText = event.target.value;
+      // descItem.innerText = "";
+      // // dest.appendChild(listItem);
+      // story.appendChild(descItem);
+      // });
+
+    
+
+    </script>
+    {% endblock %}

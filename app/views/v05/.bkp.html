@@ -1,0 +1,469 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+
+{% block pageTitle %}
+Select methods for sift – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+<style>
+  /* Example page specific styling. */
+  p, div {
+    font-family: "GDS Transport", arial, sans-serif;
+    line-height: 1.2;
+    margin: 0.8
+  }
+  p, li {
+    font-size: 22px; line-height: 1.2;
+    vertical-align: text-top;
+
+  }
+
+
+  h2 {
+    font-size: 30px; line-height: 0.5;
+    vertical-align: text-top;
+
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 1.5;
+
+  }
+
+  label {
+    font-size: 22px;
+    line-height: 1;
+    vertical-align: text-top;
+  }
+
+
+  input[type="checkbox"]:checked  {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: white;
+    height: 40px;
+    width: 40px;
+    border: 2px solid black;
+    color: black;
+  }
+
+  input[type="checkbox"]:after {
+    content:"";
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    width: 15%;
+    height: 40%;
+    border: 5px solid #000000;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    display: none;
+  }
+
+  input[type="checkbox"]:checked:after {
+    display: block;
+  }
+
+
+
+
+</style>
+
+<form class="form" action="select-methods-int" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">How will you assess at sift?</h1>
+      <p class="govuk-body-l"><strong>Select how you will assess each element at sift.</strong></p>
+
+      <p class="govuk-body-l">At sift, you have selected to assess:</p>
+
+
+      <ul id="counter" style="" class="govuk-body-m govuk-list govuk-list--bullet"></ul>
+
+      <div  class="govuk-!-margin-top-9" id="header1"></div>
+      <div id="test"></div>
+
+
+      <script>
+
+        const sift = JSON.parse(window.sessionStorage.getItem("siftStage"));
+
+
+
+        var siftOutput = document.getElementById("test");
+
+
+
+
+
+
+
+
+        for (const [key, value] of Object.entries(siftStage)) {
+          // console.log(`${value}: ${key}`);
+          var headSift = document.createElement("p");
+          headSift.innerHTML = `${value}: ${key}`;
+          siftOutput.appendChild(headSift);
+
+
+          if (const [key, value] of Object.entries(siftStage) == "Behaviours") {
+            console.log('behaviours')
+          } else if (const [key, value] of Object.entries(siftStage) == "Experience") {
+  console.log('Exper')
+
+
+          } else if (const [key, value] of Object.entries(siftStage) == "Strengths") {
+
+
+
+          } else if (const [key, value] of Object.entries(siftStage) == "Skills") {
+
+
+          }
+
+
+
+
+
+        }
+
+
+
+
+
+
+        for (const [key, value] of Object.entries(intStage)) {
+          console.log(`${value}: ${key}`);
+          var headInt = document.createElement("p");
+          headInt.innerHTML = `${value}: ${key}`;
+          intOutput.appendChild(headInt);
+        }
+
+
+
+
+
+
+        var beCount;
+        var stCount;
+        var skCount;
+        var exCount;
+        var abCount;
+        var beHead;
+        var stHead;
+        var skHead;
+        var exHead;
+        var abHead;
+
+        var sift = [];
+        var siftSet = [];
+        var siftSet2 = [];
+
+
+
+        var siftLen = sift.length;
+
+
+        console.log(sift)
+
+        var siftChunkSize = 2;
+        for (let sif = 0; sif < sift.length; sif += siftChunkSize) {
+          const siftChunk = sift.slice(sif, sif + siftChunkSize);
+
+          siftSet[sif] = siftChunk[0].split("-",1).pop();
+          siftSet2[sif] = siftChunk[1];
+
+        }
+        var siftTstVars = siftSet.filter(trim);
+        var siftTstVars2  = siftSet2.filter(trim);
+
+
+        beCount = siftTstVars.filter(countb).length;
+        stCount = siftTstVars.filter(counts).length;
+        skCount = siftTstVars.filter(countk).length;
+        exCount = siftTstVars.filter(counte).length;
+        abCount = siftTstVars.filter(counta).length;
+
+        beHead = siftTstVars.filter(countb);
+        stHead = siftTstVars.filter(counts);
+        exHead = siftTstVars.filter(counte);
+        skHead = siftTstVars.filter(countk);
+        abHead = siftTstVars.filter(counta);
+        console.log(abHead)
+
+        beCount = beHead.length;
+        stCount = stHead.length;
+        exCount = exHead.length;
+        skCount = skHead.length;
+        abCount = abHead.length;
+
+        var sum = beCount+stCount+exCount+skCount+abCount;
+
+        var countArr = [];
+
+        countArr.push(beCount+" "+"behaviours",exCount+" "+"experience",skCount+" "+"skills",stCount+" "+"strengths",abCount+" "+"abilities");
+
+        var headArr = [];
+
+        var newHead1 = eliminateDuplicates(beHead);
+        var newHead2 = eliminateDuplicates(exHead);
+        var newHead3 = eliminateDuplicates(skHead);
+        var newHead4 = eliminateDuplicates(stHead);
+        var newHead5 = eliminateDuplicates(abHead);
+        headArr.push(newHead1,newHead2,newHead3,newHead4,newHead5);
+
+
+        var exp = eliminateDuplicates(headArr);
+
+        // exp = exp.join(" ")
+
+        function trim(val) {
+          return val !="" ;
+        }
+
+
+        function eliminateDuplicates(arr) {
+          var i,
+          len = arr.length,
+          out = [],
+          obj = {};
+
+          for (i = 0; i < len; i++) {
+            obj[arr[i]] = 0;
+          }
+          for (i in obj) {
+            out.push(i);
+          }
+          return out;
+
+        }
+
+
+        function countb(cc) {
+          return cc == "Behaviours" ;
+        }
+
+        function counts(cc) {
+          return cc == "Strengths" ;
+        }
+
+        function countk(cc) {
+          return cc == "Skills" ;
+        }
+
+        function counte(cc) {
+          return cc == "Experience" ;
+        }
+
+        function counta(cc) {
+          return cc == "Abilities" ;
+        }
+
+        var siftCount = document.getElementById("counter");
+        for (ccc = 0; ccc < countArr.length; ++ccc) {
+          if (countArr[ccc][0] > 0){
+            var sifCCC = document.createElement('li');
+            sifCCC.innerText = countArr[ccc];
+            siftCount.appendChild(sifCCC);
+          }
+        }
+
+
+        var chkList = ['Personal statement','CV','Written example (250 words)']
+
+        var skillsChkList = ['Application form','Personal statement','CV','Written example (250 words)','Casework Skills Test','Customer Service Skills Test'];
+        var strengthsChkList = ['Civil Service Work Strengths Test'];
+        var behavioursChkList = ['Personal statement','CV','Written example (250 words)','Civil Service Judgement Test','Civil Service Management Judgement Test'];
+        var abilitiesChkList = ['Civil Service Numerical Test','Civil Service Verbal Test'];
+
+        var hea1 = document.getElementById("header1");
+        console.log(beCount)
+        if (beCount != 0) {
+          var h21 = document.createElement("h2");
+          h21.innerText = headArr[0];
+          hea1.appendChild(h21);
+          var h21a = document.createElement("p");
+          // h21a.innerHTML.cssText = "font-size:18px";
+          h21a.innerText = "If you have selected 3 or more behaviours you can assess with an online test at sift.";
+          hea1.appendChild(h21a);
+          for (var be = 0; be < beCount; be++){
+            var h31 = document.createElement("h3");
+            h31.innerText = siftTstVars2[be];
+            hea1.appendChild(h31);
+
+
+
+            if (beCount > 2) {
+              for (var i = 0; i < behavioursChkList.length; i++) {
+                var label = document.createElement("label");
+                var checkBox = document.createElement("input");
+                checkBox.type = "checkbox";
+                checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+                label.style.cssText = "display: block;padding-left: 15px;text-indent: 40px;";
+                checkBox.value = behavioursChkList[i];
+                checkBox.setAttribute("id","sift-"+i+be)
+                checkBox.setAttribute("name",headArr[0]+"-"+siftTstVars2[be])
+                label.appendChild(document.createTextNode(behavioursChkList[i]));
+                hea1.appendChild(label);
+                hea1.appendChild(checkBox);
+              }
+            } else {
+              for (var i = 0; i < chkList.length; i++) {
+                var label = document.createElement("label");
+                var checkBox = document.createElement("input");
+                checkBox.type = "checkbox";
+                checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+                label.style.cssText = "display: block;padding-left: 15px;text-indent: 40px;";
+                checkBox.value = chkList[i];
+                checkBox.setAttribute("id","sift-"+i+be)
+                checkBox.setAttribute("name",headArr[0]+"-"+siftTstVars2[be])
+                label.appendChild(document.createTextNode(chkList[i]));
+                hea1.appendChild(label);
+                hea1.appendChild(checkBox);
+              }
+            }
+
+
+
+
+
+
+
+          }
+        }
+
+
+        }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        function checkBoxxed(){
+          for (var i = 0; i < chkList.length; i++) {
+            var label = document.createElement("label");
+            var checkBox = document.createElement("input");
+            checkBox.type = "checkbox";
+            checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+            label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
+            checkBox.value = chkList[i];
+            checkBox.setAttribute("id","check"+i)
+            checkBox.setAttribute("name",headArr)
+            label.appendChild(document.createTextNode(chkList[i]));
+            hea1.appendChild(label);
+            hea1.appendChild(checkBox);
+          }
+        }
+
+
+
+
+        //
+        // var hea1 = document.getElementById("header1");
+        // for (var n=0; n!=1; n++) {
+        //
+        //   var header1 = document.createElement("h2");
+        //   header1.innerText = exp;
+        //
+        //
+        //   for (var sif3 = 0; sif3 < siftTstVars.length; sif3++) {
+        //
+        //
+        //     for (var i = 0; i < chkList.length; i++) {
+        //       var label = document.createElement("label");
+        //       var checkBox = document.createElement("input");
+        //       checkBox.type = "checkbox";
+        //       checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+        //       label.style.cssText = "display: block;font-size:22px;padding-left: 15px;text-indent: 40px;";
+        //       checkBox.value = chkList[i];
+        //       label.appendChild(document.createTextNode(chkList[i]));
+        //       hea2.appendChild(label);
+        //       hea2.appendChild(checkBox);
+        //
+        //
+        //     }
+        //   }
+        // }
+
+
+
+        // var siftReCheck = [];
+        //
+        // var reCheckbox = document.getElementsByTagName('input');
+        //
+        // for (j = 0; j < reCheckbox.length; j++) {
+        //   if (checkbox[i].type == 'checkbox' && checkbox[i].checked ) {
+        //     siftCheck.push(checkbox[i].name,checkbox[i].id,checkbox[i].value);
+        //     window.sessionStorage.setItem("siftCheck", JSON.stringify(siftCheck));
+        //   }
+        // }
+        //
+        // siftReCheck = JSON.parse(window.sessionStorage.getItem("siftCheck"));
+
+
+
+
+
+
+
+
+
+        var features = document.getElementById('catHead')
+        for(var i = 0; i < siftTstVars2.length; i++) {
+
+
+        }
+
+        function checkCheckboxesSift() {
+          var siftCheck = [];
+
+          var checkbox = document.getElementsByTagName('input');
+          console.log(checkbox)
+          for (i = 0; i < checkbox.length; i++) {
+            if (checkbox[i].type == 'checkbox' && checkbox[i].checked ) {
+              siftCheck.push(checkbox[i].id,checkbox[i].name,checkbox[i].value);
+              window.sessionStorage.setItem("siftCheck", JSON.stringify(siftCheck));
+            }
+          }
+        }
+      </script>
+
+
+      <button class="govuk-button govuk-!-margin-top-9" onclick="checkCheckboxesSift()" data-module="govuk-button">Continue</button>
+
+
+    </div>
+  </div>
+
+
+
+</form>
+
+{% endblock %}
