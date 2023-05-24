@@ -253,6 +253,13 @@
         }
         ]
       }) }}
+
+
+
+
+
+Would you like to
+
 <a class="govuk-button govuk-button--secondary govuk-!-margin-bottom-1 govuk-!-margin-top-1" href="#" onclick="graSelecta('grade-select')" type="button" style=";">Show</a>
 </div>
 
@@ -263,7 +270,14 @@
       <div id="header1"></div>
 
 
-      <button onclick="checkCheckBoxes()" class="govuk-button govuk-!-margin-top-9" data-module="govuk-button">Continue</button>
+
+      <div class="govuk-!-margin-bottom-4 govuk-!-margin-top-6" style="float:right;width:90%;background:#F4FAFF;border-left:5px solid #1d70b8;padding:10px">
+      <p id="caution" style="display:none"  class="govuk-body-m" style="font-size:20px;line-height:1.6"><strong>Last year, the average number of behaviours assessed by vacancy holders at {{ data['temp-copy-input-autocomplete'] | last}} was 3. Campaigns that featured 5 or more were 50% more likely to end without attracting any applicants.</strong></p>
+            <p id="cautionref" style="display:none" class="govuk-body-xs ">Source: Civil Service Data Science Report (2022), Cabinet Office.</p>
+            <button onclick="checkCheckBoxes()" class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">Continue</button>
+
+      </div>
+
 
 
     </div>
@@ -283,7 +297,6 @@
     const object = JSON.parse(window.sessionStorage.getItem("behaviours"));
     var obj0 = Object.values(object.level0);
     var level = obj0;
-    console.log(obj0)
 
     for (var t=0;t<level.length;t++) {
       // console.log(level1[t].title)
@@ -330,7 +343,6 @@
       var obj2 = Object.values(object.level2);
       var obj3 = Object.values(object.level3);
       var obj4 = Object.values(object.level4);
-      console.log(obj0);
 
 
       if (grade == "level0") {
@@ -388,13 +400,18 @@
       var checkboxB = document.getElementsByTagName('input');
 
       for (i = 0; i < checkboxB.length; i++) {
+        var checkCt = checkboxB[i].checked.length;
         if (checkboxB[i].type == 'checkbox' && checkboxB[i].checked ) {
           behaviourCheck.push(checkboxB[i].value);
           window.sessionStorage.setItem("BehavioursSelected", JSON.stringify(behaviourCheck));
         }
       }
+
+
     }
 
+    const dwqq = JSON.parse(window.sessionStorage.getItem("BehavioursSelected"));
+    console.log(dwqq)
 
 
     </script>

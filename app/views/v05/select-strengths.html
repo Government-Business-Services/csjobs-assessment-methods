@@ -173,10 +173,9 @@
 
           {% endif %}
           {% endfor %}
-
+<a style="float:left;font-size:18px" class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/717274/CS_Strengths_2018.pdf">Strengths<BR> Dictionary</a>
         </div>
         <div class="govuk-grid-column-three-quarters">
-
 
 
           <div style="position:relative;width:45%;" class="govuk-form-group govuk-input--width-30 govuk-!-margin-top-6 govuk-!-margin-left-3">
@@ -188,6 +187,7 @@
             <a style="float:right;position:absolute;right:-120px;top:25px" class="govuk-button govuk-button--secondary govuk-!-margin-top-0"  href="#">Add to list</a>
 
           </div>
+
           <div id="bar" class="govuk-!-margin-top-6"  style="border-top:1px solid #1d70b8"></div>
 
           <p class="govuk-!-margin-left-3 govuk-!-margin-top-3" id="item"></p>
@@ -195,12 +195,8 @@
 
 
 
-
-
-
-
           <div id="recom" style="background:#F4FAFF;border-left:5px solid #1d70b8;padding:10px">
-            <!-- <p class="govuk-body-m "><strong>Would you like to see strengths that are compatible with your selected behaviours? </strong></p> -->
+            <!-- <p class="govuk-body-m "><strong>Would you like to the most relevant strengths mapped to your selected behaviours? </strong></p> -->
 
             <div >
               {{ govukRadios({
@@ -209,9 +205,9 @@
                 name: "strenRec",
                 fieldset: {
                   legend: {
-                    text: "Would you like to see strengths that are most compatible with your selected behaviours?",
+                    text: "Would you like to see the most relevant strengths mapped to your selected behaviours?",
                     isPageHeading: false,
-                    classes: "govuk-fieldset__legend--s"
+                    classes: "govuk-fieldset__legend--m"
                   }
                 },
                 items: [
@@ -237,7 +233,7 @@
 
 
           <div id="recom2" style="display:none;background:#F4FAFF;;border-left:5px solid #1d70b8;padding:10px">
-            <p class="govuk-body-m" style="font-size:22px;line-height:1.6"><strong>We recommend selecting 4-6 strengths in total. They can be assessed at either sift, interview or both.</strong></p>
+            <p class="govuk-body-m" style="font-size:20px;line-height:1.6"><strong>We recommend selecting 4-6 strengths in total. They can be assessed at sift with the Work Strengths online test, and quick-response interview questions.</strong></p>
 
 
           </div>

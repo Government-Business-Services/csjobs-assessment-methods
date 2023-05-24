@@ -77,8 +77,7 @@
   ['Behaviours','Behaviours are the actions and activities that people do which result in effective performance in a job. Behaviours are best for assessing the core transferable skills and behavioural styles. Candidates can provide examples from work or home contexts. You can assess behaviours at the sift stage with a personal statement, written examples and online tests. At the interview, you can assess behaviours by presentation and assessment exercises.'],
   ['Experience','The knowledge or mastery of an activity or subject gained through involvement in or exposure to it. Experience element is best used for assessing contextual knowledge or applied skills required for performing well in a job role. You can assess experience at sift with a personal statement, CV and Basic Knowledge online test and at interview you can assess by interview questions and a presentation.'],
   ['Strengths','Strengths are what people enjoy doing and do well and often. Strengths help us to understand whether someone is a good fit for the role and organisation and let candidates show their potential. Strengths are a great way for candidates to show their potential when they do not have a lot of work experience. Strengths can only be assessed at sift by the Civil Service Work Strengths online test. At the interview, you can assess strengths by interview questions.'],
-  ['Skills','You can assess specific professional and technical skills, knowledge or qualifications. Relevant qualifications can be used as objective essential criteria for fast shortlisting. You can assess skills at sift by personal statement and specific skill-based online tests, and at interview, you can assess by presentation, work samples and assessment exercises.'],
-  ['Abilities','Abilities are a chance for candidates to show their potential to perform to the required standard. You can assess abilities at the sift stage with Civil Service numerical and verbal online tests.']
+  ['Skills','You can assess specific professional and technical skills, knowledge or qualifications. Relevant qualifications can be used as objective essential criteria for fast shortlisting. You can assess skills at sift by personal statement and specific skill-based online tests, and at interview, you can assess by presentation, work samples and assessment exercises.']
   ] %}
 
   <form class="form" action="/selection-handlerV5" method="post">
@@ -91,6 +90,18 @@
         <h1 class="govuk-heading-xl">
           Choose the elements you want to assess
         </h1>
+
+
+        <div class="govuk-!-margin-bottom-4 govuk-!-margin-top-4" style="background:#F4FAFF;border-left:5px solid #1d70b8;padding:10px">
+        <p class="govuk-body-m" style="font-size:20px;line-height:1.6"><strong>We recommend {{ data['temp-copy-input-autocomplete'] | first}}</strong></p>
+              <!-- <p class="govuk-body-s ">Source: Civil Service Data Science Report (2022), Cabinet Office.</p> -->
+        </div>
+
+
+
+            <p style="font-size:24px" class="govuk-body-l govuk-!-margin-bottom-2">Grade <strong>{{ data['gselect']}}</strong></p>
+
+            <h1 style="border-bottom:1px solid #1d70b8;;padding-bottom:10px;" class="govuk-heading-xl"></h1>
 
         {% for choice, description in choices %}
 
@@ -133,6 +144,9 @@
 
 
   <script>
+
+
+
     function setupBehaviourStrengths(){
 
 
