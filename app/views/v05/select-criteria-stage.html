@@ -157,8 +157,6 @@
 {% set countEx  = 0 %}
 {% set countSk  = 0 %}
 
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
 
 
 
@@ -172,6 +170,8 @@
       <p class="govuk-body-l govuk-!-margin-bottom-3">You must choose when to assess all elements you have selected.</p>
 
       <h2 id="bheader" class="govuk-heading-l govuk-!-margin-top-3" style="border-bottom:1px solid #1d70b8;padding-bottom:10px;">Behaviours</h2>
+
+<p id="lShip" class="govuk-body-m govuk-!-margin-bottom-3"></p>
 
       <div id="behDiv"></div>
 
@@ -337,8 +337,10 @@
   const behavioursSelected = JSON.parse(window.sessionStorage.getItem("BehavioursSelected"));
 
     var outputBS = document.getElementById("behDiv");
+    var lShip = document.getElementById("lShip");
     var bsList = document.createElement("p");
-
+    var lShipContent = document.createElement("p");
+    var lShipMessage = "<strong>We recommend assessing Leadership at sift and interview for Grade 6 and 7 roles because they usually involve line management responsibilities.</strong>";
     for (var log=0; log < behavioursSelected.length; log++) {
       var outputBS = document.getElementById('behDiv');
       var contentBS = document.createElement("p");
@@ -347,6 +349,13 @@
       outputBS.appendChild(contentBS);
       var label = document.createElement("label");
       var checkBox = document.createElement("input");
+
+      if (behavioursSelected[log] == "Leadership") {
+
+        lShipContent.style.cssText = "font-size:20px;";
+        lShipContent.innerHTML = lShipMessage;
+        lShip.appendChild(lShipContent);
+      }
 
 
       checkBox.type = "checkbox";
