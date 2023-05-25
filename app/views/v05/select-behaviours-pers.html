@@ -274,8 +274,8 @@
       <!-- <div class="" style="background:#F0F8FF;padding:20px"> -->
 
       <div class="govuk-!-margin-bottom-4 govuk-!-margin-top-4" style="background:#F4FAFF;border-left:5px solid #1d70b8;padding:10px">
-      <p class="govuk-body-m" style="font-size:20px;line-height:1.6"><strong>In the last 12 months, 70% of hiring managers within the {{ data['proff'] }} profession used the 3 behaviours highlighted below to assess their applicants when hiring a {{ data['temp-copy-input-autocomplete'] | first}}.</strong></p>
-            <p class="govuk-body-s ">Source: Civil Service Data Science Report (2022), Cabinet Office.</p>
+      <p class="govuk-body-m" style="font-size:20px;line-height:1.6"><strong>If you select 3 or more behaviours you can assess at sift with the Civil Service Judgement online test. <br><br>We recommend assessing Leadership for Grade 6 and 7 roles because they usually involve line management responsibilities</strong>.</p>
+
       </div>
       <!-- </div> -->
 
@@ -313,7 +313,9 @@
       var checkBox = document.createElement("input");
       var hint = document.createElement("hint");
 
-      if (level[t].title == "Working Together" || level[t].title == "Seeing the big picture" || level[t].title == "Leadership"){
+      // if (level[t].title == "Working Together" || level[t].title == "Seeing the big picture" || level[t].title == "Leadership"){
+
+      if (level[t].title ==  "Leadership"){
         label.setAttribute("class","experiment");
         checkBox.setAttribute("class","selected")
         console.log(level[t].title)

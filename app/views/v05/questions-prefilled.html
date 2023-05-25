@@ -75,35 +75,40 @@
   }) }}
 
   {% endblock %}
-
-
 {% block content %}
 
-<form class="form" action="questions-prefilled" method="post">
+<form class="form" action="task-list" method="post">
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-xl">Create a vacancy</h1>
-
       <p class="govuk-body-m">Enter the details for your job vacancy.</p>
+
+      <!-- <p class="govuk-body-m">Fill in details about the job role you are recruiting for. We will be able to give recommendations for what you could assess at sift and interview.</p> -->
       <div id="grade" style="border-bottom:1px solid #1d70b8;padding-top:30px;padding-bottom:10px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
 
 
       <div class="govuk-!-margin-bottom-6">
-        <div class="govuk-form-group govuk-input--width-30">
-          <label for="autocomplete-default" class="govuk-label--m">Job title</label>
-          <div id="jobtitle" class="autocomplete-wrapper"></div>
-        </div>
+        <div class="govuk-form-group">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="event-name">
+              Job title
+            </label>
+          </h2>
+          <input style="width:470px" class="govuk-input" id="event-name" name="event-name" type="text" value="Product manager">
+
+
+      </div>
 
       </div>
 </div>
 
-      <div id="grade" style="border-bottom:1px solid #1d70b8;padding-top:20px;padding-bottom:10px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
+<div id="grade" style="border-bottom:1px solid #1d70b8;padding-top:20px;padding-bottom:10px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
 
         {{ govukSelect({
-          id: "gselect",
-          name: "gselect",
+          id: "gradeselect",
+          name: "gradeselect",
           label: {
             text: "What grade is the job role?",
             classes: "govuk-label--m"
@@ -111,226 +116,188 @@
           items: [
           {
             value: "none",
-            selected: "true",
-            disabled: "true",
             text: "Select grade"
           },
 
           {
             value: "Administrative Assistant",
-            text: "Administrative Assistant",
-            selected: checked("gselect","Administrative Assistant")
+            text: "Administrative Assistant"
           },
           {
             value: "Administrative Officer",
-            text: "Administrative Officer",
-            selected: checked("gselect","Administrative Officer")
+            text: "Administrative Officer"
           },
           {
             value: "Executive Officer",
-            text: "Executive Officer",
-            selected: checked("gselect","Executive Officer")
+            text: "Executive Officer"
           },
           {
             value: "Higher Executive Officer",
-            text: "Higher Executive Officer",
-            selected: checked("gselect","Higher Executive Officer")
+            text: "Higher Executive Officer"
           },
           {
             value: "Senior Executive Officer",
-            text: "Senior Executive Officer",
-            selected: checked("gselect","Senior Executive Officer")
+            text: "Senior Executive Officer"
+
           },
           {
             value: "Grade 7",
-            text: "Grade 7",
-            selected: checked("gselect","Grade 7")
+            text: "Grade 7"
           },
           {
             value: "Grade 6",
             text: "Grade 6",
-            selected: checked("gselect","Grade 6")
+            selected: checked("gradeselect","Grade 6")
           }
           ]
         }) }}
       </div>
 
-
-      <div id="field" style="border-bottom:1px solid #1d70b8;padding-top:20px;padding-bottom:10px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
-
-        <p class="govuk-body-l"><strong>What profession is the job role?</strong></p>
-          <p class="govuk-body-m">You can select more than one.</p>
+        <div id="field" style="border-bottom:1px solid #1d70b8;padding-top:20px;padding-bottom:10px" class="govuk-!-margin-top-1 govuk-!-margin-bottom-1">
 
         {{ govukSelect({
-          id: "proff",
-          name: "proff",
+          id: "pfield",
+          name: "pfield",
           label: {
-            text: "",
+            text: "What profession is the job role in?",
             classes: "govuk-label--m"
           },
           items: [
           {
             value: "none",
-            selected: "true",
-            disabled: "true",
+            disabled: true,
             text: "Select profession"
           },
           {
             value: "Analysis",
-            text: "Analysis",
-            selected: checked("proff","Analysis")
+            text: "Analysis"
           },
           {
             value: "Commercial and Procurement",
-            text: "Commercial and Procurement",
-            selected: checked("proff","Commercial and Procurement")
+            text: "Commercial and Procurement"
           },
           {
             value: "Corporate Finance",
-            text: "Corporate Finance",
-            selected: checked("proff","Corporate Finance")
+            text: "Corporate Finance"
           },
           {
             value: "Communications",
-            text: "Communications",
-            selected: checked("proff","Communications")
+            text: "Communications"
           },
           {
             value: "Counter Fraud",
-            text: "Counter Fraud",
-            selected: checked("proff","Counter Fraud")
+            text: "Counter Fraud"
           },
           {
             value: "Digital, Data and Technology",
-            text: "Digital, Data and Technology",
-            selected: checked("proff","Digital, Data and Technology")
+            text: "Digital, Data and Technology"
           },
           {
             value: "Government Economic Service",
-            text: "Government Economic Service",
-            selected: checked("proff","Government Economic Service")
+            text: "Government Economic Service"
           },
           {
             value: "Government Social Research",
-            text: "Government Social Research",
-            selected: checked("proff","Government Social Research")
+            text: "Government Social Research"
           },
           {
             value: "Finance",
-            text: "Finance",
-            selected: checked("proff","Finance")
+            text: "Finance"
           },
           {
             value: "Human Resources",
-            text: "Human Resources",
-            selected: checked("proff","Human Resources")
+            text: "Human Resources"
           },
           {
             value: "Intelligence Analysis",
-            text: "Intelligence Analysis",
-            selected: checked("proff","Intelligence Analysis")
+            text: "Intelligence Analysis"
           },
           {
             value: "Internal Audit",
-            text: "Internal Audit",
-            selected: checked("proff","Internal Audit")
+            text: "Internal Audit"
           },
           {
             value: "International Trade and Negotiation",
-            text: "International Trade and Negotiation",
-            selected: checked("proff","International Trade and Negotiation")
+            text: "International Trade and Negotiation"
           },
           {
             value: "Knowledge &amp; Information Management",
-            text: "Knowledge &amp; Information Management",
-            selected: checked("proff","Knowledge &amp; Information Management")
+            text: "Knowledge &amp; Information Management"
           },
           {
             value: "Legal",
-            text: "Legal",
-            selected: checked("proff","Legal")
+            text: "Legal"
           },
           {
             value: "Medical",
-            text: "Medical",
-            selected: checked("proff","Medical")
+            text: "Medical"
           },
           {
             value: "Occupational Psychology",
-            text: "Occupational Psychology",
-            selected: checked("proff","Occupational Psychology")
+            text: "Occupational Psychology"
           },
           {
             value: "Operational Delivery",
-            text: "Operational Delivery",
-            selected: checked("proff","Operational Delivery")
+            text: "Operational Delivery"
           },
           {
             value: "Operational Research",
-            text: "Operational Research",
-            selected: checked("proff","Operational Research")
+            text: "Operational Research"
           },
           {
             value: "Policy",
-            text: "Policy",
-            selected: checked("proff","Policy")
+            text: "Policy"
           },
           {
             value: "Project Management and Delivery",
             text: "Project Management and Delivery",
-            selected: checked("proff","Project Management and Delivery")
+            selected: checked
           },
           {
             value: "Property",
-            text: "Property",
-            selected: checked("proff","Property")
+            text: "Property"
           },
           {
             value: "Science and Engineering",
-            text: "Science and Engineering",
-            selected: checked("proff","Science and Engineering")
+            text: "Science and Engineering"
           },
           {
             value: "Security",
-            text: "Security",
-            selected: checked("proff","Security")
+            text: "Security"
           },
           {
             value: "Tax",
-            text: "Tax",
-            selected: checked("proff","Tax")
+            text: "Tax"
           },
           {
             value: "Veterinary",
-            text: "Veterinary",
-            selected: checked("proff","Veterinary")
+            text: "Veterinary"
           },
           {
             value: "Other",
-            text: "Other",
-            selected: checked("proff","Other")
+            text: "Other"
           }
           ]
         }) }}
-<a  href="#"><p class="govuk-body-m" style="color:#1d70b8">Add another profession</p></a>
-
       </div>
 
       <div id="dept" style="padding-top:20px;padding-bottom:10px" class="govuk-!-margin-top-1">
 
+
         <div class="govuk-!-margin-bottom-6">
 
           <div class="govuk-!-margin-bottom-6">
-            <div class="govuk-form-group govuk-input--width-30">
-              <label for="autocomplete-default" class="govuk-label--m">What department is the job role in?</label>
-              <div id="department" class="autocomplete-wrapper"></div>
-            </div>
+            <h2 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--m" for="event-name">
+                What department is the job role in?
+              </label>
+            </h2>
+            <input style="width:470px" class="govuk-input" id="event" name="event" type="text" value="HMRC">
+
 
           </div>
   </div>
       </div>
-
-
 
 
 
@@ -346,7 +313,6 @@
 
     <!-- <script src="/public/javascripts/temp-copy.js"></script> -->
     <script src="/public/javascripts/dept.js"></script>
-    <script src="/public/javascripts/jtitle.js"></script>
-      <script src="/public/javascripts/temp-copy.js"></script>
+    <script src="/public/javascripts/temp.js"></script>
 
     {% endblock %}
