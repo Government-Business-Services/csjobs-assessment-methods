@@ -76,7 +76,10 @@
 
 {% block content %}
 
-<form class="form" action="/check-next-stepV5" method="post">
+
+
+
+<form class="form" action="select-criteria-stage" method="post">
   <H2 class="govuk-heading-l govuk-!-margin-top-3 govuk-!-margin-bottom-3">What will you assess within each element at sift and interview?</h2>
     <p class="govuk-body-l govuk-!-margin-bottom-6 govuk-!-margin-top-3">You have selected which elements are important to assess for this job role. You should now select what you will assess within each element at sift and interview.</p>
 
@@ -136,7 +139,60 @@
             {% for item in items  %}
 
 
-            {{ govukTextarea({
+            <div style="float:right">
+                        {{ govukSelect({
+                          id: "level",
+                          name: "level",
+                          label: {
+                            text: "Competence level",
+                            classes: "govuk-label--s"
+                          },
+                          items: [
+                          {
+                            value: "none",
+                            text: "Select level"
+                          },
+
+                          {
+                            value: "Awareness",
+                            selected: checked("level","Awareness"),
+                            text: "Awareness"
+                          },
+                          {
+                            value: "Working",
+                            selected: checked("level","Working"),
+                            text: "Working"
+                          },
+                          {
+                            value: "Practitioner",
+                            selected: checked("level","Practitioner"),
+                            text: "Practitioner"
+                          },
+                          {
+                            value: "Expert",
+                            selected: checked("level","Expert"),
+                            text: "Expert"
+                          }
+                          ]
+                        }) }}
+
+                        </div>
+
+            <div class="govuk-form-group">
+              <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--s" for="{{item}}">
+                  {{item}}
+                </label>
+              </h1>
+
+              <textarea style="width:69%" class="govuk-textarea" id="technical-skills{{loop.index}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+            </div>
+
+
+
+
+
+            <!-- {{ govukTextarea({
               label: {
                 text: item,
                 classes: "govuk-label--s"
@@ -146,7 +202,37 @@
               value: data[item]
             }) }}
 
+            {{ govukSelect({
+              id: "level",
+              name: "level",
+              label: {
+                text: "Competence level",
+                classes: "govuk-label--s"
+              },
+              items: [
+              {
+                value: "none",
+                text: "Select competence level"
+              },
 
+              {
+                value: "Awareness",
+                text: "Awareness"
+              },
+              {
+                value: "Working",
+                text: "Working"
+              },
+              {
+                value: "Practitioner",
+                text: "Practitioner"
+              },
+              {
+                value: "Expert",
+                text: "Expert"
+              }
+              ]
+            }) }} -->
 
 
             {% endfor %}{% endfor %}
@@ -163,15 +249,55 @@
               {% for item in items %}
 
 
-              {{ govukTextarea({
-                label: {
-                  text: item,
-                  classes: "govuk-label--s"
-                },
-                rows: "2",
-                name: item,
-                value: data[item]
-              }) }}
+              <div style="float:right">
+                          {{ govukSelect({
+                            id: "level",
+                            name: "level",
+                            label: {
+                              text: "Competence level",
+                              classes: "govuk-label--s"
+                            },
+                            items: [
+                            {
+                              value: "none",
+                              text: "Select level"
+                            },
+
+                            {
+                              value: "Awareness",
+                              selected: checked("level","Awareness"),
+                              text: "Awareness"
+                            },
+                            {
+                              value: "Working",
+                              selected: checked("level","Working"),
+                              text: "Working"
+                            },
+                            {
+                              value: "Practitioner",
+                              selected: checked("level","Practitioner"),
+                              text: "Practitioner"
+                            },
+                            {
+                              value: "Expert",
+                              selected: checked("level","Expert"),
+                              text: "Expert"
+                            }
+                            ]
+                          }) }}
+
+                          </div>
+
+              <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--s" for="{{item}}">
+                    {{item}}
+                  </label>
+                </h1>
+
+                <textarea style="width:69%" class="govuk-textarea" id="{{item}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+              </div>
+
               {% endfor %}{% endfor %}
               <div id="sklcta4" style="display:{{ nosee }}" class="govuk-body-m ">
                 <p class="govuk-body-m"><a style="color:#1d70b8;float:right" onclick="deleteDiv('skills4','sklcta1')"><strong>Delete this skill</strong></a></p>
@@ -185,15 +311,55 @@
               {% for item in items %}
 
 
-              {{ govukTextarea({
-                label: {
-                  text: item,
-                  classes: "govuk-label--s"
-                },
-                rows: "2",
-                name: item,
-                value: data[item]
-              }) }}
+              <div style="float:right">
+                          {{ govukSelect({
+                            id: "level",
+                            name: "level",
+                            label: {
+                              text: "Competence level",
+                              classes: "govuk-label--s"
+                            },
+                            items: [
+                            {
+                              value: "none",
+                              text: "Select level"
+                            },
+
+                            {
+                              value: "Awareness",
+                              selected: checked("level","Awareness"),
+                              text: "Awareness"
+                            },
+                            {
+                              value: "Working",
+                              selected: checked("level","Working"),
+                              text: "Working"
+                            },
+                            {
+                              value: "Practitioner",
+                              selected: checked("level","Practitioner"),
+                              text: "Practitioner"
+                            },
+                            {
+                              value: "Expert",
+                              selected: checked("level","Expert"),
+                              text: "Expert"
+                            }
+                            ]
+                          }) }}
+
+                          </div>
+
+              <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--s" for="{{item}}">
+                    {{item}}
+                  </label>
+                </h1>
+
+                <textarea style="width:69%" class="govuk-textarea" id="{{item}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+              </div>
+
               {% endfor %}{% endfor %}
               <div id="sklcta5" style="display:{{ nosee }}" class="govuk-body-m ">
                 <p class="govuk-body-m"><a style="color:#1d70b8;float:right" onclick="deleteDiv('skills5','sklcta4')"><strong>Delete this skill</strong></a></p>
@@ -209,15 +375,54 @@
               {% for item in items %}
 
 
-              {{ govukTextarea({
-                label: {
-                  text: item,
-                  classes: "govuk-label--s"
-                },
-                rows: "2",
-                name: item,
-                value: data[item]
-              }) }}
+              <div style="float:right">
+                          {{ govukSelect({
+                            id: "level",
+                            name: "level",
+                            label: {
+                              text: "Competence level",
+                              classes: "govuk-label--s"
+                            },
+                            items: [
+                            {
+                              value: "none",
+                              text: "Select level"
+                            },
+
+                            {
+                              value: "Awareness",
+                              selected: checked("level","Awareness"),
+                              text: "Awareness"
+                            },
+                            {
+                              value: "Working",
+                              selected: checked("level","Working"),
+                              text: "Working"
+                            },
+                            {
+                              value: "Practitioner",
+                              selected: checked("level","Practitioner"),
+                              text: "Practitioner"
+                            },
+                            {
+                              value: "Expert",
+                              selected: checked("level","Expert"),
+                              text: "Expert"
+                            }
+                            ]
+                          }) }}
+
+                          </div>
+
+              <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--s" for="{{item}}">
+                    {{item}}
+                  </label>
+                </h1>
+
+                <textarea style="width:69%" class="govuk-textarea" id="{{item.loop.index}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+              </div>
               {% endfor %}{% endfor %}
 
               <div id="sklcta6" style="display:{{ nosee }}" class="govuk-body-m ">

@@ -77,7 +77,7 @@
 <span class="govuk-caption-l">Online tests</span>
 <h1 class="govuk-heading-xl">Select online tests</h1>
 
-    <form class="form" action="task-list" method="post">
+    <form class="form" action="select-behaviours" method="post">
     {% set hintHTML %}
 
     <br></br>
@@ -121,7 +121,8 @@
     html: hintHTML
   },
   items: [
-    {
+
+      {
       value: "Verbal skills",
       classes: "govuk-body-l",
       text: "Verbal skills",
@@ -178,9 +179,19 @@
                 hint: {
                   text: "The Casework Skills Test is an online test of skills and abilities in relation to caseworking roles, and provides a realistic preview of what is typically involved in such roles in the Civil Service."
                 }
+                },
+                {
+                  divider: "or"
+                },
+                {
+                  value: "I don't require an online test",
+                  text: "I don't require an online test",
+                  checked: checked("tests","I don't require an online test")
                 }
   ]
 }) }}
+
+<input type="hidden" name="source" value="tests">
 <input type="hidden" name="tests" value="completed">
 
 
