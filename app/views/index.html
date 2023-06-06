@@ -28,7 +28,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    <h2 class="govuk-heading-l">Civil Service Jobs</h2>
+
     <h2 class="govuk-heading-xl">Assessment methods prototype</h2>
 
 
@@ -47,23 +47,21 @@
     {% endset -%}
 
     {% set current %}
-    <strong style="font-size:22px;float:right" class="govuk-tag govuk-tag--yellow">
-      TESTING
+    <strong style="font-size:32px;float:right" class="govuk-tag govuk-tag">
+      TESTED
     </strong>
 
 
-    <h1 class="govuk-heading-xl govuk-!-margin-top-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v05/home">v.05</a></h1>
+    <h1 class="govuk-heading-xl govuk-!-margin-top-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v05/home">v.05.</a></h1>
 
     <div class="govuk-!-margin-bottom-3" style="">
-      <span  style="font-size:28px" class="govuk-caption-xl govuk-!-margin-bottom-3"><strong>Persuasive recommendations when selecting assessment methods</strong></span>
-
-      <p class="govuk-body-m">An alternative conception of recommendation-giving during the VH task of selecting assessment methods.</p>
-
+      <p style="line-height:1.1;margin-top:10px;font-size:48px;;font-weight:bold" class="govuk-body-l"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v05/home">'Persuasive principles' recommendation concept</a></p>
+      <p class="govuk-body-l">An alternative conception of recommendation-giving during the VH task of selecting assessment methods.</p>
       <div style="">
         {{ govukButton({
-          classes: "govuk-button--secondary govuk-!-margin-top-3",
+          classes: "govuk-button govuk-!-margin-top-3",
           href:"/v05/home",
-          text: "Launch prototype"
+          text: "Launch v.05. prototype"
         }) }}
       </div>
     </div>
@@ -92,13 +90,19 @@
 
 {% set versions %}
 
-<h2 class="govuk-heading-l govuk-!-margin-top-6">Version history</h2>
+<div class="govuk-!-margin-top-0" style="background:#1d70b8;border:1px solid #1d70b8;padding:10px">
+  <!-- <h3 style="color:white" class="govuk-heading-xl">Version history</h3> -->
+  <p style="line-height:0.8;margin-top:10px;font-size:48px;color:white;font-weight:bold" class="govuk-body-l">Version history</p>
+</div>
+
+
 
 <table class="govuk-table">
 
   <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Version</th>
+    <tr style="margin-left:4px;color:white;background:#1d70b8" class="govuk-table__row">
+      <th style="padding-left:8px" scope="col" class="govuk-table__header">Version</th>
+      <th scope="col" class="govuk-table__header">Codename</th>
       <th scope="col" class="govuk-table__header">Tested on</th>
       <th scope="col" class="govuk-table__header">Status</th>
     </tr>
@@ -110,45 +114,51 @@
 
 
   <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#">v.05—assessment methods concept 2</a></strong></td>
+    <tr  class="govuk-table__row">
+      <td style="padding-left:8px;padding-bottom:30px" class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v05/home">v.05.</a></strong></td>
+      <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v05/home">'Persuasive principles' recommendation concept</a></strong></td>
       <td class="govuk-table__cell ">25-26 May 2023</td>
-      <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--yellow">
-        testing
-      </strong></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/varA/home">v.04—variant A—job library template</a></strong></td>
-      <td class="govuk-table__cell ">12-15 May 2023</td>
-      <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--green">
+      <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag">
         tested
       </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/varB/start">v.04—variant B—'triage' recommendation concept</a></strong></td>
+      <td style="padding-left:8px;padding-bottom:30px" class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/varA/home">v.04. Var-A</a></strong></td>
+      <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/varA/home">Job library template</a></strong></td>
       <td class="govuk-table__cell ">12-15 May 2023</td>
-      <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--green">
+      <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag">
         tested
       </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v03/pick-criteria-type">v.03</a></strong></td>
+      <td style="padding-left:8px;padding-bottom:30px" class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/varB/start">v.04. Var-B</a></strong></td>
+      <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/varB/start">'Triage' recommendation concept</a></strong></td>
+      <td class="govuk-table__cell ">12-15 May 2023</td>
+      <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag">
+        tested
+      </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td style="padding-left:8px;padding-bottom:30px" class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v03/pick-criteria-type">v.03.</a></strong></td>
+      <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v03/pick-criteria-type">Consolidation cycle</a></strong></td>
       <td class="govuk-table__cell ">24-25 April 2023</td>
-      <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--green">
+      <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag">
         tested
       </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v02/what-essential-criteria-do-you-want">v.02—Cristina's concept</a></strong></td>
+      <td style="padding-left:8px;padding-bottom:30px" class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v02/what-essential-criteria-do-you-want">v.02.</a></strong></td>
+      <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v02/what-essential-criteria-do-you-want">Cristina's concept</a></strong></td>
       <td class="govuk-table__cell ">06-11 April 2023</td>
-      <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--green">
+      <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag">
         tested
       </strong></td>
     </tr>
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v01/start">v.01—Mark's model</a></strong></td>
+      <td style="padding-left:8px;padding-bottom:30px" class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v01/start">v.01.</a></strong></td>
+      <td class="govuk-table__cell "><strong><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v01/start">Mark's model</a></strong></td>
       <td class="govuk-table__cell ">24-27 March 2023</td>
-      <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag--green">
+      <td class="govuk-table__cell "><strong class="govuk-tag govuk-tag">
         tested
       </strong></td>
     </tr>
@@ -157,158 +167,621 @@
 
 {% endset -%}
 
+
 {% set notes %}
 
 
-<h2 id="v04" style="" class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3">Coming soon!</h2>
 
-
-
-<!-- Hidden for now -->
-
-<!-- <div class="govuk-!-margin-top-3 govuk-!-margin-bottom-3"  style="background:#f3f2f1;border:1px solid #1d70b8;padding:10px">
-
-<ul class="govuk-list" style="font-size:18px;display: inline;">
-<li style="text-align: left;display: inline;padding-right:30px">Jump to:</li>
-<li style="text-align: left;display: inline;padding-right:30px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v04"><strong>v.04</a></li>
-<li style="text-align: left;display: inline;padding-right:30px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v03"><strong>v.03</strong></a></li>
-<li style="text-align: left;display: inline;padding-right:30px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v02"><strong>v.02—Cristina's concept</strong></a></li>
-<li style="text-align: left;display: inline;padding-right:30px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v01"><strong>v.01—Mark's model</strong></a></li>
+<div id="v05" class="govuk-!-margin-top-0" style="background:#1d70b8;border:1px solid #1d70b8;padding:30px">
+<div style="margin-top:30px;float:right; ">
+<ul class="govuk-list govuk-list--bullet-" >
+<li style="height:20px;margin-top:0px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="/v05/home"><strong>Launch v.05. prototype</a></li>
+<li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="https://docs.google.com/presentation/d/1xB7Wu9gBiSEcWAXtfJXOy5WLnNbI_p1mJ9xhfvJxfug/edit?usp=drive_link"><strong>Test report</a></li>
+<li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px" href="https://drive.google.com/file/d/109IMN2LTNI6FHmFODozMCcrv-ls0WRli/view?usp=drive_link"><strong>Playback recording</a></li>
+<li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1684935612635/df6e93fa6085730ece67bea3c9a1b011a4b03e3f?sender=u9d7a8583663a3236872e1924"><strong>Test session Mural</a></li>
+<li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px  " href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1678651584974/02e1ee560166d60550bb2f2321bdb10254af5092?wid=0-1684316502073"><strong>Concept Mural</a></li>
 </ul>
-</div> -->
-
-<!-- <div class="govuk-!-margin-bottom-6" style="border:1px solid #1d70b8;padding:30px">
-  <h2 id="v04" style="" class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v04/start">v.04</a></h2>
-  <span  class="govuk-caption-m govuk-!-margin-bottom-6">May 2023</span>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters" style="border-right:1px solid #1d70b8">
-      <h3 class="govuk-heading-m">Hypotheses</h3>
-      <p class="govuk-body-m"></p>
-      <h3 class="govuk-heading-m">Method</h3>
-      <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae.</p>
-      <h3 class="govuk-heading-m">Results</h3>
-      <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-      <h3 class="govuk-heading-m">Decisions</h3>
-      <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-    </div>
-    <div class="govuk-grid-column-one-quarter">
-    </div>
-  </div>
-</div> -->
-
-<!-- <div id="v03" class="govuk-!-margin-bottom-6" style="border:1px solid #1d70b8;padding:30px">
-  <h2 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v03/pick-criteria-type">v.03</a></h2>
-  <span  class="govuk-caption-m govuk-!-margin-bottom-6">April-May 2023</span>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters" style="border-right:1px solid #1d70b8">
-      <h3 class="govuk-heading-m">Hypotheses</h3>
-      <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Cras mattis iudicium purus sit amet fermentum. Praeterea iter est quasdam res quas ex communi.
-        Pellentesque habitant morbi tristique senectus et netus. Idque Caesaris facere voluntate liceret: sese habere. Tu quoque, Brute, fili mi, nihil timor populi, nihil! At nos hinc posthac, sitientis piros Afros. Hi omnes lingua, institutis, legibus inter se differunt.</p>
-        <h3 class="govuk-heading-m">Method</h3>
-        <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae.</p>
-        <h3 class="govuk-heading-m">Results</h3>
-        <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-        <h3 class="govuk-heading-m">Decisions</h3>
-        <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-      </div>
-      <div class="govuk-grid-column-one-quarter">
-  </div>
 </div>
-</div> -->
 
-<!-- <div id="v02" style="border:1px solid #1d70b8;padding:30px">
-  <h2 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v02/what-essential-criteria-do-you-want">v.02—Cristina's concept</a></h2>
-  <span  class="govuk-caption-m govuk-!-margin-bottom-6">April 2023</span>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters" style="border-right:1px solid #1d70b8">
-      <h3 class="govuk-heading-m">Hypotheses</h3>
-      <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Cras mattis iudicium purus sit amet fermentum. Praeterea iter est quasdam res quas ex communi.
-        Pellentesque habitant morbi tristique senectus et netus. Idque Caesaris facere voluntate liceret: sese habere. Tu quoque, Brute, fili mi, nihil timor populi, nihil! At nos hinc posthac, sitientis piros Afros. Hi omnes lingua, institutis, legibus inter se differunt.</p>
-        <h3 class="govuk-heading-m">Method</h3>
-        <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae.</p>
-        <h3 class="govuk-heading-m">Results</h3>
-        <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-        <h3 class="govuk-heading-m">Decisions</h3>
-        <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-      </div>
-      <div class="govuk-grid-column-one-quarter">
-    </div>
-  </div>
-</div> -->
+<h2 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-1"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state"  style="size:48px;font-weight:bold;color:white;" href="/v05/home">v.05.</a></h2>
+<h1 style="font-size:48px;color:white;font-weight:bold;" class="govuk-heading-xl govuk-!-margin-bottom-3">'Persuasive principles' recommendation concept</h1>
+<span style="color:white;font-weight:bold;;margin-right:30px" class="govuk-caption-l">25-26 May 2023</span>
+<strong  style="border:1px solid white;margin-top:20px;font-size:28px;" class="govuk-tag govuk-tag">
+tested
+</strong>
+</div>
 
-<!-- <div id="v01" class="govuk-!-margin-top-6" style="border:1px solid #1d70b8;padding:30px">
-  <h2 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="/v01/start">v.01—Mark's model</a></h2>
-  <span  class="govuk-caption-m govuk-!-margin-bottom-6">March 2023</span>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters" style="border-right:1px solid #1d70b8">
-      <h3 class="govuk-heading-m">Hypotheses</h3>
-      <p class="govuk-body-m">Quisque placerat facilisis egestas cillum dolore. Cras mattis iudicium purus sit amet fermentum. Praeterea iter est quasdam res quas ex communi.
-        Pellentesque habitant morbi tristique senectus et netus. Idque Caesaris facere voluntate liceret: sese habere. Tu quoque, Brute, fili mi, nihil timor populi, nihil! At nos hinc posthac, sitientis piros Afros. Hi omnes lingua, institutis, legibus inter se differunt.</p>
-        <h3 class="govuk-heading-m">Method</h3>
-        <p class="govuk-body-m">The concept Quisque placerat facilisis egestas cillum dolore. Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae.</p>
-        <h3 class="govuk-heading-m">Results</h3>
-        <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-        <h3 class="govuk-heading-m">Decisions</h3>
-        <p class="govuk-body-m">Quam temere in vitiis, legem sancimus haerentia. Qui ipsorum lingua Celtae, nostra Galli appellantur. Ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-      </div>
-      <div class="govuk-grid-column-one-quarter">
-    </div>
-  </div>
-</div> -->
 
-{% endset -%}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-margin-top-0" >
+
+    <div style="border:1px solid #1d70b8;padding:30px">
+
+<p style="line-height:0.8;margin-top:10px;font-size:58px;color:gold;font-weight:bold" class="govuk-body-l">Iteration notes coming soon</p>
 
 
 
 
-
-
-
-
-
-
-
-
-{% set backstory %}
-<h3 class="govuk-heading-m">Overarching hypothesis</h3>
-<p class="govuk-body-m">Whichever way you look at it, the choice of selection criteria and assessment methods is indelibly connected with all aspects of Civil Service recruitment, end to end and front to back.  Given this, we shouldn’t be surprised to learn how far reaching its impact is felt. Take, for example,  the job library concept and job templates, or how reserve list matching works, or,  possibly most significantly, the flavour of journey and experience offered to candidates if they wish to join the service.</p>
-
-{% endset -%}
-
-{{ govukTabs({
-  items: [
-  {
-    label: "Current",
-    id: "current",
-    panel: {
-      html: current
-    }
-  },
-  {
-    label: "Version history",
-    id: "Versions",
-    panel: {
-      html: versions
-    }
-  },
-  {
-    label: "Iteration notes",
-    id: "notes",
-    panel: {
-      html: notes
-    }
-  },
-
-  {
-    label: "Backstory",
-    id: "backstory",
-    panel: {
-      html: backstory
-    }
-  }
-  ]
-}) }}
+</div>
 </div>
 </div>
 
-{% endblock %}
+<div id="v04" class="govuk-!-margin-top-3" style="background:#1d70b8;border:1px solid #1d70b8;padding:30px">
+<div style="margin-top:0px;float:right; ">
+<ul class="govuk-list govuk-list--bullet-" >
+<li style="height:20px;margin-top:0px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="/v04/varA/home"><strong>Launch v.04.A</a></li>
+<li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="/v04/varB/start"><strong>Launch v.04.B</a></li>
+<li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="https://docs.google.com/presentation/d/1oMPeJHZDSrOtNDk8wkvx1HAOUO3h2KourCYcUW9v3TQ/edit?usp=drive_link"><strong>Test report</a></li>
+<li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px" href="https://drive.google.com/file/d/1PtIOn6DfocmXkW-T1Z-srMcVmcevEaSo/view?usp=drive_link"><strong>Playback recording</a></li>
+<li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1683812901520/776d2a1a9a89550130205c52d31e4d257a95505e?sender=u9d7a8583663a3236872e1924"><strong>Test session Mural</a></li>
+<li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px  " href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1678651584974/02e1ee560166d60550bb2f2321bdb10254af5092?wid=0-1683716836868"><strong>Concept Mural</a></li>
+</ul>
+</div>
+
+<h2 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-1"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state"  style="size:48px;font-weight:bold;color:white;" href="#">v.04.</a></h2>
+<h1 style="font-size:48px;color:white;font-weight:bold;" class="govuk-heading-xl govuk-!-margin-bottom-3">Job template & 'triage' recommendation concept</h1>
+<span style="color:white;font-weight:bold;;margin-right:30px" class="govuk-caption-l">12-15 May 2023</span>
+<strong  style="border:1px solid white;margin-top:20px;font-size:28px;" class="govuk-tag govuk-tag">
+tested
+</strong>
+
+</div>
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-full govuk-!-margin-top-0" >
+
+<div style="border:1px solid #1d70b8;padding:30px">
+
+  <p style="line-height:0.8;margin-top:10px;font-size:58px;color:gold;font-weight:bold" class="govuk-body-l">Iteration notes coming soon</p>
+
+
+
+
+</div>
+</div>
+</div>
+
+<div id="v03" class="govuk-!-margin-top-3" style="background:#1d70b8;border:1px solid #1d70b8;padding:30px">
+  <div style="margin-top:0px;float:right; ">
+    <ul class="govuk-list govuk-list--bullet-" >
+      <li style="height:20px;margin-top:0px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="/v03/pick-criteria-type"><strong>Launch v.03. prototype</a></li>
+        <li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="https://docs.google.com/presentation/d/14siRnlKEs3ceE9RHb6XIj9HkkZWTD5WZrMXmDMmZbvk/edit?usp=drive_link
+"><strong>Test report</a></li>
+          <li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px" href="https://drive.google.com/file/d/1Dztv0aX1BZpbTQaU7uGJ0C_kafCy6Ahz/view?usp=drive_link
+"><strong>Playback recording</a></li>
+            <li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1682437358841/7ec552f9b1d91ed87836ade497b56fb13917a8ca?sender=u9d7a8583663a3236872e1924"><strong>Test session Mural</a></li>
+              <li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px  " href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1678651584974/02e1ee560166d60550bb2f2321bdb10254af5092?wid=0-1685984814985"><strong>Concept Mural</a></li>
+              </ul>
+            </div>
+            <h2 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-1"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state"  style="size:48px;font-weight:bold;color:white;" href="/v03/pick-criteria-type">v.03.</a></h2>
+            <h1 style="font-size:48px;color:white;font-weight:bold;" class="govuk-heading-xl govuk-!-margin-bottom-3">Consolidation cycle</h1>
+            <span style="color:white;font-weight:bold;;margin-right:30px" class="govuk-caption-l">24-25 April 2023</span>
+            <strong  style="border:1px solid white;margin-top:20px;font-size:28px;" class="govuk-tag govuk-tag">
+              tested
+            </strong>
+
+          </div>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full govuk-!-margin-top-0" >
+
+              <div style="border:1px solid #1d70b8;padding:30px">
+                <h3 class="govuk-heading-m">Purpose</h3>
+                <p class="govuk-body-m">An opportunity to consolidate those aspects of the experience that have been robustly tested in the last two cycles, and attempt to further refine that which is still lacking before embarking on iteration 4 & 5 (which will try to determine how far the service should go in guiding the user, through recommendations and establish whether it should and if so, how this might be acheived).</p>
+
+
+                <h3 class="govuk-heading-m">Assumptions</h3>
+                <p class="govuk-body-m">We assume Abilities are the same as any of the other success profile elements, therefore we should allow vacancy holders to treat them the same as the rest.</p>
+                <p class="govuk-body-m">At the end of the assessment methods journey, we assume that reviewing the decisions have been made would be more useful if the summary page was framed by stage and method (and then criteria) rather than the other way round.</p>
+
+                <h3 class="govuk-heading-m">Hypotheses</h3>
+                <ul class="govuk-list govuk-list--number">
+                  <li>We believe that if we treated Abilities in the same way as other SP elements which can be used to identify relevant selection criteria, vacancy holders might perceive tests as just another assessment method choice available to test their criteria.</li>
+                  <li>We suspect that moving the first summary review check point to appear after the assignment of criteria to stage, would provide vacancy holders with a more profound context for reflection than merely just the criteria.</li>
+                  <li>We believe that an alternative presentation and layout for the final summary/review screen that emphasises the vacancy holders most recent decisions (picking methods rather than criteria) might be more effective in supporting them when reviewing and finalising the choices made at each assessment stage.</li>
+                </ul>
+                <h3 class="govuk-heading-m">Design direction</h3>
+                <ul class="govuk-list govuk-list--number">
+
+                  <li>Experimented with idea of treating Abilities like skills using textboxes to define criteria followed by stage and methods etc.</li>
+
+                  <li>Development of strengths selection by introducing a search, interactive autocomplete style mechanism.</li>
+                  <li>Further refinement of data entry on Experience (and Skills) criteria, allowing users to add additional textboxes (3), 6 in total.</li>
+
+                  <li>Tried out the idea of moving the first summary/review check 1 step later, after the 'stage' selection to see if the additional level of decision-making is more significant for users when they review.</li>
+                  <li>Explored an alternative style of presentation and layout for the final summary/review to determine if leading the summary by stage and method (and then criteria) might provide a effective tool for review and reflection.</li>
+                  <li>Added a lot more guidance content to further support those vacancy holders that really need it.</li>
+
+                </ul>
+
+
+
+                <h3 class="govuk-heading-m">Results</h3>
+                <p class="govuk-body-m">Again, users responded positively to the selection of multiple SP elements at the start, followed by the structured step-by-step method of working through each element on a page. This further increased our confidence on the effacy of the design solution.</p>
+                <p class="govuk-body-m">By comparison, our approach to Abilities performed very poorly indeed. Upon reflection, even if the hypothesis were to be sound, the fact that users struggle to distinguish abilities from skills (and strengths) and the very limited/specific method choice available... back to the drawing board.</p>
+
+
+
+                <h4 class="govuk-heading-s">What worked well</h4>
+                <ul class="govuk-list govuk-list--number">
+                  <li>The concept of using search/autocomplete to help users find strengths (a la interactive dictionary!) did seem to land positively, however there were worries about knowing what they should type if they are unfamiliar with the dictionary. The notion of strengths linked to behaviours was mentioned and may provide a credible alternative to search on the page.</li>
+                  <li>Pushing the first summary/review check back by one step seemed to be more effective for users during their reflections (compared to immediately after the selection criteria alone).</li>
+                  <li>Users found the final summary/review check page to be rather overwhelming (when listed by selection criteria first) - however the alternative proved to be a winner.</li>
+                </ul>
+
+
+                <h4 class="govuk-heading-s">What didn't work well</h4>
+                <ul class="govuk-list govuk-list--number">
+                  <li>We experimented with providing tactical guidance at the top of the behaviours selection page suggesting, 'if you select 3 or more behaviours you can assess with an online test at sift'. The intention of raising awareness around the Judgement test as an alternative means of assessing behaviours at sift confused many users, leading to more questions without any more answers.</li>
+                  <li>As in previous tests involving the behaviours page, the descriptive content for each behaviour was considered to be useful however limited without the grade-specific details.</li>
+                  <li>Our intervention to improve Abilties failed miserably. Ultimately, if Abilities are limited to the tests we have available, then any attempt to allow abstraction as a means of defining selection criteria will fail if the outcome is always the same (e.g., these are the tests we have!).</li>
+                  <li>Some users were confused with how the personal statement would be handled when reviewing sift methods. It wasn't clear to users that a single personal statement (up to 1250 words) would be used to draw together multiple selection criteria (rather than a personal statement for each). When dealing with methods that are avaialble in a single instance, a more effective mechanism is needed to draw the other criteria that might be used.</li>
+                  <li>Some users didn't feel they knew enough about the method to be able to select it, citing the need for greater information.</li>
+                </ul>
+
+                <h4 class="govuk-heading-s">Decisions for v.04.</h4>
+                <ul class="govuk-list govuk-list--number">
+                  <li>Incorporate grade-specific behaviours rather than generic ones for next iteration.</li>
+                  <li>Take the first summary/review check page (including stage selections) forward as a strong candidate for future iterations (and validation).</li>
+                  <li>Take the alternative final summary/review check page forward for further validation.</li>
+                </ul>
+
+                <h4 class="govuk-heading-s">Backlog</h4>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li id="v03-1">Further explore the strengths search mechanism to refine the task of building a list, identify a way of showing strengths linked to behaviours (or any other model) to ensure there's an option for non-searchers.</li>
+                  <li id="v03-2">Abilities / tests remains an issue so future iterations should experiment with alternative concepts to find a meaningful home for them.</li>
+                  <li id="v03-3">Identify a better way of presenting one-to-many style assessment methods (e.g., personal statement) during their selection (e.g., methods first?)</li>
+                  <li id="v03-4">Experiment to determine the right place to allow users to mark a specific behaviour as 'lead' - behaviours, stage selection, summary review at end or all?</li>
+                  <li id="v03-5">Build a robust taxonomy to encompass the range of sift and interview methods that can be used (and obtain effective descriptive content to aid VH during selection).</li>
+                  <li id="v03-6">Explore how progressive disclosure techniques could be used to layer guidance content in a way that can support a vacancy holders with a range of knowledge and experience.</li>
+                </ul>
+
+                <div class="govuk-!-margin-top-3 "  style="border-top:1px solid #1d70b8;background:#F4FAFF;;;padding:10px">
+
+                  <ul class="govuk-list" style="font-size:16px;display: inline;">
+                    <li style="text-align: left;display: inline;padding-left:10px;padding-right:10px">Jump to</li>
+                    <!-- <li style="text-align: left;display: inline;padding-right:30px;"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v05"><strong>v.05—May</a></li>
+                    <li style="text-align: left;display: inline;padding-right:30px;border-left:1px solid black;padding-left:15px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v04"><strong>v.04—May</a></li> -->
+                    <li style="text-align: left;display: inline;padding-right:30px;border-left:1px solid black;padding-left:15px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v03"><strong>v.03—Apr-May</strong></a></li>
+                    <li style="text-align: left;display: inline;padding-right:30px;border-left:1px solid black;padding-left:15px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v02"><strong>v.02—Apr</strong></a></li>
+                    <li style="text-align: left;display: inline;padding-right:30px;border-left:1px solid black;padding-left:15px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v01"><strong>v.01—Mar</strong></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="v02" class="govuk-!-margin-top-3" style="background:#1d70b8;border:1px solid #1d70b8;padding:30px">
+            <div style="margin-top:0px;float:right; ">
+              <ul class="govuk-list govuk-list--bullet-" >
+                <li style="height:20px;margin-top:0px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="/v02/what-essential-criteria-do-you-want"><strong>Launch v.02. prototype</a></li>
+                  <li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="https://docs.google.com/presentation/d/1eYKP9d8H_kHaWcX3XTOkzsU7DL2poxRMXPRAGeDSbiM/edit?usp=drive_link"><strong>Test report</a></li>
+
+                      <li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1680702780023/71c19cd1c81f97017d9b2bb0e28a13a2ea138d4c?sender=u9d7a8583663a3236872e1924"><strong>Test session Mural</a></li>
+                        <li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px  " href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1678651584974/02e1ee560166d60550bb2f2321bdb10254af5092?wid=0-1686037110647"><strong>Concept Mural</a></li>
+                        </ul>
+                      </div>
+
+                      <h2 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-1"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state"  style="size:48px;font-weight:bold;color:white;" href="/v02/what-essential-criteria-do-you-want">v.02.</a></h2>
+                      <h1 style="font-size:48px;color:white;font-weight:bold;" class="govuk-heading-xl govuk-!-margin-bottom-3">Cristina's concept</h1>
+                      <span style="color:white;font-weight:bold;;margin-right:30px" class="govuk-caption-l">06-11 April 2023</span>
+                      <strong  style="border:1px solid white;margin-top:20px;font-size:28px;" class="govuk-tag govuk-tag">
+                        tested
+                      </strong>
+
+                    </div>
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-full govuk-!-margin-top-0" >
+
+                        <div style="border:1px solid #1d70b8;padding:30px">
+                          <h3 class="govuk-heading-m">Assumptions</h3>
+
+                          <p class="govuk-body-m">Vacancy holders have a strong desire to be provided with support and guidance.</p>
+                          <p class="govuk-body-m">Vacancy holders have a need to be able to specify and configure their selection criteria and assessment methods in a detailed, granular way - rather than their choices being rolled up, they want to make small changes to how they plan to assess on an individual basis (e.g., using different tactics when using strengths rather than just 1 for all).</p>
+                          <p class="govuk-body-m">(Some) vacancy holders need to add additional stages into their recruitment plan beyond merely sift and interview stages, and the service should enable that if required.</p>
+
+                          <h3 class="govuk-heading-m">Overarching hypothesis</h3>
+
+                          <p class="govuk-body-m">We believe that if we provided users with a structured, guided process they would be better equipped to identify the most appropriate selection criteria and assessment methods for their specific role and particular circumstance. After all, this is another job in additon to their day job! So if we step forward with our expertise, we can help them navigate through and reach the right outcome.</p>
+
+                          <h3 class="govuk-heading-m">Design direction</h3>
+
+
+                          <p class="govuk-body-m">It could be argued that v.02. adds an additional step into the process by virtue of drawing out an explicit stage for assigning methods at sift and interview - compared to v.01. which encouraged the vacancy holder to review their criteria and assign both the stage and the method in the same step.</p>
+                          <p class="govuk-body-m">However, an alternative point of view could be that the further step at stage provides an additional opportunity to reflect on what is being decided and each stage and why. In the same way, the moment provides an opportunty for vacancy holders to cognitively 'pull through' what they have done and fine tune in light of the bigger picture.</p>
+
+
+
+                          <!-- <ul class="govuk-list govuk-list--bullet"> -->
+                          <p class="govuk-body-m">In the same way, enabling vacancy holders to pick multiple success profile elements at the start of the journey to allow them to create all their desired selection criteria in 'one sitting' is part of a broader perspective that emphasises the connectedness of all the facets of their plan.</p>
+                          <p class="govuk-body-m">It's worth mentioning that this feature does introduce new design challenges compared to v.01. Should the chosen success profile elements appear all on the same page or sub-divided by element? For the purpose of this iteration, both were modelled and tested with users as variant A and B.</p>
+
+
+                          <h3 class="govuk-heading-m">Results</h3>
+                          <p class="govuk-body-m">Overall, step-by-step, progressively building the criteria and methods in the very 'deliberate' way was successful - however despite the structure, some participants still struggled with some of the SP domain language.</p>
+                          <h4 class="govuk-heading-s">What worked well</h4>
+                          <ul class="govuk-list govuk-list--number">
+                            <li>Breaking down each success profile element page by page proved to be easier for users to understand and progress through the task with ease.</li>
+                            <li>Stepping through the selection criteria and assigning sift, interview or both stages proved to be particularly effective - some went on to question whether the summary/review page might have been more useful after this step in the process.</li>
+                            <li>The granularity at which both stage and assessment methods proved to be a winner. Even if the user would assign all strengths to interivew questions, the option to further configure was important.</li>
+                          </ul>
+
+                          <h4 class="govuk-heading-s">What didn't work well</h4>
+                          <ul class="govuk-list govuk-list--number">
+                            <li>Apart from 'behaviours' and 'experience', most users had limited understanding or experience of the other elements and struggled to distinguish between them, the descriptions provided proved to be inadequate for those users that couldn't resolve the difference between the other elements.</li>
+                            <li>Listing all the success profile elements they had chosen on one single, very long page, was unsurprisingly challenging for users - most struggled to orientate and re-orientate themselves as they attempted to progress through each element. The anchor links provided at the top to allow jumping to anchor sections on the page were invariably missed by some and those that did notice, didn't seem to reduce their burden significantly.</li>
+                            <li>Only providing 3 textboxes to add their 'experience' criteria was perceived as far too limiting, however the principle of delineating the criteria by 1 in each box was regarded as providing greater flexibility when it comes to deciding how and when to assess that particular criterion (rather than all of them being treated in the same way).</li>
+                            <li>The experience of assigning assessment methods to criteria at sift and then interview stages which easy from an interaction point of view proved to be inadequate regarding the descriptions of the methods.</li>
+                            <li>Allowing users to edit their choices on the summary page was implemented in a rather simplistic way, effectively taking the user back to the start of the journey and making changes until they reach the summary page again. This is understood to be a poor experience and isn't in the spirit of the <a href="https://design-system.service.gov.uk/patterns/check-answers/">Check answers pattern</a>. This was a compromise to allow greater focus on riskier assumptions in the journey.</li>
+                            <li>A significant gap in the journey and experience was the ability to preview the job advert (the summary page was good but the preview seemed to be more important and definitive).</li>
+                          </ul>
+
+                          <h4 class="govuk-heading-s">Decisions for v.03.</h4>
+                          <ul class="govuk-list govuk-list--number">
+                            <li>Take forward the multi-element selection start.</li>
+                            <li>Take forward the multi-page element pages for adding selection criteria.</li>
+                            <li>Experiment with moving summary/review step to step when the user has assigned stage to their criteria to determine if it's more useful for review and reflection on their decisions so far.</li>
+                            <li>Experiment with how the final summary/review would be structured - i.e., culmination of decisions made, what is an appropriate depiction?</li>
+                            <li>Experiment with a more dynamic method of adding and removing entries when specifying Experience criteria (e.g., add/remove textboxes) to provide users with greater autonomy and control.</li>
+                            <li>Explore how we might be able to provide better / more support for those vacancy holders that really need it.</li>                                                          </ul>
+
+                            <h4 class="govuk-heading-s">Backlog</h4>
+                            <ul class="govuk-list govuk-list--bullet">
+                              <li id="v02-1">Document a more direct method of editing the choices made when on summary/review a la check answers.</li>
+                              <li id="v03-2">Allow users to easily preview the emerging job advert (especially at the end of the journey when summary/review is carried out) (feels like a QA check!).</li>
+                              <li id="v03-3">Experiment with more proactive means of supporting users with more guidance and explicit recommendations.</li>
+                            </ul>
+
+
+                            <div class="govuk-!-margin-top-3 "  style="border-top:1px solid #1d70b8;background:#F4FAFF;;;padding:10px">
+
+                              <ul class="govuk-list" style="font-size:16px;display: inline;">
+                                <li style="text-align: left;display: inline;padding-left:10px;padding-right:10px">Jump to</li>
+                                <!-- <li style="text-align: left;display: inline;padding-right:30px;"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v05"><strong>v.05—May</a></li>
+                                <li style="text-align: left;display: inline;padding-right:30px;border-left:1px solid black;padding-left:15px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v04"><strong>v.04—May</a></li> -->
+                                <li style="text-align: left;display: inline;padding-right:30px;border-left:1px solid black;padding-left:15px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v03"><strong>v.03—Apr-May</strong></a></li>
+                                <li style="text-align: left;display: inline;padding-right:30px;border-left:1px solid black;padding-left:15px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v02"><strong>v.02—Apr</strong></a></li>
+                                <li style="text-align: left;display: inline;padding-right:30px;border-left:1px solid black;padding-left:15px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v01"><strong>v.01—Mar</strong></a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+
+
+
+                      <div id="v01" class="govuk-!-margin-top-3" style="background:#1d70b8;border:1px solid #1d70b8;padding:30px">
+                        <div style="margin-top:0px;float:right; ">
+                          <ul class="govuk-list govuk-list--bullet-" >
+                            <li style="height:20px;margin-top:0px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="/v01/start"><strong>Launch v.01. prototype</a></li>
+                              <li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="https://docs.google.com/presentation/d/1TWwnmJuQq46R0Gxa4255rbZpGmMxe1izXy5r8j3X93I/edit?usp=drive_link"><strong>Test report</a></li>
+                                <li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px " href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1679588279182/6484ca94573865c67b5583e9eaa1254ce1a6ede2?sender=u9d7a8583663a3236872e1924"><strong>Test session Mural</a></li>
+                                  <li style="height:20px;margin-top:25px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" style="border:1px solid white;background:white;border-radius:5px;color:#1d70b8;padding:5px  " href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1678651584974/02e1ee560166d60550bb2f2321bdb10254af5092?wid=0-1686037161666"><strong>Concept Mural</a></li>
+                                  </ul>
+                                </div>
+
+                                <h2 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-1"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state"  style="size:48px;font-weight:bold;color:white;" href="/v01/start">v.01.</a></h2>
+                                <h1 style="font-size:48px;color:white;font-weight:bold;" class="govuk-heading-xl govuk-!-margin-bottom-3">Mark's model</h1>
+                                <span style="color:white;font-weight:bold;;margin-right:30px" class="govuk-caption-l">24-27 March 2023</span>
+                                <strong  style="border:1px solid white;margin-top:20px;font-size:28px;" class="govuk-tag govuk-tag">
+                                  tested
+                                </strong>
+
+                              </div>
+                              <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-full govuk-!-margin-top-0" >
+
+                                  <div style="border:1px solid #1d70b8;padding:30px">
+                                    <h3 class="govuk-heading-m">Assumptions</h3>
+                                    <p class="govuk-body-m">The gap between the selection of criteria and methods in the most-recent campaign-set-up prototype is too wide, and likely to make it impossible for users to maintain the context of their task.</p>
+                                    <p class="govuk-body-m">Vacancy holders, particularly those with less experience of recruitment, want the service to be more supportive during campaign set-up. When a VH doesn't know, or isn't sure, of what to do they expect the service to come forward and guide them to the right outcome.</p>
+                                    <h3 class="govuk-heading-m">Hypotheses</h3>
+                                    <ul class="govuk-list govuk-list--number">
+
+                                      <li>We believe that if we provide a way for users to select their criteria, method of assessment and when they will assess (sift vs. interview) in a more unified way this will improve their ease of use and increase their understanding of success profiles.</li>
+                                      <li>We believe that if we support users to think about what criteria they need to assess their role before they select of methods, we expect that users will pick the success profile components that are most fit for the role (and therefore the most relevant candidate).</li>
+                                      <li>We believe that we can reduce the risk of overselection when selecting SP elements by framing them as criteria which need to be assessed for the given role.</li>
+                                    </ul>
+                                    <h3 class="govuk-heading-m">Design direction</h3>
+
+                                    <ul class="govuk-list govuk-list--bullet">
+                                      <li>Success profiles should be used, but we need to find a way of demystifying them (via good UX design) so that users know what they (eg Behaviours) do when making assessment design decisions.</li>
+                                      <li>The thing that's being assessed, and how it's being assessed, should be captured within the same transaction/journey. Creating space between these steps adds to confusion.</li>
+                                      <li>HMRC have created an <a href="https://design.tax.service.gov.uk/hmrc-design-patterns/add-to-a-list/">'add to list' design pattern</a>, that should be tested as it seemingly will allow for multiple assessment items to be added via an intuitive UX.</li>
+                                      <li>To support with getting the best result (ie selection of appropriate assessment items), we anticipate a multi-page transaction when adding an assessment item.</li>
+                                    </ul>
+
+
+                                    <h3 class="govuk-heading-m">Results</h3>
+                                    <p class="govuk-body-m">Overall, bringing the task of picking selection criteria and assigning methods/stage closer together into a unified journey did prove to be very effective and seemed to encourage greater immersion in the success profiles. Despite this, the absence of supporting instructions, guidance did seem to thwart some participants nonetheless. The use of the 'add-another' pattern did work well and allowed users to build a list of criteria, methods organised by stage efficiently.</p>
+                                    <h4 class="govuk-heading-s">What worked well</h4>
+                                    <ul class="govuk-list govuk-list--number">
+                                      <li>The use of descriptive, supporting content both informational and as guidance did prove to be effective in supporting users somewhat with their task.</li>
+                                      <li>The use of a summary page to allow users to review, reflect and edit their selection was particularly well recevied by most users, a number of participants cited the summary provided a moment to take stock and reflect on how their decisions look thus far.</li>
+                                      <li>The mechanism offered by the 'add-another' pattern was effective as a list-building pattern for the given task and could be readily used by participants.</li>
+                                      <li>The step-by-step nature of the task-structure and experience was regarded positively.</li>
+                                    </ul>
+                                    <p class="govuk-body-m"></p>
+                                    <p class="govuk-body-m"></p>
+
+                                    <h4 class="govuk-heading-s">What didn't work well</h4>
+                                    <ul class="govuk-list govuk-list--number">
+                                      <li>The information provided on the start page was perceived by some participants as missing key content, which seemed to create more questions than the intention (to act as a primer to the task).</li>
+                                      <li>When picking success profile elements to use as the basis for selection criteria, it was clear that users expected to make a grand selection up front rather than piecemeal.</li>
+                                      <li>When presenting methods to users, it was clear that without any descriptive content only the most common methods were recognised by some.</li>
+                                      <li>Abilities and specifically on the use of online tests, it was clear that there were varying degrees of understanding and experience of their use and the minimal information provided did not prove to be particularly useful for the task at hand.</li>
+                                      <li>Most of the abilities/online tests were deemed to be unrelated to the role they were looking for and provided little reason for further exploration (e.g., recruiting for a technical role).</li>
+                                      <li>When selecting methods for a group of criteria (e.g., 3-4 behaviours or strengths) expressed a need for flexibility, allowing them to use different methods with different criteria from a common element.</li>
+                                    </ul>
+
+                                    <h4 class="govuk-heading-s">Decisions for v.02.</h4>
+                                    <ul class="govuk-list govuk-list--number">
+                                      <li>Take forward the user need to pick multiple success profile elements at the start from which they would craft the selection criteria (rather than piecemeal).</li>
+                                      <li>Take forward the use of summary pages to punctuate the journey, encourage reflection, edit, refine.</li>
+                                      <li>Experiment with alternatives to better incorporate abilities and online tests more effectively into the journey and experience.</li>
+                                      <li>Experiment with the provision of greater inline contextual guidance and descriptive content to better support the presentation of methods to users.</li>
+                                    </ul>
+
+                                    <div class="govuk-!-margin-top-3 "  style="border-top:1px solid #1d70b8;background:#F4FAFF;;;padding:10px">
+
+                                      <ul class="govuk-list" style="font-size:16px;display: inline;">
+                                        <li style="text-align: left;display: inline;padding-left:10px;padding-right:10px">Jump to</li>
+                                        <!-- <li style="text-align: left;display: inline;padding-right:30px;"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v05"><strong>v.05—May</a></li>
+                                        <li style="text-align: left;display: inline;padding-right:30px;border-left:1px solid black;padding-left:15px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v04"><strong>v.04—May</a></li> -->
+                                        <li style="text-align: left;display: inline;padding-right:30px;border-left:1px solid black;padding-left:15px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v03"><strong>v.03—Apr-May</strong></a></li>
+                                        <li style="text-align: left;display: inline;padding-right:30px;border-left:1px solid black;padding-left:15px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v02"><strong>v.02—Apr</strong></a></li>
+                                        <li style="text-align: left;display: inline;padding-right:30px;border-left:1px solid black;padding-left:15px"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="#v01"><strong>v.01—Mar</strong></a></li>
+                                      </ul>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+
+
+                              {% endset %}
+
+
+
+                              {% set backstory %}
+
+                              <div class="govuk-!-margin-top-0" style="background:#1d70b8;border:1px solid #1d70b8;padding:10px">
+                                <!-- <h3 style="color:white" class="govuk-heading-xl">Version history</h3> -->
+                                <p style="line-height:0.8;margin-top:10px;font-size:48px;color:white;font-weight:bold" class="govuk-body-l">Background & vision</p>
+                              </div>
+
+                              <!-- <div class="govuk-!-margin-top-0" style="background:#1d70b8;border:1px solid #1d70b8;padding:10px">
+                              <h3 style="color:white" class="govuk-heading-xl ">Background & vision</h3> -->
+
+                              <p  class="govuk-body-l govuk-!-margin-top-6"><strong>Whichever way you look at it, a vacancy holder's choice of selection criteria and assessment methods is indelibly connected with all aspects of Civil Service recruitment, end to end and front to back.</strong></p>
+
+                              <!-- </div> -->
+
+                              <h4 class="govuk-heading-m govuk-!-margin-top-6">Premise</h4>
+                              <p class="govuk-body-m">Inexperienced vacancy holders or those with limited support often struggle when setting up their recruitment campaign, particularly when using the Success profiles framework to identify appropriate selection criteria.</p>
+                              <p class="govuk-body-m">Some recruitment campaigns run into problems at sift. For example, the panel might become overwhelmed by the number of applications received, which may result in delays to the schedule, whch in turn may lead to candidate attrition. Would the outcome be the same if different choices were made during campaign set-up?</p>
+                              <p class="govuk-body-m">Some recruitment campaigns fail to attract any applicants for a role (and appoint) because the investment required of the candidate when viewed in the  hard light of day, simply isn't compelling enough compared to amount of assessment they would have to endure ('over-assessment').</p>
+
+
+                              <h4 class="govuk-heading-m">Overarching hypothesis</h4>
+                              <p class="govuk-body-m">We believe that the challenges faced by vacancy holders at the start of the recruitment process directly contribute to (at least) some of the poor outcomes faced by candidates.</p>
+                              <p class="govuk-body-m">Given this, we believe that if we were able to improve the campaign set-up process, experience and guidance provided to vacancy holders they would better equipped to:
+
+                                <ul class="govuk-list govuk-list--bullet">
+                                  <li>create more effective job adverts, and </li>
+                                  <li>identify the right selection criteria and assessment methods to evauate candidates properly and fairly (both in terms of the criteria fit to job role and 'fitting' level of assessment).</li>
+                                </ul>
+
+                                <p class="govuk-body-m">We expect that this action would create better outcomes for both hirers and candidates alike.</p>
+
+
+                                <h4 class="govuk-heading-m">Assumptions</h4>
+
+
+
+                                <ol class="govuk-list govuk-list--number">
+                                  <li>Offering a more proactive service could help vacancy holders by:</li>
+                                  <ul class="govuk-list govuk-list--bullet">
+                                    <li>making recommendations on which selection criteria and assessment methods to choose</li>
+                                    <li>offering pre-prepared templates, with carefully selected assessment methods, and</li>
+                                    <li>providing guidance in-line, in context when it’s likely to be needed</li>
+                                  </ul>
+
+                                  <li>We believe that less experienced vacancy holders would welcome the concept of receiving recommendations, using templates and assessment ‘packs’ because it would overcome an intellectual barrier for some, and for others it would provide the confidence and reassurance of getting it right, first time.</li>
+                                  <li>Whilst more experienced vacancy holders may be less compelled by recommendations, a service that provides a 'fast-track' through campaign set-up might be regarded differently.</li>
+                                  <li>The best way to provide guidance or recommendations to vacancy holders in-line, in the context of their task when it’s likely to be needed.</li>
+                                  <li>The demand for online tests in Civil Service recruitment is expected to increase in the future.</li>
+                                  <li>The current suite of available online tests are fit for purpose and capable of supporting the selection and assessment needs of vacancy holders.</li>
+                                  <li>We assume that the approval process stage (before a vacancy holder will set-up their campaign) does not provide a definitive and iron-cast specification for the selection criteria and assessment methods to be used when assessing applicants.</li>
+                                  <li>We assume that the approval process and outcome does not scrutinise the choice of selection criteria, assessment methods and specifically the manner in which they are to be communicated to prospective candidates (otherwise surely, the quality of job ads would be better, right??)</li>
+
+                                </ol>
+
+                                {% endset -%}
+
+                                {% set needs %}
+
+
+                                <div class="govuk-!-margin-top-0" style="background:#1d70b8;border:1px solid #1d70b8;padding:10px">
+                                  <!-- <h3 style="color:white" class="govuk-heading-xl">Version history</h3> -->
+                                  <p style="line-height:0.8;margin-top:10px;font-size:48px;color:white;font-weight:bold" class="govuk-body-l">User needs</p>
+                                </div>
+
+                                <!-- <div class="govuk-!-margin-top-3" style="background:#1d70b8;border:1px solid #1d70b8;padding:30px">
+                                <h3 style="color:white" class="govuk-heading-xl">User needs</h3> -->
+
+                                <p  class="govuk-body-m govuk-!-margin-top-6">Format: {user} {need} {because insight} </p>
+
+                                <p id="v5un" style="font-weight:bold" class="govuk-body-m govuk-!-margin-top-3">v.05.</p>
+                                <ul class="govuk-list govuk-list--bullet">
+                                  <!-- <li></li>
+                                  <li></li>
+                                  <li></li> -->
+                                </ul>
+
+
+                                <p id="v4un" style="font-weight:bold" class="govuk-body-m govuk-!-margin-top-3">v.04.</p>
+                                <ul class="govuk-list govuk-list--bullet">
+                                  <!-- <li></li>
+                                  <li></li>
+                                  <li></li> -->
+                                </ul>
+
+
+                                <p id="v3un" style="font-weight:bold" class="govuk-body-m govuk-!-margin-top-3">v.03.</p>
+                                <ul class="govuk-list govuk-list--bullet">
+                                  <li>As a vacancy holder considering the use of strengths as selection criteria, I may need support in identifying which strengths are most appropriate for my job role, because I've never used them before and don't know how to go about including them in my assessment plan.</li>
+                                  <!-- <li></li>
+                                  <li></li> -->
+                                </ul>
+
+                                <p id="v2un" style="font-weight:bold" class="govuk-body-m govuk-!-margin-top-3">v.02.</p>
+                                <ul class="govuk-list govuk-list--bullet">
+                                  <!-- <li></li>
+                                  <li></li>
+                                  <li></li> -->
+                                </ul>
+
+
+                                <p id="v1un" style="font-weight:bold" class="govuk-body-m govuk-!-margin-top-3">v.01.</p>
+                                <ul class="govuk-list govuk-list--bullet">
+                                  <li>As a vacancy holder planning out the selection criteria for assessing candidates, I need to pick from multiple success profile elements at the start (rather than piecemeal) because.</li>
+
+                                </ul>
+
+
+
+
+                                {% endset -%}
+
+                                {% set backlog %}
+
+                                <div class="govuk-!-margin-top-0" style="background:#1d70b8;border:1px solid #1d70b8;padding:10px">
+                                  <!-- <h3 style="color:white" class="govuk-heading-xl">Version history</h3> -->
+                                  <p style="line-height:0.8;margin-top:10px;font-size:48px;color:white;font-weight:bold" class="govuk-body-l">Backlog</p>
+                                </div>
+
+
+
+                                <!-- <div style="width:80%;background:#F4FAFF;margin-top:50px;margin-bottom:50px;margin-right:20px;margin-left:20px;border:1px solid #1d70b8;border-radius:8px;padding:20px">
+                                <p class="govuk-body-s">A place to record any emerging needs, showing the attribution.</p>
+
+                                <p class="govuk-body-s">Format: {user} {need} {because insight}.</p>
+
+                                <p class="govuk-body-s">{user}<Br><strong>A vacancy holder</strong></p>
+                                <p class="govuk-body-s">{need}<Br><strong>needs to have a way to record an action they have carried out during task x</strong></p>
+                                <p class="govuk-body-s">{because insight}<Br><strong>because this will be required if/when a Commission audit is carried out and they want to be transparent on what they did and why.</strong></p>
+
+                                <p  class="govuk-body-s">All together:<br>A vacancy holder needs to have a way to record an action they have carried out during task x because this will be required if/when a Commission audit is carried out and they want to be transparent on what they did and why.</p>
+                              </div>
+                              <p style="width:25%;border-bottom:1px solid #1d70b8;padding-bottom:20px"></p> -->
+
+
+
+
+
+
+                              <p id="v5bl" style="font-weight:bold" class="govuk-body-m govuk-!-margin-top-3">v.05.</p>
+                              <ul class="govuk-list govuk-list--bullet">
+                                <!-- <li></li>
+                                <li></li>
+                                <li></li> -->
+                              </ul>
+
+
+                              <p id="v4bl" style="font-weight:bold" class="govuk-body-m govuk-!-margin-top-3">v.04.</p>
+                              <ul class="govuk-list govuk-list--bullet">
+                                <!-- <li></li>
+                                <li></li> -->
+                              </ul>
+
+
+                              <p id="v3bl" style="font-weight:bold" class="govuk-body-m govuk-!-margin-top-3">v.03.</p>
+                              <ul class="govuk-list govuk-list--bullet">
+
+
+
+                                <li>Further explore the strengths search mechanism to refine the task of building a list, identify a way of showing strengths linked to behaviours (or any other model) to ensure there's an option for non-searchers.</li>
+                                <li>Abilities / tests remains an issue so future iterations should experiment with alternative concepts to find a meaningful home for them.</li>
+                                <li>Identify a better way of presenting one-to-many style assessment methods (e.g., personal statement) during their selection (e.g., methods first?)</li>
+                                <li>Experiment to determine the right place to allow users to mark a specific behaviour as 'lead' - behaviours, stage selection, summary review at end or all?</li>
+                                <li>Build a robust taxonomy to encompass the range of sift and interview methods that can be used (and obtain effective descriptive content to aid VH during selection).</li>
+                                <li>Explore how progressive disclosure techniques could be used to layer guidance content in a way that can support a vacancy holders with a range of knowledge and experience.</li>
+                              </ul>
+
+                              <p id="v2bl" style="font-weight:bold" class="govuk-body-m govuk-!-margin-top-3">v.02.</p>
+                              <ul class="govuk-list govuk-list--bullet">
+                                <li>Illustrate a more direct method of editing the choices made when on summary/review a la check answers.</li>
+                                <li>Allow users to easily preview the emerging job advert (especially at the end of the journey when summary/review is carried out) (feels like a QA check!).</li>
+                                <li>Experiment with more proactive means of supporting users with more guidance and explicit recommendations.</li>
+                                <li>Determne which is the right place to allow users to mark a specific behaviour as 'lead' - behaviours, stage selection, summary review at end or all?</li>
+                              </ul>
+
+
+                              <p id="v1bl"  style="font-weight:bold" class="govuk-body-m govuk-!-margin-top-3">v.01.</p>
+                              <ul class="govuk-list govuk-list--bullet">
+                                <!-- <li>None.</li> -->
+
+                              </ul>
+
+
+                              {% endset -%}
+
+
+                              {{ govukTabs({
+                                items: [
+                                {
+                                  label: "Current",
+                                  id: "current",
+                                  panel: {
+                                    html: current
+                                  }
+                                },
+                                {
+                                  label: "Version history",
+                                  id: "Versions",
+                                  panel: {
+                                    html: versions
+                                  }
+                                },
+                                {
+                                  label: "Background & vision",
+                                  id: "backstory",
+                                  panel: {
+                                    html: backstory
+                                  }
+                                },
+                                {
+                                  label: "Iteration notes",
+                                  id: "notes",
+                                  panel: {
+                                    html: notes
+                                  }
+                                },
+                                {
+                                  label: "User needs",
+                                  id: "needs",
+                                  panel: {
+                                    html: needs
+                                  }
+                                },
+                                {
+                                  label: "Backlog",
+                                  id: "backlog",
+                                  panel: {
+                                    html: backlog
+                                  }
+                                }
+
+
+                                ]
+                              }) }}
+                            </div>
+                          </div>
+
+                          {% endblock %}``

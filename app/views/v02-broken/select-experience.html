@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+<a style="float:right;padding-top:10px" href="select-your-criteria">Alt</a>
+{% endblock %}
+
+{% block content %}
+
+{% set topStrengths = ['Challenger','Strategic','Mission','Visionary','Change agent','Authentic','Emotionally intelligent','Inclusive','Influencer','Problem solver','Catalyst','Enabler','Motivator','Adaptable','Disciplined'] %}
+<form class="form" action="select-skills" method="post">
+
+
+  <div id="top" class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-9 govuk-!-margin-top-6">
+
+    <nav>
+    {% for items in data['criteria-you-want'] |slice(1) %}
+
+    <ul class="govuk-list govuk-list--bullet-" style="font-size:22px;display: inline;">
+      {% for item in items %}
+
+      <li style="text-align: left;display: inline;"><a href="select-{{item | lower}}"><p style="color:#1d70b8;font-size:22px;float:left;padding-right:40px">{{ item }}</p></a></li>
+      {% endfor %}
+      </ul>
+      {% endfor %}
+    </nav>
+
+    <h1  class="govuk-heading-xl govuk-!-margin-top-9">Experience</h1>
+
+                <p class="govuk-body-m">You should use experience to assess a candidate's knowlege of an activity or subject gained through involvement in or exposure to it.</p>
+
+
+
+
+          {{ govukTextarea({
+            label: {
+              text: "Experience 1"
+            },
+            id: "criteria-experience-1",
+            rows: "2",
+            name: "criteria-experience-1",
+            value: data['criteria-experience-1']
+          }) }}
+
+          {{ govukTextarea({
+            label: {
+              text: "Experience 2"
+            },
+            id: "criteria-experience-2",
+            rows: "2",
+            name: "criteria-experience-2",
+            value: data['criteria-experience-2']
+          }) }}
+
+          {{ govukTextarea({
+            label: {
+              text: "Experience 3"
+            },
+            id: "criteria-experience-3",
+            rows: "2",
+            name: "criteria-experience-3",
+            value: data['criteria-experience-3']
+          }) }}
+
+      <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+
+</form>
+
+{% endblock %}

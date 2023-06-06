@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+About assessment methods – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        About assessment methods
+      </h1>
+
+      <form class="form" action="select-criteria-stage" method="post">
+
+
+
+
+
+
+
+                <p class="govuk-body-m">We recommend that you think of your essential criteria as different aspects that your ideal candidate should bring to be successful in the role (we follow the Civil Service Success Profile framework).</p>
+
+
+                <p class="govuk-body-m">Once a vacancy advert has closed, you will undertake the sifting stage of the recruitment process. Following the sifting stage, successful applicants are invited to attend an interview.</p>
+
+
+
+
+                <h2 class="govuk-heading-m">Sift</h2>
+                <p class="govuk-body-m">You will decide what experience, skills and behaviours you will use to sift candidates. You will also decide which methods to use such as CV, or personal statement. At this stage you can also include online tests.</p>
+
+                <h2 class="govuk-heading-m">Interview</h2>
+                <p class="govuk-body-m">You will decide what experience, skills and behaviours you will use to interview candidates. This could be through interview questions or additional assessment methods, such as a presentation.</p>
+
+                <button class="govuk-button govuk-!-margin-top-9" data-module="govuk-button">Continue</button>
+
+                  </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

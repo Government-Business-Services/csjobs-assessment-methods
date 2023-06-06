@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Symbol" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 600 600" style="enable-background:new 0 0 600 600;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FF4B4B;}
+	.st1{fill:#5887FF;}
+	.st2{fill:#FFAA00;}
+	.st3{fill:#00843F;}
+	.st4{fill:#FC83FF;}
+</style>
+<g>
+	<rect x="394.3" y="257.1" width="38.4" height="146.6"/>
+	<path class="st0" d="M228.1,234.7c12.4,0,22.4,10.1,22.4,22.4h38.4c0-33.5-27.3-60.8-60.8-60.8c-33.5,0-60.8,27.3-60.8,60.8h38.4
+		C205.7,244.8,215.7,234.7,228.1,234.7z"/>
+	<polygon class="st1" points="250.5,403.7 288.9,403.7 288.9,365.3 288.9,257.1 250.5,257.1 	"/>
+	<polygon class="st2" points="349.5,403.6 349.5,365.3 311.1,365.3 288.9,365.3 288.9,403.7 	"/>
+	<path class="st3" d="M349.5,257.1c0-12.4,10.1-22.4,22.4-22.4v-38.4c-33.5,0-60.8,27.3-60.8,60.8v108.2h38.4V257.1z"/>
+	<path class="st4" d="M394.3,257.1h38.4c0-33.5-27.3-60.8-60.8-60.8v38.4C384.3,234.7,394.3,244.7,394.3,257.1z"/>
+	<rect x="167.3" y="257.1" width="38.4" height="146.6"/>
+</g>
+</svg>

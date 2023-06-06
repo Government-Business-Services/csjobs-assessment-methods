@@ -1,0 +1,34 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+
+    <h1 class="govuk-heading-xl">
+      {{ serviceName }}
+    </h1>
+
+    <h2 class="govuk-heading-l">
+      Assessment methods v2
+    </h2>
+
+              {{ govukButton({
+                text: "Launch assessment methods v2 prototype",
+                href: "/v02/select-your-criteria"
+              }) }}
+
+
+
+    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+  </div>
+</div>
+
+
+
+
+{% endblock %}

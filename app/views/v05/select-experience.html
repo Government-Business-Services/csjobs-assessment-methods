@@ -5,81 +5,20 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {% block header %}
-<header class="govuk-header govuk-!-padding-top-0" strole="banner" data-module="govuk-header">
-  <div class="govuk-header__container govuk-width-container">
-    <div class="govuk-header__logo">
-      <a href="#" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype">
-          <!--[if gt IE 8]><!-->
-          <svg
-          aria-hidden="true"
-          focusable="false"
-          class="govuk-header__logotype-crown"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 132 97"
-          height="30"
-          width="36">
-          <path
-          fill="currentColor" fill-rule="evenodd"
-          d="M25 30.2c3.5 1.5 7.7-.2 9.1-3.7 1.5-3.6-.2-7.8-3.9-9.2-3.6-1.4-7.6.3-9.1 3.9-1.4 3.5.3 7.5 3.9 9zM9 39.5c3.6 1.5 7.8-.2 9.2-3.7 1.5-3.6-.2-7.8-3.9-9.1-3.6-1.5-7.6.2-9.1 3.8-1.4 3.5.3 7.5 3.8 9zM4.4 57.2c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.5-1.5-7.6.3-9.1 3.8-1.4 3.5.3 7.6 3.9 9.1zm38.3-21.4c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.6-1.5-7.6.3-9.1 3.8-1.3 3.6.4 7.7 3.9 9.1zm64.4-5.6c-3.6 1.5-7.8-.2-9.1-3.7-1.5-3.6.2-7.8 3.8-9.2 3.6-1.4 7.7.3 9.2 3.9 1.3 3.5-.4 7.5-3.9 9zm15.9 9.3c-3.6 1.5-7.7-.2-9.1-3.7-1.5-3.6.2-7.8 3.7-9.1 3.6-1.5 7.7.2 9.2 3.8 1.5 3.5-.3 7.5-3.8 9zm4.7 17.7c-3.6 1.5-7.8-.2-9.2-3.8-1.5-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.3 3.5-.4 7.6-3.9 9.1zM89.3 35.8c-3.6 1.5-7.8-.2-9.2-3.8-1.4-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.4 3.6-.3 7.7-3.9 9.1zM69.7 17.7l8.9 4.7V9.3l-8.9 2.8c-.2-.3-.5-.6-.9-.9L72.4 0H59.6l3.5 11.2c-.3.3-.6.5-.9.9l-8.8-2.8v13.1l8.8-4.7c.3.3.6.7.9.9l-5 15.4v.1c-.2.8-.4 1.6-.4 2.4 0 4.1 3.1 7.5 7 8.1h.2c.3 0 .7.1 1 .1.4 0 .7 0 1-.1h.2c4-.6 7.1-4.1 7.1-8.1 0-.8-.1-1.7-.4-2.4V34l-5.1-15.4c.4-.2.7-.6 1-.9zM66 92.8c16.9 0 32.8 1.1 47.1 3.2 4-16.9 8.9-26.7 14-33.5l-9.6-3.4c1 4.9 1.1 7.2 0 10.2-1.5-1.4-3-4.3-4.2-8.7L108.6 76c2.8-2 5-3.2 7.5-3.3-4.4 9.4-10 11.9-13.6 11.2-4.3-.8-6.3-4.6-5.6-7.9 1-4.7 5.7-5.9 8-.5 4.3-8.7-3-11.4-7.6-8.8 7.1-7.2 7.9-13.5 2.1-21.1-8 6.1-8.1 12.3-4.5 20.8-4.7-5.4-12.1-2.5-9.5 6.2 3.4-5.2 7.9-2 7.2 3.1-.6 4.3-6.4 7.8-13.5 7.2-10.3-.9-10.9-8-11.2-13.8 2.5-.5 7.1 1.8 11 7.3L80.2 60c-4.1 4.4-8 5.3-12.3 5.4 1.4-4.4 8-11.6 8-11.6H55.5s6.4 7.2 7.9 11.6c-4.2-.1-8-1-12.3-5.4l1.4 16.4c3.9-5.5 8.5-7.7 10.9-7.3-.3 5.8-.9 12.8-11.1 13.8-7.2.6-12.9-2.9-13.5-7.2-.7-5 3.8-8.3 7.1-3.1 2.7-8.7-4.6-11.6-9.4-6.2 3.7-8.5 3.6-14.7-4.6-20.8-5.8 7.6-5 13.9 2.2 21.1-4.7-2.6-11.9.1-7.7 8.8 2.3-5.5 7.1-4.2 8.1.5.7 3.3-1.3 7.1-5.7 7.9-3.5.7-9-1.8-13.5-11.2 2.5.1 4.7 1.3 7.5 3.3l-4.7-15.4c-1.2 4.4-2.7 7.2-4.3 8.7-1.1-3-.9-5.3 0-10.2l-9.5 3.4c5 6.9 9.9 16.7 14 33.5 14.8-2.1 30.8-3.2 47.7-3.2z"></path>
-        </svg>
-        <!--<![endif]-->
-        <!--[if IE 8]>
-        <img src="/assets/images/govuk-logotype-crown.png" class="govuk-header__logotype-crown-fallback-image" width="36" height="32" alt="">
-        <![endif]-->
-        <span class="govuk-header__logotype-text">
-          GOV.UK
-        </span>
-      </span>
-    </a>
-  </div>
-  <div class="govuk-header__content">
+{% include 'includes/header.html' %}
+{% endblock %}
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
 
-    <a href="#" class="govuk-header__link govuk-header__service-name govuk-!-margin-top-0">
-      Civil Service Jobs
-    </a>
-
-    <nav style="float:right" aria-label="Menu" class="govuk-header__navigation ">
-
-      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu" hidden>Menu</button>
-      <ul id="navigation" class="govuk-header__navigation-list">
-        <li style="text-align: left;display: inline;"><p class="govuk-body-s govuk-!-margin-top-1" style=";line-height:1.5;font-size:16px;border-radius:3px;;;float:right;padding-right:10px;padding-left:10px;;margin-right:20px"><strong><a style="color:white;" class="govuk-link  govuk-link--no-underline govuk-link--no-visited-state" href="#">Sign out</a></strong></p></li>
-        <li class="govuk-header__navigation-item">
-          <a class="govuk-header__link" href="#">
-          </a>
-        </li>
-
-        <li style="text-align: left;display: inline;"><p class="govuk-body-s govuk-!-margin-top-1" style="line-height:1.5;font-size:16px;border-radius:2px;;;float:right;padding-left:5px;;margin-right:20px"><a style="color:white;" class="govuk-link  govuk-link--no-underline govuk-link--no-visited-state" href="#"><img class="govuk-!-margin-top-0" src="/public/images/theact.png" style="height:30px;float:right;padding-left:0px;padding-right:0px;margin-right:5px;"></a></li>
-          <!-- <li style="text-align: left;display: inline;"><p class="govuk-body-s govuk-!-margin-top-2" style="line-height:1.5;font-size:16px;border-radius:2px;;;float:right;padding-left:5px;;margin-right:2px"><strong><a style="color:white;" class="govuk-link  govuk-link--no-underline govuk-link--no-visited-state" href="#">Jane Smith</a></strong></p></li> -->
-
-
-        </ul>
-      </nav>
-
-
-
-
-    </div>
-  </header>
-  {% endblock %}
-
-  {% block pageTitle %}
-  Home – {{ serviceName }} – GOV.UK Prototype Kit
-  {% endblock %}
-  {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
-
-  {% endblock %}
+{% endblock %}
 
 {% block content %}
-{% if data['summary'] == "true" %}
-{% set goingTo = "/check-next-step" %}
-{% else %}
-{% set goingTo = "select-criteria-stage" %}
-{% endif %}
+
+
+
 
 <form class="form" action="/check-next-stepV5" method="post">
   <H2 class="govuk-heading-l govuk-!-margin-top-3 govuk-!-margin-bottom-3">What will you assess within each element at sift and interview?</h2>
@@ -103,11 +42,11 @@
       </div>
       <div class="govuk-grid-column-three-quarters" style="width:80%;">
         <div id="Experience" style="padding:10px;">
-          <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-3"><strong>You should define what type and level of experience is needed to perform well in this job role. Include as many experiences as you want to assess at sift and interview.</strong></p>
+          <p class="govuk-body-m govuk-!-margin-top-4 govuk-!-margin-bottom-2"><strong>You should define what type and level of experience is needed to perform well in this job role. Include as many experiences as you want to assess at sift and interview.</strong></p>
           <!-- <p class="govuk-body-m govuk-!-margin-bottom-6" style="background: #f3f2f1;padding:5px;">The experiences you write here will appear on your job advert as bullet points for candidates to see. It can help to write your bullet points:</p> -->
-          <div  style="border-bottom:1px solid #1d70b8">
+          <div >
 
-            <p class="govuk-body-m govuk-!-margin-top-1 govuk-!-margin-bottom-3"><strong>The experiences you write here will appear on your job advert as bullet points for candidates to see.</strong></p>
+            <p class="govuk-body-m govuk-!-margin-top-1 govuk-!-margin-bottom-2"><strong>The experiences you write here will appear on your job advert as bullet points for candidates to see.</strong></p>
 
             <p class="govuk-body-m">It can help to write your bullet points:</p>
             <ul class="govuk-list govuk-list--bullet">
@@ -115,6 +54,18 @@
               <li>in short sentences, you should aim to be brief and straight to the point</li>
               <li>using simple language</li>
             </ul>
+
+
+
+
+
+
+
+
+
+
+
+
 
             {% if data['Experience 4'].length > 0 %}
             {% set see = "block" %}
@@ -132,157 +83,361 @@
             {% set expArray5 = ['Experience 5'] %}
             {% set expArray6 = ['Experience 6'] %}
 
-            <div class="govuk-!-margin-bottom-4 govuk-!-margin-top-4" style="background:#F4FAFF;border-left:5px solid #1d70b8;padding:10px">
 
 
-            <p class="govuk-body-m" style="font-size:20px;line-height:1.6"><strong>77% of users typically look at a job ad for the first time on a mobile phone, and only spend 11 seconds on the page.</strong></p>
-            <p class="govuk-body-s ">Source: Civil Service Jobs (2023), Cabinet Office.</p>
+            <div class="govuk-!-margin-bottom-2 govuk-!-margin-top-2" style="background:#F4FAFF;border-left:5px solid #1d70b8;padding:10px">
 
-            {% for items in expArray | slice(1) %}
+              <p class="govuk-body-m" style="font-size:20px;line-height:1.6"><strong>77% of users typically look at a job ad for the first time on a mobile phone, and only spend 11 seconds on the page.</strong></p>
+              <p class="govuk-body-s ">Source: Civil Service Jobs (2023), Cabinet Office.</p>
 
-            {% for item in items  %}
+              {% for items in expArray | slice(1) %}
+              {% for item in items  %}
+
+
+              <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--s" for="{{item}}">
+                    {{item}}
+                  </label>
+                </h1>
+
+                <textarea class="govuk-textarea" id="{{item}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+              </div>
+
+
+              <!-- {{ govukTextarea({
+                label: {
+                  text: item,
+                  classes: "govuk-label--s"
+                },
+                rows: "2",
+                name: item,
+                value: data[item]
+              }) }} -->
+            </div>
 
 
 
-            {{ govukTextarea({
-              label: {
-                text: item,
-                classes: "govuk-label--s"
-              },
-              rows: "2",
-              name: item,
-              value: data[item]
-            }) }}
+
+
+
+
+            <!-- <div class="govuk-form-group">
+              <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--s" for="{{item}}">
+                  {{item}}
+                </label>
+              </h1>
+
+              <textarea style="width:69%" class="govuk-textarea" id="{{item}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+            </div> -->
+
+
+
+
+
+
+{% endfor %}{% endfor %}
+
+
+<div id="expcta1" style="display:{{ nosee }}" class="govuk-body-m ">
+
+  <p class="govuk-body-m"><a style="color:#1d70b8" onclick="showHideDiv('experience4','expcta1')"><strong>Add another experience</strong></a></p>
+</div>
+
+
+<div id="experience4" style="display:{{ see }}">
+  {% for items in expArray4 | slice(1) %}
+  {% for item in items %}
+
+
+
+
+  <div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--s" for="{{item}}">
+        {{item}}
+      </label>
+    </h1>
+
+    <textarea class="govuk-textarea" id="{{item}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+  </div>
+
+  {% endfor %}{% endfor %}
+  <div id="expcta4" style="display:{{ nosee }}" class="govuk-body-m ">
+    <p class="govuk-body-m"><a style="color:#1d70b8;float:right" onclick="deleteDiv('experience4','expcta1')"><strong>Delete this experience</strong></a></p>
+
+    <p class="govuk-body-m"><a style="color:#1d70b8" onclick="showHideDiv('experience5','expcta4')"><strong>Add another experience</strong></a></p>
+  </div>
+</div>
+
+<div id="experience5" style="display:{{ see }}">
+  {% for items in expArray5 | slice(1) %}
+  {% for item in items %}
+
+
+
+
+  <div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--s" for="{{item}}">
+        {{item}}
+      </label>
+    </h1>
+
+    <textarea class="govuk-textarea" id="{{item}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+  </div>
+
+  {% endfor %}{% endfor %}
+  <div id="expcta5" style="display:{{ nosee }}" class="govuk-body-m ">
+    <p class="govuk-body-m"><a style="color:#1d70b8;float:right" onclick="deleteDiv('experience5','expcta4')"><strong>Delete this experience</strong></a></p>
+
+    <p class="govuk-body-m"><a style="color:#1d70b8" onclick="showHideDiv('experience6','expcta5')"><strong>Add another experience</strong></a></p>
+
+  </div>
+
+</div>
+
+<div id="experience6" style="display:{{ see }}">
+  {% for items in expArray6 | slice(1) %}
+  {% for item in items %}
+
+
+
+
+  <div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--s" for="{{item}}">
+        {{item}}
+      </label>
+    </h1>
+
+    <textarea  class="govuk-textarea" id="{{item}}" value="{{ data['item']}}" name="{{item}}" rows="2" aria-describedby="more-detail-hint"></textarea>
+  </div>
+  {% endfor %}{% endfor %}
+
+  <div id="expcta6" style="display:{{ nosee }}" class="govuk-body-m ">
+    <p class="govuk-body-m"><a style="color:#1d70b8" onclick="deleteDiv('experience6','expcta5')"><strong>Delete this experience</strong></a></p>
+  </div>
+
 </div>
 
 
 
-            {% endfor %}{% endfor %}
+</div>
 
-            <p id="wc"></p>
-
-            <div id="expcta1" style="display:{{ nosee }}" class="govuk-body-m ">
-
-              <p class="govuk-body-m"><a style="color:#1d70b8" onclick="showHideDiv('experience4','expcta1')"><strong>Add another experience</strong></a></p>
-            </div>
+<button class="govuk-button govuk-!-margin-top-9" onclick="getExpValues()" data-module="govuk-button">Continue</button>
 
 
-            <div id="experience4" style="display:{{ see }}">
-              {% for items in expArray4 | slice(1) %}
-              {% for item in items %}
+</div></div>
 
 
-              {{ govukTextarea({
-                label: {
-                  text: item,
-                  classes: "govuk-label--s"
-                },
-                rows: "2",
-                name: item,
-                value: data[item]
-              }) }}
-              {% endfor %}{% endfor %}
-              <div id="expcta4" style="display:{{ nosee }}" class="govuk-body-m ">
-                <p class="govuk-body-m"><a style="color:#1d70b8;float:right" onclick="deleteDiv('experience4','expcta1')"><strong>Delete this experience</strong></a></p>
-
-                <p class="govuk-body-m"><a style="color:#1d70b8" onclick="showHideDiv('experience5','expcta4')"><strong>Add another experience</strong></a></p>
-              </div>
-            </div>
-
-            <div id="experience5" style="display:{{ see }}">
-              {% for items in expArray5 | slice(1) %}
-              {% for item in items %}
+</div>
 
 
-              {{ govukTextarea({
-                label: {
-                  text: item,
-                  classes: "govuk-label--s"
-                },
-                rows: "2",
-                name: item,
-                value: data[item]
-              }) }}
-              {% endfor %}{% endfor %}
-              <div id="expcta5" style="display:{{ nosee }}" class="govuk-body-m ">
-                <p class="govuk-body-m"><a style="color:#1d70b8;float:right" onclick="deleteDiv('experience5','expcta4')"><strong>Delete this experience</strong></a></p>
+<input type="hidden" name="source" value="experience">
+</FORM>
+<script>
+  function showHideDiv(div1,div2) {
+    document.getElementById(div1).style.display = 'block';
+    document.getElementById(div2).style.display = 'none';
 
-                <p class="govuk-body-m"><a style="color:#1d70b8" onclick="showHideDiv('experience6','expcta5')"><strong>Add another experience</strong></a></p>
-
-              </div>
-
-            </div>
-
-            <div id="experience6" style="display:{{ see }}">
-              {% for items in expArray6 | slice(1) %}
-              {% for item in items %}
+  }
 
 
-              {{ govukTextarea({
-                label: {
-                  text: item,
-                  classes: "govuk-label--s"
-                },
-                id: "counter",
-                rows: "2",
-                name: item,
-                value: data[item]
-              }) }}
-              {% endfor %}{% endfor %}
+  function deleteDiv(data1, data2){
+    document.getElementById(data1).style.display = "none";
+    document.getElementById(data2).style.display = "block";
+  }
 
-              <div id="expcta6" style="display:{{ nosee }}" class="govuk-body-m ">
-                <p class="govuk-body-m"><a style="color:#1d70b8" onclick="deleteDiv('experience6','expcta5')"><strong>Delete this experience</strong></a></p>
-              </div>
+  function getExpValues() {
 
-            </div>
+    var textA1 = document.getElementById('Experience 1');
+    var textA2 = document.getElementById('Experience 2');
+    var textA3 = document.getElementById('Experience 3');
+    var textA4 = document.getElementById('Experience 4');
+    var textA5 = document.getElementById('Experience 5');
+    var textA6 = document.getElementById('Experience 6');
 
-            {{ govukButton({
+    function experience(title) {
+      this.title = title;
+    }
 
-               classes: "govuk-!-margin-top-9",
-              text: "Continue"
-            }) }}
 
-          </div>
+      const experience1 = new experience(textA1.value);
 
 
 
-        </div>
-      </div>
-
-
-      </div>
-
-
-      <input type="hidden" name="source" value="experience">
-    </FORM>
-    <script>
+      const experience2 = new experience(textA2.value);
 
 
 
-      function showHideDiv(div1,div2) {
-        document.getElementById(div1).style.display = 'block';
-        document.getElementById(div2).style.display = 'none';
-
-      }
+      const experience3 = new experience(textA3.value);
 
 
-      function deleteDiv(data1, data2){
-        document.getElementById(data1).style.display = "none";
-        document.getElementById(data2).style.display = "block";
-      }
+      const experience4 = new experience(textA4.value);
+      const experience5 = new experience(textA5.value);
+      const experience6 = new experience(textA6.value);
 
 
 
+    // if (textA4 !="" && levelA4 !=""){
+    //   const skill4 = new skill(textA4.value, levelA4.value);
+    // }
+    //
+    // if (textA5 !="" && levelA5 !=""){
+    //   const skill5 = new skill(textA5.value, levelA5.value);
+    // }
+    //
+    // if (textA6 !="" && levelA6 !=""){
+    //   const skill6 = new skill(textA6.value, levelA6.value);
+    // }
+
+
+    // const skill2 = new skill(textA2.value, levelA2.value);
+    // const skill3 = new skill(textA3.value, levelA3.value);
+    // const skill4 = new skill(textA4.value, levelA4.value);
+    // const skill5 = new skill(textA5.value, levelA5.value);
+    // const skill6 = new skill(textA6.value, levelA6.value);
+
+
+    const experienceSelected = {
+
+      experience1, experience2, experience3, experience4, experience5, experience6
+    }
+
+    // window.sessionStorage.setItem("skill1", JSON.stringify(skill1));
+    // window.sessionStorage.setItem("skill2", JSON.stringify(skill2));
+    // window.sessionStorage.setItem("skill3", JSON.stringify(skill3));
+
+    window.sessionStorage.setItem("experienceSelected", JSON.stringify(experienceSelected));
+
+    // skill1.level = levelA1.value;
+    //
+    // window.sessionStorage.setItem("skill1", JSON.stringify(skill1));
+
+    // for (i = 1; i < 4; i++) {
+    // if (checks[i].type == 'textarea' && checks[i].innerText !="" ) {
+
+    // if (checks[i].value == "Sift") {
+    //   arr1.push(checks[i].name);
+    //   arr2.push(checks[i].id);
+
+    // } else if (checks[i].value == "Interview") {
+    //   stageChecksInt.push(checks[i].value, checks[i].name, checks[i].id);
+    //
+    // }
+
+    // window.sessionStorage.setItem("stageChecksInt", JSON.stringify(stageChecksInt));
+    // }
+
+    // if (checks[i].value == "Interview") {
+    //   arr3.push(checks[i].name);
+    //   arr4.push(checks[i].id);
+
+    // } else if (checks[i].value == "Interview") {
+    //   stageChecksInt.push(checks[i].value, checks[i].name, checks[i].id);
+    //
+    // }
+
+    // window.sessionStorage.setItem("stageChecksInt", JSON.stringify(stageChecksInt));
+    // }
+
+    // }
+  }
+
+
+  // for (var i = 0; i < arr1.length; i++) {
+  //   siftStage[arr1[i]] = arr2[i];
+  // }
+  //  window.sessionStorage.setItem("siftStage", JSON.stringify(siftStage));
+  //
+  //
+  //  for (var j = 0; j < arr3.length; j++) {
+  //    intStage[arr3[j]] = arr4[j];
+  //  }
+  //   window.sessionStorage.setItem("intStage", JSON.stringify(intStage));
+
+
+
+
+  //   var checks = document.getElementsByTagName('input');
+  //
+  //   for (i = 0; i < checks.length; i++) {
+  //     if (checks[i].type == 'checkbox' && checks[i].checked ) {
+  //
+  //       if (checks[i].value == "Sift") {
+  //         stageChecksSift.push(checks[i].value, checks[i].name, checks[i].id);
+  //
+  //       } else if (checks[i].value == "Interview") {
+  //         stageChecksInt.push(checks[i].value, checks[i].name, checks[i].id);
+  //
+  //       }
+  //
+  //       window.sessionStorage.setItem("stageChecksSift", JSON.stringify(stageChecksSift));
+  //       window.sessionStorage.setItem("stageChecksInt", JSON.stringify(stageChecksInt));
+  //     }
+  //   }
+  // }
 
 
 
 
 
-      // function calculateWords(e) {
-      //   console("here")
-      //   return e.target.value.split(' ').length;
-      // }
+
+  //       var label2 = document.createElement("label");
+  //       var checkBox2 = document.createElement("input");
+  //
+  //       checkBox2.type = "checkbox";
+  //
+  //       checkBox2.value = "Interview";
+  //       label2.innerText = "Interview";
+  //       label2.appendChild(document.createTextNode("Interview"));
+  //       outputBS.appendChild(label2);
+  //       outputBS.appendChild(checkBox2);
+  // }
 
 
-    </script>
-    {% endblock %}
+
+
+  // for (var i = 0; i < behavioursSelected.length; i++) {
+  //   bsList.innerText = behavioursSelected[i];
+  //   console.log(bsList.innerText)
+  //   outputBS.appendChild(bsList);
+  //   var label = document.createElement("label");
+  //   var checkBox = document.createElement("input");
+  //   var label2 = document.createElement("label");
+  //   var checkBox2 = document.createElement("input");
+  //   checkBox.type = "checkbox";
+  //   checkBox2.type = "checkbox";
+  //   checkBox.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+  //   label.style.cssText = "display: block;font-size:18px;padding-left: 15px;text-indent: 40px;";
+  //   checkBox.innerText = "Sift";
+  //   checkBox.value = "Sift";
+  //   checkBox.setAttribute("id","behaviours-stage"+bsList+i);
+  //   checkBox.setAttribute("name","behaviours");
+  //   checkBox2.style.cssText = "width: 30px;height: 30px;padding: 0;margin: 0;vertical-align: bottom;position: relative;top: -30px;";
+  //   label.style.cssText = "display: block;font-size:18px;padding-left: 15px;text-indent: 40px;";
+  //   checkBox2.innerText = "Interview";
+  //   checkBox2.value = "Interview";
+  //   checkBox2.setAttribute("id","behaviours-stage"+bsList+i);
+  //   checkBox2.setAttribute("name","behaviours");
+  //
+  //   label.appendChild(document.createTextNode(bsList[i]));
+  //   outputBS.appendChild(label);
+  //   outputBS.appendChild(checkBox);
+  //     outputBS.appendChild(checkBox2);
+  // hint.appendChild(document.createTextNode(hinter[i]));
+  // outputB.appendChild(hint);
+
+
+
+
+
+
+
+
+
+
+</script>
+{% endblock %}

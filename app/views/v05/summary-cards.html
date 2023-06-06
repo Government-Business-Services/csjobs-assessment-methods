@@ -1,0 +1,326 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block header %}
+{% include 'includes/header.html' %}
+  {% endblock %}
+
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="task-list?done=dusted" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <!-- <h1 class="govuk-heading-xl" >
+        Review your assessment methods
+      </h1>
+      <p class="govuk-body-l govuk-!-margin-bottom-3">Review how you will assess candidates at sift and interview.</p>
+
+
+
+<h2 class="govuk-heading-l govuk-!-margin-bottom-0" ">Sift</h2>
+
+
+<h2 class="govuk-heading-l govuk-!-margin-bottom-0" ">Interview</h2> -->
+
+
+
+
+
+<div style="height:200px;width:25%;border:1px solid black">
+
+</div>
+
+
+<div style="float:leftheight:200px;width:25%;border:1px solid black">
+
+</div>
+
+<div style="height:200px;width:25%;border:1px solid black">
+
+</div>
+
+
+<div class="govuk-summary-card" style="width:50%; ">
+  <div class="govuk-summary-card__title-wrapper">
+
+
+    <h2 class="govuk-summary-card__title" style="font-size:14px">Civil Service Judgement Test</h2>
+    <ul class="govuk-summary-card__actions">
+  <li style="font-size:14px" class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+      Edit<span class="govuk-visually-hidden"> of University of Gloucestershire</span>
+    </a>
+  </li>
+  <li style="font-size:14px"class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+      Delete<span class="govuk-visually-hidden"> from University of Gloucestershire</span>
+    </a>
+  </li>
+</ul>
+
+
+
+
+  </div>
+  <div class="govuk-summary-card__content" style="font-size:12px" >
+    <dl class="govuk-summary-list">
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          <strong style="height:15px;font-size:10px;background:darkgreen;color:white;line-height:1.5" class="govuk-tag govuk-tag--green">
+            behaviours
+          </strong>
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <ol style="font-size:14px" class="govuk-list govuk-list--number">
+            <li>Seeing the big picture</li>
+            <li>Changing and improving</li>
+            <li>Communicating and Influencing</li>
+
+          </ol>
+
+        </dd>
+        <!-- <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> working situation</span>
+          </a>
+        </dd> -->
+      </div>
+    </dl>
+  </div>
+</div>
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">Stage 2</h2>
+    <ul class="govuk-summary-card__actions">
+  <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+      Edit<span class="govuk-visually-hidden"> of University of Gloucestershire</span>
+    </a>
+  </li>
+  <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+      Delete<span class="govuk-visually-hidden"> from University of Gloucestershire</span>
+    </a>
+  </li>
+</ul>
+
+
+
+
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Assessment method
+        </dt>
+        <dd class="govuk-summary-list__value">
+          CV
+        </dd>
+        <!-- <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> age</span>
+          </a>
+        </dd> -->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Element
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Experience
+        </dd>
+        <!-- <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> nationality</span>
+          </a>
+        </dd> -->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Selection criteria
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <ol class="govuk-list govuk-list--number">
+            <li>Using complex mathematical modelling tools to design and scale data science tools</li>
+            <li>Using SQL/Pyspark and Python to build software to enable rapid and reproducible analysis</li>
+            <li>Applying research/evaluation methods to policy programmes</li>
+          </ol>
+
+        </dd>
+        <!-- <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> working situation</span>
+          </a>
+        </dd> -->
+      </div>
+    </dl>
+  </div>
+</div>
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+
+    <strong style="font-size:14px;background:darkblue;color:white;line-height:1.5" class="govuk-tag govuk-tag--green">
+      experience
+    </strong>
+
+    <h2 class="govuk-summary-card__title">Stage 3</h2>
+    <ul class="govuk-summary-card__actions">
+  <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+      Edit<span class="govuk-visually-hidden"> of University of Gloucestershire</span>
+    </a>
+  </li>
+  <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+      Delete<span class="govuk-visually-hidden"> from University of Gloucestershire</span>
+    </a>
+  </li>
+</ul>
+
+
+
+
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Assessment method
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Personal statement (1250 words)
+        </dd>
+        <!-- <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> age</span>
+          </a>
+        </dd> -->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Element
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Experience
+        </dd>
+        <!-- <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> nationality</span>
+          </a>
+        </dd> -->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Selection criteria
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <ol class="govuk-list govuk-list--number">
+            <li>Building professional relationships with stakeholders across the organisation</li>
+            <li>Leading and influencing stakeholders in a matrix organisation</li>
+          </ol>
+
+        </dd>
+        <!-- <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> working situation</span>
+          </a>
+        </dd> -->
+      </div>
+    </dl>
+  </div>
+</div>
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+
+
+
+    <h2 class="govuk-summary-card__title">Stage 4 Written example</h2>
+    <ul class="govuk-summary-card__actions">
+  <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+      Edit<span class="govuk-visually-hidden"> of University of Gloucestershire</span>
+    </a>
+  </li>
+  <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
+      Delete<span class="govuk-visually-hidden"> from University of Gloucestershire</span>
+    </a>
+  </li>
+</ul>
+
+
+
+
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Assessment method
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Written example (500 words total)
+        </dd>
+        <!-- <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> age</span>
+          </a>
+        </dd> -->
+      </div>
+      <div class="govuk-summary-list__row">
+        <!-- <dt class="govuk-summary-list__key">
+          Element
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Behaviours
+        </dd> -->
+        <!-- <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> nationality</span>
+          </a>
+        </dd> -->
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+
+          <strong style="font-size:14px;background:darkgreen;color:white;line-height:1.5" class="govuk-tag govuk-tag--green">
+            behaviours
+          </strong>
+
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <ol class="govuk-list govuk-list--number">
+            <li>Seeing the big picture (250 words)</li>
+            <li>Communicating and Influencing (250 words)</li>
+
+          </ol>
+
+        </dd>
+        <!-- <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> working situation</span>
+          </a>
+        </dd> -->
+      </div>
+    </dl>
+  </div>
+</div>
+
+
+
+  </div>
+  </div>
+
+
+
+
+      {% endblock %}

@@ -1,0 +1,240 @@
+
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block header %}
+{% include 'includes/header.html' %}
+  {% endblock %}
+
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="task-list?done=dusted" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+
+
+
+      <div class="govuk-summary-card govuk-summary-list--no-border" style="border:0px;">
+
+
+
+        <div class="govuk-summary-card__content">
+          <h1 class="govuk-heading-xl" >
+            Review your assessment methods
+          </h1>
+          <p class="govuk-body-l govuk-!-margin-bottom-6">Review how you will assess candidates at sift and interview.</p>
+
+          <div class="govuk-!-margin-bottom-6 govuk-!-margin-top-6" style="background:#F4FAFF;border-left:5px solid #1d70b8;padding:10px">
+          <p class="govuk-body-m" style="font-size:20px;line-height:1.6"><strong>Please review Sift, Stage 2.</strong><br> Assessment with a personal statement and additional written statements on behaviours is not advised because it will double up the effort required for the candidate and the panel during sift.<br><br><strong>We recommend you choose to assess at this stage using a personal statement or the written statements on the behaviours listed. But not both.</strong></p>
+
+          </div>
+          <span style="font-size:20px;font-weight:bold;float:right;margin-top:20px;margin-right:20px"><a href="#">Edit</a></span>
+
+          <h2 style="background:#f3f2f1;border-top:1px solid #1d70b8;padding:10px" class="govuk-heading-l govuk-!-margin-bottom-0" >Sift</h2>
+
+
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-1">
+            <div class="govuk-summary-list__row" style="background:#f3f2f1;border-bottom:1px solid #1d70b8;padding-bottom:10px">
+              <dt style="padding:10px;margin-left:5px;width:10%;font-weight:normal" class="govuk-summary-list__key">
+                <strong>Plan</strong>
+              </dt>
+              <dd style="padding:10px;width:30%" class="govuk-summary-list__value">
+                <strong>Assessment method</strong>
+              </dd>
+              <dd style="width:15%" class="govuk-summary-list__value">
+                  <strong>Element</strong>
+              </dd>
+              <dd style="width:45%" class="govuk-summary-list__value">
+                <strong>Selection criteria</strong>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row" style="border-bottom:1px solid #1d70b8">
+              <dt style="padding:10px;;width:10%;font-weight:normal" class="govuk-summary-list__key">
+                Stage 1
+              </dt>
+              <dd style="padding:10px;width:30%" class="govuk-summary-list__value">
+                Civil Service Judgement Test
+              </dd>
+              <dd style="padding:10px;width:15%" class="govuk-summary-list__value">
+                Behaviours
+              </dd>
+              <dd style="padding:10px;width:45%" class="govuk-summary-list__value">
+                <ol class="govuk-list govuk-list--number">
+                  <li>Seeing the big picture</li>
+                  <li>Changing and improving</li>
+                  <li>Communicating and Influencing</li>
+
+                </ol>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row " style="">
+              <dt style="padding:10px;;width:10%;font-weight:normal" class="govuk-summary-list__key">
+                Stage 2
+              </dt>
+              <dd style="padding:10px;width:30%" class="govuk-summary-list__value">
+                CV
+              </dd>
+              <dd style="padding:10px;width:15%" class="govuk-summary-list__value">
+                Experience
+              </dd>
+              <dd style="padding:10px;width:45%" class="govuk-summary-list__value">
+                Using complex mathematical modelling tools to design and scale data science tools.
+              </dd>
+            </div>
+
+
+
+
+
+              <div class="govuk-summary-list__row " style="background:#F4FAFF;">
+                <dt style="padding:10px;;width:10%;font-weight:normal" class="govuk-summary-list__key">
+
+                </dt>
+                <dd style="padding:10px;width:30%" class="govuk-summary-list__value">
+                  Personal statement<BR>(1250 words)
+                </dd>
+                <dd style="padding:10px;width:15%" class="govuk-summary-list__value">
+                  Experience
+                </dd>
+                <dd style="padding:10px;width:45%" class="govuk-summary-list__value">
+                  <ol class="govuk-list govuk-list--number">
+                    <li>Building professional relationships with stakeholders across the organisation</li>
+                    <li>Leading and influencing in a matrix organisation</li>
+                  </ol>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row " style="background:#F4FAFF;border-bottom:1px solid #1d70b8">
+                <dt style="padding:10px;;width:10%;font-weight:normal" class="govuk-summary-list__key">
+
+                </dt>
+                <dd style="padding:10px;width:30%" class="govuk-summary-list__value">
+                  Written statements on behaviours<BR>(total of 750 words)
+                </dd>
+                <dd style="padding:10px;width:15%" class="govuk-summary-list__value">
+                  Behaviours
+                </dd>
+                <dd style="padding:10px;width:45%" class="govuk-summary-list__value">
+                  <ol class="govuk-list govuk-list--number">
+                    <li>Seeing the big picture (250 words)</li>
+                    <li>Communicating and influencing (250 words)</li>
+                    <li>Changing and improving (250 words)</li>
+                  </ol>
+                </dd>
+              </div>
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+
+
+    <div class="govuk-summary-card govuk-summary-list--no-border" style="border:0px">
+
+      <div class="govuk-summary-card__content">
+        <span style="font-size:20px;font-weight:bold;float:right;margin-top:20px;margin-right:20px"><a href="#">Edit</a></span>
+        <h2 style="background:#f3f2f1;border-top:1px solid #1d70b8;padding:10px" class="govuk-heading-l govuk-!-margin-bottom-0" ">Remote interview</h2>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row" style="background:#f3f2f1;border-bottom:1px solid #1d70b8;padding-bottom:10px">
+            <dt style="padding:10px;;width:10%;font-weight:normal" class="govuk-summary-list__key">
+              <strong>Plan</strong>
+            </dt>
+            <dd style="padding:10px;width:30%" class="govuk-summary-list__value">
+              <strong>Assessment method</strong>
+            </dd>
+            <dd style="padding:10px;width:15%" class="govuk-summary-list__value">
+                <strong>Element</strong>
+            </dd>
+            <dd style="padding:10px;width:45%" class="govuk-summary-list__value">
+              <strong>Selection criteria</strong>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt style="padding:10px;;width:10%;font-weight:normal" class="govuk-summary-list__key">
+              Stage 3
+            </dt>
+            <dd style="padding:10px;width:30%" class="govuk-summary-list__value">
+              Behavioural based questions
+            </dd>
+            <dd style="padding:10px;width:15%" class="govuk-summary-list__value">
+              Behaviours
+            </dd>
+            <dd style="padding:10px;width:45%" class="govuk-summary-list__value">
+              <ol class="govuk-list govuk-list--number">
+                <li>Seeing the big picture</li>
+                <li>Changing and improving</li>
+                <li>Communicating and Influencing</li>
+              </ol>
+            </dd>
+          </div>
+
+
+
+
+          <div class="govuk-summary-list__row" style="border-bottom:1px solid #1d70b8;padding-bottom:10px">
+            <dt style="padding:10px;width:10%;font-weight:normal;" class="govuk-summary-list__key">
+            </dt>
+            <dd style="padding:10px;width:30%" class="govuk-summary-list__value">
+              Strengths interview questions
+            </dd>
+            <dd style="padding:10px;width:15%" class="govuk-summary-list__value">
+              Strengths
+            </dd>
+            <dd style="padding:10px;width:45%" class="govuk-summary-list__value">
+              <ol class="govuk-list govuk-list--number">
+                <li>Problem solver</li>
+                <li>Disciplined</li>
+                <li>Mission</li>
+
+              </ol>
+            </dd>
+          </div>
+
+        </dl>
+
+
+
+    <div class="govuk-!-margin-bottom-4 govuk-!-margin-top-4" style="">
+
+
+    <!-- <p class="govuk-body-m" style="font-size:20px;line-height:1.6"><strong>77% of online jobsite users typically have a 'first look' at a job ad using their phone, and on average, spend just 11 seconds on the page.</strong></p>
+    <p class="govuk-body-s ">Source: Civil Service Jobs (2023), Cabinet Office.</p> -->
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+
+
+  </div>
+  </div>
+
+
+
+
+      {% endblock %}

@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{% block pageTitle %}
+Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+<a style="float:right;padding-top:10px" href="select-behaviours">Alt</a>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="selection-criteria-summary" method="post">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-xl">
+      Choose the success profile element you will assess at sift and interview
+    </h1>
+
+    <p class="govuk-body-l">When choosing assessment methods, you should focus on what you need candidates to do in the job role.</p>
+
+
+{% if data['criteria-you-want'].length > 0 %}
+{% for items in data['criteria-you-want'] | slice(1) %}
+{% for item in items %}
+{% if item == "Behaviours" %}
+{% include '/v02/behave.html' %}
+{% elif item == "Experience" %}
+{% include '/v02/experience.html' %}
+{% elif item == "Skills" %}
+{% include '/v02/skills.html' %}
+{% elif item == "Strengths" %}
+{% include '/v02/strengths.html' %}
+{% elif item == "Abilities" %}
+{% include '/v02/abilities.html' %}
+
+{% endif %}
+{% endfor%}{% endfor%}
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+
+
+
+      </div>
+</form>
+
+
+
+
+
+    <script>
+      function checkRadio() {
+        var radios = document.getElementsByTagName('input');
+        for (i = 0; i < radios.length; i++) {
+          if (radios[i].type == 'checkbox' && radios[i].checked) {
+            var dest = radios[i].name+","+radios[i].value
+            console.log(dest)
+          }
+        }
+      }
+    </script>
+      {% endblock %}

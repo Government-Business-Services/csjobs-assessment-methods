@@ -1,4 +1,4 @@
-var jobtitle = [
+var j-title = [
   "Accounts clerk",
   "Administrative assistant",
   "Administrative officer",
@@ -56,6 +56,6 @@ var jobtitle = [
   "User researcher",
   "Web analyst"
 ]
-var element = document.querySelector('#jobtitle')
+var element = document.querySelector('#j-title')
 var id = 'autocomplete-default'
-accessibleAutocomplete({element: element, id: id, source: jobtitle})
+accessibleAutocomplete({element: element, id: id, source: j-title})

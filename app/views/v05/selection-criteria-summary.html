@@ -4,9 +4,9 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
 
-{% block pageTitle %}
-Summary – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
+{% block header %}
+{% include 'includes/header.html' %}
+  {% endblock %}
 
 {% block beforeContent %}
 {{ govukBackLink({
@@ -46,14 +46,12 @@ Summary – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-
-
 <form action="select-methods-sift" method="post" novalidate>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds" style="">
 
       <h1 class="govuk-heading-xl">Review your assessment criteria</h1>
-      <p class="govuk-body-m govuk-!-margin-bottom-6 govuk-!-margin-top-3"><strong>Review what elements you have selected to assess at sift and interview.<BR><BR>When you are happy, you can continue to select how you will assess within each element.</strong></p>
+      <p class="govuk-body-l govuk-!-margin-bottom-6 govuk-!-margin-top-3"><strong>Review what elements you have selected to assess at sift and interview.<BR><BR>When you are happy, you can continue to select how you will assess within each element.</strong></p>
 
       <div>
       <h2 class="govuk-heading-l" style="padding-bottom:10px;border-bottom:1px solid #1d70b8;">Your sift criteria</h2>
@@ -94,7 +92,7 @@ Summary – {{ serviceName }} – GOV.UK Prototype Kit
           </dt>
           <dd style="width:30%" class="govuk-summary-list__actions">
 
-            <a class="govuk-link" href="#"> Edit
+            <a class="govuk-link" href="#"> edit
               <span class="govuk-visually-hidden"> name</span>
             </a>
           </dd>
@@ -130,11 +128,6 @@ Summary – {{ serviceName }} – GOV.UK Prototype Kit
           headSift.innerHTML = `${value}: ${key}`;
           siftOutput.appendChild(headSift);
         }
-
-
-
-
-
 
         for (const [key, value] of Object.entries(intStage)) {
           console.log(`${value}: ${key}`);
@@ -584,9 +577,6 @@ Summary – {{ serviceName }} – GOV.UK Prototype Kit
 
 
     </div>
-
-
-
     {{ govukButton({
       text: "Continue"
     }) }}

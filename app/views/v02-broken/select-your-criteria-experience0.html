@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select your criteria experience – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% if data['summary'] == "true" %}
+{% set dest = "selection-criteria-summary" %}
+{% else %}
+{% endif %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Select your criteria experience
+      </h1>
+
+      <form class="form" action="{{ dest }}" method="post">
+
+
+
+
+
+
+              <!-- EXPERIENCE  -->
+
+              <div id="select-exp" class="govuk-!-margin-top-6 govuk-!-margin-bottom-6"  style="padding-bottom:20px;border-bottom:1px solid grey">
+              <H2 class="govuk-heading-l">Experience</H2>
+              {{ govukTextarea({
+                name: "criteria-exp-1",
+                id: "criteria-exp-1",
+                value: data['criteria-exp-1'],
+                rows: "2",
+                label: {
+                  text: "Experience 1",
+                  classes: "govuk-label--s",
+                  isPageHeading: false
+                }
+              }) }}
+
+              {{ govukTextarea({
+                name: "criteria-exp-2",
+                id: "criteria-exp-2",
+                value: data['criteria-exp-2'],
+                rows: "2",
+                label: {
+                  text: "Experience 2",
+                  classes: "govuk-label--s",
+                  isPageHeading: false
+                }
+              }) }}
+
+              {{ govukTextarea({
+                name: "criteria-exp-3",
+                id: "criteria-exp-3",
+                value: data['criteria-exp-3'],
+                rows: "2",
+                label: {
+                  text: "Experience 3",
+                  classes: "govuk-label--s",
+                  isPageHeading: false
+                }
+              }) }}
+              </div>
+
+              <!-- EXPERIENCE -->
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

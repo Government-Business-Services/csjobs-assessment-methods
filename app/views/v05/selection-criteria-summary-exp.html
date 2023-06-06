@@ -1,0 +1,650 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+
+{% block header %}
+{% include 'includes/header.html' %}
+  {% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+  /* Example page specific styling. */
+  p, div {
+    font-family: "GDS Transport", arial, sans-serif;
+    line-height: 1.1;
+    margin: 1;
+  }
+
+
+  h1, h2, h3, h4, h5, h6, p {
+    line-height: 1;
+    vertical-align: text-top;
+    font-size:20px;
+
+  }
+
+
+  checkbox {}
+  label {
+
+  }
+</style>
+
+
+
+
+
+
+
+<form action="select-methods-sift" method="post" novalidate>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters" style="">
+
+      <h1 class="govuk-heading-xl">Review your assessment criteria</h1>
+      <p class="govuk-body-m govuk-!-margin-bottom-6 govuk-!-margin-top-3"><strong>Review what elements you have selected to assess at sift and interview.<BR><BR>When you are happy, you can continue to select how you will assess within each element.</strong></p>
+
+      <div>
+      <h2 class="govuk-heading-l" style="padding-bottom:10px;border-bottom:1px solid #1d70b8;">Your sift criteria</h2>
+
+
+      <ul class="govuk-!-margin-top-0 govuk-list govuk-list--bullet-">
+
+
+        <li><strong><p style ="border-left:5px solid #1d70b8;padding-left:30px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items | capitalize }}</a></p></strong></li>
+
+
+        <li><strong><p style ="border-left:2px solid white;padding-left:20px" class="govuk-body-m"><a class="govuk-link govuk-link--no-underline govuk-link govuk-link--no-visited-state" href="select-{{items }}"><strong>{{ items | capitalize }}</a></p></strong></li>
+
+
+      </ul>
+
+      <dl class="govuk-summary-list govuk-summary-list--no-border">
+        <div id="d1" class="govuk-summary-list__row">
+          <dt style="width:25%"  class="govuk-summary-list__key">Behaviours
+            <p id="test"></p>
+          </dt>
+          <dt style="width:55%" id="testa" class="govuk-summary-list__key">
+          </dt>
+          <dd style="20%" id="testb" class="govuk-summary-list__actions">
+
+            <a class="govuk-link" href="#">
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+</dl>
+
+      <h2 style="border-bottom:1px solid #1d70b8;padding-bottom:10px;" class="govuk-heading-l govuk-!-margin-top-0">Your interview criteria</h2>
+
+
+
+
+      <dl class="govuk-summary-list govuk-summary-list--no-border">
+        <div id="d6" class="govuk-summary-list__row">
+          <dt  style="width:100%" id="test2" class="govuk-summary-list__key">
+          </dt>
+          <dd style="width:30%" class="govuk-summary-list__actions">
+
+            <a class="govuk-link" href="#">
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+</div>
+      <script>
+
+
+        var siftOutput = document.getElementById("test");
+        var siftOutputa = document.getElementById("testa");
+        var siftOutputb = document.getElementById("testb");
+        var intOutput = document.getElementById("test2");
+
+        var siftCrit = document.getElementById("siftCrit");
+        var intCrit = document.getElementById("intcrit");
+        const siftStage = JSON.parse(window.sessionStorage.getItem("siftStage"));
+        const intStage = JSON.parse(window.sessionStorage.getItem("intStage"));
+
+
+
+
+
+
+        var criteriaInt = document.createElement("li");
+
+
+var header = document.createElement("p");
+
+
+
+        for (const [key, value] of Object.entries(siftStage)) {
+
+          if (`${value}` == "Behaviours") {
+
+              header.innerHTML = "Behaviours";
+            siftOutput.appendChild(header);
+            var headSift = document.createElement("p");
+            headSift.innerHTML = `${key}`;
+            siftOutputa.appendChild(headSift);
+            var action = document.createElement("p");
+            action.innerHTML = "<a href='#'>Edit</a>  |  <a href='#'>Delete</a>";
+            siftOutputb.appendChild(action);
+
+
+          } else if (`${value}` == "Experience") {
+            header.innerHTML = "Experience";
+          siftOutput.appendChild(header);
+          var headSift = document.createElement("p");
+        headSift.innerHTML = `${key}`;
+          siftOutputa.appendChild(headSift);
+        var action = document.createElement("p");
+        action.innerHTML = "<a href='#'>Edit</a>  |  <a href='#'>Delete</a>";
+        siftOutputb.appendChild(action);
+
+          }
+
+
+
+
+
+          console.log(`${value}: ${key}`);
+          // var header = document.createElement("p");
+          //   header.innerHTML = `${value}`;
+          //   // header.style.cssText = "border-bottom:1px solid #1d70b8;padding:5px";
+          // siftOutput.appendChild(header);
+          var headSift = document.createElement("p");
+
+          // headSift.style.cssText = "border-bottom:1px solid #1d70b8;padding:5px";
+          headSift.innerHTML = `${key}`;
+          siftOutputa.appendChild(headSift);
+
+
+
+          var action = document.createElement("p");
+          // action.style.cssText = "border-bottom:1px solid #1d70b8;padding:5px";
+          action.innerHTML = "<a href='#'>Edit</a>  |  <a href='#'>Delete</a>";
+          siftOutputb.appendChild(action);
+        }
+
+
+
+
+        for (const [key, value] of Object.entries(intStage)) {
+          console.log(`${value}: ${key}`);
+          var headInt = document.createElement("p");
+          headInt.innerHTML = `${value}: ${key}`;
+          intOutput.appendChild(headInt);
+        }
+        label.style.cssText = "display: block;padding-left: 15px;padding-top:30px;text-indent: 40px;";
+
+//         for (items in siftStage) {
+//
+//
+//           var keys = Object.keys(siftStage);
+//           var vals = Object.values(siftStage);
+//           var headSift = document.createElement("h3");
+//           headSift.innerHTML = Object.keys(siftStage).items;
+//           siftOutput.appendChild(headSift);
+//           var criteriaSift = document.createElement("li");
+//           criteriaSift.innerHTML = siftStage[items].keys;
+//           siftCrit.appendChild(criteriaSift);
+// }
+
+        // for (things in intStage) {
+        //   var headint = document.createElement("h3");
+        //   headint.innerHTML = intStage[things];
+        //   intOutput.appendChild(headint);
+        // }
+
+
+        //             for (items in object){
+        //               if (strength == object[items].title){
+        //                 content.innerHTML = "<strong style='font-size:20px'>"+strength+"</strong>"+"<BR>"+object[items].description+"<br><a id='del"+items+"' onclick='' href='#'>delete</a>";
+        //                   item.appendChild(content);
+        //                 }
+        //               }
+        //               strengthsArray.push(strength);
+        //               const del = document.getElementsByTagName('a');
+        //
+        //             });
+        //
+        //
+        // hea1.appendChild(h21);
+        //     for (var be = 0; be < beCount; be++){
+        //       var h31 = document.createElement("li");
+        //       h31.innerText = siftTstVars2[be];
+        //       hea2.appendChild(h31);
+        //       var h41 = document.createElement("p");
+        //       h41.innerHTML = "<a href='select-behaviours?summe=true'>Change</a>  |  <a href='#'>Delete</a>";
+        //       hea3.appendChild(h41);
+
+
+      //   var beCount;
+      //   var stCount;
+      //   var skCount;
+      //   var exCount;
+      //   var abCount;
+      //   var beHead;
+      //   var stHead;
+      //   var skHead;
+      //   var exHead;
+      //   var abHead;
+      //
+      //   var sift = [];
+      //   var siftSet = [];
+      //   var siftSet2 = [];
+      //
+      //
+      //
+      //   var siftLen = sift.length;
+      //
+      //   sift = JSON.parse(window.sessionStorage.getItem("sift"));
+      //
+      //   var siftChunkSize = 2;
+      //   for (let sif = 0; sif < sift.length; sif += siftChunkSize) {
+      //     const siftChunk = sift.slice(sif, sif + siftChunkSize);
+      //
+      //     siftSet[sif] = siftChunk[0].split("-",1).pop();
+      //     siftSet2[sif] = siftChunk[1];
+      //
+      //   }
+      //   var siftTstVars = siftSet.filter(trim);
+      //   var siftTstVars2  = siftSet2.filter(trim);
+      //
+      //
+      //   beCount = siftTstVars.filter(countb).length;
+      //   stCount = siftTstVars.filter(counts).length;
+      //   skCount = siftTstVars.filter(countk).length;
+      //   exCount = siftTstVars.filter(counte).length;
+      //   abCount = siftTstVars.filter(counta).length;
+      //
+      //   beHead = siftTstVars.filter(countb);
+      //   stHead = siftTstVars.filter(counts);
+      //   exHead = siftTstVars.filter(counte);
+      //   skHead = siftTstVars.filter(countk);
+      //   abHead = siftTstVars.filter(counta);
+      //   console.log(abHead)
+      //
+      //   beCount = beHead.length;
+      //   stCount = stHead.length;
+      //   exCount = exHead.length;
+      //   skCount = skHead.length;
+      //   abCount = abHead.length;
+      //
+      //   var sum = beCount+stCount+exCount+skCount+abCount;
+      //
+      //
+      //   if (beCount < 1){
+      //     hideRow('d1')
+      //   } else if (exCount < 1){
+      //     hideRow('d2')
+      //   } else if (skCount < 1){
+      //     hideRow('d3')
+      //   } else if (stCount < 1){
+      //     hideRow('d4')
+      //   } else if (abCount < 1){
+      //     hideRow('d5')
+      //   }
+      //
+      //
+      //
+      //   function hideRow(div1) {
+      //     document.getElementById(div1).style.display = 'block';
+      //   }
+      //
+      //   var countArr = [];
+      //
+      //   countArr.push(beCount+" "+"behaviours",exCount+" "+"experience",skCount+" "+"skills",stCount+" "+"strengths",abCount+" "+"abilities");
+      //
+      //   var headArr = [];
+      //
+      //   var newHead1 = eliminateDuplicates(beHead);
+      //   var newHead2 = eliminateDuplicates(exHead);
+      //   var newHead3 = eliminateDuplicates(skHead);
+      //   var newHead4 = eliminateDuplicates(stHead);
+      //   var newHead5 = eliminateDuplicates(abHead);
+      //   headArr.push(newHead1,newHead2,newHead3,newHead4,newHead5);
+      //
+      //
+      //   var exp = eliminateDuplicates(headArr);
+      //
+      //   // exp = exp.join(" ")
+      //
+      //
+      //
+      //   var changeLink = "Change | Delete";
+      //   var hea1 = document.getElementById("headerb1");
+      //   var hea2 = document.getElementById("headerb2");
+      //   var hea3 = document.getElementById("headerb3");
+      //
+      //
+      //   var hea4 = document.getElementById("headere1");
+      //   var hea5 = document.getElementById("headere2");
+      //   var hea6 = document.getElementById("headere3");
+      //
+      //   var hea7 = document.getElementById("headerk1");
+      //   var hea8 = document.getElementById("headerk2");
+      //   var hea9 = document.getElementById("headerk3");
+      //
+      //   var heaa = document.getElementById("headers1");
+      //   var heab = document.getElementById("headers2");
+      //   var heac = document.getElementById("headers3");
+      //
+      //   var head = document.getElementById("headera1");
+      //   var heae = document.getElementById("headera2");
+      //   var heaf = document.getElementById("headera3");
+      //
+      //
+      //     if (beCount != 0) {
+      //     var h21 = document.createElement("h3");
+      //     h21.innerText = headArr[0];
+      //     hea1.appendChild(h21);
+      //     for (var be = 0; be < beCount; be++){
+      //       var h31 = document.createElement("li");
+      //       h31.innerText = siftTstVars2[be];
+      //       hea2.appendChild(h31);
+      //       var h41 = document.createElement("p");
+      //       h41.innerHTML = "<a href='select-behaviours?summe=true'>Change</a>  |  <a href='#'>Delete</a>";
+      //       hea3.appendChild(h41);
+      //     }
+      //   }
+      //
+      //   if (exCount != 0){
+      //     var h22 = document.createElement("h3");
+      //     h22.innerText = headArr[1];
+      //     hea4.appendChild(h22);
+      //     for (var ex = beCount; ex < beCount+exCount; ex++){
+      //       var h32 = document.createElement("li");
+      //       h32.innerText = siftTstVars2[ex];
+      //       hea5.appendChild(h32);
+      //       var h42 = document.createElement("p");
+      //       h42.innerHTML = "<a href='select-experience?summe=true'>Change</a>  |  <a href='#'>Delete</a>";
+      //       hea6.appendChild(h42);
+      //     }
+      //   }
+      //
+      //   if (skCount != 0){
+      //     var h23 = document.createElement("h3");
+      //     h23.innerText = headArr[2];
+      //     hea7.appendChild(h23);
+      //     for (var sk = exCount+beCount; sk < beCount+exCount+skCount; sk++){
+      //       var h33 = document.createElement("li");
+      //       h33.innerText = siftTstVars2[sk];
+      //       hea8.appendChild(h33);
+      //       var h43 = document.createElement("p");
+      //       h43.innerHTML = "<a href='select-skills?summe=true'>Change</a>  |  <a href='#'>Delete</a>";
+      //       hea9.appendChild(h43);
+      //     }
+      //   }
+      //
+      //   if (stCount != 0){
+      //     var h24 = document.createElement("h3");
+      //     h24.innerText = headArr[3];
+      //     heaa.appendChild(h24);
+      //     for (var st = skCount+exCount+beCount; st < skCount+exCount+beCount+stCount; st++){
+      //       var h34 = document.createElement("li");
+      //       h34.innerText = siftTstVars2[st];
+      //       heab.appendChild(h34);
+      //       var h44 = document.createElement("p");
+      //       h44.innerHTML = "<a href='select-strengths?summe=true'>Change</a>  |  <a href='#'>Delete</a>";
+      //       heac.appendChild(h44);
+      //     }
+      //   }
+      //
+      //   if (abCount != 0){
+      //     var h25 = document.createElement("h3");
+      //     h25.innerText = headArr[4];
+      //     head.appendChild(h25);
+      //     for (var ab = skCount+exCount+beCount+stCount; ab < skCount+exCount+beCount+stCount+abCount; ab++){
+      //       var h35 = document.createElement("li");
+      //       h35.innerText = siftTstVars2[ab];
+      //       heae.appendChild(h35);
+      //       var h45 = document.createElement("p");
+      //       h45.innerHTML = "<a href='select-abilities?summe=true'>Change</a>  |  <a href='#'>Delete</a>";
+      //       heaf.appendChild(h45);
+      //     }
+      //   }
+      //
+      //   var ibeCount;
+      //   var istCount;
+      //   var iskCount;
+      //   var iexCount;
+      //   var ibeHead;
+      //   var istHead;
+      //   var iskHead;
+      //   var iexHead;
+      //
+      //   var interview = [];
+      //   var interviewSet = [];
+      //   var interviewSet2 = [];
+      //
+      //
+      //   interview = JSON.parse(window.sessionStorage.getItem("interview"));
+      //   console.log(interview)
+      //   var interviewChunkSize = 2;
+      //   for (let isif = 0; isif < interview.length; isif += interviewChunkSize) {
+      //     const interviewChunk = interview.slice(isif, isif + interviewChunkSize);
+      //
+      //     interviewSet[isif] = interviewChunk[0].split("-",1).pop();
+      //     interviewSet2[isif] = interviewChunk[1];
+      //
+      //   }
+      //   var interviewTstVars = interviewSet.filter(trim);
+      //   var interviewTstVars2  = interviewSet2.filter(trim);
+      //
+      //
+      //   ibeCount = interviewTstVars.filter(countb).length;
+      //
+      //   istCount = interviewTstVars.filter(counts).length;
+      //
+      //   iskCount = interviewTstVars.filter(countk).length;
+      //   iexCount = interviewTstVars.filter(counte).length;
+      //
+      //
+      //
+      //
+      //   ibeHead = interviewTstVars.filter(countb);
+      //   istHead = interviewTstVars.filter(counts);
+      //   iexHead = interviewTstVars.filter(counte);
+      //   iskHead = interviewTstVars.filter(countk);
+      //
+      //   ibeCount = ibeHead.length;
+      //   istCount = istHead.length;
+      //   iexCount = iexHead.length;
+      //   iskCount = iskHead.length;
+      //
+      //
+      //   var isum = ibeCount+istCount+iexCount+iskCount;
+      //
+      //   var countArr = [];
+      //
+      //   countArr.push(ibeCount+" "+"behaviours",iexCount+" "+"experience",iskCount+" "+"skills",istCount+" "+"strengths");
+      //
+      //   var headArr = [];
+      //
+      //
+      //
+      //           if (ibeCount < 1){
+      //             hideRow('d6')
+      //           } else if (iexCount < 1){
+      //             hideRow('d7')
+      //           } else if (iskCount < 1){
+      //             hideRow('d8')
+      //           } else if (istCount < 1){
+      //             hideRow('d9')
+      //           }
+      //
+      //
+      //
+      //
+      //   var newHead1 = eliminateDuplicates(ibeHead);
+      //   var newHead2 = eliminateDuplicates(iexHead);
+      //   var newHead3 = eliminateDuplicates(iskHead);
+      //   var newHead4 = eliminateDuplicates(istHead);
+      //   headArr.push(newHead1,newHead2,newHead3,newHead4);
+      //
+      //   var iexp = eliminateDuplicates(headArr);
+      // var ihea1 = document.getElementById("headerib1");
+      // var ihea2 = document.getElementById("headerib2");
+      // var ihea3 = document.getElementById("headerib3");
+      //
+      //
+      // var ihea4 = document.getElementById("headerie1");
+      // var ihea5 = document.getElementById("headerie2");
+      // var ihea6 = document.getElementById("headerie3");
+      //
+      // var ihea7 = document.getElementById("headerik1");
+      // var ihea8 = document.getElementById("headerik2");
+      // var ihea9 = document.getElementById("headerik3");
+      //
+      // var iheaa = document.getElementById("headeris1");
+      // var iheab = document.getElementById("headeris2");
+      // var iheac = document.getElementById("headeris3");
+      //
+      //
+      // if (ibeCount != 0) {
+      //   var ih21 = document.createElement("h3");
+      //   ih21.innerHTML.cssText = "vertical-align:top";
+      //   ih21.innerText = headArr[0];
+      //   ihea1.appendChild(ih21);
+      //   for (var be = 0; be < ibeCount; be++){
+      //     var ih31 = document.createElement("li");
+      //     ih31.innerText = interviewTstVars2[be];
+      //     ihea2.appendChild(ih31);
+      //     var ih41 = document.createElement("p");
+      //     ih41.innerHTML = "<a href='select-behaviours?summe=true'>Change</a>  |  <a href='#'>Delete</a>";
+      //     ihea3.appendChild(ih41);
+      //
+      //   }
+      // }
+      //
+      //
+      // if (iexCount != 0){
+      //   var ih22 = document.createElement("h3");
+      //   ih22.innerText = headArr[1];
+      //   ihea4.appendChild(ih22);
+      //   for (var ex = ibeCount; ex < ibeCount+iexCount; ex++){
+      //     var ih32 = document.createElement("li");
+      //     ih32.innerText = interviewTstVars2[ex];
+      //     ihea5.appendChild(ih32);
+      //     var ih42 = document.createElement("p");
+      //     ih42.innerHTML = "<a href='select-experience?summe=true'>Change</a>  |  <a href='#'>Delete</a>";
+      //     ihea6.appendChild(ih42);
+      //
+      //
+      //   }
+      // }
+      //
+      // if (iskCount != 0){
+      //   var ih23 = document.createElement("h3");
+      //   ih23.innerText = headArr[2];
+      //   ihea7.appendChild(ih23);
+      //   for (var sk = iexCount+ibeCount; sk < ibeCount+iexCount+iskCount; sk++){
+      //     var ih33 = document.createElement("li");
+      //     ih33.innerText = interviewTstVars2[sk];
+      //     ihea8.appendChild(ih33);
+      //     var ih43 = document.createElement("p");
+      //     ih43.innerHTML = "<a href='select-skills?summe=true'>Change</a>  |  <a href='#'>Delete</a>";
+      //     ihea9.appendChild(ih43);
+      //
+      //   }
+      // }
+      //
+      //
+      //
+      //
+      // if (istCount != 0){
+      //   var ih24 = document.createElement("h3");
+      //   ih24.innerText = headArr[3];
+      //   iheaa.appendChild(ih24);
+      //   for (var st = iskCount+iexCount+ibeCount; st < iskCount+iexCount+ibeCount+istCount; st++){
+      //     var ih34 = document.createElement("li");
+      //     ih34.innerText = interviewTstVars2[st];
+      //     iheab.appendChild(ih34);
+      //     var ih44 = document.createElement("p");
+      //     ih44.innerHTML = "<a href='select-strengths?summe=true'>Change</a>  |  <a href='#'>Delete</a>";
+      //     iheac.appendChild(ih44);
+      //   }
+      // }
+      //
+      // function trim(val) {
+      //   return val !="" ;
+      // }
+      //
+      //
+      // function eliminateDuplicates(arr) {
+      //   var i,
+      //   len = arr.length,
+      //   out = [],
+      //   obj = {};
+      //
+      //   for (i = 0; i < len; i++) {
+      //     obj[arr[i]] = 0;
+      //   }
+      //   for (i in obj) {
+      //     out.push(i);
+      //   }
+      //   return out;
+      //
+      // }
+      //
+      //
+      // function countb(cc) {
+      //   return cc == "Behaviours" ;
+      // }
+      //
+      // function counts(cc) {
+      //   return cc == "Strengths" ;
+      // }
+      //
+      // function countk(cc) {
+      //   return cc == "Skills" ;
+      // }
+      //
+      // function counte(cc) {
+      //   return cc == "Experience" ;
+      // }
+      //
+      // function counta(cc) {
+      //   return cc == "Abilities" ;
+      // }
+
+
+
+      </script>
+
+    </div>
+
+
+
+    </div>
+
+
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+    {{ govukButton({
+      text: "Add another element",
+      href: "pick-criteria-type",
+      classes: "govuk-button--secondary"
+    }) }}
+
+
+
+  </form>
+
+  {% endblock %}

@@ -1,0 +1,264 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+{% block pageTitle %}
+Select criteria stage – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">
+      When will you assess each success profile element?
+    </h1>
+
+    <form class="form" action="select-methods-sift?flag=sift" method="post">
+
+
+
+
+      {% if data['criteria-behaviours'].length > 0 %}
+      <h2 class="govuk-heading-l govuk-!-margin-top-9" style="padding-bottom:20px;">Behaviours</h2>
+
+      {% for bobthings in data['criteria-behaviours'] | slice(1) %}
+      {% for bob in bobthings %}
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "behaviours-crit"+[loop.index]+"stage"+[loop.index],
+        id: "behaviours-crit"+[loop.index]+"stage"+[loop.index],
+        fieldset: {
+          legend: {
+            text: [loop.index]+". "+bob,
+            classes: "govuk-fieldset__legend--m govuk-body govuk-!-font-weight-regular"
+          }
+        },
+        items: [
+        {
+          id: bob,
+          name: "Behaviours",
+          value: "sift",
+          checked: checked("'behaviours-crit'+[loop.index]+'stage'+[loop.index]","Sift"),
+          text: "Sift"
+        },
+        {
+          id: bob,
+          name: "Behaviours",
+          value: "interview",
+          checked: checked("behaviours-crit"+[loop.index]+"stage"+[loop.index],"Interview"),
+          text: "Interview"
+        },
+        {
+          id: bob,
+          name: "Behaviours",
+          value: "both",
+          checked: checked("behaviours-crit"+[loop.index]+"stage"+[loop.index],"Both"),
+          text: "Both"
+        }
+        ]
+      }) }}      <hr style="border:0.5px solid grey;">
+      {% endfor %}{% endfor %}{% endif %}
+
+
+
+
+
+      {% if data['criteria-exp-1'].length > 0 or data['criteria-exp-2'].length > 0 %}
+
+      <!-- EXPERIENCE CRITERIA  -->
+      <h2 class="govuk-heading-l govuk-!-margin-top-9" style="padding-bottom:20px;">Experience</h2>
+      {% set criteriaExpArr = [] %}
+
+      {% if data['criteria-exp-1'].length > 0 %}
+      {% set criteriaExpArr = (criteriaExpArr.push(data['criteria-exp-1']), criteriaExpArr) %}
+      {% else %}{% endif %}
+
+      {% if data['criteria-exp-2'].length > 0 %}
+      {% set criteriaExpArr = (criteriaExpArr.push(data['criteria-exp-2']), criteriaExpArr) %}
+      {% else %}{% endif %}
+
+      {% if data['criteria-exp-3'].length > 0 %}
+      {% set criteriaExpArr = (criteriaExpArr.push(data['criteria-exp-3']), criteriaExpArr) %}
+      {% else %}{% endif %}
+
+      {% for eons in criteriaExpArr | slice(1) %}
+      {% for eon in eons %}
+
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "experience-criteria-exp"+[loop.index]+"stage",
+        id: "experience-criteria-exp"+[loop.index],
+        fieldset: {
+          legend: {
+            text: [loop.index]+". "+eon,
+            classes: "govuk-fieldset__legend--m govuk-body govuk-!-font-weight-regular"
+          }
+        },
+        items: [
+        {
+          id: eon,
+          name: "Experience",
+          value: "sift",
+          checked: checked("experience-criteria-exp"+[loop.index]+"stage","Sift"),
+          text: "Sift"
+        },
+        {
+          id: eon,
+          name: "Experience",
+          value: "interview",
+          checked: checked("experience-criteria-exp"+[loop.index]+"stage","Interview"),
+          text: "Interview"
+        },
+        {
+          id: eon,
+          name: "Experience",
+          value: "both",
+          checked: checked("experience-criteria-exp"+[loop.index]+"stage","Both"),
+          text: "Both"
+        }
+        ]
+      }) }}
+      <hr style="border:0.5px solid grey;">
+      {% endfor %}{% endfor %} {%endif%}
+
+      {% if data['criteria-skills-1'].length > 0 %}
+
+
+      {% if data['criteria-skills-1'].length > 0 %}
+      <div>
+        <h2 class="govuk-heading-l govuk-!-margin-top-9" style="padding-bottom:20px;">Skills</h2>
+        {% set criteriaSkillsArr = [] %}
+
+        {% set criteriaSkillsArr = (criteriaSkillsArr.push(data['criteria-skills-1']), criteriaSkillsArr) %}
+        {% else %}{% endif %}
+
+        {% if data['criteria-skills-2'].length > 0 %}
+        {% set criteriaSkillsArr = (criteriaSkillsArr.push(data['criteria-skills-2']), criteriaSkillsArr) %}
+        {% else %}{% endif %}
+
+        {% if data['criteria-skills-3'].length > 0 %}
+        {% set criteriaSkillsArr = (criteriaSkillsArr.push(data['criteria-skills-3']), criteriaSkillsArr) %}
+        {% else %}{% endif %}
+
+        {% for es in criteriaSkillsArr | slice(1) %}
+        {% for e in es %}
+
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "skills-criteria"+[loop.index]+"stage",
+          id: "skills-criteria"+[loop.index],
+          fieldset: {
+            legend: {
+              text: [loop.index]+". "+e,
+              classes: "govuk-fieldset__legend--m govuk-body govuk-!-font-weight-regular"
+            }
+          },
+          items: [
+          {
+            id: e,
+            name: "Skills",
+            value: "sift",
+            checked: checked("skills-criteria"+[loop.index]+"stage","Sift"),
+            text: "Sift"
+          },
+          {
+            id: e,
+            name: "Skills",
+            value: "interview",
+            checked: checked("skills-criteria"+[loop.index]+"stage","Interview"),
+            text: "Interview"
+          },
+          {
+            id: e,
+            name: "Skills",
+            value: "both",
+            checked: checked("skills-criteria"+[loop.index]+"stage","Both"),
+            text: "Both"
+          }
+          ]
+        }) }}
+        <hr style="border:0.5px solid grey;">
+        {% endfor %}{% endfor %}
+      </div>
+
+      {% endif %}
+
+
+      {% if data['criteria-strength'].length > 0 %}
+      <div>
+        <h2 class="govuk-heading-l govuk-!-margin-top-9" style="padding-bottom:20px;">Strengths</h2>
+
+
+        {% for hings in data['criteria-strength'] | slice(1) %}
+        {% for hing in hings %}
+
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "strengths-criteria"+[loop.index]+"stage",
+          id: "strengths-criteria"+[loop.index]+"stage",
+          fieldset: {
+            legend: {
+              text: [loop.index]+". "+hing,
+              classes: "govuk-fieldset__legend--m govuk-body govuk-!-font-weight-regular"
+            }
+          },
+          items: [
+          {
+            id: hing,
+            name: "Strengths",
+            value: "sift",
+            checked: checked("strengths-criteria"+[loop.index]+"stage","Sift"),
+            text: "Sift"
+          },
+          {
+            id: hing,
+            name: "Strengths",
+            value: "interview",
+            checked: checked("strengths-criteria"+[loop.index]+"stage","Interview"),
+            text: "Interview"
+          },
+          {
+            id: hing,
+            name: "Strengths",
+            value: "both",
+            checked: checked("strengths-criteria"+[loop.index]+"stage","Both"),
+            text: "Both"
+          }
+          ]
+        }) }}
+        <hr style="border:0.5px solid grey;">
+        {% endfor %}{% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="govuk-!-margin-top-9">
+
+        <button class="govuk-button" onclick="checkRadio()" data-module="govuk-button">Continue</button>
+
+
+        {{ govukButton({
+          text: "Add another element",
+          href: "what-essential-criteria-do-you-want",
+          classes: "govuk-button--secondary"
+        }) }}
+      </div>
+
+    </form>
+
+
+  </div>
+  {% endblock %}

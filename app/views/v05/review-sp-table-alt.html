@@ -2,10 +2,11 @@
 {% extends "layouts/main.html" %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
+{% block header %}
+{% include 'includes/header.html' %}
+  {% endblock %}
 
-{% block pageTitle %}
-Review your success profile table – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
+
 
 {% block beforeContent %}
 {{ govukBackLink({

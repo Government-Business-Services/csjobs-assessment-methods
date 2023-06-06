@@ -1,0 +1,292 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{% block pageTitle %}
+Select your criteria – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-l">
+      Select your criteria
+    </h1>
+
+    <form class="form" action="selection-criteria-summary" method="post">
+
+
+
+
+
+      <div id="select-beh" class="govuk-!-margin-top-6 govuk-!-margin-bottom-6"  style="padding-bottom:20px;border-bottom:1px solid grey">
+        <H2 class="govuk-heading-l">Behaviours</H2>
+
+
+        {{ govukCheckboxes({
+          idPrefix: "criteria-behaviours",
+          id: "criteria-behaviours",
+          id: "criteria-behaviours",
+          name: "criteria-behaviours",
+          classes: "govuk-checkboxes",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+          {
+            value: "Seeing the big picture",
+            text: "Seeing the big picture",
+            checked: checked("criteria-behaviours", "Seeing the big picture"),
+            hint: {
+              text: "Understand how your role fits with and supports organisational objectives.
+              Recognise the wider Civil Service priorities and ensure work is in the
+              national interest."
+            }
+          },
+          {
+            value: "Changing and Improving",
+            text: "Changing and Improving",
+            checked: checked("criteria-behaviours", "Changing and Improving"),
+            hint: {
+              text: "Seek out opportunities to create effective change and suggest innovative ideas for
+              improvement. Review ways of working, including seeking and providing feedback."
+            }
+          },
+          {
+            value: "Making Effective Decisions",
+            text: "Making Effective Decisions",
+            checked: checked("criteria-behaviours", "Making Effective Decisions"),
+            hint: {
+              text: "Use evidence and knowledge to support accurate, expert decisions and advice.
+              Carefully consider alternative options, implications and risks of decisions."
+            }
+          },
+
+          {
+            value: "Leadership",
+            text: "Leadership",
+            checked: checked("criteria-behaviours", "Leadership"),
+            hint: {
+              text: "Show pride and passion for public service. Create and engage others in delivering
+              a shared vision. Value difference, diversity and inclusion, ensuring fairness and
+              opportunity for all."
+            }
+          },
+          {
+            value: "Communicating and Influencing",
+            text: "Communicating and Influencing",
+            checked: checked("criteria-behaviours", "Communicating and Influencing"),
+            hint: {
+              text: "Communicate purpose and direction with clarity, integrity and enthusiasm. Respect the needs, responses and opinions of others."
+            }
+          },
+          {
+            value: "Working together",
+            text: "Working together",
+            checked: checked("criteria-behaviours", "Working together"),
+            hint: {
+              text: "Form effective partnerships and relationships with people both internally and
+              externally, from a range of diverse backgrounds, sharing information, resources
+              and support."
+            }
+          },
+          {
+            value: "Developing Self and Others",
+            text: "Developing Self and Others",
+            checked: checked("criteria-behaviours", "Developing Self and Others"),
+            hint: {
+              text: "Focus on continuous learning and development for self, others and the organisation as a whole."
+            }
+          },
+          {
+            value: "Managing a quality service",
+            text: "Managing a quality service",
+            checked: checked("criteria-behaviours", "Managing a quality service"),
+            hint: {
+              text: "Deliver service objectives with professional excellence, expertise and efficiency, taking account of diverse customer needs. "
+            }
+          },
+
+          {
+            value: "Delivering at pace",
+            text: "Delivering at pace",
+            checked: checked("criteria-behaviours", "Delivering at pace"),
+            hint: {
+              text: "Take responsibility for delivering timely and quality results with focus and drive."
+            }
+          }
+          ]
+        }) }}
+
+
+
+
+
+      </div>
+
+
+
+      <div id="select-exp" class="govuk-!-margin-top-6 govuk-!-margin-bottom-6"  style="padding-bottom:20px;border-bottom:1px solid grey">
+        <H2 class="govuk-heading-l">Experience</H2>
+        {{ govukTextarea({
+          name: "criteria-exp-1",
+          id: "criteria-exp-1",
+          value: data['criteria-exp-1'],
+          rows: "2",
+          label: {
+            text: "Experience 1",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "criteria-exp-2",
+          id: "criteria-exp-2",
+          value: data['criteria-exp-2'],
+          rows: "2",
+          label: {
+            text: "Experience 2",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "criteria-exp-3",
+          id: "criteria-exp-3",
+          value: data['criteria-exp-3'],
+          rows: "2",
+          label: {
+            text: "Experience 3",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+      </div>
+
+
+
+      <div id="select-skills" class="govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="padding-bottom:20px;border-bottom:1px solid grey">
+        <H2 class="govuk-heading-l">Skills</H2>
+        {{ govukTextarea({
+          name: "criteria-skills-1",
+          id: "criteria-skills-1",
+          value: data['criteria-skills-1'],
+          rows: "2",
+          label: {
+            text: "Skill 1",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "criteria-skills-2",
+          id: "criteria-skills-2",
+          value: data['criteria-skills-2'],
+          rows: "2",
+          label: {
+            text: "Skill 2",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "criteria-skills-3",
+          id: "criteria-skills-3",
+          value: data['criteria-skills-3'],
+          rows: "2",
+          label: {
+            text: "Skill 3",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          }
+        }) }}
+      </div>
+
+
+
+
+
+      {% set strengths = [
+        ['Challenger','You can bring a fresh perspective whatever the situation or context. You see other peoples views and can appreciate there are many different angles to consider'],
+        ['Strategic','You look at the big picture and consider the wider factors and long term implications of decisions'],
+        ['Mission','You pursue things which give you a sense of meaning and purpose, working towards a longer term goal'],
+        ['Visionary','You create and share a clear vision of the future'],
+        ['Change agent','You are positive and inspirational in leading and supporting others through change'],
+        ['Authentic','You are self-aware and true to yourself in all situations, even when under pressure'],
+        ['Emotionally intelligent','You draw insight from your own emotions and those of others to demonstrate empathy'],
+        ['Inclusive','You recognise everyone as an individual, accepting people for who they are and treating everyone fairly. You actively encourage and provide opportunities for others to share ideas and contributions'],
+        ['Influencer','You influence others, you articulate the rationale to gain their agreement'],
+        ['Problem solver','You take a positive approach to tackling problems and find ways to identify suitable solutions'],
+        ['Catalyst','You are self-motivated to act to achieve a goal. You are confident using your own initiative to take forward actions'],
+        ['Enabler','You see the potential in everybody and encourage them to learn, progress and develop'],
+        ['Motivator','You are highly driven and inspire others to move things along and make things happen'],
+        ['Adaptable','You can adapt to variations in work or environment and your effectiveness is not impacted by change. You are flexible and versatile and act as an advocate for change'],
+        ['Disciplined','You follow processes, operating firmly within set standards, rules and guidelines'] ] %}
+
+        <div id="select-strengths" class="govuk-!-margin-top-6 govuk-!-margin-bottom-6" style="padding-bottom:20px;border-bottom:1px solid grey">
+          <H2 class="govuk-heading-l">Strengths</H2>
+
+          <p class="govuk-body">You should use strengths to assess what candidates do regularly, do well and are motivated by. We recommend strengths are assessed with psychometric tests.</p>
+
+          {% for thing, hint in strengths %}
+          {{ govukCheckboxes({
+            idPrefix: "criteria-strength",
+            id: "criteria-strength",
+            name: "criteria-strength",
+            classes: "govuk-checkboxes",
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+            {
+              value: thing,
+              text: thing,
+              checked: checked("criteria-strength", thing),
+              hint: {
+                text: hint
+              }
+            }
+            ]
+          }) }}
+
+          {% endfor %}
+
+
+
+        </div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+
+    </div>
+
+    {% endblock %}
